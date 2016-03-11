@@ -21,7 +21,7 @@ namespace QuanLiBanVang
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new QuanLiBanVang.Form.Login_Form());
+            Application.Run(new QuanLiBanVang.Form.NhapNhanVien_Form());
         }
     }
 }
