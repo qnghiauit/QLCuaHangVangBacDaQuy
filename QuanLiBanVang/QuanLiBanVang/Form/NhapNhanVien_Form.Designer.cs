@@ -306,6 +306,7 @@
             this.Controls.Add(this.labelControl1);
             this.Name = "NhapNhanVien_Form";
             this.Text = "Tạo tài khoản";
+            this.Load += new System.EventHandler(this.NhapNhanVien_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();

@@ -16,12 +16,34 @@ namespace QuanLiBanVang.Form
         DTO.NHANVIEN _staff;
         BUL.BUL_NhanVien _bulStaff;
         BUL.BUL_ChucVu _bulPosition;
+        BUL.BUL_NhomNguoiDung _bulGroupUser;
         
         public NhapNhanVien_Form()
         {
             InitializeComponent();
             _staff = new DTO.NHANVIEN();
             _bulStaff = new BUL.BUL_NhanVien();
+            _bulPosition = new BUL.BUL_ChucVu();
+            _bulGroupUser = new BUL.BUL_NhomNguoiDung();
+        }
+
+        private void NhapNhanVien_Form_Load(object sender, EventArgs e)
+        {
+            List<DTO.CHUCVU> _listPosition = new List<DTO.CHUCVU>();
+            List<DTO.NHOMNGUOIDUNG> _listGroupUser = new List<DTO.NHOMNGUOIDUNG>();
+            _listPosition = _bulPosition.getAllPosition();
+            _listGroupUser = _bulGroupUser.getAllGroupUser();
+
+            foreach (DTO.CHUCVU i in _listPosition)
+            {
+                ExtendClass.ContainerItem item = new ExtendClass.ContainerItem();
+                item.Text = i.TenCV;
+                item.Value = i;
+                this.cboPosition.Properties.Items.Add(item);
+            }
+
+            foreach(DTO.)
+            
         }
 
     }
