@@ -162,7 +162,7 @@
             // 
             this.txtAddress.Location = new System.Drawing.Point(104, 131);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Properties.Mask.EditMask = "(\\p{L}|[0-9]|\\s){1,100}";
+            this.txtAddress.Properties.Mask.EditMask = "(\\p{L}|[0-9]|\\s|[,/]){1,100}";
             this.txtAddress.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtAddress.Size = new System.Drawing.Size(145, 20);
             this.txtAddress.TabIndex = 9;

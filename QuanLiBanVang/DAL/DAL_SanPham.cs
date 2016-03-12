@@ -27,5 +27,26 @@ namespace DAL
             _listProduct = query.ToList();
             return _listProduct;
         }
+        public DTO.SANPHAM getProductById(int id)
+        {
+            var query = from product in _context.SANPHAMs
+                        where product.MaSP == id
+                        select product;
+            return query.Single();
+        }
+        public void updateProduct(DTO.SANPHAM updateProduct)
+        {
+            var current = _context.SANPHAMs.Find(updateProduct.MaSP);
+            if (current != null)
+            {
+                current.TenSP = updateProduct.TenSP;
+                current.MaLoaiSP = updateProduct.MaLoaiSP;
+                current.GiaMua = updateProduct.GiaMua;
+                current.SoLuongTon = updateProduct.SoLuongTon;
+                current.TinhTrang = updateProduct.TinhTrang;
+                current.TrongLuong = updateProduct.TrongLuong;
+                _context.SaveChanges();
+            }
+        }
     }
 }

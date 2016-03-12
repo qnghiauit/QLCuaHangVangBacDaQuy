@@ -77,6 +77,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtendClass\ContainerItem.cs" />
+    <Compile Include="Form\DanhSachLoaiSanPham_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\DanhSachLoaiSanPham_Form.Designer.cs">
+      <DependentUpon>DanhSachLoaiSanPham_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\DanhSachPhieuChi_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\DanhSachPhieuChi_Form.Designer.cs">
+      <DependentUpon>DanhSachPhieuChi_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\DanhSachSanPham_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\DanhSachSanPham_Form.Designer.cs">
+      <DependentUpon>DanhSachSanPham_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Login_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +170,15 @@
     <Compile Include="Form\TongQuan.Designer.cs">
       <DependentUpon>TongQuan.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form\DanhSachLoaiSanPham_Form.resx">
+      <DependentUpon>DanhSachLoaiSanPham_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\DanhSachPhieuChi_Form.resx">
+      <DependentUpon>DanhSachPhieuChi_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\DanhSachSanPham_Form.resx">
+      <DependentUpon>DanhSachSanPham_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,9 +238,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ExtendClass\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BUL\BUL.csproj">
       <Project>{aacdbb0f-0aee-4457-be87-17235037a585}</Project>

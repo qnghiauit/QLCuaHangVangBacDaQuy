@@ -35,5 +35,16 @@ namespace DAL
                         select productType;
             return query.Single();
         }
+        public void updateProductType(DTO.LOAISANPHAM updateProductType)
+        {
+            var current = _context.LOAISANPHAMs.Find(updateProductType.MaLoaiSP);
+            if (current != null)
+            {
+                current.MaLoaiSP = updateProductType.MaLoaiSP;
+                current.PhanTramLoiNhuan = updateProductType.PhanTramLoiNhuan;
+                current.TenLoaiSP = updateProductType.TenLoaiSP;
+                _context.SaveChanges();
+            }
+        }
     }
 }

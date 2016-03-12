@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUL_ChucVu.cs" />
+    <Compile Include="BUL_LoaiSanPham.cs" />
+    <Compile Include="BUL_NhanVien.cs" />
+    <Compile Include="BUL_NhomNguoiDung.cs" />
+    <Compile Include="BUL_SanPham.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

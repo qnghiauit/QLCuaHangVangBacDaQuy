@@ -25,5 +25,9 @@ namespace BUL
         {
             return _dalProductType.getProductTypeById(id);
         }
+        public void updateProductType(DTO.LOAISANPHAM updateProductType)
+        {
+            _dalProductType.updateProductType(updateProductType);
+        }
     }
 }
