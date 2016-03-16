@@ -129,7 +129,7 @@
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);
             this.Name = "DanhSachHTGC";
-            this.Text = "DanhSachHTGC";
+            this.Text = "Danh sách hình thức gia công";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDS)).EndInit();
