@@ -17,5 +17,25 @@ namespace BUL
         {
             _dalStaff.addNewStaff(staff);
         }
+        public void updateStaff(DTO.NHANVIEN updateStaff)
+        {
+            _dalStaff.updateStaff(updateStaff);
+        }
+        public DTO.NHANVIEN getStaffById(int id)
+        {
+            return _dalStaff.getStaffById(id);
+        }
+        public DTO.NHANVIEN getLastStaff()
+        {
+            return _dalStaff.getLastStaff();
+        }
+        public void deleteStaff(int id)
+        {
+            _dalStaff.deleteStaff(id);
+        }
+        public List<DTO.NHANVIEN> getAllStaff()
+        {
+            return _dalStaff.getAllStaff();
+        }
     }
 }
