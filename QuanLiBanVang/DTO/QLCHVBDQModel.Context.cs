@@ -51,8 +51,8 @@ namespace DTO
         public virtual DbSet<PHIEUNHAPHANG> PHIEUNHAPHANGs { get; set; }
         public virtual DbSet<PHIEUTHUTIENNO> PHIEUTHUTIENNOes { get; set; }
         public virtual DbSet<QUYENHAN> QUYENHANs { get; set; }
-        public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
         public virtual DbSet<THO> THOes { get; set; }
+        public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
     
         public virtual int DEL_IN_CTPN(Nullable<int> masp, Nullable<int> sophieunhap)
         {

@@ -28,7 +28,7 @@ namespace DTO
         public int MaLoaiSP { get; set; }
         public double TrongLuong { get; set; }
         public int SoLuongTon { get; set; }
-        public Nullable<decimal> GiaMua { get; set; }
+        public decimal GiaMua { get; set; }
         public bool TinhTrang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

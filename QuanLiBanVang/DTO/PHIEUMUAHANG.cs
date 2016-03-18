@@ -22,7 +22,7 @@ namespace DTO
     
         public int SoPhieuMua { get; set; }
         public System.DateTime NgayMua { get; set; }
-        public decimal TongTien { get; set; }
+        public Nullable<decimal> TongTien { get; set; }
         public Nullable<int> MaKH { get; set; }
         public int MaNV { get; set; }
     

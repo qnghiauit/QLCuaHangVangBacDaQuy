@@ -147,7 +147,7 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           </Key>
           <Property Name="MaNV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenDangNhap" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="MatKhau" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="MatKhau" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="70" Nullable="false" />
           <Property Name="NgSinh" Type="date" Nullable="false" />
           <Property Name="GioiTinh" Type="bit" Nullable="false" />
@@ -228,7 +228,7 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           </Key>
           <Property Name="SoPhieuMua" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NgayMua" Type="date" Nullable="false" />
-          <Property Name="TongTien" Type="money" Nullable="false" />
+          <Property Name="TongTien" Type="money" />
           <Property Name="MaKH" Type="int" />
           <Property Name="MaNV" Type="int" Nullable="false" />
         </EntityType>
@@ -272,7 +272,7 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <Property Name="MaLoaiSP" Type="int" Nullable="false" />
           <Property Name="TrongLuong" Type="float" Nullable="false" />
           <Property Name="SoLuongTon" Type="int" Nullable="false" />
-          <Property Name="GiaMua" Type="money" />
+          <Property Name="GiaMua" Type="money" Nullable="false" />
           <Property Name="TinhTrang" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="THO">
@@ -868,7 +868,7 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <Property Name="SoLuongMua" Type="Int32" Nullable="false" />
           <Property Name="SoLuongBan" Type="Int32" Nullable="false" />
           <Property Name="TonCuoi" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_BC_SP" FromRole="BAOCAOTONKHO" ToRole="SANPHAM" />
+          <NavigationProperty Name="SANPHAM" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_BC_SP" FromRole="BAOCAOTONKHO" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="CHUCVU">
           <Key>
@@ -889,7 +889,7 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <Property Name="GiaBan" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="PHIEUBANHANG" Relationship="Self.FK_CTPBH_PBH" FromRole="CTPBH" ToRole="PHIEUBANHANG" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CTPBH_SP" FromRole="CTPBH" ToRole="SANPHAM" />
+          <NavigationProperty Name="SANPHAM" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPBH_SP" FromRole="CTPBH" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="CTPDV">
           <Key>
@@ -938,7 +938,7 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <Property Name="Thanhtien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="LOAISANPHAM" Relationship="Self.FK_CTPMH_LSP" FromRole="CTPMH" ToRole="LOAISANPHAM" />
           <NavigationProperty Name="PHIEUMUAHANG" Relationship="Self.FK_CTPMH_PMH" FromRole="CTPMH" ToRole="PHIEUMUAHANG" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CTPMH_SP" FromRole="CTPMH" ToRole="SANPHAM" />
+          <NavigationProperty Name="SANPHAM" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPMH_SP" FromRole="CTPMH" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="CTPNH">
           <Key>
@@ -951,7 +951,7 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <Property Name="GiaMua" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="PHIEUNHAPHANG" Relationship="Self.FK_CTPN_PNH" FromRole="CTPNH" ToRole="PHIEUNHAPHANG" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CTPN_SP" FromRole="CTPNH" ToRole="SANPHAM" />
+          <NavigationProperty Name="SANPHAM" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPN_SP" FromRole="CTPNH" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="DICHVU">
           <Key>
@@ -992,7 +992,7 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <Property Name="PhanTramLoiNhuan" Type="Double" />
           <NavigationProperty Name="CTPDVs" Relationship="Self.FK_CTPDV_LSP" FromRole="LOAISANPHAM" ToRole="CTPDV" />
           <NavigationProperty Name="CTPMHs" Relationship="Self.FK_CTPMH_LSP" FromRole="LOAISANPHAM" ToRole="CTPMH" />
-          <NavigationProperty Name="SANPHAMs" Relationship="Self.FK_SP_LOAISP" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
+          <NavigationProperty Name="SANPHAMs" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_SP_LOAISP" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="NHACUNGCAP">
           <Key>
@@ -1010,7 +1010,7 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           </Key>
           <Property Name="MaNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenDangNhap" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MatKhau" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="HoTen" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NgSinh" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="GioiTinh" Type="Boolean" Nullable="false" />
@@ -1107,7 +1107,7 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           </Key>
           <Property Name="SoPhieuMua" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NgayMua" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="MaKH" Type="Int32" />
           <Property Name="MaNV" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CTPMHs" Relationship="Self.FK_CTPMH_PMH" FromRole="PHIEUMUAHANG" ToRole="CTPMH" />
@@ -1151,23 +1151,6 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <Property Name="CapDoTruyCap" Type="Int16" Nullable="false" />
           <NavigationProperty Name="NHOMNGUOIDUNGs" Relationship="Self.NHOM_QUYENHAN" FromRole="QUYENHAN" ToRole="NHOMNGUOIDUNG" />
         </EntityType>
-        <EntityType Name="SANPHAM">
-          <Key>
-            <PropertyRef Name="MaSP" />
-          </Key>
-          <Property Name="MaSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenSP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaLoaiSP" Type="Int32" Nullable="false" />
-          <Property Name="TrongLuong" Type="Double" Nullable="false" />
-          <Property Name="SoLuongTon" Type="Int32" Nullable="false" />
-          <Property Name="GiaMua" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="TinhTrang" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="BAOCAOTONKHOes" Relationship="Self.FK_BC_SP" FromRole="SANPHAM" ToRole="BAOCAOTONKHO" />
-          <NavigationProperty Name="CTPBHs" Relationship="Self.FK_CTPBH_SP" FromRole="SANPHAM" ToRole="CTPBH" />
-          <NavigationProperty Name="CTPMHs" Relationship="Self.FK_CTPMH_SP" FromRole="SANPHAM" ToRole="CTPMH" />
-          <NavigationProperty Name="CTPNHs" Relationship="Self.FK_CTPN_SP" FromRole="SANPHAM" ToRole="CTPNH" />
-          <NavigationProperty Name="LOAISANPHAM" Relationship="Self.FK_SP_LOAISP" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
-        </EntityType>
         <EntityType Name="THO">
           <Key>
             <PropertyRef Name="MaTho" />
@@ -1178,18 +1161,6 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PHIEUGIACONGs" Relationship="Self.FK_PGC_THO" FromRole="THO" ToRole="PHIEUGIACONG" />
         </EntityType>
-        <Association Name="FK_BC_SP">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
-          <End Role="BAOCAOTONKHO" Type="Self.BAOCAOTONKHO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SANPHAM">
-              <PropertyRef Name="MaSP" />
-            </Principal>
-            <Dependent Role="BAOCAOTONKHO">
-              <PropertyRef Name="MaSP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_MaCV">
           <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="1" />
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
@@ -1211,18 +1182,6 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
             </Principal>
             <Dependent Role="CTPBH">
               <PropertyRef Name="SoPhieuBH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTPBH_SP">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
-          <End Role="CTPBH" Type="Self.CTPBH" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SANPHAM">
-              <PropertyRef Name="MaSP" />
-            </Principal>
-            <Dependent Role="CTPBH">
-              <PropertyRef Name="MaSP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1322,18 +1281,6 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CTPMH_SP">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="0..1" />
-          <End Role="CTPMH" Type="Self.CTPMH" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SANPHAM">
-              <PropertyRef Name="MaSP" />
-            </Principal>
-            <Dependent Role="CTPMH">
-              <PropertyRef Name="MaSP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CTPN_PNH">
           <End Role="PHIEUNHAPHANG" Type="Self.PHIEUNHAPHANG" Multiplicity="1" />
           <End Role="CTPNH" Type="Self.CTPNH" Multiplicity="*" />
@@ -1343,18 +1290,6 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
             </Principal>
             <Dependent Role="CTPNH">
               <PropertyRef Name="SoPhieuNhap" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTPN_SP">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
-          <End Role="CTPNH" Type="Self.CTPNH" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SANPHAM">
-              <PropertyRef Name="MaSP" />
-            </Principal>
-            <Dependent Role="CTPNH">
-              <PropertyRef Name="MaSP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1391,18 +1326,6 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
             </Principal>
             <Dependent Role="PHIEUMUAHANG">
               <PropertyRef Name="MaKH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SP_LOAISP">
-          <End Role="LOAISANPHAM" Type="Self.LOAISANPHAM" Multiplicity="1" />
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LOAISANPHAM">
-              <PropertyRef Name="MaLoaiSP" />
-            </Principal>
-            <Dependent Role="SANPHAM">
-              <PropertyRef Name="MaLoaiSP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1579,22 +1502,13 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <EntitySet Name="PHIEUNHAPHANGs" EntityType="Self.PHIEUNHAPHANG" />
           <EntitySet Name="PHIEUTHUTIENNOes" EntityType="Self.PHIEUTHUTIENNO" />
           <EntitySet Name="QUYENHANs" EntityType="Self.QUYENHAN" />
-          <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
           <EntitySet Name="THOes" EntityType="Self.THO" />
-          <AssociationSet Name="FK_BC_SP" Association="Self.FK_BC_SP">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-            <End Role="BAOCAOTONKHO" EntitySet="BAOCAOTONKHOes" />
-          </AssociationSet>
           <AssociationSet Name="FK_MaCV" Association="Self.FK_MaCV">
             <End Role="CHUCVU" EntitySet="CHUCVUs" />
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
           </AssociationSet>
           <AssociationSet Name="FK_CTPBH_PBH" Association="Self.FK_CTPBH_PBH">
             <End Role="PHIEUBANHANG" EntitySet="PHIEUBANHANGs" />
-            <End Role="CTPBH" EntitySet="CTPBHs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTPBH_SP" Association="Self.FK_CTPBH_SP">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
             <End Role="CTPBH" EntitySet="CTPBHs" />
           </AssociationSet>
           <AssociationSet Name="FK_CTPDV_DV" Association="Self.FK_CTPDV_DV">
@@ -1629,16 +1543,8 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
             <End Role="PHIEUMUAHANG" EntitySet="PHIEUMUAHANGs" />
             <End Role="CTPMH" EntitySet="CTPMHs" />
           </AssociationSet>
-          <AssociationSet Name="FK_CTPMH_SP" Association="Self.FK_CTPMH_SP">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-            <End Role="CTPMH" EntitySet="CTPMHs" />
-          </AssociationSet>
           <AssociationSet Name="FK_CTPN_PNH" Association="Self.FK_CTPN_PNH">
             <End Role="PHIEUNHAPHANG" EntitySet="PHIEUNHAPHANGs" />
-            <End Role="CTPNH" EntitySet="CTPNHs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTPN_SP" Association="Self.FK_CTPN_SP">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
             <End Role="CTPNH" EntitySet="CTPNHs" />
           </AssociationSet>
           <AssociationSet Name="FK_PBH_KH" Association="Self.FK_PBH_KH">
@@ -1652,10 +1558,6 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <AssociationSet Name="FK_PMH_KH" Association="Self.FK_PMH_KH">
             <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
             <End Role="PHIEUMUAHANG" EntitySet="PHIEUMUAHANGs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SP_LOAISP" Association="Self.FK_SP_LOAISP">
-            <End Role="LOAISANPHAM" EntitySet="LOAISANPHAMs" />
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
           </AssociationSet>
           <AssociationSet Name="FK_PNH_NCC" Association="Self.FK_PNH_NCC">
             <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
@@ -1713,7 +1615,105 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
             <Parameter Name="masp" Mode="In" Type="Int32" />
             <Parameter Name="sophieunhap" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="SANPHAMs" EntityType="DBQLCuaHangVangBacDaQuyModel.SANPHAM" />
+          <AssociationSet Name="FK_BC_SP" Association="DBQLCuaHangVangBacDaQuyModel.FK_BC_SP">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="BAOCAOTONKHO" EntitySet="BAOCAOTONKHOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPBH_SP" Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPBH_SP">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="CTPBH" EntitySet="CTPBHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPMH_SP" Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPMH_SP">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="CTPMH" EntitySet="CTPMHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPN_SP" Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPN_SP">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="CTPNH" EntitySet="CTPNHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SP_LOAISP" Association="DBQLCuaHangVangBacDaQuyModel.FK_SP_LOAISP">
+            <End Role="LOAISANPHAM" EntitySet="LOAISANPHAMs" />
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="SANPHAM">
+          <Key>
+            <PropertyRef Name="MaSP" />
+          </Key>
+          <Property Name="MaSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenSP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaLoaiSP" Type="Int32" Nullable="false" />
+          <Property Name="TrongLuong" Type="Double" Nullable="false" />
+          <Property Name="SoLuongTon" Type="Int32" Nullable="false" />
+          <Property Name="GiaMua" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="TinhTrang" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BAOCAOTONKHOes" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_BC_SP" FromRole="SANPHAM" ToRole="BAOCAOTONKHO" />
+          <NavigationProperty Name="CTPBHs" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPBH_SP" FromRole="SANPHAM" ToRole="CTPBH" />
+          <NavigationProperty Name="CTPMHs" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPMH_SP" FromRole="SANPHAM" ToRole="CTPMH" />
+          <NavigationProperty Name="CTPNHs" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPN_SP" FromRole="SANPHAM" ToRole="CTPNH" />
+          <NavigationProperty Name="LOAISANPHAM" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_SP_LOAISP" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
+        </EntityType>
+        <Association Name="FK_BC_SP">
+          <End Type="DBQLCuaHangVangBacDaQuyModel.SANPHAM" Role="SANPHAM" Multiplicity="1" />
+          <End Type="DBQLCuaHangVangBacDaQuyModel.BAOCAOTONKHO" Role="BAOCAOTONKHO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="BAOCAOTONKHO">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPBH_SP">
+          <End Type="DBQLCuaHangVangBacDaQuyModel.SANPHAM" Role="SANPHAM" Multiplicity="1" />
+          <End Type="DBQLCuaHangVangBacDaQuyModel.CTPBH" Role="CTPBH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="CTPBH">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPMH_SP">
+          <End Type="DBQLCuaHangVangBacDaQuyModel.SANPHAM" Role="SANPHAM" Multiplicity="0..1" />
+          <End Type="DBQLCuaHangVangBacDaQuyModel.CTPMH" Role="CTPMH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="CTPMH">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPN_SP">
+          <End Type="DBQLCuaHangVangBacDaQuyModel.SANPHAM" Role="SANPHAM" Multiplicity="1" />
+          <End Type="DBQLCuaHangVangBacDaQuyModel.CTPNH" Role="CTPNH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="CTPNH">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SP_LOAISP">
+          <End Type="DBQLCuaHangVangBacDaQuyModel.LOAISANPHAM" Role="LOAISANPHAM" Multiplicity="1" />
+          <End Type="DBQLCuaHangVangBacDaQuyModel.SANPHAM" Role="SANPHAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAISANPHAM">
+              <PropertyRef Name="MaLoaiSP" />
+            </Principal>
+            <Dependent Role="SANPHAM">
+              <PropertyRef Name="MaLoaiSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1983,19 +1983,6 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SANPHAMs">
-            <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.SANPHAM">
-              <MappingFragment StoreEntitySet="SANPHAM">
-                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
-                <ScalarProperty Name="TenSP" ColumnName="TenSP" />
-                <ScalarProperty Name="MaLoaiSP" ColumnName="MaLoaiSP" />
-                <ScalarProperty Name="TrongLuong" ColumnName="TrongLuong" />
-                <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
-                <ScalarProperty Name="GiaMua" ColumnName="GiaMua" />
-                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="THOes">
             <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.THO">
               <MappingFragment StoreEntitySet="THO">
@@ -2015,6 +2002,19 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
             </EndProperty>
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="DEL_IN_CTPN" FunctionName="DBQLCuaHangVangBacDaQuyModel.Store.DEL_IN_CTPN" />
+          <EntitySetMapping Name="SANPHAMs">
+            <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.SANPHAM">
+              <MappingFragment StoreEntitySet="SANPHAM">
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="GiaMua" ColumnName="GiaMua" />
+                <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
+                <ScalarProperty Name="TrongLuong" ColumnName="TrongLuong" />
+                <ScalarProperty Name="MaLoaiSP" ColumnName="MaLoaiSP" />
+                <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
