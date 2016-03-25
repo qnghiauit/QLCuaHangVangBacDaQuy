@@ -25,6 +25,17 @@ namespace BUL
         {
             return _dalSanPham.getAllProduct();
         }
-        
+        public void deleteProduct(int id)
+        {
+            _dalSanPham.deleteProduct(id);
+        }
+        public DTO.SANPHAM getLastProduct()
+        {
+            return _dalSanPham.getLastProduct();
+        }
+        public DTO.SANPHAM updateProduct(DTO.SANPHAM updateProduct)
+        {
+            return this._dalSanPham.updateProduct(updateProduct);
+        }
     }
 }
