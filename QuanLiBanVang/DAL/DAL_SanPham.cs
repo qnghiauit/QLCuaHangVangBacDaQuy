@@ -34,7 +34,7 @@ namespace DAL
                         select product;
             return query.Single();
         }
-        public void updateProduct(DTO.SANPHAM updateProduct)
+        public DTO.SANPHAM updateProduct(DTO.SANPHAM updateProduct)
         {
             var current = _context.SANPHAMs.Find(updateProduct.MaSP);
             if (current != null)
@@ -47,6 +47,18 @@ namespace DAL
                 current.TrongLuong = updateProduct.TrongLuong;
                 _context.SaveChanges();
             }
+            return current;
+        }
+        public void deleteProduct(int id)
+        {
+            var target = this._context.SANPHAMs.Find(id);
+            this._context.SANPHAMs.Remove(target);
+            this._context.SaveChanges();
+        }
+        public DTO.SANPHAM getLastProduct()
+        {
+            var max = _context.SANPHAMs.Max(p => p.MaSP);
+            return _context.SANPHAMs.Where(p => p.MaSP == max).Single();
         }
     }
 }

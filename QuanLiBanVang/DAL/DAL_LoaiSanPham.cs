@@ -19,7 +19,7 @@ namespace DAL
             _context.LOAISANPHAMs.Add(productType);
             _context.SaveChanges();
         }
-        public List<DTO.LOAISANPHAM> getListProductType()
+        public List<DTO.LOAISANPHAM> getAllProductType()
         {
            
             List<DTO.LOAISANPHAM> _listProductType = new List<DTO.LOAISANPHAM>();
@@ -28,12 +28,13 @@ namespace DAL
             _listProductType = query.ToList();
             return _listProductType;
         }
-        public DTO.LOAISANPHAM getProductTypeById(int Id)
+        public DTO.LOAISANPHAM getProductTypeById(int id)
         {
-            var query = from productType in _context.LOAISANPHAMs
-                        where productType.MaLoaiSP == Id
-                        select productType;
-            return query.Single();
+            //var query = from productType in _context.LOAISANPHAMs
+            //            where productType.MaLoaiSP == Id
+            //            select productType;
+            //return query.Single();
+            return _context.LOAISANPHAMs.Single(type => type.MaLoaiSP == id);
         }
         public void updateProductType(DTO.LOAISANPHAM updateProductType)
         {
@@ -45,6 +46,21 @@ namespace DAL
                 current.TenLoaiSP = updateProductType.TenLoaiSP;
                 _context.SaveChanges();
             }
+        }
+        public void deleteProduct(int id)
+        {
+            var target = _context.LOAISANPHAMs.Find(id);
+            _context.LOAISANPHAMs.Remove(target);
+            _context.SaveChanges();
+        }
+        public string getProductNameById(int id)
+        {
+            return _context.LOAISANPHAMs.Single(p => p.MaLoaiSP == id).TenLoaiSP;
+        }
+        public DTO.LOAISANPHAM getLastProductType()
+        {
+            var max = _context.LOAISANPHAMs.Max(t => t.MaLoaiSP);
+            return _context.LOAISANPHAMs.Single(t => t.MaLoaiSP == max);
         }
     }
 }
