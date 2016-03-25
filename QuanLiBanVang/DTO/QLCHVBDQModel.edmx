@@ -1032,8 +1032,8 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <Key>
             <PropertyRef Name="MaNhom" />
           </Key>
-          <Property Name="MaNhom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaNhom" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="TenNhom" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="NHANVIENs" Relationship="Self.FK_NV_NHOMNGUOIDUNG" FromRole="NHOMNGUOIDUNG" ToRole="NHANVIEN" />
           <NavigationProperty Name="QUYENHANs" Relationship="Self.NHOM_QUYENHAN" FromRole="NHOMNGUOIDUNG" ToRole="QUYENHAN" />
         </EntityType>
@@ -1146,9 +1146,9 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <Key>
             <PropertyRef Name="MaQuyen" />
           </Key>
-          <Property Name="MaQuyen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CapDoTruyCap" Type="Int16" Nullable="false" />
+          <Property Name="MaQuyen" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="TenQuyen" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="CapDoTruyCap" Nullable="false" Type="Int16" />
           <NavigationProperty Name="NHOMNGUOIDUNGs" Relationship="Self.NHOM_QUYENHAN" FromRole="QUYENHAN" ToRole="NHOMNGUOIDUNG" />
         </EntityType>
         <EntityType Name="THO">
@@ -1342,8 +1342,8 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NV_NHOMNGUOIDUNG">
-          <End Role="NHOMNGUOIDUNG" Type="Self.NHOMNGUOIDUNG" Multiplicity="1" />
-          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+          <End Type="Self.NHOMNGUOIDUNG" Multiplicity="1" Role="NHOMNGUOIDUNG" />
+          <End Type="Self.NHANVIEN" Multiplicity="*" Role="NHANVIEN" />
           <ReferentialConstraint>
             <Principal Role="NHOMNGUOIDUNG">
               <PropertyRef Name="MaNhom" />
@@ -1474,8 +1474,8 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           </ReferentialConstraint>
         </Association>
         <Association Name="NHOM_QUYENHAN">
-          <End Role="NHOMNGUOIDUNG" Type="Self.NHOMNGUOIDUNG" Multiplicity="*" />
-          <End Role="QUYENHAN" Type="Self.QUYENHAN" Multiplicity="*" />
+          <End Type="Self.NHOMNGUOIDUNG" Multiplicity="*" Role="NHOMNGUOIDUNG" />
+          <End Type="Self.QUYENHAN" Multiplicity="*" Role="QUYENHAN" />
         </Association>
         <EntityContainer Name="DBQLCuaHangVangBacDaQuyEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BAOCAOTHUCHIs" EntityType="Self.BAOCAOTHUCHI" />
@@ -1564,8 +1564,8 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
             <End Role="PHIEUNHAPHANG" EntitySet="PHIEUNHAPHANGs" />
           </AssociationSet>
           <AssociationSet Name="FK_NV_NHOMNGUOIDUNG" Association="Self.FK_NV_NHOMNGUOIDUNG">
-            <End Role="NHOMNGUOIDUNG" EntitySet="NHOMNGUOIDUNGs" />
-            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End EntitySet="NHOMNGUOIDUNGs" Role="NHOMNGUOIDUNG" />
+            <End EntitySet="NHANVIENs" Role="NHANVIEN" />
           </AssociationSet>
           <AssociationSet Name="FK_PBH_NV" Association="Self.FK_PBH_NV">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
@@ -1608,8 +1608,8 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
             <End Role="PHIEUGIACONG" EntitySet="PHIEUGIACONGs" />
           </AssociationSet>
           <AssociationSet Name="NHOM_QUYENHAN" Association="Self.NHOM_QUYENHAN">
-            <End Role="NHOMNGUOIDUNG" EntitySet="NHOMNGUOIDUNGs" />
-            <End Role="QUYENHAN" EntitySet="QUYENHANs" />
+            <End EntitySet="NHOMNGUOIDUNGs" Role="NHOMNGUOIDUNG" />
+            <End EntitySet="QUYENHANs" Role="QUYENHAN" />
           </AssociationSet>
           <FunctionImport Name="DEL_IN_CTPN">
             <Parameter Name="masp" Mode="In" Type="Int32" />
