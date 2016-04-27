@@ -19,6 +19,7 @@ namespace BUL
         }
         public DTO.SANPHAM getProductById(int id)
         {
+            
             return _dalSanPham.getProductById(id);
         }
         public List<DTO.SANPHAM> getAllProduct()

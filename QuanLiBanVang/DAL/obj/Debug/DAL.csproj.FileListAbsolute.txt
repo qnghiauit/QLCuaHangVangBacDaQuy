@@ -1,0 +1,14 @@
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\bin\Debug\DBQLCuaHangVangBacDaQuy.mdf
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\bin\Debug\DBQLCuaHangVangBacDaQuy_log.ldf
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\bin\Debug\DAL.dll.config
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\bin\Debug\DAL.dll
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\bin\Debug\DAL.pdb
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\bin\Debug\DTO.dll
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\bin\Debug\EntityFramework.dll
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\bin\Debug\DTO.pdb
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\bin\Debug\EntityFramework.xml
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\obj\Debug\DAL.dll
+E:\Lib\Nam 3\Ky 2\Phan tich thiet ke he thong\Doing task\QLCuaHangVangBacDaQuy.git\trunk\QuanLiBanVang\DAL\obj\Debug\DAL.pdb

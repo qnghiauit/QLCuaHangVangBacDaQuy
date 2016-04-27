@@ -39,7 +39,14 @@ namespace BUL
         }
         public DTO.NHANVIEN getStaffByUsername(string username)
         {
-            return _dalStaff.getStaffByUsername(username);
+            try
+            {
+               return _dalStaff.getStaffByUsername(username);
+            }
+            catch (InvalidOperationException e)
+            {
+                return null;
+            }
         }
     }
 }

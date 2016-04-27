@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login_Form));
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.lbState = new DevExpress.XtraEditors.LabelControl();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtUserID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -38,7 +39,6 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
-            this.lbState = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).BeginInit();
             this.groupControlInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
@@ -59,6 +59,16 @@
             this.groupControlInfo.Size = new System.Drawing.Size(318, 128);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Thông tin người dùng";
+            // 
+            // lbState
+            // 
+            this.lbState.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbState.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.lbState.Location = new System.Drawing.Point(34, 107);
+            this.lbState.Name = "lbState";
+            this.lbState.Size = new System.Drawing.Size(145, 14);
+            this.lbState.TabIndex = 5;
+            this.lbState.Text = "Nhập thông tin đăng nhập";
             // 
             // txtPassword
             // 
@@ -140,16 +150,6 @@
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // lbState
-            // 
-            this.lbState.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbState.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lbState.Location = new System.Drawing.Point(72, 107);
-            this.lbState.Name = "lbState";
-            this.lbState.Size = new System.Drawing.Size(147, 16);
-            this.lbState.TabIndex = 5;
-            this.lbState.Text = "Nhập thông tin đăng nhập";
             // 
             // Login_Form
             // 
