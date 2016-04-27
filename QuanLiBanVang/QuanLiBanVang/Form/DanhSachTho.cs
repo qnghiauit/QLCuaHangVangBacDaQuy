@@ -25,13 +25,9 @@ namespace QuanLiBanVang
         {
             InitializeComponent();
             _bulTho = new BUL_Tho();
+            CreateDataTable();
             FillGridView();
-            gridViewDSTho.Columns[0].Visible = false;
-            gridViewDSTho.Columns[1].Visible = false;
-            gridViewDSTho.Columns[2].Caption = "Tên thợ";
-            gridViewDSTho.Columns[3].Caption = "Số điện thoại";
-            gridViewDSTho.Columns[4].Caption = "Địa chỉ";
-            gridViewDSTho.OptionsMenu.EnableColumnMenu = false;
+            
         }
 
         private void simpleButtonThem_Click(object sender, EventArgs e)
@@ -97,10 +93,16 @@ namespace QuanLiBanVang
         }
         private void FillGridView()
         {
-            gridControlDSTho.DataSource = CreateDataTable();
+            _dataTable.Rows.Clear();
+            _listTho = _bulTho.GetAllWorkerList();
+            foreach (THO t in _listTho)
+            {
+                _dataTable.Rows.Add(new object[] { null, t.MaTho, t.TenTho, t.SDT, t.DiaChi });
+            }
+            gridControlDSTho.DataSource = _dataTable;
         }
 
-        private DataTable CreateDataTable()
+        private void CreateDataTable()
         {
             _dataTable = new DataTable();
             _keyFeild = _dataTable.Columns.Add("IDcache", typeof(int));
@@ -110,12 +112,13 @@ namespace QuanLiBanVang
             _dataTable.Columns.Add("TenTho", typeof(string));
             _dataTable.Columns.Add("SDT", typeof(string));
             _dataTable.Columns.Add("DiaChi", typeof(string));
-            _listTho = _bulTho.GetAllWorkerList();
-            foreach (THO t in _listTho)
-            {
-                _dataTable.Rows.Add(new object[] { null, t.MaTho, t.TenTho, t.SDT, t.DiaChi });
-            }
-            return _dataTable;
+            gridControlDSTho.DataSource = _dataTable;
+            gridViewDSTho.Columns[0].Visible = false;
+            gridViewDSTho.Columns[1].Visible = false;
+            gridViewDSTho.Columns[2].Caption = "Tên thợ";
+            gridViewDSTho.Columns[3].Caption = "Số điện thoại";
+            gridViewDSTho.Columns[4].Caption = "Địa chỉ";
+            gridViewDSTho.OptionsMenu.EnableColumnMenu = false;
         }
 
         private void gridViewDSTho_DoubleClick(object sender, EventArgs e)

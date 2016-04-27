@@ -24,8 +24,7 @@ namespace QuanLiBanVang
             _bulDichVu = new BUL_DichVu();
             _dichvu = _bulDichVu.GetDichvuById(id);
             this.textEditTenDV.Text = _dichvu.TenDV;
-            string tiencong = _dichvu.TienCong.ToString();
-            this.textEditTienCong.Text = tiencong.Remove(tiencong.IndexOf("."));
+            this.textEditTienCong.Text = ((int)(_dichvu.TienCong ?? 0)).ToString();
         }
 
         private void simpleButtonOK_Click(object sender, EventArgs e)

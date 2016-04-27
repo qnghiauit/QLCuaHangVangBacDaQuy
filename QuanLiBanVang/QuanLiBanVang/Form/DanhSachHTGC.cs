@@ -15,7 +15,14 @@ namespace QuanLiBanVang
         private MyCache _cache = new MyCache("IDcache");
         private List<HINHTHUCGIACONG> _listHtgc;
 
-        private DataTable CreateDataTable()
+        public DanhSachHTGC()
+        {
+            InitializeComponent();
+            _bulHinhThucGiaCong = new BUL_HinhThucGiaCong();
+            CreateDataTable();
+            FillGridView();
+        }
+        private void CreateDataTable()
         {
             _dataTable = new DataTable();
             _keyField = _dataTable.Columns.Add("IDcache", typeof(int));
@@ -23,28 +30,24 @@ namespace QuanLiBanVang
             _keyField.AutoIncrement = true;
             _dataTable.Columns.Add("MaHTGC", typeof (int));
             _dataTable.Columns.Add("TenHTGC", typeof (string));
-            _listHtgc = _bulHinhThucGiaCong.GetAllHtgc();
-            foreach (HINHTHUCGIACONG t in _listHtgc)
-            {
-                _dataTable.Rows.Add(new object[] {null,t.MaHTGC, t.TenHTGC});
-            }
-            return _dataTable;
-        }
-
-        private void FillGridView()
-        {
-            gridControlDS.DataSource = CreateDataTable();
-        }
-        public DanhSachHTGC()
-        {
-            InitializeComponent();
-            _bulHinhThucGiaCong = new BUL_HinhThucGiaCong();      
-            FillGridView();
+            gridControlDS.DataSource = _dataTable;
             gridView1.Columns[0].Visible = false;
             gridView1.Columns[1].Visible = false;
             gridView1.Columns[2].Caption = "Tên hình thức gia công";
             gridView1.OptionsMenu.EnableColumnMenu = false;
         }
+
+        private void FillGridView()
+        {
+            _dataTable.Rows.Clear();
+            _listHtgc = _bulHinhThucGiaCong.GetAllHtgc();
+            foreach (HINHTHUCGIACONG t in _listHtgc)
+            {
+                _dataTable.Rows.Add(new object[] { null, t.MaHTGC, t.TenHTGC });
+            }
+            gridControlDS.DataSource = _dataTable;
+        }
+        
         private void simpleButton4_Click(object sender, EventArgs e)
         {
             Close();
@@ -57,8 +60,7 @@ namespace QuanLiBanVang
             if (dialogResult == DialogResult.OK)
             {
                 FillGridView();
-            }
-            
+            }            
         }
 
         private void simpleButtonEdit_Click(object sender, EventArgs e)

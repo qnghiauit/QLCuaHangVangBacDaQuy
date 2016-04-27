@@ -25,22 +25,23 @@ namespace QuanLiBanVang
         {
             InitializeComponent();
             _bulKhachHang = new BUL_KhachHang();
+            CreateDataTable();
             FillGridView();
-            gridViewDSKH.Columns[0].Visible = false;
-            gridViewDSKH.Columns[1].Visible = false;
-            gridViewDSKH.Columns[2].Caption = "Tên khách hàng";
-            gridViewDSKH.Columns[3].Caption = "Số điện thoại";
-            gridViewDSKH.Columns[4].Caption = "Địa chỉ";
-            gridViewDSKH.Columns[5].Caption = "Số tiền nợ";
-            gridViewDSKH.OptionsMenu.EnableColumnMenu = false;
+            
         }
 
         private void FillGridView()
         {
-            gridControlDSKH.DataSource = CreateDataTable();
+            _dataTable.Rows.Clear();
+            _listKhachhang = _bulKhachHang.GetAllKhachhangs();
+            foreach (KHACHHANG t in _listKhachhang)
+            {
+                _dataTable.Rows.Add(new object[] { null, t.MaKH, t.TenKH, t.SDT, t.DiaChi, t.SoTienNo });
+            }
+            gridControlDSKH.DataSource = _dataTable;
         }
 
-        private DataTable CreateDataTable()
+        private void CreateDataTable()
         {
             _dataTable = new DataTable();
             _keyFeild = _dataTable.Columns.Add("IDcache", typeof (int));
@@ -50,13 +51,15 @@ namespace QuanLiBanVang
             _dataTable.Columns.Add("TenKH", typeof (string));
             _dataTable.Columns.Add("SDT", typeof (string));
             _dataTable.Columns.Add("DiaChi", typeof (string));
-            _dataTable.Columns.Add("SoTienNo", typeof (int));
-            _listKhachhang = _bulKhachHang.GetAllKhachhangs();
-            foreach (KHACHHANG t in _listKhachhang)
-            {
-                _dataTable.Rows.Add(new object[] {null,t.MaKH,t.TenKH,t.SDT,t.DiaChi,t.SoTienNo});
-            }
-            return _dataTable;
+            _dataTable.Columns.Add("SoTienNo", typeof (int));      
+            gridControlDSKH.DataSource = _dataTable;
+            gridViewDSKH.Columns[0].Visible = false;
+            gridViewDSKH.Columns[1].Visible = false;
+            gridViewDSKH.Columns[2].Caption = "Tên khách hàng";
+            gridViewDSKH.Columns[3].Caption = "Số điện thoại";
+            gridViewDSKH.Columns[4].Caption = "Địa chỉ";
+            gridViewDSKH.Columns[5].Caption = "Số tiền nợ";
+            gridViewDSKH.OptionsMenu.EnableColumnMenu = false;
         }
 
         private void gridViewDSKH_CustomUnboundColumnData(object sender,

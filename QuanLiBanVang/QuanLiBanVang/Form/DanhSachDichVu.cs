@@ -22,7 +22,14 @@ namespace QuanLiBanVang
         private MyCache _cache = new MyCache("IDcache");
         private List<DICHVU> _listDichvu;
 
-        private DataTable CreateDataTable()
+        public DanhSachDichVu()
+        {
+            InitializeComponent();
+            _bulDichVu = new BUL_DichVu();
+            CreateDataTable();
+            FillGridView();
+        }
+        private void CreateDataTable()
         {
             _dataTable = new DataTable();
             _keyField = _dataTable.Columns.Add("IDcache", typeof(int));
@@ -31,29 +38,24 @@ namespace QuanLiBanVang
             _dataTable.Columns.Add("MaDV", typeof(int));
             _dataTable.Columns.Add("TenDV", typeof(string));
             _dataTable.Columns.Add("TienCong", typeof(int));
-            _listDichvu = _bulDichVu.GetAllDichvus();
-            foreach (DICHVU t in _listDichvu)
-            {
-                _dataTable.Rows.Add(new object[] { null, t.MaDV, t.TenDV,t.TienCong });
-            }
-            return _dataTable;
-        }
-
-        private void FillGridView()
-        {
-            gridControlDSDV.DataSource = CreateDataTable();
-        }
-        public DanhSachDichVu()
-        {
-            InitializeComponent();
-            _bulDichVu = new BUL_DichVu();
-            FillGridView();
+            gridControlDSDV.DataSource = _dataTable;
             gridViewDSDV.Columns[0].Visible = false;
             gridViewDSDV.Columns[1].Visible = false;
             gridViewDSDV.Columns[2].Caption = "Tên dịch vụ";
             gridViewDSDV.Columns[3].Caption = "Tiền công";
             gridViewDSDV.OptionsMenu.EnableColumnMenu = false;
         }
+
+        private void FillGridView()
+        {
+            _dataTable.Rows.Clear();
+            _listDichvu = _bulDichVu.GetAllDichvus();
+            foreach (DICHVU t in _listDichvu)
+            {
+                _dataTable.Rows.Add(new object[] { null, t.MaDV, t.TenDV, t.TienCong });
+            }
+            gridControlDSDV.DataSource = _dataTable;
+        }       
 
         private void simpleButtonAdd_Click(object sender, EventArgs e)
         {
