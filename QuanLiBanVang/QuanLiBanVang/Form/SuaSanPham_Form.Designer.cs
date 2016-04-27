@@ -1,4 +1,4 @@
-﻿namespace QuanLiBanVang.Form
+﻿namespace QuanLiBanVang.Report
 {
     partial class SuaSanPham_Form
     {
@@ -163,6 +163,7 @@
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Hủy";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // SuaSanPham_Form
             // 

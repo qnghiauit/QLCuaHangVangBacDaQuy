@@ -1,4 +1,4 @@
-﻿namespace QuanLiBanVang.Form
+﻿namespace QuanLiBanVang.Report
 {
     partial class NhapSanPham_Form
     {

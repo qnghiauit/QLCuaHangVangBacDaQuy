@@ -1,4 +1,4 @@
-﻿namespace QuanLiBanVang.Form
+﻿namespace QuanLiBanVang.Report
 {
     partial class NhapNhanVien_Form
     {
@@ -71,7 +71,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl1.Location = new System.Drawing.Point(99, 12);
+            this.labelControl1.Location = new System.Drawing.Point(116, 12);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(282, 33);
             this.labelControl1.TabIndex = 0;
@@ -103,8 +103,9 @@
             this.cboPosition.Name = "cboPosition";
             this.cboPosition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboPosition.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboPosition.Size = new System.Drawing.Size(145, 20);
-            this.cboPosition.TabIndex = 15;
+            this.cboPosition.TabIndex = 6;
             // 
             // labelControl9
             // 
@@ -123,7 +124,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Nam"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Nữ")});
             this.rdoGender.Size = new System.Drawing.Size(145, 28);
-            this.rdoGender.TabIndex = 13;
+            this.rdoGender.TabIndex = 3;
             // 
             // dtpkBirth
             // 
@@ -139,7 +140,7 @@
             this.dtpkBirth.Properties.EditFormat.FormatString = "dd-MM-yyyy";
             this.dtpkBirth.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.dtpkBirth.Size = new System.Drawing.Size(145, 20);
-            this.dtpkBirth.TabIndex = 12;
+            this.dtpkBirth.TabIndex = 2;
             // 
             // labelControl8
             // 
@@ -156,7 +157,7 @@
             this.txtPhone.Properties.Mask.EditMask = "[0-9]{1,20}";
             this.txtPhone.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtPhone.Size = new System.Drawing.Size(145, 20);
-            this.txtPhone.TabIndex = 10;
+            this.txtPhone.TabIndex = 5;
             // 
             // txtAddress
             // 
@@ -165,7 +166,7 @@
             this.txtAddress.Properties.Mask.EditMask = "(\\p{L}|[0-9]|\\s|[,/]){1,100}";
             this.txtAddress.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtAddress.Size = new System.Drawing.Size(145, 20);
-            this.txtAddress.TabIndex = 9;
+            this.txtAddress.TabIndex = 4;
             // 
             // labelControl7
             // 
@@ -182,7 +183,7 @@
             this.txtName.Properties.Mask.EditMask = "(\\p{L}|\\s){1,70}";
             this.txtName.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtName.Size = new System.Drawing.Size(145, 20);
-            this.txtName.TabIndex = 5;
+            this.txtName.TabIndex = 1;
             // 
             // labelControl6
             // 
@@ -231,7 +232,7 @@
             this.txtUsername.Properties.Mask.EditMask = "(\\p{L}|[0-9]){1,20}";
             this.txtUsername.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtUsername.Size = new System.Drawing.Size(145, 20);
-            this.txtUsername.TabIndex = 6;
+            this.txtUsername.TabIndex = 7;
             // 
             // txtPassword
             // 
@@ -241,7 +242,7 @@
             this.txtPassword.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtPassword.Properties.UseSystemPasswordChar = true;
             this.txtPassword.Size = new System.Drawing.Size(145, 20);
-            this.txtPassword.TabIndex = 7;
+            this.txtPassword.TabIndex = 8;
             // 
             // groupControlAccountInfo
             // 
@@ -263,6 +264,7 @@
             this.cboGroupUser.Name = "cboGroupUser";
             this.cboGroupUser.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboGroupUser.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboGroupUser.Size = new System.Drawing.Size(145, 20);
             this.cboGroupUser.TabIndex = 9;
             // 
@@ -281,8 +283,9 @@
             this.btnSave.Location = new System.Drawing.Point(123, 430);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 3;
+            this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Lưu";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -291,8 +294,9 @@
             this.btnCancel.Location = new System.Drawing.Point(282, 430);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 4;
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Hủy";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // NhapNhanVien_Form
             // 

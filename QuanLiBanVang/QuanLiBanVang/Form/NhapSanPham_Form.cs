@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QuanLiBanVang.ExtendClass;
-namespace QuanLiBanVang.Form
+namespace QuanLiBanVang.Report
 {
     public partial class NhapSanPham_Form : DevExpress.XtraEditors.XtraForm
     {
@@ -23,28 +23,17 @@ namespace QuanLiBanVang.Form
         }
         public bool CheckControlValidation()
         {
-            foreach (Control control in this.groupControlInfo.Controls)
-            {
-                if (control is TextEdit)
-                {
-                    if ((control as TextEdit).Text == "")
-                    {
-                        return false;
-                    }
-                }
-                if (control is ComboBoxEdit)
-                {
-                    if((control as ComboBoxEdit).SelectedIndex == -1)
-                    {
-                        return false;
-                    }
-                }
-            }
+            if (this.txtName.Text == "")
+                return false;
+            if (this.txtWeight.Text == "")
+                return false;
+            if (this.cboProductType.SelectedIndex == -1)
+                return false;
             return true;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (this.CheckControlValidation())
+            if (!this.CheckControlValidation())
             {
                 MessageBox.Show("Ban chua nhap day du thong tin can thiet.Vui long nhap lai!");
             }
@@ -53,18 +42,18 @@ namespace QuanLiBanVang.Form
                 DTO.SANPHAM _product = new DTO.SANPHAM();
 
                 _product.TenSP = this.txtName.Text;
-                _product.MaLoaiSP = (this.cboProductType.SelectedItem as DTO.LOAISANPHAM).MaLoaiSP;
+                _product.MaLoaiSP = ((this.cboProductType.SelectedItem as ExtendClass.ContainerItem).Value as DTO.LOAISANPHAM).MaLoaiSP;
                 _product.TrongLuong = float.Parse(this.txtWeight.Text);
                 _product.TinhTrang = (bool)(this.radioGroupState.EditValue);
-
                 _bulSanPham.addNewProduct(_product);
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
             }
         }
 
         private void NhapSanPham_Form_Load(object sender, EventArgs e)
         {
             this.cboProductType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            List<DTO.LOAISANPHAM> listProductType = _bulLoaiSanPham.getListProductType();
+            List<DTO.LOAISANPHAM> listProductType = _bulLoaiSanPham.getAllProductType();
             foreach(DTO.LOAISANPHAM item in listProductType)
             {
                 ExtendClass.ContainerItem cboItem = new ContainerItem();
@@ -77,6 +66,7 @@ namespace QuanLiBanVang.Form
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close();
         }
     }

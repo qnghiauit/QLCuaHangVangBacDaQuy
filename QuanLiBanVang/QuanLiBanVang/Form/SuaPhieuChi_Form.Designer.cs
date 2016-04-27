@@ -1,4 +1,4 @@
-﻿namespace QuanLiBanVang.Form
+﻿namespace QuanLiBanVang.Report
 {
     partial class SuaPhieuChi_Form
     {
@@ -147,6 +147,7 @@
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Lưu";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 

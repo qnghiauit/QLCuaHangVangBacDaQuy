@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QuanLiBanVang.ExtendClass;
-namespace QuanLiBanVang.Form
+namespace QuanLiBanVang.Report
 {
     public partial class SuaSanPham_Form : DevExpress.XtraEditors.XtraForm
     {
@@ -32,32 +32,64 @@ namespace QuanLiBanVang.Form
         }
         private void SuaSanPham_Form_Load(object sender, EventArgs e)
         {
-            _product = _bulSanPham.getProductById(1);
-            List<DTO.LOAISANPHAM> _listProductType = _bulLoaiSanPham.getListProductType();
-            foreach(DTO.LOAISANPHAM i in _listProductType)
+            List<DTO.LOAISANPHAM> _listProductType = _bulLoaiSanPham.getAllProductType();
+            foreach (DTO.LOAISANPHAM item in _listProductType)
             {
-                ContainerItem item = new ContainerItem();
-                item.Text = i.TenLoaiSP;
-                item.Value = item;
-                this.cboProductType.Properties.Items.Add(item);
+                ExtendClass.ContainerItem cboItem = new ContainerItem();
+                cboItem.Text = item.TenLoaiSP;
+                cboItem.Value = item;
+                this.cboProductType.Properties.Items.Add(cboItem);
             }
             for (int i = 0; i < cboProductType.Properties.Items.Count; i++)
             {
-                if((cboProductType.Properties.Items[i] as DTO.LOAISANPHAM).MaLoaiSP == _product.MaLoaiSP)
+                ExtendClass.ContainerItem item = cboProductType.Properties.Items[i] as ExtendClass.ContainerItem;
+                DTO.LOAISANPHAM type = (item.Value as DTO.LOAISANPHAM);
+                if (type.MaLoaiSP == _product.MaLoaiSP)
                 {
-                    this.cboProductType.SelectedIndex = i;
+                    cboProductType.SelectedIndex = i;
                     break;
                 }
             }
+                this.radioGroupState.EditValue = (bool)this._product.TinhTrang;
+            this.txtName.Text = _product.TenSP;
+            this.txtWeight.Text = _product.TrongLuong.ToString();
         }
-
+        public bool CheckControlValidation()
+        {
+            if (this.txtName.Text == "")
+                return false;
+            if (this.txtWeight.Text == "")
+                return false;
+            if (this.cboProductType.SelectedIndex == -1)
+                return false;
+            return true;
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _product.TenSP = this.txtName.Text;
-            _product.TrongLuong = float.Parse(this.txtWeight.Text);
-            _product.MaLoaiSP = (this.cboProductType.SelectedItem as DTO.LOAISANPHAM).MaLoaiSP;
-            _product.TinhTrang = (bool)this.radioGroupState.EditValue;
-            //_bulSanPham.
+            if (!this.CheckControlValidation())
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+            else
+            {
+                _product.TenSP = this.txtName.Text;
+                _product.TrongLuong = float.Parse(this.txtWeight.Text);
+                ExtendClass.ContainerItem item = cboProductType.SelectedItem as ExtendClass.ContainerItem;
+                DTO.LOAISANPHAM type = item.Value as DTO.LOAISANPHAM;
+                _product.MaLoaiSP = type.MaLoaiSP;
+                _product.TinhTrang = (bool)this.radioGroupState.EditValue;
+                _bulSanPham.updateProduct(_product);
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+
+                this.Close();
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Close();
         }
     }
 }

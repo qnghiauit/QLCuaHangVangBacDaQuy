@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace QuanLiBanVang.Form
+namespace QuanLiBanVang.Report
 {
     public partial class NhapLoaiSanPham_Form : DevExpress.XtraEditors.XtraForm
     {
@@ -21,17 +21,47 @@ namespace QuanLiBanVang.Form
             _newProductType = new DTO.LOAISANPHAM();
             _bulProductType = new BUL.BUL_LoaiSanPham();
         }
-
+        public bool CheckControlValidation()
+        {
+            foreach (Control control in this.groupControlInfo.Controls)
+            {
+                if (control is TextEdit)
+                {
+                    if ((control as TextEdit).Text == "")
+                    {
+                        return false;
+                    }
+                }
+                if (control is ComboBoxEdit)
+                {
+                    if ((control as ComboBoxEdit).SelectedIndex == -1)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-            _newProductType.PhanTramLoiNhuan = float.Parse(this.txtPercent.Text);
-            _newProductType.TenLoaiSP = this.txtName.Text;
-            _bulProductType.addNewProductType(_newProductType);
+            if (this.CheckControlValidation())
+            {
+                _newProductType.PhanTramLoiNhuan = (float)(float.Parse(this.txtPercent.Text)/100);
+                _newProductType.TenLoaiSP = this.txtName.Text;
+                _bulProductType.addNewProductType(_newProductType);
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close();
         }
     }

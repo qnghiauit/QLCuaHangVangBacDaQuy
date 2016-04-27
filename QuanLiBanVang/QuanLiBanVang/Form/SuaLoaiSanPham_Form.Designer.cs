@@ -1,4 +1,4 @@
-﻿namespace QuanLiBanVang.Form
+﻿namespace QuanLiBanVang.Report
 {
     partial class SuaLoaiSanPham_Form
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtPercent = new DevExpress.XtraEditors.TextEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
@@ -37,8 +37,8 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).BeginInit();
+            this.groupControlInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPercent.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             this.SuspendLayout();
@@ -53,18 +53,18 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "SỬA LOẠI SẢN PHẨM";
             // 
-            // groupControl1
+            // groupControlInfo
             // 
-            this.groupControl1.Controls.Add(this.labelControl4);
-            this.groupControl1.Controls.Add(this.txtPercent);
-            this.groupControl1.Controls.Add(this.txtName);
-            this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Controls.Add(this.labelControl2);
-            this.groupControl1.Location = new System.Drawing.Point(12, 51);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(362, 111);
-            this.groupControl1.TabIndex = 1;
-            this.groupControl1.Text = "Thông tin loại sản phẩm";
+            this.groupControlInfo.Controls.Add(this.labelControl4);
+            this.groupControlInfo.Controls.Add(this.txtPercent);
+            this.groupControlInfo.Controls.Add(this.txtName);
+            this.groupControlInfo.Controls.Add(this.labelControl3);
+            this.groupControlInfo.Controls.Add(this.labelControl2);
+            this.groupControlInfo.Location = new System.Drawing.Point(12, 51);
+            this.groupControlInfo.Name = "groupControlInfo";
+            this.groupControlInfo.Size = new System.Drawing.Size(362, 111);
+            this.groupControlInfo.TabIndex = 1;
+            this.groupControlInfo.Text = "Thông tin loại sản phẩm";
             // 
             // labelControl4
             // 
@@ -135,14 +135,14 @@
             this.ClientSize = new System.Drawing.Size(399, 208);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.groupControlInfo);
             this.Controls.Add(this.labelControl1);
             this.Name = "SuaLoaiSanPham_Form";
             this.Text = "Sửa loại sản phẩm";
             this.Load += new System.EventHandler(this.SuaLoaiSanPham_Form_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
+            this.groupControlInfo.ResumeLayout(false);
+            this.groupControlInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPercent.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -153,7 +153,7 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.GroupControl groupControlInfo;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit txtPercent;
         private DevExpress.XtraEditors.TextEdit txtName;

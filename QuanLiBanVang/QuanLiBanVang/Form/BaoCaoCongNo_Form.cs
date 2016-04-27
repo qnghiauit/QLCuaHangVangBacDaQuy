@@ -11,42 +11,34 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting;
 using System.Diagnostics;
 
-namespace QuanLiBanVang.Report
+namespace QuanLiBanVang.Form
 {
-    public partial class BaoCaoTonKho_Form : DevExpress.XtraEditors.XtraForm
+    public partial class BaoCaoCongNo_Form : DevExpress.XtraEditors.XtraForm
     {
-        private Report.BaoCaoTonKho _templateReport;
- 
-
-        public BaoCaoTonKho_Form()
+        private Report.BaoCaoCongNo _templateReport;
+        public BaoCaoCongNo_Form()
         {
-            
             InitializeComponent();
-
-
         }
 
         private void btnDisplay_Click(object sender, EventArgs e)
         {
             _templateReport = null;
-            _templateReport = new BaoCaoTonKho();
-            _templateReport.FilterString = ((DateTime)this.dtpkDisplayDate.EditValue).Date.ToShortDateString();
+            if (rdoGroupSelection.SelectedIndex == 0)
+            {
+                _templateReport = new Report.BaoCaoCongNo();
+            }
+            else if (rdoGroupSelection.SelectedIndex == 1)
+            {
+                _templateReport = new Report.BaoCaoCongNo(1);
+            }
+            else
+            {
+                _templateReport = new Report.BaoCaoCongNo(2);
+            }
             this.dcmvReport.DocumentSource = null;
             this.dcmvReport.DocumentSource = _templateReport;
             _templateReport.CreateDocument();
-            
-        }
-
-        private void BaoCaoTonKho_Form_Load(object sender, EventArgs e)
-        {
-            this.dtpkDisplayDate.Properties.MaxValue = DateTime.Now;
-            this.dtpkDisplayDate.EditValue = DateTime.Now;
-
-            _templateReport = new Report.BaoCaoTonKho();
-            _templateReport.FilterString = "[NgayBC] = " + ((DateTime)(this.dtpkDisplayDate.EditValue)).ToShortDateString();
-            this.dcmvReport.DocumentSource = _templateReport;
-            _templateReport.CreateDocument();
-           
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -67,16 +59,14 @@ namespace QuanLiBanVang.Report
                 pdfOption.DocumentOptions.Application = "QuanLiBanVang";
                 pdfOption.DocumentOptions.Author = ExtendClass.UserAccess.Instance.GetStaffName;
                 pdfOption.DocumentOptions.Keywords = "Xtra Report";
-                pdfOption.DocumentOptions.Subject = "Bao cao ton kho";
-                pdfOption.DocumentOptions.Title = "Báo cáo tồn kho";
-                fileName += "\\" +pdfOption.DocumentOptions.Title +".pdf";
+                pdfOption.DocumentOptions.Subject = "Bao cao cong no";
+                pdfOption.DocumentOptions.Title = "Báo cáo công nợ";
+                fileName += "\\" + pdfOption.DocumentOptions.Title + ".pdf";
                 pdfOption.PageRange = "1";
                 _templateReport.ExportToPdf(fileName);
                 MessageBox.Show("Xuất file thành công!");
                 this.StartProcess(fileName);
             }
-
-
         }
         public void StartProcess(string path)
         {
@@ -91,5 +81,12 @@ namespace QuanLiBanVang.Report
             catch { }
         }
 
+        private void BaoCaoCongNo_Form_Load(object sender, EventArgs e)
+        {
+            _templateReport = new Report.BaoCaoCongNo();
+            this.dcmvReport.DocumentSource = _templateReport;
+            _templateReport.CreateDocument();
+        }
+        
     }
 }
