@@ -8,6 +8,7 @@ namespace DAL
 {
     public class DAL_LoaiSanPham
     {
+		// updated
         DTO.DBQLCuaHangVangBacDaQuyEntities _context;
         public DAL_LoaiSanPham()
         {
