@@ -65,6 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Baocao.cs">
+      <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="BAOCAOTHUCHI.cs">
       <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
     </Compile>

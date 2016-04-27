@@ -53,6 +53,7 @@ namespace DTO
         public virtual DbSet<QUYENHAN> QUYENHANs { get; set; }
         public virtual DbSet<THO> THOes { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
+        public virtual DbSet<Baocao> Baocaos { get; set; }
     
         public virtual int DEL_IN_CTPN(Nullable<int> masp, Nullable<int> sophieunhap)
         {

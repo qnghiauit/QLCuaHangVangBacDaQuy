@@ -63,6 +63,7 @@
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPMH_SP" />
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPN_SP" />
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_SP_LOAISP" />
+        <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.Baocao" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -5,12 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBQLCuaHangVangBacDaQuyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIBANVANG\DTO\DBQLCUAHANGVANGBACDAQUY.MDF.dbo.BANGTHAMSO' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="BANGTHAMSO">
-          <Property Name="TenThamSo" Type="varchar" MaxLength="50" />
-          <Property Name="GiaTri" Type="float" />
-        </EntityType>-->
         <EntityType Name="BAOCAOTHUCHI">
           <Key>
             <PropertyRef Name="NgayBC" />
@@ -283,6 +277,24 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <Property Name="TenTho" Type="nvarchar" MaxLength="70" />
           <Property Name="SDT" Type="varchar" MaxLength="20" />
           <Property Name="DiaChi" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIBANVANG\DTO\DBQLCUAHANGVANGBACDAQUY.MDF.dbo.Baocao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Baocao">
+          <Key>
+            <PropertyRef Name="NgayBC" />
+            <PropertyRef Name="TenSP" />
+            <PropertyRef Name="TonDau" />
+            <PropertyRef Name="SoLuongMua" />
+            <PropertyRef Name="SoLuongBan" />
+            <PropertyRef Name="TonCuoi" />
+          </Key>
+          <Property Name="NgayBC" Type="date" Nullable="false" />
+          <Property Name="TenSP" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TonDau" Type="int" Nullable="false" />
+          <Property Name="SoLuongMua" Type="int" Nullable="false" />
+          <Property Name="SoLuongBan" Type="int" Nullable="false" />
+          <Property Name="TonCuoi" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_BC_SP">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
@@ -712,6 +724,16 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
           <EntitySet Name="QUYENHAN" EntityType="Self.QUYENHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THO" EntityType="Self.THO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Baocao" EntityType="Self.Baocao" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Baocao].[NgayBC] AS [NgayBC], 
+    [Baocao].[TenSP] AS [TenSP], 
+    [Baocao].[TonDau] AS [TonDau], 
+    [Baocao].[SoLuongMua] AS [SoLuongMua], 
+    [Baocao].[SoLuongBan] AS [SoLuongBan], 
+    [Baocao].[TonCuoi] AS [TonCuoi]
+    FROM [dbo].[Baocao] AS [Baocao]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_BC_SP" Association="Self.FK_BC_SP">
             <End Role="SANPHAM" EntitySet="SANPHAM" />
             <End Role="BAOCAOTONKHO" EntitySet="BAOCAOTONKHO" />
@@ -1636,6 +1658,7 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
             <End Role="LOAISANPHAM" EntitySet="LOAISANPHAMs" />
             <End Role="SANPHAM" EntitySet="SANPHAMs" />
           </AssociationSet>
+          <EntitySet Name="Baocaos" EntityType="DBQLCuaHangVangBacDaQuyModel.Baocao" />
         </EntityContainer>
         <EntityType Name="SANPHAM">
           <Key>
@@ -1714,6 +1737,22 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Baocao">
+          <Key>
+            <PropertyRef Name="NgayBC" />
+            <PropertyRef Name="TenSP" />
+            <PropertyRef Name="TonDau" />
+            <PropertyRef Name="SoLuongMua" />
+            <PropertyRef Name="SoLuongBan" />
+            <PropertyRef Name="TonCuoi" />
+          </Key>
+          <Property Name="NgayBC" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TenSP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TonDau" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongMua" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongBan" Type="Int32" Nullable="false" />
+          <Property Name="TonCuoi" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2012,6 +2051,18 @@ warning 6013: The table/view 'C5A29895D140FF964BAD56DE094E8CB9_ THONG\DOING TASK
                 <ScalarProperty Name="MaLoaiSP" ColumnName="MaLoaiSP" />
                 <ScalarProperty Name="TenSP" ColumnName="TenSP" />
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Baocaos">
+            <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.Baocao">
+              <MappingFragment StoreEntitySet="Baocao">
+                <ScalarProperty Name="TonCuoi" ColumnName="TonCuoi" />
+                <ScalarProperty Name="SoLuongBan" ColumnName="SoLuongBan" />
+                <ScalarProperty Name="SoLuongMua" ColumnName="SoLuongMua" />
+                <ScalarProperty Name="TonDau" ColumnName="TonDau" />
+                <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+                <ScalarProperty Name="NgayBC" ColumnName="NgayBC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
