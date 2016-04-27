@@ -17,6 +17,10 @@ namespace BUL
         {
             return _dalPosition.getListPosition();
         }
+        public DTO.CHUCVU getPositionById(int id)
+        {
+            return _dalPosition.getPositionById(id);
+        }
 
     }
 }

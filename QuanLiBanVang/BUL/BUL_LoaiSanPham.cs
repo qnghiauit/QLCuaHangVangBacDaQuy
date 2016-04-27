@@ -17,7 +17,7 @@ namespace BUL
         {
             _dalProductType.addNewProductType(producttype);
         }
-        public List<DTO.LOAISANPHAM> getListProductType()
+        public List<DTO.LOAISANPHAM> getAllProductType()
         {
             return _dalProductType.getAllProductType();
         }
@@ -29,10 +29,17 @@ namespace BUL
         {
             _dalProductType.updateProductType(updateProductType);
         }
-
-        public List<DTO.SANPHAM> getAllProductsByProductTypeId(int productTypeId)
+        public string getProductTypeNameById(int id)
         {
-            return this._dalProductType.getAllProductsByProductTypeId(productTypeId);
+            return _dalProductType.getProductNameById(id);
+        }
+        public void deleteProductType(int id)
+        {
+            _dalProductType.deleteProduct(id);
+        }
+        public DTO.LOAISANPHAM getLastProduct()
+        {
+            return _dalProductType.getLastProductType();
         }
     }
 }

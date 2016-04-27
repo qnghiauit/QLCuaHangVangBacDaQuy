@@ -37,5 +37,9 @@ namespace BUL
         {
             return _dalStaff.getAllStaff();
         }
+        public DTO.NHANVIEN getStaffByUsername(string username)
+        {
+            return _dalStaff.getStaffByUsername(username);
+        }
     }
 }
