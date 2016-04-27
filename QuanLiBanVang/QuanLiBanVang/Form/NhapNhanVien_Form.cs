@@ -41,9 +41,12 @@ namespace QuanLiBanVang.Form
                 item.Value = i;
                 this.cboPosition.Properties.Items.Add(item);
             }
-
-            foreach(DTO.)
             
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

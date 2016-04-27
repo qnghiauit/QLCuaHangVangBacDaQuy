@@ -33,6 +33,16 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
@@ -57,16 +67,6 @@
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -122,6 +122,92 @@
             this.groupControl1.Size = new System.Drawing.Size(248, 111);
             this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "Tình hình tài chính";
+            // 
+            // labelControl20
+            // 
+            this.labelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl20.Location = new System.Drawing.Point(130, 33);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(70, 13);
+            this.labelControl20.TabIndex = 11;
+            this.labelControl20.Text = "1.000.000";
+            // 
+            // labelControl32
+            // 
+            this.labelControl32.Location = new System.Drawing.Point(206, 52);
+            this.labelControl32.Name = "labelControl32";
+            this.labelControl32.Size = new System.Drawing.Size(6, 13);
+            this.labelControl32.TabIndex = 10;
+            this.labelControl32.Text = "đ";
+            // 
+            // labelControl31
+            // 
+            this.labelControl31.Location = new System.Drawing.Point(206, 33);
+            this.labelControl31.Name = "labelControl31";
+            this.labelControl31.Size = new System.Drawing.Size(6, 13);
+            this.labelControl31.TabIndex = 9;
+            this.labelControl31.Text = "đ";
+            // 
+            // labelControl30
+            // 
+            this.labelControl30.Location = new System.Drawing.Point(206, 82);
+            this.labelControl30.Name = "labelControl30";
+            this.labelControl30.Size = new System.Drawing.Size(6, 13);
+            this.labelControl30.TabIndex = 8;
+            this.labelControl30.Text = "đ";
+            // 
+            // labelControl29
+            // 
+            this.labelControl29.Location = new System.Drawing.Point(127, 63);
+            this.labelControl29.Name = "labelControl29";
+            this.labelControl29.Size = new System.Drawing.Size(85, 13);
+            this.labelControl29.TabIndex = 7;
+            this.labelControl29.Text = "______________";
+            // 
+            // labelControl28
+            // 
+            this.labelControl28.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl28.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl28.Location = new System.Drawing.Point(140, 82);
+            this.labelControl28.Name = "labelControl28";
+            this.labelControl28.Size = new System.Drawing.Size(60, 13);
+            this.labelControl28.TabIndex = 6;
+            this.labelControl28.Text = "500000";
+            // 
+            // labelControl27
+            // 
+            this.labelControl27.Location = new System.Drawing.Point(69, 82);
+            this.labelControl27.Name = "labelControl27";
+            this.labelControl27.Size = new System.Drawing.Size(44, 13);
+            this.labelControl27.TabIndex = 5;
+            this.labelControl27.Text = "Danh thu";
+            // 
+            // labelControl26
+            // 
+            this.labelControl26.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl26.Location = new System.Drawing.Point(130, 52);
+            this.labelControl26.Name = "labelControl26";
+            this.labelControl26.Size = new System.Drawing.Size(70, 13);
+            this.labelControl26.TabIndex = 4;
+            this.labelControl26.Text = "1.000.000";
+            // 
+            // labelControl23
+            // 
+            this.labelControl23.Location = new System.Drawing.Point(69, 52);
+            this.labelControl23.Name = "labelControl23";
+            this.labelControl23.Size = new System.Drawing.Size(40, 13);
+            this.labelControl23.TabIndex = 3;
+            this.labelControl23.Text = "Tổng chi";
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Location = new System.Drawing.Point(69, 33);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(43, 13);
+            this.labelControl17.TabIndex = 1;
+            this.labelControl17.Text = "Tổng thu";
             // 
             // pictureEdit1
             // 
@@ -336,92 +422,6 @@
             this.labelControl22.TabIndex = 7;
             this.labelControl22.Text = "Số lượng mặt hàng";
             // 
-            // labelControl17
-            // 
-            this.labelControl17.Location = new System.Drawing.Point(69, 33);
-            this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(43, 13);
-            this.labelControl17.TabIndex = 1;
-            this.labelControl17.Text = "Tổng thu";
-            // 
-            // labelControl23
-            // 
-            this.labelControl23.Location = new System.Drawing.Point(69, 52);
-            this.labelControl23.Name = "labelControl23";
-            this.labelControl23.Size = new System.Drawing.Size(40, 13);
-            this.labelControl23.TabIndex = 3;
-            this.labelControl23.Text = "Tổng chi";
-            // 
-            // labelControl26
-            // 
-            this.labelControl26.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl26.Location = new System.Drawing.Point(130, 52);
-            this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Size = new System.Drawing.Size(70, 13);
-            this.labelControl26.TabIndex = 4;
-            this.labelControl26.Text = "1.000.000";
-            // 
-            // labelControl27
-            // 
-            this.labelControl27.Location = new System.Drawing.Point(69, 82);
-            this.labelControl27.Name = "labelControl27";
-            this.labelControl27.Size = new System.Drawing.Size(44, 13);
-            this.labelControl27.TabIndex = 5;
-            this.labelControl27.Text = "Danh thu";
-            // 
-            // labelControl28
-            // 
-            this.labelControl28.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl28.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl28.Location = new System.Drawing.Point(140, 82);
-            this.labelControl28.Name = "labelControl28";
-            this.labelControl28.Size = new System.Drawing.Size(60, 13);
-            this.labelControl28.TabIndex = 6;
-            this.labelControl28.Text = "500000";
-            // 
-            // labelControl29
-            // 
-            this.labelControl29.Location = new System.Drawing.Point(127, 63);
-            this.labelControl29.Name = "labelControl29";
-            this.labelControl29.Size = new System.Drawing.Size(85, 13);
-            this.labelControl29.TabIndex = 7;
-            this.labelControl29.Text = "______________";
-            // 
-            // labelControl30
-            // 
-            this.labelControl30.Location = new System.Drawing.Point(206, 82);
-            this.labelControl30.Name = "labelControl30";
-            this.labelControl30.Size = new System.Drawing.Size(6, 13);
-            this.labelControl30.TabIndex = 8;
-            this.labelControl30.Text = "đ";
-            // 
-            // labelControl31
-            // 
-            this.labelControl31.Location = new System.Drawing.Point(206, 33);
-            this.labelControl31.Name = "labelControl31";
-            this.labelControl31.Size = new System.Drawing.Size(6, 13);
-            this.labelControl31.TabIndex = 9;
-            this.labelControl31.Text = "đ";
-            // 
-            // labelControl32
-            // 
-            this.labelControl32.Location = new System.Drawing.Point(206, 52);
-            this.labelControl32.Name = "labelControl32";
-            this.labelControl32.Size = new System.Drawing.Size(6, 13);
-            this.labelControl32.TabIndex = 10;
-            this.labelControl32.Text = "đ";
-            // 
-            // labelControl20
-            // 
-            this.labelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl20.Location = new System.Drawing.Point(130, 33);
-            this.labelControl20.Name = "labelControl20";
-            this.labelControl20.Size = new System.Drawing.Size(70, 13);
-            this.labelControl20.TabIndex = 11;
-            this.labelControl20.Text = "1.000.000";
-            // 
             // chartControl1
             // 
             this.chartControl1.Location = new System.Drawing.Point(12, 161);
@@ -445,6 +445,7 @@
             this.Controls.Add(this.simpleButton1);
             this.Name = "TongQuan";
             this.Text = "Tổng quan";
+            this.Load += new System.EventHandler(this.TongQuan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();

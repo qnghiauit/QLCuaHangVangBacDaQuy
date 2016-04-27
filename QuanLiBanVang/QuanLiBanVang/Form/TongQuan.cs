@@ -17,5 +17,10 @@ namespace QuanLiBanVang
         {
             InitializeComponent();
         }
+
+        private void TongQuan_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
