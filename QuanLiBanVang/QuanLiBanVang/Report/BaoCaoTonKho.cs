@@ -4,7 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 
-namespace QuanLiBanVang.Form
+namespace QuanLiBanVang.Report
 {
     public partial class BaoCaoTonKho : DevExpress.XtraReports.UI.XtraReport
     {
