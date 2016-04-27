@@ -49,10 +49,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUL_ChucVu.cs" />
+    <Compile Include="BUL_CTPBH.cs" />
+    <Compile Include="BUL_CTPNH.cs" />
+    <Compile Include="BUL_KhachHang.cs" />
     <Compile Include="BUL_LoaiSanPham.cs" />
+    <Compile Include="BUL_NhaCungCap.cs" />
     <Compile Include="BUL_NhanVien.cs" />
     <Compile Include="BUL_NhomNguoiDung.cs" />
+    <Compile Include="BUL_PhieuBanHang.cs" />
+    <Compile Include="BUL_PhieuNhapHang.cs" />
     <Compile Include="BUL_SanPham.cs" />
+    <Compile Include="BUL_Tho.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

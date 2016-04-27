@@ -19,7 +19,7 @@ namespace BUL
         }
         public List<DTO.LOAISANPHAM> getListProductType()
         {
-            return _dalProductType.getListProductType();
+            return _dalProductType.getAllProductType();
         }
         public DTO.LOAISANPHAM getProductTypeById(int id)
         {
@@ -28,6 +28,11 @@ namespace BUL
         public void updateProductType(DTO.LOAISANPHAM updateProductType)
         {
             _dalProductType.updateProductType(updateProductType);
+        }
+
+        public List<DTO.SANPHAM> getAllProductsByProductTypeId(int productTypeId)
+        {
+            return this._dalProductType.getAllProductsByProductTypeId(productTypeId);
         }
     }
 }
