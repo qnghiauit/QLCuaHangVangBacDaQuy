@@ -17,7 +17,7 @@ namespace QuanLiBanVang.Form
 {
     public partial class UpdateImportDetailltem : DevExpress.XtraEditors.XtraForm
     {
-      
+      // updated
         public delegate void SendBackDataDelegate(ImportItemGridViewDataSource data); // delegate to transfer data back to parent form
         public SendBackDataDelegate sendBack;
         private int Stt;
