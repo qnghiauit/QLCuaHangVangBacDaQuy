@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BUL
-{
+{	// updated
     public class BUL_LoaiSanPham
     {
         private DAL.DAL_LoaiSanPham _dalProductType;
