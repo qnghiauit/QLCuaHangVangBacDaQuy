@@ -19,6 +19,10 @@ namespace DAL
                         select pos;
             return query.ToList();
         }
-
+        public DTO.CHUCVU getPositionById(int id)
+        {
+            return _context.CHUCVUs.Single(pos => pos.MaCV == id);
+        }
+        
     }
 }

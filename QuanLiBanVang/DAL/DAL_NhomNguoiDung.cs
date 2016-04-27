@@ -15,9 +15,15 @@ namespace DAL
         }
         public List<DTO.NHOMNGUOIDUNG> getAllGroupUser()
         {
-            var query = from groupuser in _context.NHOMNGUOIDUNGs
-                        select groupuser;
-            return query.ToList();
+            return _context.NHOMNGUOIDUNGs.ToList();
+        }
+        public DTO.NHOMNGUOIDUNG getGroupUserById(int id)
+        {
+            return _context.NHOMNGUOIDUNGs.Single(g => g.MaNhom == id);
+        }
+        public int getAccessLevelByGroupUserId(int id)
+        {
+            return _context.QUYENHANs.Single(per => per.NHOMNGUOIDUNGs.Any(g => g.MaNhom == id)).CapDoTruyCap;
         }
     }
 }
