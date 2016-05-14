@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Common.CommandTrees;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,8 +57,16 @@ namespace DAL
         public List<CTPDV> GetCTPDVGiaCong()
         {
             var query = from ctpdv in _context.CTPDVs
-                        where ctpdv.MaDV == 2select ctpdv;
+                        where ctpdv.MaDV == 2
+                        && (!_context.CTPGCs.Any(ct => ct.Id == ctpdv.Id)
+                        || (_context.CTPGCs.Any(ct => ct.Id == ctpdv.Id) && ctpdv.SoLuong > (_context.CTPGCs.Where(ct => ct.Id == ctpdv.Id).Sum(item => item.SoLuong))))
+                        select ctpdv;
             return query.ToList();
+        }
+
+        public int GetSoLuongById(int id)
+        {
+            return _context.CTPDVs.Single(ctpdv => ctpdv.Id == id).SoLuong;
         }
     }
 }
