@@ -43,5 +43,9 @@ namespace BUL
         {
             return _dalCTPDV.GetCTPDVGiaCong();
         }
+        public int GetSoLuongById(int id)
+        {
+            return _dalCTPDV.GetSoLuongById(id);
+        }
     }
 }
