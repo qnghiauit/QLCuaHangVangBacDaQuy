@@ -16,14 +16,12 @@ namespace DTO
     {
         public int SoPhieuGC { get; set; }
         public int Id { get; set; }
-        public int MaHTGC { get; set; }
         public int SoLuong { get; set; }
         public double TrongLuong { get; set; }
         public decimal TienCong { get; set; }
         public decimal ThanhTien { get; set; }
     
         public virtual CTPDV CTPDV { get; set; }
-        public virtual HINHTHUCGIACONG HINHTHUCGIACONG { get; set; }
         public virtual PHIEUGIACONG PHIEUGIACONG { get; set; }
     }
 }

@@ -31,6 +31,7 @@ namespace DTO
         public virtual DICHVU DICHVU { get; set; }
         public virtual LOAISANPHAM LOAISANPHAM { get; set; }
         public virtual PHIEUDICHVU PHIEUDICHVU { get; set; }
+        public virtual CTGIACONGSP CTGIACONGSP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTPGC> CTPGCs { get; set; }
     }

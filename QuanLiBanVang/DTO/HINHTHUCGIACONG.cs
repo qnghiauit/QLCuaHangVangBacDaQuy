@@ -14,16 +14,7 @@ namespace DTO
     
     public partial class HINHTHUCGIACONG
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HINHTHUCGIACONG()
-        {
-            this.CTPGCs = new HashSet<CTPGC>();
-        }
-    
         public int MaHTGC { get; set; }
         public string TenHTGC { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTPGC> CTPGCs { get; set; }
     }
 }
