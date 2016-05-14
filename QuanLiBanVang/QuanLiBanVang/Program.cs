@@ -14,13 +14,14 @@ namespace QuanLiBanVang
         [STAThread]
         static void Main()
         {
-            DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = "Office 2010 Blue";
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = "Seven";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // purpose to change language DateTimePicker to Vietnamese
             // Application.CurrentCulture = new System.Globalization.CultureInfo("zh-Hans");
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new NhapPhieuGiaCong_Form());}
+            Application.Run(new MainForm());
+        }
     }
 }
