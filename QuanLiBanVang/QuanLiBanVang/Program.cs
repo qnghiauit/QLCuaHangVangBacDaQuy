@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
-
 namespace QuanLiBanVang
 {
     static class Program
@@ -18,10 +17,10 @@ namespace QuanLiBanVang
             DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = "Office 2010 Blue";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            // purpose to change language DateTimePicker to Vietnamese
+            // Application.CurrentCulture = new System.Globalization.CultureInfo("zh-Hans");
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new QuanLiBanVang.Report.Login_Form());
-        }
+            Application.Run(new NhapPhieuGiaCong_Form());}
     }
 }

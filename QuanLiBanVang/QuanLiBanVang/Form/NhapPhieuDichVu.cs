@@ -36,7 +36,7 @@ namespace QuanLiBanVang
             AddDichVuToComboBoxEdit();
             AddLoaiSPToComboBoxEdit();
             CreateDataTable();
-            this.dateEditNgayDK.DateTime = DateTime.Now;
+            this.dateEditNgayDK.DateTime = DateTime.Today;
             LoadEmployeeName();
         }
         private void LoadEmployeeName()

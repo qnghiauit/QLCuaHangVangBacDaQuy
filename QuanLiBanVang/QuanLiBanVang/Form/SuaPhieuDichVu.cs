@@ -285,6 +285,12 @@ namespace QuanLiBanVang
 
         private void simpleButtonXoa_Click(object sender, EventArgs e)
         {
+            if (_dataTable.Rows.Count == 1)
+            {
+                MessageBox.Show("Mỗi phiếu dịch vụ phải có ít nhất 1 chi tiết phiếu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+                
             DataRow currentRow = gridViewCT_PDV.GetDataRow(gridViewCT_PDV.FocusedRowHandle);
             if (currentRow != null)
             {
