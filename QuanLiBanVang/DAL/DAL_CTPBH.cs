@@ -63,9 +63,29 @@ namespace DAL
             {
                 returnBindingList = this.databaseContext.CTPBHs.Local.ToBindingList();
             }
-            
+
             //return the list 
             return returnBindingList;
         }
+
+        public void updateSoLuong(int soPhieu, int maSp, int soLuongMoi)
+        {
+            CTPBH item = this.databaseContext.CTPBHs.Where(x => x.SoPhieuBH == soPhieu && x.MaSP == maSp).FirstOrDefault();
+            if (item != null)
+            {
+                item.SoLuong = soLuongMoi;
+            }
+            this.databaseContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+            this.databaseContext.SaveChanges();
+        }
+
+        public void delete(int soPhieu, int maSp)
+        {
+            CTPBH item = this.databaseContext.CTPBHs.Where(x => x.SoPhieuBH == soPhieu && x.MaSP == maSp).FirstOrDefault();
+           // this.databaseContext = new DBQLCuaHangVangBacDaQuyEntities();
+            this.databaseContext.CTPBHs.Remove(item);
+            this.databaseContext.SaveChanges();
+        }
+
     }
 }

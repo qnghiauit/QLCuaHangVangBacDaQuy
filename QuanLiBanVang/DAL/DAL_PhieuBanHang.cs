@@ -71,6 +71,44 @@ namespace DAL
             return this.databaseContext.PHIEUBANHANGs.Local.ToBindingList();
         }
 
-    
+
+        /// <summary>
+        /// Checks that if the receipt with id has and dept receipts or not ?
+        /// </summary>
+        /// <param name="id">id of the receipt to be checked</param>
+        /// <returns>true if the are any adept receipts of this receipt</returns>
+        public bool hasDebtReceipts(int id)
+        {
+            return this.databaseContext.PHIEUTHUTIENNOes.Any(x => x.SoPhieuBH == id);
+        }
+
+        /// <summary>
+        /// Find all receipts belongs to frequenter with specifed ID
+        /// </summary>
+        /// <param name="id">id of frequenter</param>
+        /// <returns>list receipts in BindingList</returns>
+        public BindingList<PHIEUBANHANG> findReceiptsByFrequenterId(int id)
+        {
+
+            var query = from receipts in this.databaseContext.PHIEUBANHANGs
+                        where receipts.MaKH == id
+                        select receipts;
+            return new BindingList<PHIEUBANHANG>(query.ToList());
+
+        }
+
+        /// <summary>
+        /// Find all dept receipts belongs to receipt with specifed ID
+        /// </summary>
+        /// <param name="id">id of receipts</param>
+        /// <returns>list dept receipts in BindingList</returns>
+        public BindingList<PHIEUTHUTIENNO> findDeptReceiptsByReceiptId(int id)
+        {
+            var query = from dept_receipts in this.databaseContext.PHIEUTHUTIENNOes
+                        where dept_receipts.SoPhieuBH == id
+                        select dept_receipts;
+            return new BindingList<PHIEUTHUTIENNO>(query.ToList());
+        }
+
     }
 }

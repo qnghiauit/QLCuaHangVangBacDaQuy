@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Data.Entity;
+using System.ComponentModel;
 
 namespace DAL
 {
@@ -22,6 +24,12 @@ namespace DAL
             _context.SaveChanges();
         }
 
+
+        public BindingList<KHACHHANG> getAllBindingListOfKhachHang()
+        {
+            this._context.KHACHHANGs.Load();
+            return this._context.KHACHHANGs.Local.ToBindingList();
+        }
         public List<KHACHHANG> GetAllKhachhangs()
         {
             return _context.KHACHHANGs.ToList();

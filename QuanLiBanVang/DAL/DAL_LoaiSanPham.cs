@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DTO;
 namespace DAL
 {
     public class DAL_LoaiSanPham
     {
-		// updated
+        // updated
         DTO.DBQLCuaHangVangBacDaQuyEntities _context;
         public DAL_LoaiSanPham()
         {
@@ -16,18 +16,29 @@ namespace DAL
         }
         public void addNewProductType(DTO.LOAISANPHAM productType)
         {
-            
+
             _context.LOAISANPHAMs.Add(productType);
             _context.SaveChanges();
         }
         public List<DTO.LOAISANPHAM> getAllProductType()
         {
-           
+
             List<DTO.LOAISANPHAM> _listProductType = new List<DTO.LOAISANPHAM>();
             var query = from productType in _context.LOAISANPHAMs
                         select productType;
             _listProductType = query.ToList();
             return _listProductType;
+        }
+
+
+        /// <summary>
+        /// get all products by product type id
+        /// </summary>
+        /// <param name="typeId"></param>
+        /// <returns> list desired products</returns>
+        public List<SANPHAM> getProductsByTypeId(int typeId)
+        {
+            return this._context.SANPHAMs.Where(x => x.MaLoaiSP == typeId).ToList();
         }
         public DTO.LOAISANPHAM getProductTypeById(int id)
         {
