@@ -37,7 +37,7 @@ namespace QuanLiBanVang.Form
             // load product types from database
             BUL_LoaiSanPham bulProductTypes = new BUL_LoaiSanPham();
             ContainerItem temporaryItem; // temporary saver
-            foreach (LOAISANPHAM item in bulProductTypes.getListProductType())
+            foreach (LOAISANPHAM item in bulProductTypes.getAllProductType())
             {
                 temporaryItem = new ContainerItem
                 {
@@ -55,7 +55,7 @@ namespace QuanLiBanVang.Form
             LOAISANPHAM type = (LOAISANPHAM)temporaryItem.Value;
             // set value for view components
             // BUL_SanPham bulProducts = new BUL_SanPham();
-            foreach (SANPHAM product in bulProductTypes.getAllProductsByProductTypeId(type.MaLoaiSP))
+            foreach (SANPHAM product in bulProductTypes.getProductsByTypeId(type.MaLoaiSP))
             {
                 temporaryItem = new ContainerItem
                 {
@@ -89,7 +89,7 @@ namespace QuanLiBanVang.Form
             // load all product coresponding to the selected product type
             ContainerItem selectedItem = (ContainerItem)this.comboBoxEditLoaiSP.SelectedItem;
             LOAISANPHAM selectedProductType = (LOAISANPHAM)selectedItem.Value; // hold value of the selected item
-            foreach (SANPHAM item in (new BUL_LoaiSanPham()).getAllProductsByProductTypeId(selectedProductType.MaLoaiSP))
+            foreach (SANPHAM item in (new BUL_LoaiSanPham()).getProductsByTypeId(selectedProductType.MaLoaiSP))
             {
                 this.comboBoxEditSP.Properties.Items.Add(new ContainerItem
                 {
