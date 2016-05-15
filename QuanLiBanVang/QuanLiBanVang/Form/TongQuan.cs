@@ -20,6 +20,8 @@ namespace QuanLiBanVang
 
         private void TongQuan_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dBQLCuaHangVangBacDaQuyDataSet.SANPHAM' table. You can move, or remove it, as needed.
+            this.sANPHAMTableAdapter.Fill(this.dBQLCuaHangVangBacDaQuyDataSet.SANPHAM);
 
         }
     }

@@ -160,4 +160,13 @@
         cAP05/cDWv8FWBFpvAme5xYAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="sANPHAMTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>463, 17</value>
+  </metadata>
+  <metadata name="dBQLCuaHangVangBacDaQuyDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="sANPHAMBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>275, 17</value>
+  </metadata>
 </root>

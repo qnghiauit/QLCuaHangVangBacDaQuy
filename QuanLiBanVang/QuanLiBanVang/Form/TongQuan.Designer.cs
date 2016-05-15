@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TongQuan));
+            DevExpress.XtraCharts.SimpleDiagram3D simpleDiagram3D2 = new DevExpress.XtraCharts.SimpleDiagram3D();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.Pie3DSeriesView pie3DSeriesView2 = new DevExpress.XtraCharts.Pie3DSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -67,7 +72,11 @@
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
-            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.chartControlProduct = new DevExpress.XtraCharts.ChartControl();
+            this.sANPHAMTableAdapter = new QuanLiBanVang.DBQLCuaHangVangBacDaQuyDataSetTableAdapters.SANPHAMTableAdapter();
+            this.dBQLCuaHangVangBacDaQuyDataSet = new QuanLiBanVang.DBQLCuaHangVangBacDaQuyDataSet();
+            this.sANPHAMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -77,7 +86,14 @@
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControlProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBQLCuaHangVangBacDaQuyDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sANPHAMBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
+            this.groupControl5.SuspendLayout();
             this.SuspendLayout();
             // 
             // simpleButton1
@@ -422,20 +438,56 @@
             this.labelControl22.TabIndex = 7;
             this.labelControl22.Text = "Số lượng mặt hàng";
             // 
-            // chartControl1
+            // chartControlProduct
             // 
-            this.chartControl1.Location = new System.Drawing.Point(12, 161);
-            this.chartControl1.Name = "chartControl1";
-            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chartControl1.Size = new System.Drawing.Size(865, 234);
-            this.chartControl1.TabIndex = 7;
+            this.chartControlProduct.DataAdapter = this.sANPHAMTableAdapter;
+            this.chartControlProduct.DataSource = this.dBQLCuaHangVangBacDaQuyDataSet;
+            simpleDiagram3D2.RotationMatrixSerializable = "1;0;0;0;0;0.5;-0.866025403784439;0;0;0.866025403784439;0.5;0;0;0;0;1";
+            this.chartControlProduct.Diagram = simpleDiagram3D2;
+            this.chartControlProduct.Location = new System.Drawing.Point(5, 23);
+            this.chartControlProduct.Name = "chartControlProduct";
+            series2.ArgumentDataMember = "SANPHAM.TenSP";
+            series2.LegendTextPattern = "{A}";
+            series2.Name = "SeriesProduct";
+            series2.ValueDataMembersSerializable = "SANPHAM.SoLuongTon";
+            series2.View = pie3DSeriesView2;
+            this.chartControlProduct.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series2};
+            this.chartControlProduct.Size = new System.Drawing.Size(855, 206);
+            this.chartControlProduct.TabIndex = 7;
+            chartTitle2.Text = "Tình hình kho";
+            this.chartControlProduct.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            chartTitle2});
+            // 
+            // sANPHAMTableAdapter
+            // 
+            this.sANPHAMTableAdapter.ClearBeforeFill = true;
+            // 
+            // dBQLCuaHangVangBacDaQuyDataSet
+            // 
+            this.dBQLCuaHangVangBacDaQuyDataSet.DataSetName = "DBQLCuaHangVangBacDaQuyDataSet";
+            this.dBQLCuaHangVangBacDaQuyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sANPHAMBindingSource
+            // 
+            this.sANPHAMBindingSource.DataMember = "SANPHAM";
+            this.sANPHAMBindingSource.DataSource = this.dBQLCuaHangVangBacDaQuyDataSet;
+            // 
+            // groupControl5
+            // 
+            this.groupControl5.Controls.Add(this.chartControlProduct);
+            this.groupControl5.Location = new System.Drawing.Point(12, 161);
+            this.groupControl5.Name = "groupControl5";
+            this.groupControl5.Size = new System.Drawing.Size(865, 234);
+            this.groupControl5.TabIndex = 7;
+            this.groupControl5.Text = "Biểu đồ tình hình kho";
             // 
             // TongQuan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(889, 407);
-            this.Controls.Add(this.chartControl1);
+            this.Controls.Add(this.groupControl5);
             this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
@@ -459,7 +511,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             this.groupControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControlProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBQLCuaHangVangBacDaQuyDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sANPHAMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
+            this.groupControl5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -505,6 +564,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl30;
         private DevExpress.XtraEditors.LabelControl labelControl29;
         private DevExpress.XtraEditors.LabelControl labelControl28;
-        private DevExpress.XtraCharts.ChartControl chartControl1;
+        private DevExpress.XtraCharts.ChartControl chartControlProduct;
+        private DBQLCuaHangVangBacDaQuyDataSetTableAdapters.SANPHAMTableAdapter sANPHAMTableAdapter;
+        private DBQLCuaHangVangBacDaQuyDataSet dBQLCuaHangVangBacDaQuyDataSet;
+        private System.Windows.Forms.BindingSource sANPHAMBindingSource;
+        private DevExpress.XtraEditors.GroupControl groupControl5;
     }
 }
