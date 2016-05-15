@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
+using System.Data.Entity;
 using System.Threading.Tasks;
 using DAL;
 using DTO;
@@ -19,6 +21,10 @@ namespace BUL
         public void AddNewClient(KHACHHANG khachhang)
         {
             dalKhachHang.AddNewClient(khachhang);
+        }
+        public BindingList<KHACHHANG> getAllBindingListOfKhachHang()
+        {
+            return this.dalKhachHang.getAllBindingListOfKhachHang();
         }
 
         public List<KHACHHANG> GetAllKhachhangs()

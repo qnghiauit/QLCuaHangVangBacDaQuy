@@ -41,5 +41,15 @@ namespace BUL
             return this.dalDetails.toBindingList(creterion);
         }
 
+        public void updateSoLuong(int soPhieu, int maSp, int soLuongMoi)
+        {
+            this.dalDetails.updateSoLuong(soPhieu, maSp, soLuongMoi);
+        }
+
+        public void delete(int soPhieu, int maSp)
+        {
+            this.dalDetails.delete(soPhieu, maSp);
+        }
+
     }
 }

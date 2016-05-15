@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DTO;
 using System.Threading.Tasks;
 
 namespace BUL
@@ -25,6 +26,12 @@ namespace BUL
         {
             return _dalProductType.getProductTypeById(id);
         }
+
+        public List<SANPHAM> getProductsByTypeId(int typeId)
+        {
+            return this._dalProductType.getProductsByTypeId(typeId);
+        }
+
         public void updateProductType(DTO.LOAISANPHAM updateProductType)
         {
             _dalProductType.updateProductType(updateProductType);

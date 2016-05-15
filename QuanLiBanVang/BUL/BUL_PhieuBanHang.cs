@@ -49,5 +49,25 @@ namespace BUL
         {
             return this.dalPhieuBanHang.toBindingList();
         }
+
+        /// <summary>
+        /// Checks that if the receipt with id has and dept receipts or not ?
+        /// </summary>
+        /// <param name="id">id of the receipt to be checked</param>
+        /// <returns>true if the are any adept receipts of this receipt</returns>
+        public bool hasDebtReceipts(int id)
+        {
+            return this.dalPhieuBanHang.hasDebtReceipts(id);
+        }
+
+        public BindingList<PHIEUBANHANG> findReceiptsByFrequenterId(int id)
+        {
+            return this.dalPhieuBanHang.findReceiptsByFrequenterId(id);
+        }
+
+        public BindingList<PHIEUTHUTIENNO> findDeptReceiptsByReceiptId(int id)
+        {
+            return this.dalPhieuBanHang.findDeptReceiptsByReceiptId(id);
+        }
     }
 }
