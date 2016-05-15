@@ -29,6 +29,8 @@ namespace QuanLiBanVang
         int soPhieu;
         private ObservableCollection<DetailGridViewDataSource> gridViewDataSource = new ObservableCollection<DetailGridViewDataSource>(); // bind data to data gridview
         ActionType actionType; // identify what is form's action
+        private KHACHHANG frequenter;
+
         public PhieuBanHang()
         {
             InitializeComponent();
@@ -45,11 +47,17 @@ namespace QuanLiBanVang
             this.actionType = actionType;
             if (this.actionType == ActionType.ACTION_CREATE_NEW) // incase user want to create new receipt 
             {
+                this.checkEditKhachQuen.Checked = false;
+             //   this.simpleButtonUpdate.Enabled = false;
+              //  this.simpleButtonUpdate.Visible = false;
+                this.textEditMaKhachHang.Visible = false;
+                this.textEditSoPhieuBH.Visible = false;
+                this.simpleButtonTimKhachQuen.Visible = false;
                 this.comboBoxEditMaLoaiSp.Properties.Items.Clear();
                 this.comboBoxEditMaSp.Properties.Items.Clear();
                 // load all product types and product into combobox
                 BUL_LoaiSanPham bulProduct = new BUL_LoaiSanPham();
-                foreach (LOAISANPHAM item in bulProduct.getListProductType())
+                foreach (LOAISANPHAM item in bulProduct.getAllProductType())
                 {
                     this.comboBoxEditMaLoaiSp.Properties.Items.Add(new ContainerItem
                     {
@@ -57,9 +65,9 @@ namespace QuanLiBanVang
                         Value = item
                     });
                 }
-                this.soPhieu = new BUL_PhieuBanHang().numberOfLastRecept() + 1;
+                //this.soPhieu = new BUL_PhieuBanHang().numberOfLastRecept() + 1;
                 // auto index SoPhieuBanHang
-                this.textEditSoPhieuBH.Text = this.soPhieu.ToString();
+                //this.textEditSoPhieuBH.Text = this.soPhieu.ToString();
                 // datasource will reference to ObservableCollection : gridViewDataSource
                 this.gridControl1.DataSource = this.gridViewDataSource;
             }
@@ -68,12 +76,27 @@ namespace QuanLiBanVang
                 // start to load data
                 this.viewExistedDetail(data);
             }
+            //else if (this.actionType == ActionType.ACTION_UPDATE) // incase user only want to show existed receipt from database
+            //{
+            //    // start to load data
+            //    this.viewAndUpdateExistedDetail(data);
+            //}
 
 
         }
         private void PhieuBanHang_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void onReceiveFrequenter(KHACHHANG frequenter)
+        {
+            this.frequenter = frequenter;
+            // set value for view
+            this.textEditMaKhachHang.Text = this.frequenter.MaKH.ToString();
+            this.textEditTenKhachHang.Text = this.frequenter.TenKH;
+            this.textEditDiaChiKhachHang.Text = this.frequenter.DiaChi;
         }
 
         /// <summary>
@@ -159,8 +182,8 @@ namespace QuanLiBanVang
         private bool checkGerneralInformation()
         {
             // no empty field
-            if (!string.IsNullOrEmpty(this.textEditMaKhachHang.Text)
-                && !string.IsNullOrEmpty(this.textEditDiaChiKhachHang.Text)
+            if (//!string.IsNullOrEmpty(this.textEditMaKhachHang.Text)&&
+                 !string.IsNullOrEmpty(this.textEditDiaChiKhachHang.Text)
             && !string.IsNullOrEmpty(this.textEditTenKhachHang.Text))
             {
                 // check valid date
@@ -193,7 +216,7 @@ namespace QuanLiBanVang
             // load all product coresponding to the selected product type
             ContainerItem selectedItem = (ContainerItem)this.comboBoxEditMaLoaiSp.SelectedItem;
             LOAISANPHAM selectedProductType = (LOAISANPHAM)selectedItem.Value; // hold value of the selected item
-            foreach (SANPHAM item in (new BUL_LoaiSanPham()).getAllProductsByProductTypeId(selectedProductType.MaLoaiSP))
+            foreach (SANPHAM item in (new BUL_LoaiSanPham()).getProductsByTypeId(selectedProductType.MaLoaiSP))
             {
                 // make sure that product is available to be sold
                 if (item.TinhTrang == true)
@@ -260,10 +283,15 @@ namespace QuanLiBanVang
             {
                 NgayBan = this.dateTimePickerNgayBan.Value,
                 NgayTra = this.dateTimePickerNgayThanhToan.Value,
-                MaNV = 15, // to be update code
-                MaKH = 1, // to be update code
+               // MaNV = UserAccess.Instance.GetUserId, // to be update code
+                // MaKH = 1, // to be update code
                 TongTien = this.tongTien
             };
+            if (this.frequenter != null)
+            {
+                newReceipt.MaKH = this.frequenter.MaKH;
+                newReceipt.KHACHHANG = this.frequenter;
+            }
             // add elements into list
             foreach (DetailGridViewDataSource item in this.gridViewDataSource)
             {
@@ -379,21 +407,24 @@ namespace QuanLiBanVang
             // general information
             this.textEditSoPhieuBH.Text = data.SoPhieuBH.ToString();
             this.textEditSoPhieuBH.Enabled = false;
-            this.textEditNhanVien.Text = data.NHANVIEN.HoTen;
-            this.textEditNhanVien.Enabled = false;
+           // this.textEditNhanVien.Text = data.NHANVIEN.HoTen;
+           // this.textEditNhanVien.Enabled = false;
             this.dateTimePickerNgayBan.Value = data.NgayBan;
             this.dateTimePickerNgayBan.Enabled = false;
             this.dateTimePickerNgayThanhToan.Value = data.NgayTra;
             this.dateTimePickerNgayThanhToan.Enabled = false;
+            this.textEditMaKhachHang.Visible = true;
             this.textEditMaKhachHang.Enabled = false;
+            this.textEditMaKhachHang.Text = data.MaKH.ToString();
             this.textEditTenKhachHang.Enabled = false;
             this.textEditDiaChiKhachHang.Enabled = false;
-
+            this.textEditTongTien.Text = data.TongTien.ToString();
+            this.simpleButtonTimKhachQuen.Enabled = false;
 
             // show customer's information if the customer is frequent
             if (data.MaKH != null)
             {
-                this.textEditMaKhachHang.Text = data.KHACHHANG.MaKH.ToString();
+                // this.textEditMaKhachHang.Text = data.KHACHHANG.MaKH.ToString();
                 this.textEditTenKhachHang.Text = data.KHACHHANG.TenKH;
                 this.textEditDiaChiKhachHang.Text = data.KHACHHANG.DiaChi;
             }
@@ -401,7 +432,12 @@ namespace QuanLiBanVang
             // disable and visiable some view components
             this.simpleButtonThem.Enabled = false;
             this.simpleButtonThem.Visible = false;
+
             this.simpleButtonLuu.Enabled = false;
+
+          //  this.simpleButtonUpdate.Enabled = false;
+           // this.simpleButtonUpdate.Visible = false;
+
             this.simpleButtonLuu.Visible = false;
             this.comboBoxEditMaLoaiSp.Visible = false;
             this.comboBoxEditMaSp.Visible = false;
@@ -415,10 +451,109 @@ namespace QuanLiBanVang
             this.gridControl1.DataSource = listOfDetails;
         }
 
+
+        //private void viewAndUpdateExistedDetail(PHIEUBANHANG data)
+        //{
+
+        //    // general information
+        //    this.textEditSoPhieuBH.Text = data.SoPhieuBH.ToString();
+        //    this.textEditSoPhieuBH.Enabled = false;
+        //    this.textEditNhanVien.Text = data.NHANVIEN.HoTen;
+        //    this.textEditNhanVien.Enabled = false;
+        //    this.dateTimePickerNgayBan.Value = data.NgayBan;
+        //    this.dateTimePickerNgayBan.Enabled = false;
+        //    this.dateTimePickerNgayThanhToan.Value = data.NgayTra;
+        //    this.dateTimePickerNgayThanhToan.Enabled = false;
+        //    this.textEditMaKhachHang.Visible = true;
+        //    this.textEditMaKhachHang.Enabled = false;
+        //    this.textEditMaKhachHang.Text = data.MaKH.ToString();
+        //    this.textEditTenKhachHang.Enabled = false;
+        //    this.textEditDiaChiKhachHang.Enabled = false;
+
+
+        //    // show customer's information if the customer is frequent
+        //    if (data.MaKH != null)
+        //    {
+        //        // this.textEditMaKhachHang.Text = data.KHACHHANG.MaKH.ToString();
+        //        this.textEditTenKhachHang.Text = data.KHACHHANG.TenKH;
+        //        this.textEditDiaChiKhachHang.Text = data.KHACHHANG.DiaChi;
+        //    }
+        //    //
+        //    // disable and visiable some view components
+        //    this.simpleButtonThem.Enabled = false;
+        //    this.simpleButtonThem.Visible = false;
+
+        //    this.simpleButtonUpdate.Visible = true;
+        //    this.simpleButtonUpdate.Enabled = true;
+
+        //    this.simpleButtonLuu.Enabled = false;
+        //    this.simpleButtonLuu.Visible = false;
+        //    this.comboBoxEditMaLoaiSp.Visible = false;
+        //    this.comboBoxEditMaSp.Visible = false;
+        //    this.textEditSoLuong.Visible = false;
+        //    this.textEditDonGia.Visible = false;
+        //    // disable context menustrip
+        //    this.contextMenuStripUpdateGridData.Enabled = true;
+        //    // get bindinglist
+
+        //    BindingList<CTPBH> listOfDetails = new BUL_CTPBH().toBindingList(data);
+        //    ObservableCollection<DetailGridViewDataSource> itemsGrid = new ObservableCollection<DetailGridViewDataSource>();
+        //    int index = 0;
+        //    foreach (CTPBH item in listOfDetails)
+        //    {
+        //        itemsGrid.Add(new DetailGridViewDataSource
+        //        {
+        //            Stt = index,
+        //            MaSP = item.MaSP,
+        //            MaLoaiSp = item.SANPHAM.MaLoaiSP,
+        //            LoaiSP = item.SANPHAM.LOAISANPHAM.TenLoaiSP,
+        //            SoLuong = item.SoLuong,
+        //            ThanhTien = item.ThanhTien,
+        //            GiaBan = item.GiaBan,
+        //        });
+        //        index++;
+        //    }
+        //    this.gridControl1.DataSource = itemsGrid;
+        //}
+
         private void groupControl2_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+        private void checkEdit1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkEditKhachQuen.Checked)
+            {
+                this.simpleButtonTimKhachQuen.Visible = true;
+                this.simpleButtonTimKhachQuen.Enabled = true;
+            }
+            else
+            {
+                this.simpleButtonTimKhachQuen.Enabled = false;
+                this.simpleButtonTimKhachQuen.Visible = false;
+                this.frequenter = null;
+            }
+        }
+
+        private void simpleButtonTimKhachQuen_Click(object sender, EventArgs e)
+        {
+            DanhSachKhachQuen frequenterListForm = new DanhSachKhachQuen();
+            frequenterListForm.frequenterSender = new DanhSachKhachQuen.FrequenterInformationSendBack(this.onReceiveFrequenter);
+            frequenterListForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void simpleButtonLapPhieuNo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
         ////------------------------------//
         ////MO TA: Ham co chuc nang them mot san pham do nguoi

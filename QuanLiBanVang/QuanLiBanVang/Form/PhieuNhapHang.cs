@@ -42,7 +42,7 @@ namespace QuanLiBanVang.Form
             {
                 // see detail from existed PHIEUNHAPHANG
                 case ActionType.ACTION_VIEW:
-                    this.viewActionType(data);
+                    this.showExistingImportDetail(data);
                     break;
                 // create new PHIEUNHAPHANG
                 case ActionType.ACTION_CREATE_NEW:
@@ -65,7 +65,7 @@ namespace QuanLiBanVang.Form
                         };
                         this.comboBoxEditNhaCungCap.Properties.Items.Add(item);
                     }
-                    foreach (LOAISANPHAM productType in new BUL_LoaiSanPham().getListProductType())
+                    foreach (LOAISANPHAM productType in new BUL_LoaiSanPham().getAllProductType())
                     {
                         item = new ContainerItem
                         {
@@ -99,7 +99,7 @@ namespace QuanLiBanVang.Form
             // load all product coresponding to the selected product type
             ContainerItem selectedItem = (ContainerItem)this.comboBoxEditLoaiSp.SelectedItem;
             LOAISANPHAM selectedProductType = (LOAISANPHAM)selectedItem.Value; // hold value of the selected item
-            foreach (SANPHAM item in (new BUL_LoaiSanPham()).getAllProductsByProductTypeId(selectedProductType.MaLoaiSP))
+            foreach (SANPHAM item in (new BUL_LoaiSanPham()).getProductsByTypeId(selectedProductType.MaLoaiSP))
             {
                 this.comboBoxEditSP.Properties.Items.Add(new ContainerItem
                 {
@@ -126,7 +126,7 @@ namespace QuanLiBanVang.Form
                 {
                     MaNCC = provider.MaNCC,
                     NgayNhap = this.dateTimePicker1.Value,
-                    MaNV = 15, // test
+                   // MaNV = UserAccess.Instance.GetUserId, // test
                     TongTien = this.total,
                     NHACUNGCAP = provider,
                     // ignore some fields
@@ -291,7 +291,7 @@ namespace QuanLiBanVang.Form
         /// show detail of an existed PHIEUNHAPHANG
         /// </summary>
         /// <param name="data"> desired PHIEUBANHANG to be shown detal</param>
-        private void viewActionType(PHIEUNHAPHANG data)
+        private void showExistingImportDetail(PHIEUNHAPHANG data)
         {
             // general information
             this.textEditSoPhieuNhap.Text = data.SoPhieuNhap.ToString();
