@@ -38,5 +38,9 @@ namespace BUL
         {
             return this._dalSanPham.updateProduct(updateProduct);
         }
+        public List<DTO.SANPHAM> getProductByProductType(int producttype)
+        {
+            return _dalSanPham.getProductByProductType(producttype);
+        }
     }
 }
