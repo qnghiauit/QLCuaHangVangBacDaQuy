@@ -17,5 +17,8 @@ namespace QuanLiBanVang.Model
         public static readonly string OVER_LIMITATION_FOR_IMPORTING = "Quá số lượng tối đa cho phép !";
         public static readonly string NO_DETALI_FOR_RECEIPT = "Không có chi tiết nào cho phiếu ?";
         public static readonly string EXISTED_PROVIDER_IN_DATABASE = "Nhà cung cấp này đã tồn tại trong dữ liệu";
+        public static readonly string NOT_FREQUENTER_FOR_OWING = "Chỉ khách quen mới cho nợ";
+        public static readonly string NOT_QUALIFIED_TO_OWE = "Số tiền trả trước không đủ để được nợ ! (Không được nhỏ hơn 60% tổng tiền phiếu bán)";
+        public static readonly string EXCEEDS_TOTAL = "Số tiền trả trước vượt quá tổng tiền";
     }
 }

@@ -13,6 +13,7 @@ namespace QuanLiBanVang.Model
     public enum ActionType
     {
         ACTION_CREATE_NEW = 1, // user wants to save new item for their purpose
-        ACTION_VIEW = 2  // user wants to see the detail of an item
+        ACTION_VIEW = 2,  // user wants to see the detail of an item
+        ACTION_UPDATE = 3
     }
 }
