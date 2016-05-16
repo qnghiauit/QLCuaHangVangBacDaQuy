@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DBQLCuaHangVangBacDaQuyConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DBQLCuaHangVangBacDaQuyConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.QuanLiBanVang.Properties.Settings.GlobalReference.Default.DBQLCuaHangVangBacDaQuyConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DBQLCuaHangVangBacDaQuyConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="DBQLCuaHangVangBacDaQuyConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.QuanLiBanVang.Properties.Settings.GlobalReference.Default.DBQLCuaHangVangBacDaQuyConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SANPHAMTableAdapter" GeneratorDataComponentClassName="SANPHAMTableAdapter" Name="SANPHAM" UserDataComponentName="SANPHAMTableAdapter">
@@ -32,7 +32,7 @@
   <xs:element name="DBQLCuaHangVangBacDaQuyDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DBQLCuaHangVangBacDaQuyDataSet" msprop:Generator_UserDSName="DBQLCuaHangVangBacDaQuyDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="SANPHAM" msprop:Generator_TableClassName="SANPHAMDataTable" msprop:Generator_TableVarName="tableSANPHAM" msprop:Generator_TablePropName="SANPHAM" msprop:Generator_RowDeletingName="SANPHAMRowDeleting" msprop:Generator_RowChangingName="SANPHAMRowChanging" msprop:Generator_RowEvHandlerName="SANPHAMRowChangeEventHandler" msprop:Generator_RowDeletedName="SANPHAMRowDeleted" msprop:Generator_UserTableName="SANPHAM" msprop:Generator_RowChangedName="SANPHAMRowChanged" msprop:Generator_RowEvArgName="SANPHAMRowChangeEvent" msprop:Generator_RowClassName="SANPHAMRow">
+        <xs:element name="SANPHAM" msprop:Generator_TableClassName="SANPHAMDataTable" msprop:Generator_TableVarName="tableSANPHAM" msprop:Generator_RowChangedName="SANPHAMRowChanged" msprop:Generator_TablePropName="SANPHAM" msprop:Generator_RowDeletingName="SANPHAMRowDeleting" msprop:Generator_RowChangingName="SANPHAMRowChanging" msprop:Generator_RowEvHandlerName="SANPHAMRowChangeEventHandler" msprop:Generator_RowDeletedName="SANPHAMRowDeleted" msprop:Generator_RowClassName="SANPHAMRow" msprop:Generator_UserTableName="SANPHAM" msprop:Generator_RowEvArgName="SANPHAMRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TenSP" msprop:Generator_ColumnVarNameInTable="columnTenSP" msprop:Generator_ColumnPropNameInRow="TenSP" msprop:Generator_ColumnPropNameInTable="TenSPColumn" msprop:Generator_UserColumnName="TenSP">

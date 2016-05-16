@@ -63,7 +63,6 @@
     <Compile Include="BUL_NhaCungCap.cs" />
     <Compile Include="BUL_NhanVien.cs" />
     <Compile Include="BUL_NhomNguoiDung.cs" />
-    <Compile Include="BUL_Phi.cs" />
     <Compile Include="BUL_PhieuBanHang.cs" />
     <Compile Include="BUL_PhieuChi.cs" />
     <Compile Include="BUL_PhieuDichVu.cs" />

@@ -171,13 +171,6 @@
           <Property Name="MaNhom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenNhom" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="PHI">
-          <Key>
-            <PropertyRef Name="MaPhi" />
-          </Key>
-          <Property Name="MaPhi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenPhi" Type="nvarchar" MaxLength="70" Nullable="false" />
-        </EntityType>
         <EntityType Name="PHIEUBANHANG">
           <Key>
             <PropertyRef Name="SoPhieuBH" />
@@ -195,7 +188,7 @@
           </Key>
           <Property Name="SoPC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NgayLap" Type="date" Nullable="false" />
-          <Property Name="MaPhi" Type="int" Nullable="false" />
+          <Property Name="NoiDungChi" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="SoTien" Type="money" Nullable="false" />
           <Property Name="MaNV" Type="int" Nullable="false" />
         </EntityType>
@@ -284,7 +277,7 @@
           <Property Name="DiaChi" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIBANVANG\DTO\DBQLCUAHANGVANGBACDAQUY.MDF.dbo.Baocao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOING TASK\PROJECT MOI NHAT\TRUNK\QUANLIBANVANG\DTO\DBQLCUAHANGVANGBACDAQUY.MDF.dbo.Baocao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Baocao">
           <Key>
             <PropertyRef Name="NgayBC" />
@@ -601,18 +594,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PHIEUCHI_PHI">
-          <End Role="PHI" Type="Self.PHI" Multiplicity="1" />
-          <End Role="PHIEUCHI" Type="Self.PHIEUCHI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PHI">
-              <PropertyRef Name="MaPhi" />
-            </Principal>
-            <Dependent Role="PHIEUCHI">
-              <PropertyRef Name="MaPhi" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PMH_KH">
           <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
           <End Role="PHIEUMUAHANG" Type="Self.PHIEUMUAHANG" Multiplicity="*" />
@@ -697,6 +678,16 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="CalculateCostInDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="CalculateIncomeInDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="CalculateNumberOfIncomeBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="CalculateStoreStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="DEL_IN_CTPN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="masp" Type="int" Mode="In" />
           <Parameter Name="sophieunhap" Type="int" Mode="In" />
@@ -719,7 +710,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHOM_QUYENHAN" EntityType="Self.NHOM_QUYENHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHOMNGUOIDUNG" EntityType="Self.NHOMNGUOIDUNG" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PHI" EntityType="Self.PHI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIEUBANHANG" EntityType="Self.PHIEUBANHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIEUCHI" EntityType="Self.PHIEUCHI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIEUDICHVU" EntityType="Self.PHIEUDICHVU" Schema="dbo" store:Type="Tables" />
@@ -838,10 +828,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           </AssociationSet>
           <AssociationSet Name="FK_PHIEUCHI_NV" Association="Self.FK_PHIEUCHI_NV">
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
-            <End Role="PHIEUCHI" EntitySet="PHIEUCHI" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PHIEUCHI_PHI" Association="Self.FK_PHIEUCHI_PHI">
-            <End Role="PHI" EntitySet="PHI" />
             <End Role="PHIEUCHI" EntitySet="PHIEUCHI" />
           </AssociationSet>
           <AssociationSet Name="FK_PMH_KH" Association="Self.FK_PMH_KH">
@@ -1034,11 +1020,11 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <NavigationProperty Name="NHOMNGUOIDUNG" Relationship="Self.FK_NV_NHOMNGUOIDUNG" FromRole="NHANVIEN" ToRole="NHOMNGUOIDUNG" />
           <NavigationProperty Name="PHIEUBANHANGs" Relationship="Self.FK_PBH_NV" FromRole="NHANVIEN" ToRole="PHIEUBANHANG" />
           <NavigationProperty Name="PHIEUDICHVUs" Relationship="Self.FK_PDV_NV" FromRole="NHANVIEN" ToRole="PHIEUDICHVU" />
-          <NavigationProperty Name="PHIEUCHIs" Relationship="Self.FK_PHIEUCHI_NV" FromRole="NHANVIEN" ToRole="PHIEUCHI" />
           <NavigationProperty Name="PHIEUMUAHANGs" Relationship="Self.FK_PMH_NV" FromRole="NHANVIEN" ToRole="PHIEUMUAHANG" />
           <NavigationProperty Name="PHIEUNHAPHANGs" Relationship="Self.FK_PNH_NV" FromRole="NHANVIEN" ToRole="PHIEUNHAPHANG" />
           <NavigationProperty Name="PHIEUTHUTIENNOes" Relationship="Self.FK_PTTN_NV" FromRole="NHANVIEN" ToRole="PHIEUTHUTIENNO" />
           <NavigationProperty Name="PHIEUGIACONGs" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_PGC_NV" FromRole="NHANVIEN" ToRole="PHIEUGIACONG" />
+          <NavigationProperty Name="PHIEUCHIs" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_PHIEUCHI_NV" FromRole="NHANVIEN" ToRole="PHIEUCHI" />
         </EntityType>
         <EntityType Name="NHOMNGUOIDUNG">
           <Key>
@@ -1048,14 +1034,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <Property Name="TenNhom" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="NHANVIENs" Relationship="Self.FK_NV_NHOMNGUOIDUNG" FromRole="NHOMNGUOIDUNG" ToRole="NHANVIEN" />
           <NavigationProperty Name="QUYENHANs" Relationship="Self.NHOM_QUYENHAN" FromRole="NHOMNGUOIDUNG" ToRole="QUYENHAN" />
-        </EntityType>
-        <EntityType Name="PHI">
-          <Key>
-            <PropertyRef Name="MaPhi" />
-          </Key>
-          <Property Name="MaPhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenPhi" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="PHIEUCHIs" Relationship="Self.FK_PHIEUCHI_PHI" FromRole="PHI" ToRole="PHIEUCHI" />
         </EntityType>
         <EntityType Name="PHIEUBANHANG">
           <Key>
@@ -1071,18 +1049,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_PBH_KH" FromRole="PHIEUBANHANG" ToRole="KHACHHANG" />
           <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_PBH_NV" FromRole="PHIEUBANHANG" ToRole="NHANVIEN" />
           <NavigationProperty Name="PHIEUTHUTIENNOes" Relationship="Self.FK_PTTN_PBH" FromRole="PHIEUBANHANG" ToRole="PHIEUTHUTIENNO" />
-        </EntityType>
-        <EntityType Name="PHIEUCHI">
-          <Key>
-            <PropertyRef Name="SoPC" />
-          </Key>
-          <Property Name="SoPC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="MaPhi" Type="Int32" Nullable="false" />
-          <Property Name="SoTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="MaNV" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_PHIEUCHI_NV" FromRole="PHIEUCHI" ToRole="NHANVIEN" />
-          <NavigationProperty Name="PHI" Relationship="Self.FK_PHIEUCHI_PHI" FromRole="PHIEUCHI" ToRole="PHI" />
         </EntityType>
         <EntityType Name="PHIEUDICHVU">
           <Key>
@@ -1338,18 +1304,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PHIEUCHI_NV">
-          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
-          <End Role="PHIEUCHI" Type="Self.PHIEUCHI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NHANVIEN">
-              <PropertyRef Name="MaNV" />
-            </Principal>
-            <Dependent Role="PHIEUCHI">
-              <PropertyRef Name="MaNV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PMH_NV">
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
           <End Role="PHIEUMUAHANG" Type="Self.PHIEUMUAHANG" Multiplicity="*" />
@@ -1386,18 +1340,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PHIEUCHI_PHI">
-          <End Role="PHI" Type="Self.PHI" Multiplicity="1" />
-          <End Role="PHIEUCHI" Type="Self.PHIEUCHI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PHI">
-              <PropertyRef Name="MaPhi" />
-            </Principal>
-            <Dependent Role="PHIEUCHI">
-              <PropertyRef Name="MaPhi" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PTTN_PBH">
           <End Role="PHIEUBANHANG" Type="Self.PHIEUBANHANG" Multiplicity="1" />
           <End Role="PHIEUTHUTIENNO" Type="Self.PHIEUTHUTIENNO" Multiplicity="*" />
@@ -1429,9 +1371,7 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <EntitySet Name="NHACUNGCAPs" EntityType="Self.NHACUNGCAP" />
           <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
           <EntitySet Name="NHOMNGUOIDUNGs" EntityType="Self.NHOMNGUOIDUNG" />
-          <EntitySet Name="PHIs" EntityType="Self.PHI" />
           <EntitySet Name="PHIEUBANHANGs" EntityType="Self.PHIEUBANHANG" />
-          <EntitySet Name="PHIEUCHIs" EntityType="Self.PHIEUCHI" />
           <EntitySet Name="PHIEUDICHVUs" EntityType="Self.PHIEUDICHVU" />
           <EntitySet Name="PHIEUMUAHANGs" EntityType="Self.PHIEUMUAHANG" />
           <EntitySet Name="PHIEUNHAPHANGs" EntityType="Self.PHIEUNHAPHANG" />
@@ -1498,10 +1438,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="PHIEUDICHVU" EntitySet="PHIEUDICHVUs" />
           </AssociationSet>
-          <AssociationSet Name="FK_PHIEUCHI_NV" Association="Self.FK_PHIEUCHI_NV">
-            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
-            <End Role="PHIEUCHI" EntitySet="PHIEUCHIs" />
-          </AssociationSet>
           <AssociationSet Name="FK_PMH_NV" Association="Self.FK_PMH_NV">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="PHIEUMUAHANG" EntitySet="PHIEUMUAHANGs" />
@@ -1513,10 +1449,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <AssociationSet Name="FK_PTTN_NV" Association="Self.FK_PTTN_NV">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="PHIEUTHUTIENNO" EntitySet="PHIEUTHUTIENNOes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PHIEUCHI_PHI" Association="Self.FK_PHIEUCHI_PHI">
-            <End Role="PHI" EntitySet="PHIs" />
-            <End Role="PHIEUCHI" EntitySet="PHIEUCHIs" />
           </AssociationSet>
           <AssociationSet Name="FK_PTTN_PBH" Association="Self.FK_PTTN_PBH">
             <End Role="PHIEUBANHANG" EntitySet="PHIEUBANHANGs" />
@@ -1575,6 +1507,21 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
             <End Role="PHIEUGIACONG" EntitySet="PHIEUGIACONGs" />
             <End Role="CTPGC" EntitySet="CTPGCs" />
           </AssociationSet>
+          <EntitySet Name="PHIEUCHIs" EntityType="DBQLCuaHangVangBacDaQuyModel.PHIEUCHI" />
+          <AssociationSet Name="FK_PHIEUCHI_NV" Association="DBQLCuaHangVangBacDaQuyModel.FK_PHIEUCHI_NV">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="PHIEUCHI" EntitySet="PHIEUCHIs" />
+          </AssociationSet>
+          <FunctionImport Name="CalculateCostInDate">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="CalculateIncomeInDate">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="CalculateNumberOfIncomeBill" ReturnType="Collection(DBQLCuaHangVangBacDaQuyModel.CalculateNumberOfIncomeBill_Result)">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="CalculateStoreStatus" ReturnType="Collection(DBQLCuaHangVangBacDaQuyModel.CalculateStoreStatus_Result)" />
         </EntityContainer>
         <EntityType Name="SANPHAM">
           <Key>
@@ -1765,6 +1712,39 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="PHIEUCHI">
+          <Key>
+            <PropertyRef Name="SoPC" />
+          </Key>
+          <Property Name="SoPC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NoiDungChi" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SoTien" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="MaNV" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NHANVIEN" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_PHIEUCHI_NV" FromRole="PHIEUCHI" ToRole="NHANVIEN" />
+        </EntityType>
+        <Association Name="FK_PHIEUCHI_NV">
+          <End Type="DBQLCuaHangVangBacDaQuyModel.NHANVIEN" Role="NHANVIEN" Multiplicity="1" />
+          <End Type="DBQLCuaHangVangBacDaQuyModel.PHIEUCHI" Role="PHIEUCHI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="MaNV" />
+            </Principal>
+            <Dependent Role="PHIEUCHI">
+              <PropertyRef Name="MaNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="CalculateNumberOfIncomeBill_Result">
+          <Property Type="Int32" Name="sophieuban" Nullable="true" />
+          <Property Type="Int32" Name="sophieuno" Nullable="true" />
+          <Property Type="Int32" Name="sophieudv" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="CalculateStoreStatus_Result">
+          <Property Type="Int32" Name="sodangban" Nullable="true" />
+          <Property Type="Int32" Name="songungban" Nullable="true" />
+          <Property Type="Int32" Name="sosanphamhet" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1920,14 +1900,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PHIs">
-            <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.PHI">
-              <MappingFragment StoreEntitySet="PHI">
-                <ScalarProperty Name="MaPhi" ColumnName="MaPhi" />
-                <ScalarProperty Name="TenPhi" ColumnName="TenPhi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PHIEUBANHANGs">
             <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.PHIEUBANHANG">
               <MappingFragment StoreEntitySet="PHIEUBANHANG">
@@ -1937,17 +1909,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
                 <ScalarProperty Name="NgayBan" ColumnName="NgayBan" />
                 <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
                 <ScalarProperty Name="TongTien" ColumnName="TongTien" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PHIEUCHIs">
-            <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.PHIEUCHI">
-              <MappingFragment StoreEntitySet="PHIEUCHI">
-                <ScalarProperty Name="SoPC" ColumnName="SoPC" />
-                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
-                <ScalarProperty Name="MaPhi" ColumnName="MaPhi" />
-                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
-                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2084,6 +2045,37 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PHIEUCHIs">
+            <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.PHIEUCHI">
+              <MappingFragment StoreEntitySet="PHIEUCHI">
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="NoiDungChi" ColumnName="NoiDungChi" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="SoPC" ColumnName="SoPC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CalculateCostInDate" FunctionName="DBQLCuaHangVangBacDaQuyModel.Store.CalculateCostInDate" />
+          <FunctionImportMapping FunctionImportName="CalculateIncomeInDate" FunctionName="DBQLCuaHangVangBacDaQuyModel.Store.CalculateIncomeInDate" />
+          <FunctionImportMapping FunctionImportName="CalculateNumberOfIncomeBill" FunctionName="DBQLCuaHangVangBacDaQuyModel.Store.CalculateNumberOfIncomeBill">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.CalculateNumberOfIncomeBill_Result">
+                <ScalarProperty Name="sophieuban" ColumnName="sophieuban" />
+                <ScalarProperty Name="sophieuno" ColumnName="sophieuno" />
+                <ScalarProperty Name="sophieudv" ColumnName="sophieudv" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CalculateStoreStatus" FunctionName="DBQLCuaHangVangBacDaQuyModel.Store.CalculateStoreStatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.CalculateStoreStatus_Result">
+                <ScalarProperty Name="sodangban" ColumnName="sodangban" />
+                <ScalarProperty Name="songungban" ColumnName="songungban" />
+                <ScalarProperty Name="sosanphamhet" ColumnName="sosanphamhet" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -63,7 +63,6 @@
     <Compile Include="DAL_NhaCungCap.cs" />
     <Compile Include="DAL_NhanVien.cs" />
     <Compile Include="DAL_NhomNguoiDung.cs" />
-    <Compile Include="DAL_Phi.cs" />
     <Compile Include="DAL_PhieuBanHang.cs" />
     <Compile Include="DAL_PhieuChi.cs" />
     <Compile Include="DAL_PhieuDichVu.cs" />

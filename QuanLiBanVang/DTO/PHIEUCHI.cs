@@ -16,11 +16,10 @@ namespace DTO
     {
         public int SoPC { get; set; }
         public System.DateTime NgayLap { get; set; }
-        public int MaPhi { get; set; }
+        public string NoiDungChi { get; set; }
         public decimal SoTien { get; set; }
         public int MaNV { get; set; }
     
         public virtual NHANVIEN NHANVIEN { get; set; }
-        public virtual PHI PHI { get; set; }
     }
 }

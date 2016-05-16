@@ -31,7 +31,6 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.cboType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.dtpkCreateDate = new DevExpress.XtraEditors.DateEdit();
             this.txtPrice = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -39,12 +38,13 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.txtContent = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).BeginInit();
             this.groupControlInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpkCreateDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpkCreateDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtContent.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -59,8 +59,8 @@
             // 
             // groupControlInfo
             // 
+            this.groupControlInfo.Controls.Add(this.txtContent);
             this.groupControlInfo.Controls.Add(this.labelControl5);
-            this.groupControlInfo.Controls.Add(this.cboType);
             this.groupControlInfo.Controls.Add(this.dtpkCreateDate);
             this.groupControlInfo.Controls.Add(this.txtPrice);
             this.groupControlInfo.Controls.Add(this.labelControl4);
@@ -80,15 +80,6 @@
             this.labelControl5.Size = new System.Drawing.Size(125, 13);
             this.labelControl5.TabIndex = 7;
             this.labelControl5.Text = "(Chỉ lập cho ngày hiện tại)";
-            // 
-            // cboType
-            // 
-            this.cboType.Location = new System.Drawing.Point(106, 24);
-            this.cboType.Name = "cboType";
-            this.cboType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboType.Size = new System.Drawing.Size(116, 20);
-            this.cboType.TabIndex = 1;
             // 
             // dtpkCreateDate
             // 
@@ -159,6 +150,14 @@
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // txtContent
+            // 
+            this.txtContent.Location = new System.Drawing.Point(106, 24);
+            this.txtContent.Name = "txtContent";
+            this.txtContent.Properties.MaxLength = 200;
+            this.txtContent.Size = new System.Drawing.Size(116, 20);
+            this.txtContent.TabIndex = 8;
+            // 
             // SuaPhieuChi_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,10 +173,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpkCreateDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpkCreateDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtContent.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,12 +188,12 @@
         private DevExpress.XtraEditors.GroupControl groupControlInfo;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.ComboBoxEdit cboType;
         private DevExpress.XtraEditors.DateEdit dtpkCreateDate;
         private DevExpress.XtraEditors.TextEdit txtPrice;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.TextEdit txtContent;
     }
 }

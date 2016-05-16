@@ -39,7 +39,7 @@ namespace DAL
             {
                 current.SoTien = updatePayment.SoTien;
                 current.MaNV = updatePayment.MaNV;
-                current.MaPhi = updatePayment.MaPhi;
+                current.NoiDungChi = current.NoiDungChi;
                 current.NgayLap = updatePayment.NgayLap;
                 _context.SaveChanges();
             }

@@ -13,18 +13,18 @@ namespace QuanLiBanVang.Report
 {
     public partial class NhapPhieuChi_Form : DevExpress.XtraEditors.XtraForm
     {
-        private BUL.BUL_Phi _bulCostType;
+       
         private BUL.BUL_PhieuChi _bulPaymentBill;
         private int _staffId;
         public NhapPhieuChi_Form()
         {
             InitializeComponent();
-            _bulCostType = new BUL.BUL_Phi();
+      
             _bulPaymentBill = new BUL.BUL_PhieuChi();
         }
         public NhapPhieuChi_Form(int staffid)
         {
-            _bulCostType = new BUL.BUL_Phi();
+      
             _bulPaymentBill = new BUL.BUL_PhieuChi();
             _staffId = staffid;
 
@@ -39,21 +39,13 @@ namespace QuanLiBanVang.Report
         {
             this.dtpkCreateDate.EditValue = DateTime.Now;
             this.dtpkCreateDate.Enabled = false;
-            List<DTO.PHI> listPaymentType = new List<DTO.PHI>();
-            listPaymentType = _bulCostType.getAllPaymentType(); ;
-            foreach (DTO.PHI i in listPaymentType)
-            {
-                ExtendClass.ContainerItem item = new ExtendClass.ContainerItem();
-                item.Text = i.TenPhi;
-                item.Value = i;
-                this.cboType.Properties.Items.Add(item);
-            }
+           
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             DTO.PHIEUCHI newBill = new DTO.PHIEUCHI();
-            newBill.MaPhi = ((this.cboType.SelectedItem as ExtendClass.ContainerItem).Value as DTO.PHIEUCHI).MaPhi;
+            newBill.NoiDungChi = this.txtContent.Text;
             newBill.NgayLap = (DateTime)this.dtpkCreateDate.EditValue;
             newBill.SoTien = decimal.Parse(this.txtCost.Text);
             this._bulPaymentBill.addNewPaymentBill(newBill);

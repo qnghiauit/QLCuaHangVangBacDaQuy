@@ -17,14 +17,14 @@ namespace QuanLiBanVang.Report
         private DataTable _paymentTable;
         private ExtendClass.MyCache _myCache;
         private BUL.BUL_PhieuChi _bulPaymentBill;
-        private BUL.BUL_Phi _bulPaymentType;
+
         private BUL.BUL_NhanVien _bulStaff;
         public DanhSachPhieuChi_Form()
         {
             InitializeComponent();
             _myCache = new ExtendClass.MyCache("Id");
             _bulPaymentBill = new BUL.BUL_PhieuChi();
-            _bulPaymentType = new BUL.BUL_Phi();
+
             _bulStaff = new BUL.BUL_NhanVien();
         }
         private void createTable()
@@ -35,17 +35,17 @@ namespace QuanLiBanVang.Report
             _keyField.AutoIncrement = true;
             _paymentTable.Columns.Add("Ngày lập", typeof(DateTime));
             _paymentTable.Columns.Add("Người lập", typeof(string));
-            _paymentTable.Columns.Add("Loại phí", typeof(string));
+            _paymentTable.Columns.Add("Nội dung chi", typeof(string));
             _paymentTable.Columns.Add("Số tiền", typeof(decimal));
             
 
         }
-        private void initTableData(List<DTO.PHIEUCHI> listpayment, List<DTO.NHANVIEN> liststaff, List<DTO.PHI> listpaymenttype)
+        private void initTableData(List<DTO.PHIEUCHI> listpayment, List<DTO.NHANVIEN> liststaff)
         {
             foreach(DTO.PHIEUCHI i in listpayment)
             {
                 string staffname = "";
-                string paymenttype = "";
+
                 foreach (DTO.NHANVIEN j in liststaff)
                 {
                     if (i.MaNV == j.MaNV)
@@ -54,32 +54,25 @@ namespace QuanLiBanVang.Report
                         break;
                     }
                 }
-                foreach (DTO.PHI k in listpaymenttype)
-                {
-                    if (i.MaPhi == k.MaPhi)
-                    {
-                        paymenttype = k.TenPhi;
-                        break;
-                    }
-                }
-                this.addNewRowToDataTable(i, staffname, paymenttype);
+             
+                this.addNewRowToDataTable(i, staffname);
             }
         }
-        private void addNewRowToDataTable(DTO.PHIEUCHI paymentbill, string staffname, string paymenttype)
+        private void addNewRowToDataTable(DTO.PHIEUCHI paymentbill, string staffname)
         {
             var datarow = _paymentTable.NewRow();
             datarow[0] = paymentbill.SoPC;
             datarow[1] = paymentbill.NgayLap;
             datarow[2] = staffname;
-            datarow[3] = paymenttype;
+            datarow[3] = paymentbill.NoiDungChi;
             datarow[4] = paymentbill.SoTien;
             _paymentTable.Rows.Add(datarow);
         }
-        private void updateRowInDataTable(int index, DTO.PHIEUCHI paymentbill, string staffname, string paymenttype)
+        private void updateRowInDataTable(int index, DTO.PHIEUCHI paymentbill, string staffname)
         {
             _paymentTable.Rows[index][1] = paymentbill.NgayLap;
             _paymentTable.Rows[index][2] = staffname;
-            _paymentTable.Rows[index][3] = paymenttype;
+            _paymentTable.Rows[index][3] = paymentbill.NoiDungChi;
             _paymentTable.Rows[index][4] = paymentbill.SoTien;
             this.dgvPaymentBill.RefreshRow(index);
         }
@@ -98,7 +91,7 @@ namespace QuanLiBanVang.Report
             if (result == System.Windows.Forms.DialogResult.OK)
             {
                 DTO.PHIEUCHI newRow = _bulPaymentBill.getLastPaymentBill();
-                this.addNewRowToDataTable(newRow, _bulStaff.getStaffById(newRow.MaNV).HoTen, _bulPaymentType.getPaymentTypeById(newRow.MaPhi).TenPhi);
+                this.addNewRowToDataTable(newRow, _bulStaff.getStaffById(newRow.MaNV).HoTen);
             }
         }
 
@@ -154,17 +147,17 @@ namespace QuanLiBanVang.Report
                 _bulPaymentBill = null;
                 _bulPaymentBill = new BUL.BUL_PhieuChi();
                 DTO.PHIEUCHI updateRow = _bulPaymentBill.getPaymentBillById((int)row[0]);
-                this.updateRowInDataTable(pos, updateRow, _bulStaff.getStaffById(updateRow.MaNV).HoTen, _bulPaymentType.getPaymentTypeById(updateRow.MaPhi).TenPhi);
+                this.updateRowInDataTable(pos, updateRow, _bulStaff.getStaffById(updateRow.MaNV).HoTen);
             }
         }
 
         private void DanhSachPhieuChi_Form_Load(object sender, EventArgs e)
         {
             List<DTO.PHIEUCHI> listPaymentBill = _bulPaymentBill.getAllPaymentBill();
-            List<DTO.PHI> listPaymentType = _bulPaymentType.getAllPaymentType();
+
             List<DTO.NHANVIEN> listStaff = _bulStaff.getAllStaff();
             this.createTable();
-            this.initTableData(listPaymentBill,  listStaff,listPaymentType);
+            this.initTableData(listPaymentBill,  listStaff);
             this.dgvListPayment.DataSource = _paymentTable;
             this.dgvPaymentBill.Columns[0].Visible = false;
         }

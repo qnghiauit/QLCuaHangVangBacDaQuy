@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TongQuan));
-            DevExpress.XtraCharts.SimpleDiagram3D simpleDiagram3D2 = new DevExpress.XtraCharts.SimpleDiagram3D();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.Pie3DSeriesView pie3DSeriesView2 = new DevExpress.XtraCharts.Pie3DSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.SimpleDiagram3D simpleDiagram3D1 = new DevExpress.XtraCharts.SimpleDiagram3D();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.Pie3DSeriesView pie3DSeriesView1 = new DevExpress.XtraCharts.Pie3DSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -87,9 +87,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBQLCuaHangVangBacDaQuyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sANPHAMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
@@ -392,7 +392,7 @@
             // 
             // labelControl24
             // 
-            this.labelControl24.Location = new System.Drawing.Point(119, 42);
+            this.labelControl24.Location = new System.Drawing.Point(148, 42);
             this.labelControl24.Name = "labelControl24";
             this.labelControl24.Size = new System.Drawing.Size(6, 13);
             this.labelControl24.TabIndex = 13;
@@ -402,13 +402,13 @@
             // 
             this.labelControl25.Location = new System.Drawing.Point(12, 42);
             this.labelControl25.Name = "labelControl25";
-            this.labelControl25.Size = new System.Drawing.Size(64, 13);
+            this.labelControl25.Size = new System.Drawing.Size(116, 13);
             this.labelControl25.TabIndex = 12;
-            this.labelControl25.Text = "Sắp hết hàng";
+            this.labelControl25.Text = "Số sản phẩm ngừng bán";
             // 
             // labelControl18
             // 
-            this.labelControl18.Location = new System.Drawing.Point(119, 61);
+            this.labelControl18.Location = new System.Drawing.Point(148, 61);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(6, 13);
             this.labelControl18.TabIndex = 11;
@@ -416,7 +416,7 @@
             // 
             // labelControl19
             // 
-            this.labelControl19.Location = new System.Drawing.Point(119, 23);
+            this.labelControl19.Location = new System.Drawing.Point(148, 23);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(6, 13);
             this.labelControl19.TabIndex = 10;
@@ -426,38 +426,38 @@
             // 
             this.labelControl21.Location = new System.Drawing.Point(12, 61);
             this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(44, 13);
+            this.labelControl21.Size = new System.Drawing.Size(107, 13);
             this.labelControl21.TabIndex = 8;
-            this.labelControl21.Text = "Hết hàng";
+            this.labelControl21.Text = "Số sản phẩm hết hàng";
             // 
             // labelControl22
             // 
             this.labelControl22.Location = new System.Drawing.Point(12, 23);
             this.labelControl22.Name = "labelControl22";
-            this.labelControl22.Size = new System.Drawing.Size(90, 13);
+            this.labelControl22.Size = new System.Drawing.Size(109, 13);
             this.labelControl22.TabIndex = 7;
-            this.labelControl22.Text = "Số lượng mặt hàng";
+            this.labelControl22.Text = "Số sản phẩm đang bán";
             // 
             // chartControlProduct
             // 
             this.chartControlProduct.DataAdapter = this.sANPHAMTableAdapter;
             this.chartControlProduct.DataSource = this.dBQLCuaHangVangBacDaQuyDataSet;
-            simpleDiagram3D2.RotationMatrixSerializable = "1;0;0;0;0;0.5;-0.866025403784439;0;0;0.866025403784439;0.5;0;0;0;0;1";
-            this.chartControlProduct.Diagram = simpleDiagram3D2;
+            simpleDiagram3D1.RotationMatrixSerializable = "1;0;0;0;0;0.5;-0.866025403784439;0;0;0.866025403784439;0.5;0;0;0;0;1";
+            this.chartControlProduct.Diagram = simpleDiagram3D1;
             this.chartControlProduct.Location = new System.Drawing.Point(5, 23);
             this.chartControlProduct.Name = "chartControlProduct";
-            series2.ArgumentDataMember = "SANPHAM.TenSP";
-            series2.LegendTextPattern = "{A}";
-            series2.Name = "SeriesProduct";
-            series2.ValueDataMembersSerializable = "SANPHAM.SoLuongTon";
-            series2.View = pie3DSeriesView2;
+            series1.ArgumentDataMember = "SANPHAM.TenSP";
+            series1.LegendTextPattern = "{A}";
+            series1.Name = "SeriesProduct";
+            series1.ValueDataMembersSerializable = "SANPHAM.SoLuongTon";
+            series1.View = pie3DSeriesView1;
             this.chartControlProduct.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
+        series1};
             this.chartControlProduct.Size = new System.Drawing.Size(855, 206);
             this.chartControlProduct.TabIndex = 7;
-            chartTitle2.Text = "Tình hình kho";
+            chartTitle1.Text = "Tình hình kho";
             this.chartControlProduct.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle2});
+            chartTitle1});
             // 
             // sANPHAMTableAdapter
             // 
@@ -511,9 +511,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             this.groupControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBQLCuaHangVangBacDaQuyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sANPHAMBindingSource)).EndInit();

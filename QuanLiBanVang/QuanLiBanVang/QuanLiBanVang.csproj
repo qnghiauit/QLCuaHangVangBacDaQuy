@@ -79,11 +79,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBQLCuaHangVangBacDaQuyDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBQLCuaHangVangBacDaQuyDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form\DanhSachPGC.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\DanhSachPGC.designer.cs">
       <DependentUpon>DanhSachPGC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\DanhSachPhieuNhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\DanhSachPhieuNhapHang.Designer.cs">
+      <DependentUpon>DanhSachPhieuNhapHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\NhapCTGiaCongSP_Form.cs">
       <SubType>Form</SubType>
@@ -251,6 +262,12 @@
     <Compile Include="Form\NhapTho.Designer.cs">
       <DependentUpon>NhapTho.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\PhieuNhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\PhieuNhapHang.Designer.cs">
+      <DependentUpon>PhieuNhapHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\SuaDichVu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +328,18 @@
     <Compile Include="Form\SuaTho.Designer.cs">
       <DependentUpon>SuaTho.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\UpdateDetaiItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\UpdateDetaiItem.Designer.cs">
+      <DependentUpon>UpdateDetaiItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\UpdateImportDetailltem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\UpdateImportDetailltem.Designer.cs">
+      <DependentUpon>UpdateImportDetailltem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ActionType.cs" />
     <Compile Include="Model\ErrorMessage.cs" />
     <Compile Include="Model\GridViewDataSource.cs" />
@@ -351,6 +380,9 @@
     </Compile>
     <EmbeddedResource Include="Form\DanhSachPGC.resx">
       <DependentUpon>DanhSachPGC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\DanhSachPhieuNhapHang.resx">
+      <DependentUpon>DanhSachPhieuNhapHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\NhapCTGiaCongSP_Form.resx">
       <DependentUpon>NhapCTGiaCongSP_Form.cs</DependentUpon>
@@ -433,6 +465,9 @@
     <EmbeddedResource Include="Form\NhapTho.resx">
       <DependentUpon>NhapTho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\PhieuNhapHang.resx">
+      <DependentUpon>PhieuNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\SuaDichVu.resx">
       <DependentUpon>SuaDichVu.cs</DependentUpon>
     </EmbeddedResource>
@@ -466,6 +501,12 @@
     <EmbeddedResource Include="Form\NhapPhieuGiaCong_Form.resx">
       <DependentUpon>NhapPhieuGiaCong_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\UpdateDetaiItem.resx">
+      <DependentUpon>UpdateDetaiItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UpdateImportDetailltem.resx">
+      <DependentUpon>UpdateImportDetailltem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -490,6 +531,17 @@
       <DependentUpon>SuaPhieuGiaCong_Form.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="DBQLCuaHangVangBacDaQuyDataSet.xsc">
+      <DependentUpon>DBQLCuaHangVangBacDaQuyDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBQLCuaHangVangBacDaQuyDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBQLCuaHangVangBacDaQuyDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBQLCuaHangVangBacDaQuyDataSet.xss">
+      <DependentUpon>DBQLCuaHangVangBacDaQuyDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -41,9 +41,7 @@ namespace DTO
         public virtual DbSet<NHACUNGCAP> NHACUNGCAPs { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<NHOMNGUOIDUNG> NHOMNGUOIDUNGs { get; set; }
-        public virtual DbSet<PHI> PHIs { get; set; }
         public virtual DbSet<PHIEUBANHANG> PHIEUBANHANGs { get; set; }
-        public virtual DbSet<PHIEUCHI> PHIEUCHIs { get; set; }
         public virtual DbSet<PHIEUDICHVU> PHIEUDICHVUs { get; set; }
         public virtual DbSet<PHIEUMUAHANG> PHIEUMUAHANGs { get; set; }
         public virtual DbSet<PHIEUNHAPHANG> PHIEUNHAPHANGs { get; set; }
@@ -55,6 +53,7 @@ namespace DTO
         public virtual DbSet<CTGIACONGSP> CTGIACONGSPs { get; set; }
         public virtual DbSet<PHIEUGIACONG> PHIEUGIACONGs { get; set; }
         public virtual DbSet<CTPGC> CTPGCs { get; set; }
+        public virtual DbSet<PHIEUCHI> PHIEUCHIs { get; set; }
     
         public virtual int DEL_IN_CTPN(Nullable<int> masp, Nullable<int> sophieunhap)
         {
@@ -67,6 +66,38 @@ namespace DTO
                 new ObjectParameter("sophieunhap", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DEL_IN_CTPN", maspParameter, sophieunhapParameter);
+        }
+    
+        public virtual int CalculateCostInDate(Nullable<System.DateTime> date)
+        {
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CalculateCostInDate", dateParameter);
+        }
+    
+        public virtual int CalculateIncomeInDate(Nullable<System.DateTime> date)
+        {
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CalculateIncomeInDate", dateParameter);
+        }
+    
+        public virtual ObjectResult<CalculateNumberOfIncomeBill_Result> CalculateNumberOfIncomeBill(Nullable<System.DateTime> date)
+        {
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CalculateNumberOfIncomeBill_Result>("CalculateNumberOfIncomeBill", dateParameter);
+        }
+    
+        public virtual ObjectResult<CalculateStoreStatus_Result> CalculateStoreStatus()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CalculateStoreStatus_Result>("CalculateStoreStatus");
         }
     }
 }
