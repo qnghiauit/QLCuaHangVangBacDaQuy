@@ -60,14 +60,34 @@ namespace BUL
             return this.dalPhieuBanHang.hasDebtReceipts(id);
         }
 
+        /// <summary>
+        /// Find all receipts belongs to frequenter with specifed ID
+        /// </summary>
+        /// <param name="id">id of frequenter</param>
+        /// <returns>list receipts in BindingList</returns>
         public BindingList<PHIEUBANHANG> findReceiptsByFrequenterId(int id)
         {
             return this.dalPhieuBanHang.findReceiptsByFrequenterId(id);
         }
 
+        /// <summary>
+        /// Find all dept receipts belongs to receipt with specifed ID
+        /// </summary>
+        /// <param name="id">id of receipts</param>
+        /// <returns>list dept receipts in BindingList</returns>
         public BindingList<PHIEUTHUTIENNO> findDeptReceiptsByReceiptId(int id)
         {
             return this.dalPhieuBanHang.findDeptReceiptsByReceiptId(id);
+        }
+
+        /// <summary>
+        /// Find the last dept receipt of a recepit.
+        /// </summary>
+        /// <param name="id"> Id of the receipt</param>
+        /// <returns>the last dept receipt of a recepit.</returns>
+        public PHIEUTHUTIENNO findTheLastDeiptReceiptFromReceiptId(int id)
+        {
+            return this.dalPhieuBanHang.findTheLastDeiptReceiptFromReceiptId(id);
         }
     }
 }

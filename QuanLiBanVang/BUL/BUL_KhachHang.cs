@@ -32,7 +32,7 @@ namespace BUL
             return dalKhachHang.GetAllKhachhangs();
         }
 
-        public KHACHHANG GetKhachhangById(int id)
+        public KHACHHANG GetKhachhangById(int? id)
         {
             return dalKhachHang.GetKhachhangById(id);
         }
