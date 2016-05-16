@@ -60,5 +60,9 @@ namespace DAL
             var max = _context.SANPHAMs.Max(p => p.MaSP);
             return _context.SANPHAMs.Where(p => p.MaSP == max).Single();
         }
+        public List<DTO.SANPHAM> getProductByProductType(int producttype)
+        {
+            return _context.SANPHAMs.Where(p => p.MaLoaiSP == producttype).ToList();
+        }
     }
 }
