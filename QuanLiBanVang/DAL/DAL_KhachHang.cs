@@ -35,7 +35,7 @@ namespace DAL
             return _context.KHACHHANGs.ToList();
         }
 
-        public KHACHHANG GetKhachhangById(int id)
+        public KHACHHANG GetKhachhangById(int? id)
         {
             return _context.KHACHHANGs.Single(kh => kh.MaKH == id);
         }

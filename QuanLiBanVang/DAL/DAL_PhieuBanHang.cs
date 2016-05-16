@@ -110,5 +110,17 @@ namespace DAL
             return new BindingList<PHIEUTHUTIENNO>(query.ToList());
         }
 
+
+        /// <summary>
+        /// Find the last dept receipt of a recepit.
+        /// </summary>
+        /// <param name="id"> Id of the receipt</param>
+        /// <returns>the last dept receipt of a recepit.</returns>
+        public PHIEUTHUTIENNO findTheLastDeiptReceiptFromReceiptId(int id)
+        {
+           return this.databaseContext.PHIEUTHUTIENNOes.Where(x => x.SoPhieuBH == id)
+                .OrderByDescending(x => x.SoPhieuNo)
+                .FirstOrDefault();
+        }
     }
 }
