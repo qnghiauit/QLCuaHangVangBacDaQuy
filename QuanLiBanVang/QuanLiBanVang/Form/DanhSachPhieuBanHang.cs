@@ -56,26 +56,26 @@ namespace QuanLiBanVang.Form
             newReceipt.ShowDialog();
         }
 
-        private void sửaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // update new data state
-            //   this.bulPhieuBanHang = new BUL_PhieuBanHang();
-            //   this.gridControlListReceipts.DataSource = this.bulPhieuBanHang.toBindingList();
+        //private void sửaToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    // update new data state
+        //    //   this.bulPhieuBanHang = new BUL_PhieuBanHang();
+        //    //   this.gridControlListReceipts.DataSource = this.bulPhieuBanHang.toBindingList();
 
-            if (this.gridView1.SelectedRowsCount < 0 || this.gridView1.SelectedRowsCount > 1) return;
-            // get item from focused row of gridview
-            PHIEUBANHANG focusedRow = (PHIEUBANHANG)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
+        //    if (this.gridView1.SelectedRowsCount < 0 || this.gridView1.SelectedRowsCount > 1) return;
+        //    // get item from focused row of gridview
+        //    PHIEUBANHANG focusedRow = (PHIEUBANHANG)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
 
-            if (!this.bulPhieuBanHang.hasDebtReceipts(focusedRow.SoPhieuBH))
-            {
-                SuaPhieuBanHang updateReceipt = new SuaPhieuBanHang(focusedRow);
-                updateReceipt.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Không thể sửa phiếu bán hàng có nợ !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //    if (!this.bulPhieuBanHang.hasDebtReceipts(focusedRow.SoPhieuBH))
+        //    {
+        //        SuaPhieuBanHang updateReceipt = new SuaPhieuBanHang(focusedRow);
+        //        updateReceipt.ShowDialog();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Không thể sửa phiếu bán hàng có nợ !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
