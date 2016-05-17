@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using BUL;
 using DTO;
 using QuanLiBanVang.ExtendClass;
+using QuanLiBanVang.Model;
 
 namespace QuanLiBanVang.Form
 {
@@ -32,7 +33,7 @@ namespace QuanLiBanVang.Form
             {
                 this.comboBoxEditKhachHang.Properties.Items.Add(new ContainerItem
                 {
-                    Text = item.TenKH,
+                    Text = item.TenKH + "-" + item.SDT,
                     Value = item
                 });
             }
@@ -60,7 +61,7 @@ namespace QuanLiBanVang.Form
             // start to look up all dept receipts
             this.bulPhieuBanHang = new BUL_PhieuBanHang();
             this.gridControlDanhSachPhieuNo.RefreshDataSource();
-            this.gridControlDanhSachPhieuNo.DataSource = this.bulPhieuBanHang.findReceiptsByFrequenterId(selectedReceipt.SoPhieuBH);
+            this.gridControlDanhSachPhieuNo.DataSource = this.bulPhieuBanHang.findDeptReceiptsByReceiptId(selectedReceipt.SoPhieuBH);
         }
 
         private void lậpPhiếuNợToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,11 +83,23 @@ namespace QuanLiBanVang.Form
             {
                 // get the last dept recpeit
                 PHIEUTHUTIENNO lastDeptReceip = this.bulPhieuBanHang.findTheLastDeiptReceiptFromReceiptId(selectedReceipt.SoPhieuBH);
+                // check if user paid for all the depts
+                if (decimal.Equals(lastDeptReceip.SoTienConLai, decimal.Zero))
+                {
+                    MessageBox.Show("Phiếu bán hàng này đã được trả nợ hết !", ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 // start to show the form
                 PhieuThuTienNo deptReceiptForm = new PhieuThuTienNo(lastDeptReceip);
                 deptReceiptForm.ShowDialog();
-                
+
             }
+        }
+
+        private void simpleButtonThoat_Click(object sender, EventArgs e)
+        {
+            // close the form
+            this.Close();
         }
     }
 }
