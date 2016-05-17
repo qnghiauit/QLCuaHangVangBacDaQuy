@@ -101,6 +101,7 @@
             this.textEditSoTienTra.Name = "textEditSoTienTra";
             this.textEditSoTienTra.Size = new System.Drawing.Size(304, 20);
             this.textEditSoTienTra.TabIndex = 7;
+            this.textEditSoTienTra.EditValueChanged += new System.EventHandler(this.textEditSoTienTra_EditValueChanged);
             // 
             // textEditSoTienNo
             // 

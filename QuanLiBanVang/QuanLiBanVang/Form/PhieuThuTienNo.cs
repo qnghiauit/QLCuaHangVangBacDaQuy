@@ -38,6 +38,7 @@ namespace QuanLiBanVang.Form
         {
             InitializeComponent();
             this.bulKhachHang = new BUL_KhachHang();
+            this.bulDeptReceipt = new BUL_PhieuThuTienNo();
             this.receipt = receipt;
             this.previousDeptRecepit = null;
             // indicate that, this is the first dept
@@ -56,17 +57,19 @@ namespace QuanLiBanVang.Form
         {
             InitializeComponent();
             this.bulKhachHang = new BUL_KhachHang();
+            this.bulDeptReceipt = new BUL_PhieuThuTienNo();
             this.previousDeptRecepit = previousDeptReceipt;
-            this.receipt = null;
-            // indicate that, this is the first dept
-            this.isTheFirstDept = true;
+            // indicate that, this is NOT the first dept
+            this.isTheFirstDept = false;
             // this is the first decpt receipt 
             this.textEditMaPhieuBanHang.Text = this.previousDeptRecepit.SoPhieuBH.ToString();
-            this.textEditTenKhachHang.Text = this.bulKhachHang.GetKhachhangById(receipt.MaKH).TenKH;
-            // this.textEditMaKhachHang.Text = this.previousDeptRecepit.MaKH.ToString();
+
+            this.receipt = new BUL_PhieuBanHang().findReceiptById(this.previousDeptRecepit.SoPhieuBH);
+            this.textEditTenKhachHang.Text = this.bulKhachHang.GetKhachhangById(this.receipt.MaKH).TenKH;
+            this.textEditMaKhachHang.Text = this.receipt.MaKH.ToString();
 
             // the first dept
-            this.textEditSoTienNo.Text = receipt.TongTien.ToString();
+            this.textEditSoTienNo.Text = this.previousDeptRecepit.SoTienConLai.ToString();
         }
         private void PhieuThuTienNo_Load(object sender, EventArgs e)
         {
@@ -109,6 +112,7 @@ namespace QuanLiBanVang.Form
                         NgayLap = this.dateTimePickerNgayLap.Value,
                         NgayTra = this.dateTimePickerNgayTra.Value,
                         // MaNV = UserAccess.Instance.GetUserId,
+                        MaNV = 4, // to test
                         SoTienNo = deptAmount,
                         SoTienTra = frequenterPrepay,
                         SoTienConLai = deptAmount - frequenterPrepay
@@ -116,6 +120,12 @@ namespace QuanLiBanVang.Form
 
                     // start to save into database
                     this.bulDeptReceipt.add(newDeptReceipt);
+                    // PhieuThuTienNo recentSavedDeptReceipt = this.bulDeptReceipt
+                    if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.Value.ToShortDateString(), ErrorMessage.ERROR_MESSARE_TITLE,
+                          MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
                 }
             }
             else // NOT the first dept recepit
@@ -126,12 +136,18 @@ namespace QuanLiBanVang.Form
                     NgayLap = this.dateTimePickerNgayLap.Value,
                     NgayTra = this.dateTimePickerNgayTra.Value,
                     // MaNV = UserAccess.Instance.GetUserId,
+                    MaNV = 4,
                     SoTienNo = deptAmount,
                     SoTienTra = frequenterPrepay,
                     SoTienConLai = deptAmount - frequenterPrepay
                 };
                 // start to save into database
                 this.bulDeptReceipt.add(newDeptReceipt);
+                if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.Value.ToShortDateString(), ErrorMessage.ERROR_MESSARE_TITLE,
+                          MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    this.Close();
+                }
             }
 
         }
@@ -144,12 +160,23 @@ namespace QuanLiBanVang.Form
         {
             // make sure that the pay date is later than the date that create the 
             // dept receipt
-            if (DateTime.Compare(this.dateTimePickerNgayTra.Value, this.dateTimePickerNgayLap.Value) > 0)
+            if (DateTime.Compare(this.dateTimePickerNgayTra.Value, this.dateTimePickerNgayLap.Value) < 0)
             {
                 MessageBox.Show(PAYMENT_DATE_NOT_VALID_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.dateTimePickerNgayTra.Value = new DateTime(); // set to the current date time
+                this.dateTimePickerNgayTra.Value = DateTime.Now; // set to the current date time
                 return;
             }
+        }
+
+        private void textEditSoTienTra_EditValueChanged(object sender, EventArgs e)
+        {
+            // if the string is empty or null , do nothing
+            if (string.IsNullOrEmpty(this.textEditSoTienTra.Text)) { return; }
+            // recompute the rest 
+            decimal frequenterPrepay = decimal.Parse(this.textEditSoTienTra.Text.Trim());
+            decimal deptAmount = decimal.Parse(this.textEditSoTienNo.Text.Trim());
+            decimal rest = decimal.Subtract(deptAmount, frequenterPrepay);
+            this.textEditConLai.Text = rest.ToString();
         }
     }
 }
