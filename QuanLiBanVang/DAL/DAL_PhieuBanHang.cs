@@ -118,9 +118,18 @@ namespace DAL
         /// <returns>the last dept receipt of a recepit.</returns>
         public PHIEUTHUTIENNO findTheLastDeiptReceiptFromReceiptId(int id)
         {
-           return this.databaseContext.PHIEUTHUTIENNOes.Where(x => x.SoPhieuBH == id)
-                .OrderByDescending(x => x.SoPhieuNo)
-                .FirstOrDefault();
+            return this.databaseContext.PHIEUTHUTIENNOes.Where(x => x.SoPhieuBH == id)
+                 .OrderByDescending(x => x.SoPhieuNo)
+                 .FirstOrDefault();
+        }
+        /// <summary>
+        /// Find a receipt via specified id
+        /// </summary>
+        /// <param name="id">The id of the receipt to be returned</param>
+        /// <returns>The recepit whose id is sastified</returns>
+        public PHIEUBANHANG findReceiptById(int id)
+        {
+            return this.databaseContext.PHIEUBANHANGs.Where(x => x.SoPhieuBH == id).FirstOrDefault();
         }
     }
 }
