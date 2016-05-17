@@ -89,5 +89,15 @@ namespace BUL
         {
             return this.dalPhieuBanHang.findTheLastDeiptReceiptFromReceiptId(id);
         }
+
+        /// <summary>
+        /// Find a receipt via specified id
+        /// </summary>
+        /// <param name="id">The id of the receipt to be returned</param>
+        /// <returns>The recepit whose id is sastified</returns>
+        public PHIEUBANHANG findReceiptById(int id)
+        {
+            return this.dalPhieuBanHang.findReceiptById(id);
+        }
     }
 }
