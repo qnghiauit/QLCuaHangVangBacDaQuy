@@ -684,6 +684,9 @@ warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOIN
         <Function Name="CalculateIncomeInDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="date" Type="date" Mode="In" />
         </Function>
+        <Function Name="CalculateNumberOfCostBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
         <Function Name="CalculateNumberOfIncomeBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="date" Type="date" Mode="In" />
         </Function>
@@ -1513,15 +1516,18 @@ warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOIN
             <End Role="PHIEUCHI" EntitySet="PHIEUCHIs" />
           </AssociationSet>
           <FunctionImport Name="CalculateCostInDate">
-            <Parameter Name="date" Mode="In" Type="DateTime" />
+          <Parameter Name="date" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="CalculateIncomeInDate">
-            <Parameter Name="date" Mode="In" Type="DateTime" />
+          <Parameter Name="date" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="CalculateNumberOfIncomeBill" ReturnType="Collection(DBQLCuaHangVangBacDaQuyModel.CalculateNumberOfIncomeBill_Result)">
-            <Parameter Name="date" Mode="In" Type="DateTime" />
+          <Parameter Name="date" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="CalculateStoreStatus" ReturnType="Collection(DBQLCuaHangVangBacDaQuyModel.CalculateStoreStatus_Result)" />
+          <FunctionImport Name="CalculateNumberOfCostBill" ReturnType="Collection(DBQLCuaHangVangBacDaQuyModel.CalculateNumberOfCostBill_Result)">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="SANPHAM">
           <Key>
@@ -1744,6 +1750,12 @@ warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOIN
           <Property Type="Int32" Name="sodangban" Nullable="true" />
           <Property Type="Int32" Name="songungban" Nullable="true" />
           <Property Type="Int32" Name="sosanphamhet" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="CalculateNumberOfCostBill_Result">
+          <Property Type="Int32" Name="sophieumua" Nullable="true" />
+          <Property Type="Int32" Name="sophieunhap" Nullable="true" />
+          <Property Type="Int32" Name="sophieugiacong" Nullable="true" />
+          <Property Type="Int32" Name="sophieuchi" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2073,6 +2085,16 @@ warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOIN
                 <ScalarProperty Name="sodangban" ColumnName="sodangban" />
                 <ScalarProperty Name="songungban" ColumnName="songungban" />
                 <ScalarProperty Name="sosanphamhet" ColumnName="sosanphamhet" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CalculateNumberOfCostBill" FunctionName="DBQLCuaHangVangBacDaQuyModel.Store.CalculateNumberOfCostBill">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.CalculateNumberOfCostBill_Result">
+                <ScalarProperty Name="sophieumua" ColumnName="sophieumua" />
+                <ScalarProperty Name="sophieunhap" ColumnName="sophieunhap" />
+                <ScalarProperty Name="sophieugiacong" ColumnName="sophieugiacong" />
+                <ScalarProperty Name="sophieuchi" ColumnName="sophieuchi" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

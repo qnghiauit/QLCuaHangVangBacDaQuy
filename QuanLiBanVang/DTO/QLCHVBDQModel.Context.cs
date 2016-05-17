@@ -99,5 +99,14 @@ namespace DTO
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CalculateStoreStatus_Result>("CalculateStoreStatus");
         }
+    
+        public virtual ObjectResult<CalculateNumberOfCostBill_Result> CalculateNumberOfCostBill(Nullable<System.DateTime> date)
+        {
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CalculateNumberOfCostBill_Result>("CalculateNumberOfCostBill", dateParameter);
+        }
     }
 }
