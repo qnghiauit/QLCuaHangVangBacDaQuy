@@ -43,6 +43,7 @@
             this.dateEditNgayGiao = new DevExpress.XtraEditors.DateEdit();
             this.dateEditNgayDK = new DevExpress.XtraEditors.DateEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.textEditTienCong = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonXoa = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonThem = new DevExpress.XtraEditors.SimpleButton();
             this.comboBoxEditTenDV = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -51,7 +52,6 @@
             this.textEditTongTien = new DevExpress.XtraEditors.TextEdit();
             this.textEditSoLuong = new DevExpress.XtraEditors.TextEdit();
             this.textEditThanhTien = new DevExpress.XtraEditors.TextEdit();
-            this.textEditTienCong = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -73,12 +73,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayDK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditTienCong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditTenDV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditLoaiSP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTongTien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditThanhTien.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditTienCong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlCTPDV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCT_PDV)).BeginInit();
             this.SuspendLayout();
@@ -219,6 +219,7 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.Controls.Add(this.textEditTienCong);
             this.groupControl2.Controls.Add(this.simpleButtonXoa);
             this.groupControl2.Controls.Add(this.simpleButtonThem);
             this.groupControl2.Controls.Add(this.comboBoxEditTenDV);
@@ -227,7 +228,6 @@
             this.groupControl2.Controls.Add(this.textEditTongTien);
             this.groupControl2.Controls.Add(this.textEditSoLuong);
             this.groupControl2.Controls.Add(this.textEditThanhTien);
-            this.groupControl2.Controls.Add(this.textEditTienCong);
             this.groupControl2.Controls.Add(this.labelControl13);
             this.groupControl2.Controls.Add(this.labelControl12);
             this.groupControl2.Controls.Add(this.labelControl9);
@@ -239,6 +239,20 @@
             this.groupControl2.Size = new System.Drawing.Size(647, 321);
             this.groupControl2.TabIndex = 11;
             this.groupControl2.Text = "Chi tiết phiếu";
+            // 
+            // textEditTienCong
+            // 
+            this.textEditTienCong.EditValue = "";
+            this.textEditTienCong.Location = new System.Drawing.Point(285, 61);
+            this.textEditTienCong.Name = "textEditTienCong";
+            this.textEditTienCong.Properties.Mask.EditMask = "\\d+";
+            this.textEditTienCong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEditTienCong.Properties.MaxLength = 6;
+            this.textEditTienCong.Properties.ReadOnly = true;
+            this.textEditTienCong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textEditTienCong.Size = new System.Drawing.Size(78, 20);
+            this.textEditTienCong.TabIndex = 40;
+            this.textEditTienCong.EditValueChanged += new System.EventHandler(this.textEditTienCong_EditValueChanged_1);
             // 
             // simpleButtonXoa
             // 
@@ -319,16 +333,6 @@
             this.textEditThanhTien.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textEditThanhTien.Size = new System.Drawing.Size(75, 20);
             this.textEditThanhTien.TabIndex = 16;
-            // 
-            // textEditTienCong
-            // 
-            this.textEditTienCong.EditValue = "0";
-            this.textEditTienCong.Location = new System.Drawing.Point(285, 60);
-            this.textEditTienCong.Name = "textEditTienCong";
-            this.textEditTienCong.Properties.ReadOnly = true;
-            this.textEditTienCong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textEditTienCong.Size = new System.Drawing.Size(75, 20);
-            this.textEditTienCong.TabIndex = 15;
             // 
             // labelControl13
             // 
@@ -418,6 +422,7 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);
+            this.LookAndFeel.SkinName = "VS2010";
             this.Name = "NhapPhieuDichVu";
             this.Text = "Phiếu dịch vụ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NhapPhieuDichVu_FormClosing);
@@ -436,12 +441,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditTienCong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditTenDV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditLoaiSP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTongTien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditThanhTien.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditTienCong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlCTPDV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCT_PDV)).EndInit();
             this.ResumeLayout(false);
@@ -470,7 +475,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit textEditSoLuong;
         private DevExpress.XtraEditors.TextEdit textEditThanhTien;
-        private DevExpress.XtraEditors.TextEdit textEditTienCong;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.LabelControl labelControl9;
@@ -484,5 +488,6 @@
         private DevExpress.XtraEditors.TextEdit textEditTenNhanVien;
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.SimpleButton simpleButtonXoa;
+        private DevExpress.XtraEditors.TextEdit textEditTienCong;
     }
 }

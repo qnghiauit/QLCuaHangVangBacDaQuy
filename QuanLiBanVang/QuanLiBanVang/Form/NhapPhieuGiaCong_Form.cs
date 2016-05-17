@@ -47,7 +47,8 @@ namespace QuanLiBanVang
             _dataTableCtspCanGiaCong.Columns.Add("MaLoaiSP", typeof(int));
             _dataTableCtspCanGiaCong.Columns.Add("TenLoaiSP", typeof(string));
             _dataTableCtspCanGiaCong.Columns.Add("HTGC", typeof(string));
-            _dataTableCtspCanGiaCong.Columns.Add("SoLuong", typeof(int));            
+            _dataTableCtspCanGiaCong.Columns.Add("SoLuong", typeof(int));
+            _dataTableCtspCanGiaCong.Columns.Add("TienCong", typeof (int));
             gridControlCTSPGC.DataSource = _dataTableCtspCanGiaCong;
             gridViewCTSPGC.Columns[0].Visible =
                 gridViewCTSPGC.Columns[1].Visible =
@@ -56,6 +57,7 @@ namespace QuanLiBanVang
             gridViewCTSPGC.Columns[4].Caption = "Tên loại sản phẩm";
             gridViewCTSPGC.Columns[5].Caption = "Hình thức gia công";
             gridViewCTSPGC.Columns[6].Caption = "Số lượng";
+            gridViewCTSPGC.Columns[7].Caption = "Tiền công";
             gridViewCTSPGC.OptionsMenu.EnableColumnMenu = false;
 
         }
@@ -145,11 +147,11 @@ namespace QuanLiBanVang
                     null,
                     item.Id,
                     item.SoPhieuDV,
-                    /*MaLoaiSP*/item.MaLoaiSP == null ? -1 : item.MaLoaiSP,
-                    /*TenLoaiSP*/
+                    /*MaLoaiSP*/item.MaLoaiSP == null ? -1 : item.MaLoaiSP,/*TenLoaiSP*/
                     item.MaLoaiSP == null ? "Khác" : listLoaiSp.Find(i => i.MaLoaiSP == item.MaLoaiSP).TenLoaiSP,
                     /*HTGC*/listCtgiacongsps.Find(i => i.Id == item.Id).HinhThucGiaCong,
-                    /*Soluong*/item.SoLuong - bulCtpgc.GetSoluongByIdPDV(item.Id),                  
+                    /*Soluong*/item.SoLuong - bulCtpgc.GetSoluongByIdPDV(item.Id),
+                    /*TienCong*/item.TienCong
                 });
             }
             gridControlCTSPGC.DataSource = _dataTableCtspCanGiaCong;

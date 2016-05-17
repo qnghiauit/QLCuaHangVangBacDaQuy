@@ -15,93 +15,45 @@ using DTO;
 
 namespace QuanLiBanVang
 {
-    public partial class SuaPhieuDichVu : DevExpress.XtraEditors.XtraForm
+    public partial class NhapPhieuDichVu : DevExpress.XtraEditors.XtraForm
     {
-        private BUL_PhieuDichVu _bulPhieuDichVu;
-        private BUL_CTPDV _bulCTPDV;
-        private PHIEUDICHVU _pdv;
         private List<KHACHHANG> _listKH;
-        private List<DICHVU> _listDichVu;
-        private List<LOAISANPHAM> _listLoaiSP;
         private ComboBoxItemCollection _comboboxItemsKH;
         private DataColumn _keyFeild;
         private DataTable _dataTable;
         private MyCache _cache = new MyCache("IDcache");
-        private int _soPDV;
+        private int _maNV;
         private bool _isResultOK;
-        public SuaPhieuDichVu(int soPDV)
+        public NhapPhieuDichVu(int maNV = 4)
         {
             InitializeComponent();
-            _soPDV = soPDV;
-            _isResultOK = false;
-            _bulPhieuDichVu = new BUL_PhieuDichVu();
-            _bulCTPDV = new BUL_CTPDV();
+            _maNV = maNV;
+            _isResultOK = false;      
         }
         private void PhieuDichVu_Load(object sender, EventArgs e)
         {
             _comboboxItemsKH = this.comboBoxEditTenKhach.Properties.Items;
-            this.simpleButtonOK.Enabled = false;
             AddDichVuToComboBoxEdit();
             AddLoaiSPToComboBoxEdit();
             CreateDataTable();
-            LoadInfoPDV();        
+            this.dateEditNgayDK.DateTime = DateTime.Today;
+            LoadEmployeeName();
         }
-        private void LoadInfoPDV()
-        {
-            _pdv = _bulPhieuDichVu.GetPhieuDichVuById(_soPDV);
-            LoadEmployeeName(_pdv.MaNV);
-            this.dateEditNgayDK.DateTime = _pdv.NgayDangKy;
-            this.dateEditNgayDK.ReadOnly = true;
-            this.dateEditNgayGiao.DateTime = _pdv.NgayGiao;
-            this.checkEditKhachQuen.ReadOnly =
-            this.comboBoxEditTenKhach.ReadOnly = 
-            this.textEditDiaChi.ReadOnly = true;
-            int makh = _pdv.MaKH ?? 0;
-            if(makh == 0)
-                this.checkEditKhachQuen.Checked = false;
-            else
-            {
-                this.checkEditKhachQuen.Checked = true;
-                this.comboBoxEditTenKhach.SelectedIndex = _listKH.IndexOf(_listKH.Find(i => i.MaKH == makh));
-            }
-            LoadInfoCTPDV();
-        }
-        private void LoadInfoCTPDV()
-        {
-            List<CTPDV> listCTPDV = _bulCTPDV.GetAllCTPDVBySoPhieuDV(_soPDV);
-            _dataTable.Rows.Clear();
-            foreach (var item in listCTPDV)
-            {
-                _dataTable.Rows.Add(new object[] { 
-                null, 
-                item.Id, 
-                item.SoPhieuDV, 
-                /*MaLoaiSP*/item.MaLoaiSP == null?-1:item.MaLoaiSP, 
-                /*TenLoaiSP*/item.MaLoaiSP == null?"Khác":_listLoaiSP.Find(i => i.MaLoaiSP == item.MaLoaiSP).TenLoaiSP, 
-                /*MaDV*/item.MaDV,
-                /*TenDV*/_listDichVu.Find(i => i.MaDV == item.MaDV).TenDV,
-                /*Soluong*/item.SoLuong,
-                /*TienCong*/item.TienCong,
-                /*ThanhTien*/item.ThanhTien});
-            }
-            gridControlCTPDV.DataSource = _dataTable;
-            CalculateTongTien();
-        }
-        private void LoadEmployeeName(int maNV)
+        private void LoadEmployeeName()
         {
             BUL_NhanVien bulNhanVien = new BUL_NhanVien();
-            NHANVIEN nv = bulNhanVien.getStaffById(maNV);
+            NHANVIEN nv = bulNhanVien.getStaffById(_maNV);
             this.textEditTenNhanVien.Text = nv.HoTen;
         }
         private void AddDichVuToComboBoxEdit()
         {
             BUL_DichVu bulDichVu = new BUL_DichVu();
             ComboBoxItemCollection comboboxItemsLoaiDV = this.comboBoxEditTenDV.Properties.Items;
-            _listDichVu = bulDichVu.GetAllDichvus();
+            List<DICHVU> listDichVu = bulDichVu.GetAllDichvus();
             comboboxItemsLoaiDV.BeginUpdate();
             try
             {
-                foreach (var item in _listDichVu)
+                foreach (var item in listDichVu)
                 {
                     ContainerItem dv = new ContainerItem();
                     dv.Text = item.TenDV;
@@ -118,7 +70,7 @@ namespace QuanLiBanVang
         {
             BUL_LoaiSanPham bulLoaiSP = new BUL_LoaiSanPham();
             ComboBoxItemCollection comboboxItemsLoaiSP = this.comboBoxEditLoaiSP.Properties.Items;
-            _listLoaiSP = bulLoaiSP.getAllProductType();
+            List<LOAISANPHAM> listLoaiSP = bulLoaiSP.getAllProductType();
             comboboxItemsLoaiSP.BeginUpdate();
             try
             {
@@ -127,7 +79,7 @@ namespace QuanLiBanVang
                 spNull.Value = null;
                 comboboxItemsLoaiSP.Add(spNull);
 
-                foreach (LOAISANPHAM item in _listLoaiSP)
+                foreach (LOAISANPHAM item in listLoaiSP)
                 {
                     ContainerItem sp = new ContainerItem();
                     sp.Text = item.TenLoaiSP;
@@ -222,12 +174,16 @@ namespace QuanLiBanVang
             gridViewCT_PDV.OptionsMenu.EnableColumnMenu = false;
         }
         private void comboBoxEditTenDV_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {            
             BUL_DichVu bulDichVu = new BUL_DichVu();
             DICHVU dv = (this.comboBoxEditTenDV.SelectedItem as ContainerItem).Value as DICHVU;
             decimal tiencong = bulDichVu.GetDichvuById(dv.MaDV).TienCong??0;
             this.textEditTienCong.Text = ((int)tiencong).ToString();
             CalculateThanhTien();
+            if (dv.MaDV == 2)
+                textEditTienCong.ReadOnly = false;
+            else
+                textEditTienCong.ReadOnly = true;
         }
         private void textEditSoLuong_EditValueChanged(object sender, EventArgs e)
         {
@@ -235,72 +191,56 @@ namespace QuanLiBanVang
         }
         private void CalculateThanhTien()
         {
-            int tiencong = Int32.Parse(this.textEditTienCong.Text);
+            int tiencong = Int32.Parse(this.textEditTienCong.Text == ""? "0": textEditTienCong.Text);
             int soluong = Int32.Parse(this.textEditSoLuong.Text == "" ? "0" : this.textEditSoLuong.Text);
-            this.textEditThanhTien.Text = (tiencong * soluong).ToString();
-        }
-        private bool CheckLogicError()
-        {
-            if (this.comboBoxEditLoaiSP.SelectedIndex == -1)
-            {
-                MessageBox.Show("Loại sản phẩm không được để trống!\nChọn Khác nếu cửa hàng không kinh doanh loại sản phẩm này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.comboBoxEditLoaiSP.Focus();
-                return false;
-            }
-            if (this.comboBoxEditTenDV.SelectedIndex == -1)
-            {
-                MessageBox.Show("Tên dịch vụ không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.comboBoxEditTenDV.Focus();
-                return false;
-            }
-            if (this.textEditSoLuong.Text == "" || Int32.Parse(this.textEditSoLuong.Text) == 0)
-            {
-                MessageBox.Show("Số lượng phải lớn hơn 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.textEditSoLuong.Focus();
-                return false;
-            }
-            return true;
+            textEditThanhTien.Text = (tiencong * soluong).ToString();
         }
         private void simpleButtonThem_Click(object sender, EventArgs e)
         {
-            if (!CheckLogicError())
+            if(this.comboBoxEditLoaiSP.SelectedIndex == -1)
+            {
+                MessageBox.Show("Loại sản phẩm không được để trống!\nChọn Khác nếu cửa hàng không kinh doanh loại sản phẩm này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.comboBoxEditLoaiSP.Focus();
                 return;
+            }
+            if(this.comboBoxEditTenDV.SelectedIndex == -1)
+            {
+                MessageBox.Show("Tên dịch vụ không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.comboBoxEditTenDV.Focus();
+                return;
+            }
+            if(this.textEditSoLuong.Text == "" || Int32.Parse(this.textEditSoLuong.Text) == 0)
+            {
+                MessageBox.Show("Số lượng phải lớn hơn 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.textEditSoLuong.Focus();
+                return;
+            }
             LOAISANPHAM lsp = (this.comboBoxEditLoaiSP.SelectedItem as ContainerItem).Value as LOAISANPHAM;
             DICHVU dv = (this.comboBoxEditTenDV.SelectedItem as ContainerItem).Value as DICHVU;
+            _dataTable.Rows.Add(new object[] { 
+                null, 
+                null, 
+                null, 
+                /*MaLoaiSP*/lsp == null?-1:lsp.MaLoaiSP, 
+                /*TenLoaiSP*/lsp == null?"Khác":lsp.TenLoaiSP, 
+                /*MaDV*/dv.MaDV,
+                /*TenDV*/dv.TenDV,
+                /*Soluong*/Int32.Parse(this.textEditSoLuong.Text),
+                /*TienCong*/Int32.Parse(this.textEditTienCong.Text),
+                /*ThanhTien*/Int32.Parse(this.textEditThanhTien.Text)});
 
-            CTPDV ctpdv = new CTPDV();
-            ctpdv.SoPhieuDV = _soPDV;
-            if (lsp != null)
-                ctpdv.MaLoaiSP = lsp.MaLoaiSP;
-            ctpdv.MaDV = dv.MaDV;
-            ctpdv.SoLuong = Int32.Parse(this.textEditSoLuong.Text);
-            ctpdv.TienCong = Int32.Parse(this.textEditTienCong.Text);
-            ctpdv.ThanhTien = Int32.Parse(this.textEditThanhTien.Text);
-            _bulCTPDV.AddNewCTPDV(ctpdv);
-            //Neu ok het
-            MessageBox.Show("Thêm chi tiết phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadInfoCTPDV();
-            _isResultOK = true;
+            gridControlCTPDV.DataSource = _dataTable;
+            CalculateTongTien();
         }
 
         private void simpleButtonXoa_Click(object sender, EventArgs e)
         {
-            if (_dataTable.Rows.Count == 1)
-            {
-                MessageBox.Show("Mỗi phiếu dịch vụ phải có ít nhất 1 chi tiết phiếu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-                
             DataRow currentRow = gridViewCT_PDV.GetDataRow(gridViewCT_PDV.FocusedRowHandle);
             if (currentRow != null)
             {
-                int id = Int32.Parse(currentRow[1].ToString());
-                _bulCTPDV.DeleteCTPDVById(id);
-                //Neu ok het
-                MessageBox.Show("Xoá chi tiết phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadInfoCTPDV();
-                _isResultOK = true;
-            }                
+                _dataTable.Rows.Remove(currentRow);
+            }
+            CalculateTongTien();
         }
         private void CalculateTongTien()
         {
@@ -320,6 +260,12 @@ namespace QuanLiBanVang
         private void simpleButtonOK_Click(object sender, EventArgs e)
         {
             //Check logic condition
+            if(this.dateEditNgayDK.Text == "")
+            {
+                MessageBox.Show("Ngày đăng kí không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.dateEditNgayDK.Focus();
+                return;
+            }
             if (this.dateEditNgayGiao.Text == "")
             {
                 MessageBox.Show("Ngày giao không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -332,6 +278,12 @@ namespace QuanLiBanVang
                 this.dateEditNgayGiao.Focus();
                 return;
             }
+            if(this.checkEditKhachQuen.Checked && this.comboBoxEditTenKhach.SelectedIndex == -1)
+            {
+                MessageBox.Show("Tên khách hàng không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.comboBoxEditTenKhach.Focus();
+                return;
+            }
             if(this._dataTable.Rows.Count == 0)
             {
                 MessageBox.Show("Mỗi phiếu dịch vụ phải có ít nhất 1 chi tiết phiếu dịch vụ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -339,12 +291,41 @@ namespace QuanLiBanVang
                 return;
             }
 
-            //Update PDV
-            _pdv.NgayGiao = this.dateEditNgayGiao.DateTime;
-            _bulPhieuDichVu.UpdatePhieuDichVu(_pdv);
+            //Create PDV
+            BUL_PhieuDichVu bulPhieuDichVu = new BUL_PhieuDichVu();
+            PHIEUDICHVU phieudichvu = new PHIEUDICHVU();
+            if (this.checkEditKhachQuen.Checked)
+            {
+                KHACHHANG kh = (this.comboBoxEditTenKhach.SelectedItem as ContainerItem).Value as KHACHHANG;
+                phieudichvu.MaKH = kh.MaKH;
+            }
+            phieudichvu.MaNV = _maNV;
+            phieudichvu.NgayDangKy = this.dateEditNgayDK.DateTime;
+            phieudichvu.NgayGiao = this.dateEditNgayGiao.DateTime;
+            phieudichvu.TongTien = Int32.Parse(this.textEditTongTien.Text);
+            int sophieudv = bulPhieuDichVu.AddNewPhieuDichVu(phieudichvu);
+
+            //Create CTPDV
+            BUL_CTPDV bulCTPDV = new BUL_CTPDV();
+            foreach (DataRow row in _dataTable.Rows)
+            {
+                CTPDV ctpdv = new CTPDV();
+                ctpdv.SoPhieuDV = sophieudv;
+                int maloaisp = Convert.ToInt32(row["MaLoaiSP"]);
+                if (maloaisp != -1)
+                    ctpdv.MaLoaiSP = maloaisp;
+                ctpdv.MaDV = Convert.ToInt32(row["MaDV"]);
+                ctpdv.SoLuong = Convert.ToInt32(row["SoLuong"]);
+                ctpdv.TienCong = Convert.ToInt32(row["TienCong"]);
+                ctpdv.ThanhTien = Convert.ToInt32(row["ThanhTien"]);
+                bulCTPDV.AddNewCTPDV(ctpdv);
+            }
+
             //Neu ok het
-            MessageBox.Show("Sửa phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Phiếu dịch vụ được tạo thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.simpleButtonOK.Enabled = false;
+            this.simpleButtonThem.Enabled = false;
+            this.simpleButtonXoa.Enabled = false;
             _isResultOK = true;
 
         }
@@ -352,62 +333,14 @@ namespace QuanLiBanVang
         private void NhapPhieuDichVu_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (_isResultOK)
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                DialogResult = DialogResult.OK;
             else
-                this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                DialogResult = DialogResult.Cancel;
         }
 
-        private void simpleButtonSua_Click(object sender, EventArgs e)
+        private void textEditTienCong_EditValueChanged_1(object sender, EventArgs e)
         {
-            DataRow currentRow = gridViewCT_PDV.GetDataRow(gridViewCT_PDV.FocusedRowHandle);
-            if (currentRow != null)
-            {
-                int id = Int32.Parse(currentRow[1].ToString());
-                if (!CheckLogicError())
-                    return;
-                LOAISANPHAM lsp = (this.comboBoxEditLoaiSP.SelectedItem as ContainerItem).Value as LOAISANPHAM;
-                DICHVU dv = (this.comboBoxEditTenDV.SelectedItem as ContainerItem).Value as DICHVU;
-
-                CTPDV ctpdv = _bulCTPDV.GetCTPDVById(id);
-                if (lsp != null)
-                    ctpdv.MaLoaiSP = lsp.MaLoaiSP;
-                else
-                    ctpdv.MaLoaiSP = null;
-                ctpdv.MaDV = dv.MaDV;
-                ctpdv.SoLuong = Int32.Parse(this.textEditSoLuong.Text);
-                ctpdv.TienCong = Int32.Parse(this.textEditTienCong.Text);
-                ctpdv.ThanhTien = Int32.Parse(this.textEditThanhTien.Text);
-                _bulCTPDV.UpdateCTPDV(ctpdv);
-                //Neu ok het
-                MessageBox.Show("Sửa chi tiết phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadInfoCTPDV();
-                _isResultOK = true;
-            }           
-        }
-
-        private void gridViewCT_PDV_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
-        {
-            DataRow currentRow = gridViewCT_PDV.GetDataRow(gridViewCT_PDV.FocusedRowHandle);
-            if (currentRow != null)
-            {
-                int malsp = Convert.ToInt32(currentRow["MaLoaiSP"]);
-                if(malsp == -1)
-                    this.comboBoxEditLoaiSP.SelectedIndex = 0;
-                else
-                    this.comboBoxEditLoaiSP.SelectedIndex = _listLoaiSP.IndexOf(_listLoaiSP.Find(sp => sp.MaLoaiSP == malsp)) +1 ;//+1 vì "Khác" ở vị trí 0
-                this.comboBoxEditTenDV.SelectedIndex = _listDichVu.IndexOf(_listDichVu.Find(dv => dv.MaDV == Convert.ToInt32(currentRow["MaDV"])));
-                this.textEditSoLuong.Text = currentRow["SoLuong"].ToString();
-                this.textEditTienCong.Text = currentRow["TienCong"].ToString();
-                this.textEditThanhTien.Text = currentRow["ThanhTien"].ToString();
-            }
-        }
-
-        private void dateEditNgayGiao_EditValueChanged(object sender, EventArgs e)
-        {
-            if (this.dateEditNgayGiao.DateTime != _pdv.NgayGiao)
-                this.simpleButtonOK.Enabled = true;
-            else
-                this.simpleButtonOK.Enabled = false;
+            CalculateThanhTien();
         }
 
         

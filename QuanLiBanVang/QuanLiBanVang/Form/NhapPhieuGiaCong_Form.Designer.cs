@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.textEditTenNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
@@ -89,19 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCTSPGC)).BeginInit();
             this.SuspendLayout();
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(264, 12);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(0, 24);
-            this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "PHIẾU GIA CÔNG";
-            // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.textEditTenNhanVien);
@@ -114,7 +100,7 @@
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Location = new System.Drawing.Point(12, 42);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(964, 129);
+            this.groupControl1.Size = new System.Drawing.Size(1031, 129);
             this.groupControl1.TabIndex = 11;
             this.groupControl1.Text = "Thông tin phiếu";
             // 
@@ -214,18 +200,19 @@
             this.groupControl2.Controls.Add(this.labelControl7);
             this.groupControl2.Location = new System.Drawing.Point(12, 177);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(964, 312);
+            this.groupControl2.Size = new System.Drawing.Size(1031, 312);
             this.groupControl2.TabIndex = 12;
             this.groupControl2.Text = "Chi tiết phiếu";
             // 
             // textEditTienCong
             // 
             this.textEditTienCong.EditValue = "";
-            this.textEditTienCong.Location = new System.Drawing.Point(680, 76);
+            this.textEditTienCong.Location = new System.Drawing.Point(743, 76);
             this.textEditTienCong.Name = "textEditTienCong";
             this.textEditTienCong.Properties.Mask.EditMask = "\\d+";
             this.textEditTienCong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.textEditTienCong.Properties.MaxLength = 6;
+            this.textEditTienCong.Properties.ReadOnly = true;
             this.textEditTienCong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textEditTienCong.Size = new System.Drawing.Size(92, 20);
             this.textEditTienCong.TabIndex = 39;
@@ -233,7 +220,7 @@
             // 
             // simpleButtonXoa
             // 
-            this.simpleButtonXoa.Location = new System.Drawing.Point(902, 130);
+            this.simpleButtonXoa.Location = new System.Drawing.Point(965, 130);
             this.simpleButtonXoa.Name = "simpleButtonXoa";
             this.simpleButtonXoa.Size = new System.Drawing.Size(57, 23);
             this.simpleButtonXoa.TabIndex = 38;
@@ -242,7 +229,7 @@
             // 
             // textEditThanhTien
             // 
-            this.textEditThanhTien.Location = new System.Drawing.Point(782, 76);
+            this.textEditThanhTien.Location = new System.Drawing.Point(845, 76);
             this.textEditThanhTien.Name = "textEditThanhTien";
             this.textEditThanhTien.Properties.ReadOnly = true;
             this.textEditThanhTien.Size = new System.Drawing.Size(114, 20);
@@ -250,7 +237,7 @@
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(782, 57);
+            this.labelControl15.Location = new System.Drawing.Point(845, 57);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(51, 13);
             this.labelControl15.TabIndex = 36;
@@ -258,7 +245,7 @@
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(680, 57);
+            this.labelControl13.Location = new System.Drawing.Point(743, 57);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(46, 13);
             this.labelControl13.TabIndex = 34;
@@ -266,7 +253,7 @@
             // 
             // textEditTenLoaiSP
             // 
-            this.textEditTenLoaiSP.Location = new System.Drawing.Point(367, 76);
+            this.textEditTenLoaiSP.Location = new System.Drawing.Point(430, 76);
             this.textEditTenLoaiSP.Name = "textEditTenLoaiSP";
             this.textEditTenLoaiSP.Properties.ReadOnly = true;
             this.textEditTenLoaiSP.Size = new System.Drawing.Size(114, 20);
@@ -274,7 +261,7 @@
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(367, 57);
+            this.labelControl12.Location = new System.Drawing.Point(430, 57);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(86, 13);
             this.labelControl12.TabIndex = 32;
@@ -283,7 +270,7 @@
             // textEditSoLuong
             // 
             this.textEditSoLuong.EditValue = "";
-            this.textEditSoLuong.Location = new System.Drawing.Point(621, 76);
+            this.textEditSoLuong.Location = new System.Drawing.Point(684, 76);
             this.textEditSoLuong.Name = "textEditSoLuong";
             this.textEditSoLuong.Properties.Mask.EditMask = "\\d+";
             this.textEditSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -295,7 +282,7 @@
             // 
             // simpleButtonThem
             // 
-            this.simpleButtonThem.Location = new System.Drawing.Point(902, 47);
+            this.simpleButtonThem.Location = new System.Drawing.Point(965, 47);
             this.simpleButtonThem.Name = "simpleButtonThem";
             this.simpleButtonThem.Size = new System.Drawing.Size(57, 49);
             this.simpleButtonThem.TabIndex = 19;
@@ -304,7 +291,7 @@
             // 
             // textEditHTGC
             // 
-            this.textEditHTGC.Location = new System.Drawing.Point(501, 76);
+            this.textEditHTGC.Location = new System.Drawing.Point(564, 76);
             this.textEditHTGC.Name = "textEditHTGC";
             this.textEditHTGC.Properties.ReadOnly = true;
             this.textEditHTGC.Size = new System.Drawing.Size(114, 20);
@@ -312,7 +299,7 @@
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(621, 57);
+            this.labelControl11.Location = new System.Drawing.Point(684, 57);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(42, 13);
             this.labelControl11.TabIndex = 28;
@@ -320,7 +307,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(501, 57);
+            this.labelControl4.Location = new System.Drawing.Point(564, 57);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(89, 13);
             this.labelControl4.TabIndex = 27;
@@ -328,7 +315,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(367, 34);
+            this.labelControl2.Location = new System.Drawing.Point(430, 34);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(114, 13);
             this.labelControl2.TabIndex = 26;
@@ -337,7 +324,7 @@
             // textEditTongTien
             // 
             this.textEditTongTien.EditValue = "0";
-            this.textEditTongTien.Location = new System.Drawing.Point(776, 286);
+            this.textEditTongTien.Location = new System.Drawing.Point(839, 286);
             this.textEditTongTien.Name = "textEditTongTien";
             this.textEditTongTien.Properties.ReadOnly = true;
             this.textEditTongTien.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -346,7 +333,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(367, 111);
+            this.labelControl9.Location = new System.Drawing.Point(430, 111);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(106, 13);
             this.labelControl9.TabIndex = 24;
@@ -362,7 +349,7 @@
             // 
             // gridControlCTPGC_review
             // 
-            this.gridControlCTPGC_review.Location = new System.Drawing.Point(367, 130);
+            this.gridControlCTPGC_review.Location = new System.Drawing.Point(430, 130);
             this.gridControlCTPGC_review.MainView = this.gridViewCTPGC_review;
             this.gridControlCTPGC_review.Name = "gridControlCTPGC_review";
             this.gridControlCTPGC_review.Size = new System.Drawing.Size(529, 150);
@@ -384,7 +371,7 @@
             this.gridControlCTSPGC.Location = new System.Drawing.Point(18, 57);
             this.gridControlCTSPGC.MainView = this.gridViewCTSPGC;
             this.gridControlCTSPGC.Name = "gridControlCTSPGC";
-            this.gridControlCTSPGC.Size = new System.Drawing.Size(329, 223);
+            this.gridControlCTSPGC.Size = new System.Drawing.Size(397, 223);
             this.gridControlCTSPGC.TabIndex = 10;
             this.gridControlCTSPGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCTSPGC});
@@ -401,7 +388,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(725, 289);
+            this.labelControl7.Location = new System.Drawing.Point(788, 289);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(45, 13);
             this.labelControl7.TabIndex = 1;
@@ -461,19 +448,18 @@
             this.labelControl10.TabIndex = 18;
             this.labelControl10.Text = "NHẬP PHIẾU GIA CÔNG";
             // 
-            // PhieuGiaCong
+            // NhapPhieuGiaCong_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 524);
+            this.ClientSize = new System.Drawing.Size(1055, 524);
             this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.simpleButton3);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.simpleButtonLuu);
-            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.simpleButtonExit);
-            this.Name = "PhieuGiaCong";
+            this.Name = "NhapPhieuGiaCong_Form";
             this.Text = "Nhập Phiếu Gia Công";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PhieuGiaCong_FormClosing);
             this.Load += new System.EventHandler(this.PhieuGiaCong_Load);
@@ -506,7 +492,6 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.LabelControl labelControl6;
