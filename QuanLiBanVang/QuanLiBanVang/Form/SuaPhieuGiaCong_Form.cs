@@ -20,11 +20,13 @@ namespace QuanLiBanVang
         private int _soPGC;
         private bool _isResultOk;
         private ComboBoxItemCollection _comboboxItemsTho;
-        public SuaPhieuGiaCong_Form(int soPGC = 1)
+        private double phanTramTienGCThoNhan;
+        public SuaPhieuGiaCong_Form(int soPgc)
         {
             InitializeComponent();
-            _soPGC = soPGC;           
-            _isResultOk = false;   
+            _soPGC = soPgc;           
+            _isResultOk = false;
+            phanTramTienGCThoNhan = 0.7;
         }
 
         private void PhieuGiaCong_Load(object sender, EventArgs e)
@@ -43,8 +45,8 @@ namespace QuanLiBanVang
             _maNV = pgc.MaNV;
             LoadEmployeeName(_maNV);
             LoadTho(pgc.MaTho);
-            this.dateEditNgayNhanHang.DateTime = pgc.NgayNhanHang;
-            this.dateEditNgayThanhToan.DateTime = pgc.NgayThanhToan;          
+            dateEditNgayNhanHang.DateTime = pgc.NgayNhanHang;
+            dateEditNgayThanhToan.DateTime = pgc.NgayThanhToan;          
         }
         private void CreateDataTableCtpdvCanGiaCong()
         {
@@ -57,7 +59,8 @@ namespace QuanLiBanVang
             _dataTableCtspCanGiaCong.Columns.Add("MaLoaiSP", typeof(int));
             _dataTableCtspCanGiaCong.Columns.Add("TenLoaiSP", typeof(string));
             _dataTableCtspCanGiaCong.Columns.Add("HTGC", typeof(string));
-            _dataTableCtspCanGiaCong.Columns.Add("SoLuong", typeof(int));            
+            _dataTableCtspCanGiaCong.Columns.Add("SoLuong", typeof(int));
+            _dataTableCtspCanGiaCong.Columns.Add("TienCong", typeof(int));
             gridControlCTSPGC.DataSource = _dataTableCtspCanGiaCong;
             gridViewCTSPGC.Columns[0].Visible =
                 gridViewCTSPGC.Columns[1].Visible =
@@ -66,7 +69,7 @@ namespace QuanLiBanVang
             gridViewCTSPGC.Columns[4].Caption = "Tên loại sản phẩm";
             gridViewCTSPGC.Columns[5].Caption = "Hình thức gia công";
             gridViewCTSPGC.Columns[6].Caption = "Số lượng";
-            gridViewCTSPGC.OptionsMenu.EnableColumnMenu = false;
+            gridViewCTSPGC.Columns[7].Caption = "Tiền công";gridViewCTSPGC.OptionsMenu.EnableColumnMenu = false;
 
         }
         private void CreateDataTableCTPGC_review()
@@ -115,7 +118,7 @@ namespace QuanLiBanVang
         {
             BUL_NhanVien bulNhanVien = new BUL_NhanVien();
             NHANVIEN nv = bulNhanVien.getStaffById(maNV);
-            this.textEditTenNhanVien.Text = nv.HoTen;
+            textEditTenNhanVien.Text = nv.HoTen;
         }
 
         private void LoadTho(int matho)
@@ -138,7 +141,7 @@ namespace QuanLiBanVang
             {
                 _comboboxItemsTho.EndUpdate();
             }
-            this.comboBoxEditTenTho.SelectedIndex = listThos.IndexOf(listThos.Find(i => i.MaTho == matho));
+            comboBoxEditTenTho.SelectedIndex = listThos.IndexOf(listThos.Find(i => i.MaTho == matho));
         }
         private void LoadCtpdvCanGiaCong()
         {
@@ -146,8 +149,6 @@ namespace QuanLiBanVang
             List<LOAISANPHAM> listLoaiSp = bulLoaiSp.getAllProductType();
             BUL_CTPDV bulCtpdv = new BUL_CTPDV();
             List<CTPDV> listCtpdv = bulCtpdv.GetCTPDVGiaCong();
-            BUL_CTGiaCongSP bulCtGiaCongSp = new BUL_CTGiaCongSP();
-            List<CTGIACONGSP> listCtgiacongsps = bulCtGiaCongSp.GetAll();
             BUL_CTPGC bulCtpgc = new BUL_CTPGC();
             _dataTableCtspCanGiaCong.Rows.Clear();
             foreach (var item in listCtpdv){
@@ -158,9 +159,9 @@ namespace QuanLiBanVang
                     item.SoPhieuDV,
                     /*MaLoaiSP*/item.MaLoaiSP == null ? -1 : item.MaLoaiSP,
                     /*TenLoaiSP*/item.MaLoaiSP == null ? "Khác" : listLoaiSp.Find(i => i.MaLoaiSP == item.MaLoaiSP).TenLoaiSP,
-                    /*HTGC*/listCtgiacongsps.Find(i => i.Id == item.Id).HinhThucGiaCong,
-                    /*Soluong*/item.SoLuong - bulCtpgc.GetSoluongByIdPDV(item.Id),                  
-                });
+                    /*HTGC*/item.GhiChu.Trim(),
+                    /*Soluong*/item.SoLuong - bulCtpgc.GetSoluongByIdPDV(item.Id),
+                    /*TienCong*/item.TienCong});
             }
             gridControlCTSPGC.DataSource = _dataTableCtspCanGiaCong;
 
@@ -174,8 +175,6 @@ namespace QuanLiBanVang
             List<LOAISANPHAM> listLoaiSp = bulLoaiSp.getAllProductType();
             BUL_CTPGC bulCtpgc = new BUL_CTPGC();
             List<CTPGC> listCtpgc = bulCtpgc.GetAllCTPGCBySoPhieuGC(_soPGC);
-            BUL_CTGiaCongSP bulCtGiaCongSp = new BUL_CTGiaCongSP();
-            List<CTGIACONGSP> listCtgiacongsps = bulCtGiaCongSp.GetAll();
             _dataTableCtpgcReview.Rows.Clear();
             foreach (var item in listCtpgc)
             {
@@ -187,7 +186,7 @@ namespace QuanLiBanVang
                     item.Id,
                     /*MaLoaiSP*/ctpdv.MaLoaiSP,
                     /*TenLoaiSP*/ctpdv.MaLoaiSP == null ? "Khác" : listLoaiSp.Find(i => i.MaLoaiSP == ctpdv.MaLoaiSP).TenLoaiSP,
-                    /*HTGC*/listCtgiacongsps.Find(i => i.Id == item.Id).HinhThucGiaCong,
+                    /*HTGC*/ctpdv.GhiChu.Trim(),
                     /*Soluong*/item.SoLuong,
                     /*TienCong*/item.TienCong,
                     /*ThanhTien*/item.ThanhTien
@@ -205,7 +204,9 @@ namespace QuanLiBanVang
             {
                 textEditTenLoaiSP.Text = currentRow["TenLoaiSP"].ToString();
                 textEditHTGC.Text = currentRow["HTGC"].ToString();
-                textEditSoLuong.Text = currentRow["SoLuong"].ToString();}
+                textEditSoLuong.Text = currentRow["SoLuong"].ToString();
+                textEditTienCong.Text = (Convert.ToInt32(currentRow["TienCong"]) * phanTramTienGCThoNhan).ToString();
+            }
         }
         private void textEditSoLuong_EditValueChanged(object sender, EventArgs e)
         {
@@ -412,7 +413,8 @@ namespace QuanLiBanVang
             bulCtpgc.UpdateCTPGC(ctpgc);
             MessageBox.Show("Sửa chi tiết phiếu gia công thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadCtpgc_review();
-            LoadCtpdvCanGiaCong();}
+            LoadCtpdvCanGiaCong();
+        }
 
         private void gridViewCTPGC_review_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {

@@ -19,11 +19,13 @@ namespace QuanLiBanVang
         private int _maNV;
         private bool _isResultOk;
         private ComboBoxItemCollection _comboboxItemsTho;
+        private double phanTramTienGCThoNhan;
         public NhapPhieuGiaCong_Form(int maNv = 4)
         {
             InitializeComponent();
             _maNV = maNv;
-            _isResultOk = false;   
+            _isResultOk = false;
+            phanTramTienGCThoNhan = 0.7;
         }
 
         private void PhieuGiaCong_Load(object sender, EventArgs e)
@@ -34,6 +36,7 @@ namespace QuanLiBanVang
             CreateDataTablePGC_review();
             LoadEmployeeName();
             LoadDanhSachTho();
+
         }
 
         private void CreateDataTableCtspgc()
@@ -137,9 +140,8 @@ namespace QuanLiBanVang
             List<LOAISANPHAM> listLoaiSp = bulLoaiSp.getAllProductType();
             BUL_CTPDV bulCtpdv = new BUL_CTPDV();
             List<CTPDV> listCtpdv = bulCtpdv.GetCTPDVGiaCong();
-            BUL_CTGiaCongSP bulCtGiaCongSp = new BUL_CTGiaCongSP();
-            List<CTGIACONGSP> listCtgiacongsps = bulCtGiaCongSp.GetAll();
-            BUL_CTPGC bulCtpgc = new BUL_CTPGC();_dataTableCtspCanGiaCong.Rows.Clear();
+            BUL_CTPGC bulCtpgc = new BUL_CTPGC();
+            _dataTableCtspCanGiaCong.Rows.Clear();
             foreach (var item in listCtpdv)
             {
                 _dataTableCtspCanGiaCong.Rows.Add(new object[]
@@ -149,7 +151,7 @@ namespace QuanLiBanVang
                     item.SoPhieuDV,
                     /*MaLoaiSP*/item.MaLoaiSP == null ? -1 : item.MaLoaiSP,/*TenLoaiSP*/
                     item.MaLoaiSP == null ? "Khác" : listLoaiSp.Find(i => i.MaLoaiSP == item.MaLoaiSP).TenLoaiSP,
-                    /*HTGC*/listCtgiacongsps.Find(i => i.Id == item.Id).HinhThucGiaCong,
+                    /*HTGC*/item.GhiChu.Trim(),
                     /*Soluong*/item.SoLuong - bulCtpgc.GetSoluongByIdPDV(item.Id),
                     /*TienCong*/item.TienCong
                 });
@@ -159,8 +161,6 @@ namespace QuanLiBanVang
             gridViewCTSPGC.Columns["SoPhieuDV"].GroupIndex = 0;
             gridViewCTSPGC.ExpandAllGroups();
 
-            //gridViewCTPGC.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
-            //gridViewCTPGC.OptionsSelection.MultiSelect = true;
         }
         private void gridViewCTPGC_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
@@ -170,6 +170,7 @@ namespace QuanLiBanVang
                 textEditTenLoaiSP.Text = currentRow["TenLoaiSP"].ToString();
                 textEditHTGC.Text = currentRow["HTGC"].ToString();
                 textEditSoLuong.Text = currentRow["SoLuong"].ToString();
+                textEditTienCong.Text = (Convert.ToInt32(currentRow["TienCong"]) * phanTramTienGCThoNhan).ToString();
             }
         }
         private void textEditSoLuong_EditValueChanged(object sender, EventArgs e)

@@ -42,25 +42,40 @@ namespace QuanLiBanVang
         private void MainForm_Load(object sender, EventArgs e)
         {
         }
-
-        //Tìm form đã mở hay chưa, mở rồi thì focus, chưa thì show mdi
-        private void CheckMdiChildren(XtraForm form)
+        //Open from or focus if opened
+        public void OpenChildForm(XtraForm form)
         {
-            foreach (var frm in this.MdiChildren)
+            //Check before open
+            if (!IsFormOpened(form))
             {
-                if (frm.Text == form.Text)
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
+        //Check if a form is opened already      
+        private bool IsFormOpened(XtraForm form)
+        {
+            bool IsOpenend = false;
+            //If there is more than one form opened
+            if (MdiChildren.Count() > 0)
+            {
+                foreach (var item in MdiChildren)
                 {
-                    frm.Focus();
-                    return;
+                    if (form.Name == item.Name)
+                    {
+                        //Active this form
+                        xtraTabbedMdiManager1.Pages[item].MdiChild.Activate();
+                        IsOpenend = true;
+                    }
                 }
             }
-            form.MdiParent = this;
-            form.Show();
+            return IsOpenend;
         }
+
         private void barButtonItemDSKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           // DanhSachKH dsKhachHangFrom = new DanhSachKH();
-            //CheckMdiChildren(dsKhachHangFrom);
+            DanhSachKH dsKhachHangFrom = new DanhSachKH();
+            OpenChildForm(dsKhachHangFrom);
         }
 
         private void barButtonItemDSNhaCungCap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -70,8 +85,45 @@ namespace QuanLiBanVang
 
         private void barButtonItemDSThoGiaCong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           // DanhSachTho dsThoForm = new DanhSachTho();
-           // CheckMdiChildren(dsThoForm);
+            DanhSachTho dsThoForm = new DanhSachTho();
+            OpenChildForm(dsThoForm);
         }
+
+        private void barButtonItemDSPhieuDV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhSachPDV danhSachPdv = new DanhSachPDV();
+            OpenChildForm(danhSachPdv);
+        }
+
+        private void barButtonItemDSPhieuGC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhSachPGC danhSachPgc = new DanhSachPGC();
+            OpenChildForm(danhSachPgc);
+        }
+
+        private void barButtonItemThemKH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            NhapKhachHang nhapKhachHang = new NhapKhachHang();
+            OpenChildForm(nhapKhachHang);
+        }
+
+        private void barButtonItemThemTho_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            NhapTho nhapTho = new NhapTho();
+            OpenChildForm(nhapTho);
+        }
+
+        private void barButtonItemThemPGC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            NhapPhieuGiaCong_Form nhapPhieuGiaCong = new NhapPhieuGiaCong_Form();
+            OpenChildForm(nhapPhieuGiaCong);
+        }
+
+        private void barButtonItemLapPhieuDV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            NhapPhieuDichVu nhapPhieuDichVu = new NhapPhieuDichVu();
+            OpenChildForm(nhapPhieuDichVu);
+        }
+
     }
 }

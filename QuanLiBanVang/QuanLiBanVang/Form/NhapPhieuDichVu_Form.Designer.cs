@@ -43,6 +43,8 @@
             this.dateEditNgayGiao = new DevExpress.XtraEditors.DateEdit();
             this.dateEditNgayDK = new DevExpress.XtraEditors.DateEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.textEditHTGC = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.textEditTienCong = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonXoa = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonThem = new DevExpress.XtraEditors.SimpleButton();
@@ -73,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayDK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditHTGC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTienCong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditTenDV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditLoaiSP.Properties)).BeginInit();
@@ -94,7 +97,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(459, 293);
+            this.labelControl2.Location = new System.Drawing.Point(551, 293);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(45, 13);
             this.labelControl2.TabIndex = 1;
@@ -131,7 +134,7 @@
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Location = new System.Drawing.Point(12, 39);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(647, 165);
+            this.groupControl1.Size = new System.Drawing.Size(740, 165);
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Thông tin phiếu";
             // 
@@ -219,6 +222,8 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.Controls.Add(this.textEditHTGC);
+            this.groupControl2.Controls.Add(this.labelControl4);
             this.groupControl2.Controls.Add(this.textEditTienCong);
             this.groupControl2.Controls.Add(this.simpleButtonXoa);
             this.groupControl2.Controls.Add(this.simpleButtonThem);
@@ -236,14 +241,30 @@
             this.groupControl2.Controls.Add(this.labelControl2);
             this.groupControl2.Location = new System.Drawing.Point(12, 210);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(647, 321);
+            this.groupControl2.Size = new System.Drawing.Size(740, 321);
             this.groupControl2.TabIndex = 11;
             this.groupControl2.Text = "Chi tiết phiếu";
+            // 
+            // textEditHTGC
+            // 
+            this.textEditHTGC.Location = new System.Drawing.Point(332, 60);
+            this.textEditHTGC.Name = "textEditHTGC";
+            this.textEditHTGC.Properties.ReadOnly = true;
+            this.textEditHTGC.Size = new System.Drawing.Size(179, 20);
+            this.textEditHTGC.TabIndex = 42;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(237, 63);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(89, 13);
+            this.labelControl4.TabIndex = 41;
+            this.labelControl4.Text = "Hình thức gia công";
             // 
             // textEditTienCong
             // 
             this.textEditTienCong.EditValue = "";
-            this.textEditTienCong.Location = new System.Drawing.Point(285, 61);
+            this.textEditTienCong.Location = new System.Drawing.Point(376, 30);
             this.textEditTienCong.Name = "textEditTienCong";
             this.textEditTienCong.Properties.Mask.EditMask = "\\d+";
             this.textEditTienCong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -256,7 +277,7 @@
             // 
             // simpleButtonXoa
             // 
-            this.simpleButtonXoa.Location = new System.Drawing.Point(569, 58);
+            this.simpleButtonXoa.Location = new System.Drawing.Point(661, 58);
             this.simpleButtonXoa.Name = "simpleButtonXoa";
             this.simpleButtonXoa.Size = new System.Drawing.Size(61, 23);
             this.simpleButtonXoa.TabIndex = 26;
@@ -265,7 +286,7 @@
             // 
             // simpleButtonThem
             // 
-            this.simpleButtonThem.Location = new System.Drawing.Point(569, 27);
+            this.simpleButtonThem.Location = new System.Drawing.Point(661, 27);
             this.simpleButtonThem.Name = "simpleButtonThem";
             this.simpleButtonThem.Size = new System.Drawing.Size(61, 23);
             this.simpleButtonThem.TabIndex = 25;
@@ -304,7 +325,7 @@
             // textEditTongTien
             // 
             this.textEditTongTien.EditValue = "0";
-            this.textEditTongTien.Location = new System.Drawing.Point(510, 290);
+            this.textEditTongTien.Location = new System.Drawing.Point(602, 290);
             this.textEditTongTien.Name = "textEditTongTien";
             this.textEditTongTien.Properties.ReadOnly = true;
             this.textEditTongTien.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -327,16 +348,16 @@
             // textEditThanhTien
             // 
             this.textEditThanhTien.EditValue = "0";
-            this.textEditThanhTien.Location = new System.Drawing.Point(423, 60);
+            this.textEditThanhTien.Location = new System.Drawing.Point(517, 30);
             this.textEditThanhTien.Name = "textEditThanhTien";
             this.textEditThanhTien.Properties.ReadOnly = true;
             this.textEditThanhTien.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textEditThanhTien.Size = new System.Drawing.Size(75, 20);
+            this.textEditThanhTien.Size = new System.Drawing.Size(99, 20);
             this.textEditThanhTien.TabIndex = 16;
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(237, 63);
+            this.labelControl13.Location = new System.Drawing.Point(324, 33);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(46, 13);
             this.labelControl13.TabIndex = 14;
@@ -352,7 +373,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(366, 63);
+            this.labelControl9.Location = new System.Drawing.Point(460, 33);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(51, 13);
             this.labelControl9.TabIndex = 12;
@@ -371,7 +392,7 @@
             this.gridControlCTPDV.Location = new System.Drawing.Point(18, 86);
             this.gridControlCTPDV.MainView = this.gridViewCT_PDV;
             this.gridControlCTPDV.Name = "gridControlCTPDV";
-            this.gridControlCTPDV.Size = new System.Drawing.Size(612, 198);
+            this.gridControlCTPDV.Size = new System.Drawing.Size(704, 198);
             this.gridControlCTPDV.TabIndex = 10;
             this.gridControlCTPDV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCT_PDV});
@@ -415,7 +436,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 579);
+            this.ClientSize = new System.Drawing.Size(764, 579);
             this.Controls.Add(this.simpleButton3);
             this.Controls.Add(this.simpleButtonOK);
             this.Controls.Add(this.simpleButtonThoat);
@@ -441,6 +462,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditHTGC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTienCong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditTenDV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditLoaiSP.Properties)).EndInit();
@@ -489,5 +511,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.SimpleButton simpleButtonXoa;
         private DevExpress.XtraEditors.TextEdit textEditTienCong;
+        private DevExpress.XtraEditors.TextEdit textEditHTGC;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
     }
 }

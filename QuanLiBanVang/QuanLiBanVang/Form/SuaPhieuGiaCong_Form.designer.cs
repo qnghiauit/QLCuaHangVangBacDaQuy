@@ -237,6 +237,7 @@
             this.textEditTienCong.Properties.Mask.EditMask = "\\d+";
             this.textEditTienCong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.textEditTienCong.Properties.MaxLength = 6;
+            this.textEditTienCong.Properties.ReadOnly = true;
             this.textEditTienCong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textEditTienCong.Size = new System.Drawing.Size(92, 20);
             this.textEditTienCong.TabIndex = 39;

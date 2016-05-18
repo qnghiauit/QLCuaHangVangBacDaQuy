@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using QuanLiBanVang.ExtendClass;
 using BUL;
@@ -18,176 +12,185 @@ namespace QuanLiBanVang
     public partial class SuaPhieuDichVu : DevExpress.XtraEditors.XtraForm
     {
         private BUL_PhieuDichVu _bulPhieuDichVu;
-        private BUL_CTPDV _bulCTPDV;
+        private BUL_CTPDV _bulCtpdv;
         private PHIEUDICHVU _pdv;
-        private List<KHACHHANG> _listKH;
+        private List<KHACHHANG> _listKh;
         private List<DICHVU> _listDichVu;
-        private List<LOAISANPHAM> _listLoaiSP;
-        private ComboBoxItemCollection _comboboxItemsKH;
+        private List<LOAISANPHAM> _listLoaiSp;
+        private ComboBoxItemCollection _comboboxItemsKh;
         private DataColumn _keyFeild;
         private DataTable _dataTable;
         private MyCache _cache = new MyCache("IDcache");
         private int _soPDV;
-        private bool _isResultOK;
-        public SuaPhieuDichVu(int soPDV)
+        private bool _isResultOk;
+        public SuaPhieuDichVu(int soPdv)
         {
             InitializeComponent();
-            _soPDV = soPDV;
-            _isResultOK = false;
+            _soPDV = soPdv;
+            _isResultOk = false;
             _bulPhieuDichVu = new BUL_PhieuDichVu();
-            _bulCTPDV = new BUL_CTPDV();
+            _bulCtpdv = new BUL_CTPDV();
         }
         private void PhieuDichVu_Load(object sender, EventArgs e)
         {
-            _comboboxItemsKH = this.comboBoxEditTenKhach.Properties.Items;
+            _comboboxItemsKh = comboBoxEditTenKhach.Properties.Items;
             simpleButtonOK.Enabled = false;
             checkEditKhachQuen.ReadOnly = true;
             AddDichVuToComboBoxEdit();
-            AddLoaiSPToComboBoxEdit();
+            AddLoaiSpToComboBoxEdit();
             CreateDataTable();
-            LoadInfoPDV();        
+            LoadInfoPdv();        
         }
-        private void LoadInfoPDV()
+        private void LoadInfoPdv()
         {
             _pdv = _bulPhieuDichVu.GetPhieuDichVuById(_soPDV);
             LoadEmployeeName(_pdv.MaNV);
-            this.dateEditNgayDK.DateTime = _pdv.NgayDangKy;
-            this.dateEditNgayDK.ReadOnly = true;
-            this.dateEditNgayGiao.DateTime = _pdv.NgayGiao;
-            this.checkEditKhachQuen.ReadOnly =
-            this.comboBoxEditTenKhach.ReadOnly = 
-            this.textEditDiaChi.ReadOnly = true;
+            dateEditNgayDK.DateTime = _pdv.NgayDangKy;
+            dateEditNgayDK.ReadOnly = true;
+            dateEditNgayGiao.DateTime = _pdv.NgayGiao;
+            checkEditKhachQuen.ReadOnly = true;
+            comboBoxEditTenKhach.ReadOnly = true;
+            textEditDiaChi.ReadOnly = true;
             int makh = _pdv.MaKH ?? 0;
             if (makh == 0)
             {
-                this.checkEditKhachQuen.Checked = false;
+                checkEditKhachQuen.Checked = false;
                 comboBoxEditTenKhach.Text = "Khách vãng lai";
             }
             else
             {
-                this.checkEditKhachQuen.Checked = true;
-                this.comboBoxEditTenKhach.SelectedIndex = _listKH.IndexOf(_listKH.Find(i => i.MaKH == makh));
+                checkEditKhachQuen.Checked = true;
+                comboBoxEditTenKhach.SelectedIndex = _listKh.IndexOf(_listKh.Find(i => i.MaKH == makh));
             }
-            LoadInfoCTPDV();
+            LoadInfoCtpdv();
         }
-        private void LoadInfoCTPDV()
+        private void LoadInfoCtpdv()
         {
-            List<CTPDV> listCTPDV = _bulCTPDV.GetAllCTPDVBySoPhieuDV(_soPDV);
+            List<CTPDV> listCtpdv = _bulCtpdv.GetAllCTPDVBySoPhieuDV(_soPDV);
             _dataTable.Rows.Clear();
-            foreach (var item in listCTPDV)
+            foreach (var item in listCtpdv)
             {
                 _dataTable.Rows.Add(new object[] { 
                 null, 
                 item.Id, 
                 item.SoPhieuDV, 
                 /*MaLoaiSP*/item.MaLoaiSP == null?-1:item.MaLoaiSP, 
-                /*TenLoaiSP*/item.MaLoaiSP == null?"Khác":_listLoaiSP.Find(i => i.MaLoaiSP == item.MaLoaiSP).TenLoaiSP, 
+                /*TenLoaiSP*/item.MaLoaiSP == null?"Khác":_listLoaiSp.Find(i => i.MaLoaiSP == item.MaLoaiSP).TenLoaiSP, 
                 /*MaDV*/item.MaDV,
                 /*TenDV*/_listDichVu.Find(i => i.MaDV == item.MaDV).TenDV,
                 /*Soluong*/item.SoLuong,
                 /*TienCong*/item.TienCong,
-                /*ThanhTien*/item.ThanhTien});
+                /*ThanhTien*/item.ThanhTien,
+                /*GhiChu*/item.GhiChu == null ? "" : item.GhiChu.Trim()
+                });
             }
             gridControlCTPDV.DataSource = _dataTable;
             CalculateTongTien();
         }
-        private void LoadEmployeeName(int maNV)
+        private void LoadEmployeeName(int maNv)
         {
             BUL_NhanVien bulNhanVien = new BUL_NhanVien();
-            NHANVIEN nv = bulNhanVien.getStaffById(maNV);
-            this.textEditTenNhanVien.Text = nv.HoTen;
+            NHANVIEN nv = bulNhanVien.getStaffById(maNv);
+            textEditTenNhanVien.Text = nv.HoTen;
         }
         private void AddDichVuToComboBoxEdit()
         {
             BUL_DichVu bulDichVu = new BUL_DichVu();
-            ComboBoxItemCollection comboboxItemsLoaiDV = this.comboBoxEditTenDV.Properties.Items;
+            ComboBoxItemCollection comboboxItemsLoaiDv = comboBoxEditTenDV.Properties.Items;
             _listDichVu = bulDichVu.GetAllDichvus();
-            comboboxItemsLoaiDV.BeginUpdate();
+            comboboxItemsLoaiDv.BeginUpdate();
             try
             {
                 foreach (var item in _listDichVu)
                 {
-                    ContainerItem dv = new ContainerItem();
-                    dv.Text = item.TenDV;
-                    dv.Value = item;
-                    comboboxItemsLoaiDV.Add(dv);
+                    ContainerItem dv = new ContainerItem
+                    {
+                        Text = item.TenDV,
+                        Value = item
+                    };
+                    comboboxItemsLoaiDv.Add(dv);
                 }
             }
             finally
             {
-                comboboxItemsLoaiDV.EndUpdate();
+                comboboxItemsLoaiDv.EndUpdate();
             }
         }
-        private void AddLoaiSPToComboBoxEdit()
+        private void AddLoaiSpToComboBoxEdit()
         {
-            BUL_LoaiSanPham bulLoaiSP = new BUL_LoaiSanPham();
-            ComboBoxItemCollection comboboxItemsLoaiSP = this.comboBoxEditLoaiSP.Properties.Items;
-            _listLoaiSP = bulLoaiSP.getAllProductType();
-            comboboxItemsLoaiSP.BeginUpdate();
+            BUL_LoaiSanPham bulLoaiSp = new BUL_LoaiSanPham();
+            ComboBoxItemCollection comboboxItemsLoaiSp = comboBoxEditLoaiSP.Properties.Items;
+            _listLoaiSp = bulLoaiSp.getAllProductType();
+            comboboxItemsLoaiSp.BeginUpdate();
             try
             {
-                ContainerItem spNull = new ContainerItem();
-                spNull.Text = "Khác";
-                spNull.Value = null;
-                comboboxItemsLoaiSP.Add(spNull);
-
-                foreach (LOAISANPHAM item in _listLoaiSP)
+                ContainerItem spNull = new ContainerItem
                 {
-                    ContainerItem sp = new ContainerItem();
-                    sp.Text = item.TenLoaiSP;
-                    sp.Value = item;
-                    comboboxItemsLoaiSP.Add(sp);
+                    Text = "Khác",
+                    Value = null
+                };
+                comboboxItemsLoaiSp.Add(spNull);
+
+                foreach (LOAISANPHAM item in _listLoaiSp)
+                {
+                    ContainerItem sp = new ContainerItem
+                    {
+                        Text = item.TenLoaiSP,
+                        Value = item
+                    };
+                    comboboxItemsLoaiSp.Add(sp);
                 }
             }
             finally
             {
-                comboboxItemsLoaiSP.EndUpdate();
+                comboboxItemsLoaiSp.EndUpdate();
             }
         }
         private void AddKhachHangToComboEdit()
         {
-            ClearAllItemInComboboxKH();
-            if(_listKH == null)
+            ClearAllItemInComboboxKh();
+            if(_listKh == null)
             {
                 BUL_KhachHang bulKhachHang = new BUL_KhachHang();
-                _listKH = bulKhachHang.GetAllKhachhangs();
+                _listKh = bulKhachHang.GetAllKhachhangs();
             }
-            _comboboxItemsKH.BeginUpdate();
+            _comboboxItemsKh.BeginUpdate();
             try
             {
-                foreach (var item in _listKH)
+                foreach (var item in _listKh)
                 {
-                    ContainerItem kh = new ContainerItem();
-                    kh.Text = item.TenKH;
-                    kh.Value = item;
-                    _comboboxItemsKH.Add(kh);
+                    ContainerItem kh = new ContainerItem
+                    {
+                        Text = item.TenKH,
+                        Value = item
+                    };
+                    _comboboxItemsKh.Add(kh);
                 }
             }
             finally
             {
-                _comboboxItemsKH.EndUpdate();
+                _comboboxItemsKh.EndUpdate();
             }
         }
-        private void ClearAllItemInComboboxKH()
+        private void ClearAllItemInComboboxKh()
         {
-            while (_comboboxItemsKH.Count != 0)
+            while (_comboboxItemsKh.Count != 0)
             {
-                _comboboxItemsKH.RemoveAt(0);
+                _comboboxItemsKh.RemoveAt(0);
             }
-            this.comboBoxEditTenKhach.SelectedIndex = -1;
+            comboBoxEditTenKhach.SelectedIndex = -1;
         }
         private void checkEditKhachQuen_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.checkEditKhachQuen.Checked)
-            {
-                this.comboBoxEditTenKhach.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
+            if (checkEditKhachQuen.Checked){
+                comboBoxEditTenKhach.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
                 AddKhachHangToComboEdit();
-                this.comboBoxEditTenKhach.SelectedIndex = -1;
+                comboBoxEditTenKhach.SelectedIndex = -1;
             }
             else
             {
-                this.comboBoxEditTenKhach.Properties.TextEditStyle = TextEditStyles.Standard;
-                ClearAllItemInComboboxKH();           
+                comboBoxEditTenKhach.Properties.TextEditStyle = TextEditStyles.Standard;
+                ClearAllItemInComboboxKh();           
             }
         }
         private void gridViewCT_PDV_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
@@ -212,6 +215,7 @@ namespace QuanLiBanVang
             _dataTable.Columns.Add("SoLuong", typeof(int));
             _dataTable.Columns.Add("TienCong", typeof(int));
             _dataTable.Columns.Add("ThanhTien", typeof(int));
+            _dataTable.Columns.Add("GhiChu", typeof(string));
             gridControlCTPDV.DataSource = _dataTable;
             gridViewCT_PDV.Columns[0].Visible =
             gridViewCT_PDV.Columns[1].Visible =
@@ -223,19 +227,27 @@ namespace QuanLiBanVang
             gridViewCT_PDV.Columns[7].Caption = "Số lượng";
             gridViewCT_PDV.Columns[8].Caption = "Tiền công";
             gridViewCT_PDV.Columns[9].Caption = "Thành tiền";
+            gridViewCT_PDV.Columns[10].Caption = "Ghi chú";
             gridViewCT_PDV.OptionsMenu.EnableColumnMenu = false;
         }
         private void comboBoxEditTenDV_SelectedIndexChanged(object sender, EventArgs e)
         {
             BUL_DichVu bulDichVu = new BUL_DichVu();
-            DICHVU dv = (this.comboBoxEditTenDV.SelectedItem as ContainerItem).Value as DICHVU;
+            DICHVU dv = (comboBoxEditTenDV.SelectedItem as ContainerItem).Value as DICHVU;
             decimal tiencong = bulDichVu.GetDichvuById(dv.MaDV).TienCong??0;
-            this.textEditTienCong.Text = ((int)tiencong).ToString();
+            textEditTienCong.Text = ((int)tiencong).ToString();
             CalculateThanhTien();
             if (dv.MaDV == 2)
+            {
                 textEditTienCong.ReadOnly = false;
+                textEditHTGC.ReadOnly = false;
+            }
             else
+            {
                 textEditTienCong.ReadOnly = true;
+                textEditHTGC.Text = string.Empty;
+                textEditHTGC.ReadOnly = true;
+            }
         }
         private void textEditSoLuong_EditValueChanged(object sender, EventArgs e)
         {
@@ -243,28 +255,34 @@ namespace QuanLiBanVang
         }
         private void CalculateThanhTien()
         {
-            int tiencong = Int32.Parse(this.textEditTienCong.Text == "" ? "0" : textEditTienCong.Text);
-            int soluong = Int32.Parse(this.textEditSoLuong.Text == "" ? "0" : this.textEditSoLuong.Text);
+            int tiencong = Int32.Parse(textEditTienCong.Text == "" ? "0" : textEditTienCong.Text);
+            int soluong = Int32.Parse(textEditSoLuong.Text == "" ? "0" : textEditSoLuong.Text);
             textEditThanhTien.Text = (tiencong * soluong).ToString();
         }
         private bool CheckLogicError()
         {
-            if (this.comboBoxEditLoaiSP.SelectedIndex == -1)
+            if (comboBoxEditLoaiSP.SelectedIndex == -1)
             {
                 MessageBox.Show("Loại sản phẩm không được để trống!\nChọn Khác nếu cửa hàng không kinh doanh loại sản phẩm này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.comboBoxEditLoaiSP.Focus();
+                comboBoxEditLoaiSP.Focus();
                 return false;
             }
-            if (this.comboBoxEditTenDV.SelectedIndex == -1)
+            if (comboBoxEditTenDV.SelectedIndex == -1)
             {
                 MessageBox.Show("Tên dịch vụ không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.comboBoxEditTenDV.Focus();
+                comboBoxEditTenDV.Focus();
                 return false;
             }
-            if (this.textEditSoLuong.Text == "" || Int32.Parse(this.textEditSoLuong.Text) == 0)
+            if (textEditSoLuong.Text == "" || Int32.Parse(textEditSoLuong.Text) == 0)
             {
                 MessageBox.Show("Số lượng phải lớn hơn 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.textEditSoLuong.Focus();
+                textEditSoLuong.Focus();
+                return false;
+            }
+            if (textEditHTGC.Equals("") && comboBoxEditTenDV.Text.Equals("Gia công"))
+            {
+                MessageBox.Show("Bạn phải nhập hình thức gia công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textEditHTGC.Focus();
                 return false;
             }
             return true;
@@ -273,22 +291,23 @@ namespace QuanLiBanVang
         {
             if (!CheckLogicError())
                 return;
-            LOAISANPHAM lsp = (this.comboBoxEditLoaiSP.SelectedItem as ContainerItem).Value as LOAISANPHAM;
-            DICHVU dv = (this.comboBoxEditTenDV.SelectedItem as ContainerItem).Value as DICHVU;
+            LOAISANPHAM lsp = (comboBoxEditLoaiSP.SelectedItem as ContainerItem).Value as LOAISANPHAM;
+            DICHVU dv = (comboBoxEditTenDV.SelectedItem as ContainerItem).Value as DICHVU;
 
             CTPDV ctpdv = new CTPDV();
             ctpdv.SoPhieuDV = _soPDV;
             if (lsp != null)
                 ctpdv.MaLoaiSP = lsp.MaLoaiSP;
             ctpdv.MaDV = dv.MaDV;
-            ctpdv.SoLuong = Int32.Parse(this.textEditSoLuong.Text);
-            ctpdv.TienCong = Int32.Parse(this.textEditTienCong.Text);
-            ctpdv.ThanhTien = Int32.Parse(this.textEditThanhTien.Text);
-            _bulCTPDV.AddNewCTPDV(ctpdv);
+            ctpdv.SoLuong = Int32.Parse(textEditSoLuong.Text);
+            ctpdv.TienCong = Int32.Parse(textEditTienCong.Text);
+            ctpdv.ThanhTien = Int32.Parse(textEditThanhTien.Text);
+            ctpdv.GhiChu = textEditHTGC.Text;
+            _bulCtpdv.AddNewCTPDV(ctpdv);
             //Neu ok het
             MessageBox.Show("Thêm chi tiết phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadInfoCTPDV();
-            _isResultOK = true;
+            LoadInfoCtpdv();
+            _isResultOk = true;
         }
 
         private void simpleButtonXoa_Click(object sender, EventArgs e)
@@ -303,11 +322,11 @@ namespace QuanLiBanVang
             if (currentRow != null)
             {
                 int id = Int32.Parse(currentRow[1].ToString());
-                _bulCTPDV.DeleteCTPDVById(id);
+                _bulCtpdv.DeleteCTPDVById(id);
                 //Neu ok het
                 MessageBox.Show("Xoá chi tiết phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadInfoCTPDV();
-                _isResultOK = true;
+                LoadInfoCtpdv();
+                _isResultOk = true;
             }                
         }
         private void CalculateTongTien()
@@ -317,52 +336,52 @@ namespace QuanLiBanVang
             {
                 tongtien += (int)_dataTable.Rows[i][9];
             }
-            this.textEditTongTien.Text = tongtien.ToString();
+            textEditTongTien.Text = tongtien.ToString();
         }
 
         private void simpleButtonHuy_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void simpleButtonOK_Click(object sender, EventArgs e)
         {
             //Check logic condition
-            if (this.dateEditNgayGiao.Text == "")
+            if (dateEditNgayGiao.Text == "")
             {
                 MessageBox.Show("Ngày giao không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.dateEditNgayDK.Focus();
+                dateEditNgayDK.Focus();
                 return;
             }
-            if(this.dateEditNgayDK.DateTime > this.dateEditNgayGiao.DateTime)
+            if(dateEditNgayDK.DateTime > dateEditNgayGiao.DateTime)
             {
                 MessageBox.Show("Ngày giao phải lớn hơn hoặc bằng ngày đăng ký!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.dateEditNgayGiao.Focus();
+                dateEditNgayGiao.Focus();
                 return;
             }
-            if(this._dataTable.Rows.Count == 0)
+            if(_dataTable.Rows.Count == 0)
             {
                 MessageBox.Show("Mỗi phiếu dịch vụ phải có ít nhất 1 chi tiết phiếu dịch vụ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.comboBoxEditLoaiSP.Focus();
+                comboBoxEditLoaiSP.Focus();
                 return;
             }
 
             //Update PDV
-            _pdv.NgayGiao = this.dateEditNgayGiao.DateTime;
+            _pdv.NgayGiao = dateEditNgayGiao.DateTime;
             _bulPhieuDichVu.UpdatePhieuDichVu(_pdv);
             //Neu ok het
             MessageBox.Show("Sửa phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.simpleButtonOK.Enabled = false;
-            _isResultOK = true;
+            simpleButtonOK.Enabled = false;
+            _isResultOk = true;
 
         }
 
         private void NhapPhieuDichVu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_isResultOK)
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            if (_isResultOk)
+                DialogResult = DialogResult.OK;
             else
-                this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                DialogResult = DialogResult.Cancel;
         }
 
         private void simpleButtonSua_Click(object sender, EventArgs e)
@@ -373,23 +392,24 @@ namespace QuanLiBanVang
                 int id = Int32.Parse(currentRow[1].ToString());
                 if (!CheckLogicError())
                     return;
-                LOAISANPHAM lsp = (this.comboBoxEditLoaiSP.SelectedItem as ContainerItem).Value as LOAISANPHAM;
-                DICHVU dv = (this.comboBoxEditTenDV.SelectedItem as ContainerItem).Value as DICHVU;
+                LOAISANPHAM lsp = (comboBoxEditLoaiSP.SelectedItem as ContainerItem).Value as LOAISANPHAM;
+                DICHVU dv = (comboBoxEditTenDV.SelectedItem as ContainerItem).Value as DICHVU;
 
-                CTPDV ctpdv = _bulCTPDV.GetCTPDVById(id);
+                CTPDV ctpdv = _bulCtpdv.GetCTPDVById(id);
                 if (lsp != null)
                     ctpdv.MaLoaiSP = lsp.MaLoaiSP;
                 else
                     ctpdv.MaLoaiSP = null;
                 ctpdv.MaDV = dv.MaDV;
-                ctpdv.SoLuong = Int32.Parse(this.textEditSoLuong.Text);
-                ctpdv.TienCong = Int32.Parse(this.textEditTienCong.Text);
-                ctpdv.ThanhTien = Int32.Parse(this.textEditThanhTien.Text);
-                _bulCTPDV.UpdateCTPDV(ctpdv);
+                ctpdv.SoLuong = Int32.Parse(textEditSoLuong.Text);
+                ctpdv.TienCong = Int32.Parse(textEditTienCong.Text);
+                ctpdv.ThanhTien = Int32.Parse(textEditThanhTien.Text);
+                ctpdv.GhiChu = textEditHTGC.Text;
+                _bulCtpdv.UpdateCTPDV(ctpdv);
                 //Neu ok het
                 MessageBox.Show("Sửa chi tiết phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadInfoCTPDV();
-                _isResultOK = true;
+                LoadInfoCtpdv();
+                _isResultOk = true;
             }           
         }
 
@@ -400,32 +420,28 @@ namespace QuanLiBanVang
             {
                 int malsp = Convert.ToInt32(currentRow["MaLoaiSP"]);
                 if(malsp == -1)
-                    this.comboBoxEditLoaiSP.SelectedIndex = 0;
+                    comboBoxEditLoaiSP.SelectedIndex = 0;
                 else
-                    this.comboBoxEditLoaiSP.SelectedIndex = _listLoaiSP.IndexOf(_listLoaiSP.Find(sp => sp.MaLoaiSP == malsp)) +1 ;//+1 vì "Khác" ở vị trí 0
-                this.comboBoxEditTenDV.SelectedIndex = _listDichVu.IndexOf(_listDichVu.Find(dv => dv.MaDV == Convert.ToInt32(currentRow["MaDV"])));
-                this.textEditSoLuong.Text = currentRow["SoLuong"].ToString();
-                this.textEditTienCong.Text = currentRow["TienCong"].ToString();
-                this.textEditThanhTien.Text = currentRow["ThanhTien"].ToString();
+                    comboBoxEditLoaiSP.SelectedIndex = _listLoaiSp.IndexOf(_listLoaiSp.Find(sp => sp.MaLoaiSP == malsp)) +1 ;//+1 vì "Khác" ở vị trí 0
+                comboBoxEditTenDV.SelectedIndex = _listDichVu.IndexOf(_listDichVu.Find(dv => dv.MaDV == Convert.ToInt32(currentRow["MaDV"])));
+                textEditSoLuong.Text = currentRow["SoLuong"].ToString();
+                textEditTienCong.Text = currentRow["TienCong"].ToString();
+                textEditThanhTien.Text = currentRow["ThanhTien"].ToString();
+                textEditHTGC.Text = currentRow["GhiChu"].ToString();
             }
         }
 
         private void dateEditNgayGiao_EditValueChanged(object sender, EventArgs e)
         {
-            if (this.dateEditNgayGiao.DateTime != _pdv.NgayGiao)
-                this.simpleButtonOK.Enabled = true;
+            if (dateEditNgayGiao.DateTime != _pdv.NgayGiao)
+                simpleButtonOK.Enabled = true;
             else
-                this.simpleButtonOK.Enabled = false;
+                simpleButtonOK.Enabled = false;
         }
 
         private void textEditTienCong_EditValueChanged(object sender, EventArgs e)
         {
             CalculateThanhTien();
-        }
-
-        
-
-        
-        
+        } 
     }
 }
