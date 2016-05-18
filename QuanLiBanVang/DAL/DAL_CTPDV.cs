@@ -15,10 +15,11 @@ namespace DAL
         {
             _context = new DBQLCuaHangVangBacDaQuyEntities();
         }
-        public void AddNewCTPDV(CTPDV ctpdv)
+        public int AddNewCTPDV(CTPDV ctpdv)
         {
             _context.CTPDVs.Add(ctpdv);
             _context.SaveChanges();
+            return ctpdv.Id;
         }
         public List<CTPDV> GetAllCTPDV()
         {
