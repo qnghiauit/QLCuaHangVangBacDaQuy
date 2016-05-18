@@ -50,14 +50,12 @@
   <ItemGroup>
     <Compile Include="BUL_BaoCaoTonKho.cs" />
     <Compile Include="BUL_ChucVu.cs" />
-    <Compile Include="BUL_CTGiaCongSP.cs" />
     <Compile Include="BUL_CTPBH.cs" />
     <Compile Include="BUL_CTPDV.cs" />
     <Compile Include="BUL_CTPGC.cs" />
     <Compile Include="BUL_CTPM.cs" />
     <Compile Include="BUL_CTPNH.cs" />
     <Compile Include="BUL_DichVu.cs" />
-    <Compile Include="BUL_HinhThucGiaCong.cs" />
     <Compile Include="BUL_KhachHang.cs" />
     <Compile Include="BUL_LoaiSanPham.cs" />
     <Compile Include="BUL_NhaCungCap.cs" />

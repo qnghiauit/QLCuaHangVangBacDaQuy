@@ -15,9 +15,9 @@ namespace BUL
         {
             _dalCTPDV = new DAL_CTPDV();
         }
-        public void AddNewCTPDV(CTPDV ctpdv)
+        public int AddNewCTPDV(CTPDV ctpdv)
         {
-            _dalCTPDV.AddNewCTPDV(ctpdv);
+            return _dalCTPDV.AddNewCTPDV(ctpdv);
         }
         public List<CTPDV> GetAllCTPDV()
         {
