@@ -9,11 +9,9 @@
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.BAOCAOTONKHO" Width="1.5" PointX="13.5" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.CHUCVU" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.CTPBH" Width="1.5" PointX="10.5" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.CTPDV" Width="1.5" PointX="10.5" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.CTPMH" Width="1.5" PointX="13.5" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.CTPNH" Width="1.5" PointX="13.5" PointY="18.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.DICHVU" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.HINHTHUCGIACONG" Width="1.5" PointX="10.5" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.KHACHHANG" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.LOAISANPHAM" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.NHACUNGCAP" Width="1.5" PointX="6" PointY="22.375" IsExpanded="true" />
@@ -28,9 +26,6 @@
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.THO" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_MaCV" ManuallyRouted="false" />
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPBH_PBH" ManuallyRouted="false" />
-        <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_DV" ManuallyRouted="false" />
-        <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_LSP" ManuallyRouted="false" />
-        <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_PDV" ManuallyRouted="false" />
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPMH_LSP" ManuallyRouted="false" />
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPMH_PMH" ManuallyRouted="false" />
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPN_PNH" ManuallyRouted="false" />
@@ -53,16 +48,18 @@
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPN_SP" />
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_SP_LOAISP" />
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.Baocao" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.CTGIACONGSP" Width="1.5" PointX="12.75" PointY="21.75" />
-        <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTGIACONGSP" />
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.PHIEUGIACONG" Width="1.5" PointX="5.25" PointY="18.75" />
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_PGC_NV" />
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_PGC_THO" />
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.CTPGC" Width="1.5" PointX="12.75" PointY="14.375" />
-        <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPGC_ID" />
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPGC_PGC" />
         <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.PHIEUCHI" Width="1.5" PointX="5.125" PointY="26.125" />
         <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_PHIEUCHI_NV" />
+        <EntityTypeShape EntityType="DBQLCuaHangVangBacDaQuyModel.CTPDV" Width="1.5" PointX="10.5" PointY="9.375" />
+        <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_DV" />
+        <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_LSP" />
+        <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_PDV" />
+        <AssociationConnector Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPGC_ID" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

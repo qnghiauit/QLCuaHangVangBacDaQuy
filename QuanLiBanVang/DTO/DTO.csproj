@@ -74,6 +74,9 @@
     <Compile Include="BAOCAOTONKHO.cs">
       <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CalculateNumberOfCostBill_Result.cs">
+      <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CalculateNumberOfIncomeBill_Result.cs">
       <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
     </Compile>
@@ -81,9 +84,6 @@
       <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CHUCVU.cs">
-      <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CTGIACONGSP.cs">
       <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CTPBH.cs">

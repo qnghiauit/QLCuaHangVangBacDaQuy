@@ -32,13 +32,6 @@
           <Property Name="MaCV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenCV" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <EntityType Name="CTGIACONGSP">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="HinhThucGiaCong" Type="nvarchar" MaxLength="50" />
-        </EntityType>
         <EntityType Name="CTPBH">
           <Key>
             <PropertyRef Name="SoPhieuBH" />
@@ -61,6 +54,7 @@
           <Property Name="SoLuong" Type="int" Nullable="false" />
           <Property Name="TienCong" Type="money" Nullable="false" />
           <Property Name="ThanhTien" Type="money" Nullable="false" />
+          <Property Name="GhiChu" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="CTPGC">
           <Key>
@@ -106,13 +100,6 @@
           <Property Name="MaDV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenDV" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="TienCong" Type="money" />
-        </EntityType>
-        <EntityType Name="HINHTHUCGIACONG">
-          <Key>
-            <PropertyRef Name="MaHTGC" />
-          </Key>
-          <Property Name="MaHTGC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenHTGC" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
@@ -303,18 +290,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
             </Principal>
             <Dependent Role="BAOCAOTONKHO">
               <PropertyRef Name="MaSP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTGIACONGSP">
-          <End Role="CTPDV" Type="Self.CTPDV" Multiplicity="1" />
-          <End Role="CTGIACONGSP" Type="Self.CTGIACONGSP" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="CTPDV">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CTGIACONGSP">
-              <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -699,14 +674,12 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <EntitySet Name="BAOCAOTHUCHI" EntityType="Self.BAOCAOTHUCHI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BAOCAOTONKHO" EntityType="Self.BAOCAOTONKHO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHUCVU" EntityType="Self.CHUCVU" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CTGIACONGSP" EntityType="Self.CTGIACONGSP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTPBH" EntityType="Self.CTPBH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTPDV" EntityType="Self.CTPDV" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTPGC" EntityType="Self.CTPGC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTPMH" EntityType="Self.CTPMH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTPNH" EntityType="Self.CTPNH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DICHVU" EntityType="Self.DICHVU" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HINHTHUCGIACONG" EntityType="Self.HINHTHUCGIACONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOAISANPHAM" EntityType="Self.LOAISANPHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHACUNGCAP" EntityType="Self.NHACUNGCAP" Schema="dbo" store:Type="Tables" />
@@ -736,10 +709,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <AssociationSet Name="FK_BC_SP" Association="Self.FK_BC_SP">
             <End Role="SANPHAM" EntitySet="SANPHAM" />
             <End Role="BAOCAOTONKHO" EntitySet="BAOCAOTONKHO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTGIACONGSP" Association="Self.FK_CTGIACONGSP">
-            <End Role="CTPDV" EntitySet="CTPDV" />
-            <End Role="CTGIACONGSP" EntitySet="CTGIACONGSP" />
           </AssociationSet>
           <AssociationSet Name="FK_CTPBH_PBH" Association="Self.FK_CTPBH_PBH">
             <End Role="PHIEUBANHANG" EntitySet="PHIEUBANHANG" />
@@ -908,23 +877,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <NavigationProperty Name="PHIEUBANHANG" Relationship="Self.FK_CTPBH_PBH" FromRole="CTPBH" ToRole="PHIEUBANHANG" />
           <NavigationProperty Name="SANPHAM" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPBH_SP" FromRole="CTPBH" ToRole="SANPHAM" />
         </EntityType>
-        <EntityType Name="CTPDV">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SoPhieuDV" Type="Int32" Nullable="false" />
-          <Property Name="MaLoaiSP" Type="Int32" />
-          <Property Name="MaDV" Type="Int32" />
-          <Property Name="SoLuong" Type="Int32" Nullable="false" />
-          <Property Name="TienCong" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <NavigationProperty Name="DICHVU" Relationship="Self.FK_CTPDV_DV" FromRole="CTPDV" ToRole="DICHVU" />
-          <NavigationProperty Name="LOAISANPHAM" Relationship="Self.FK_CTPDV_LSP" FromRole="CTPDV" ToRole="LOAISANPHAM" />
-          <NavigationProperty Name="PHIEUDICHVU" Relationship="Self.FK_CTPDV_PDV" FromRole="CTPDV" ToRole="PHIEUDICHVU" />
-          <NavigationProperty Name="CTGIACONGSP" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTGIACONGSP" FromRole="CTPDV" ToRole="CTGIACONGSP" />
-          <NavigationProperty Name="CTPGCs" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPGC_ID" FromRole="CTPDV" ToRole="CTPGC" />
-        </EntityType>
         <EntityType Name="CTPMH">
           <Key>
             <PropertyRef Name="SoPhieuMua" />
@@ -962,14 +914,7 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <Property Name="MaDV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenDV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TienCong" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="CTPDVs" Relationship="Self.FK_CTPDV_DV" FromRole="DICHVU" ToRole="CTPDV" />
-        </EntityType>
-        <EntityType Name="HINHTHUCGIACONG">
-          <Key>
-            <PropertyRef Name="MaHTGC" />
-          </Key>
-          <Property Name="MaHTGC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenHTGC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CTPDVs" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_DV" FromRole="DICHVU" ToRole="CTPDV" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
@@ -991,9 +936,9 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <Property Name="MaLoaiSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLoaiSP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PhanTramLoiNhuan" Type="Double" />
-          <NavigationProperty Name="CTPDVs" Relationship="Self.FK_CTPDV_LSP" FromRole="LOAISANPHAM" ToRole="CTPDV" />
           <NavigationProperty Name="CTPMHs" Relationship="Self.FK_CTPMH_LSP" FromRole="LOAISANPHAM" ToRole="CTPMH" />
           <NavigationProperty Name="SANPHAMs" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_SP_LOAISP" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
+          <NavigationProperty Name="CTPDVs" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_LSP" FromRole="LOAISANPHAM" ToRole="CTPDV" />
         </EntityType>
         <EntityType Name="NHACUNGCAP">
           <Key>
@@ -1063,9 +1008,9 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <Property Name="NgayDangKy" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="NgayGiao" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <NavigationProperty Name="CTPDVs" Relationship="Self.FK_CTPDV_PDV" FromRole="PHIEUDICHVU" ToRole="CTPDV" />
           <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_PDV_KH" FromRole="PHIEUDICHVU" ToRole="KHACHHANG" />
           <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_PDV_NV" FromRole="PHIEUDICHVU" ToRole="NHANVIEN" />
+          <NavigationProperty Name="CTPDVs" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_PDV" FromRole="PHIEUDICHVU" ToRole="CTPDV" />
         </EntityType>
         <EntityType Name="PHIEUMUAHANG">
           <Key>
@@ -1148,42 +1093,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
             </Principal>
             <Dependent Role="CTPBH">
               <PropertyRef Name="SoPhieuBH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTPDV_DV">
-          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="0..1" />
-          <End Role="CTPDV" Type="Self.CTPDV" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DICHVU">
-              <PropertyRef Name="MaDV" />
-            </Principal>
-            <Dependent Role="CTPDV">
-              <PropertyRef Name="MaDV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTPDV_LSP">
-          <End Role="LOAISANPHAM" Type="Self.LOAISANPHAM" Multiplicity="0..1" />
-          <End Role="CTPDV" Type="Self.CTPDV" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LOAISANPHAM">
-              <PropertyRef Name="MaLoaiSP" />
-            </Principal>
-            <Dependent Role="CTPDV">
-              <PropertyRef Name="MaLoaiSP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTPDV_PDV">
-          <End Role="PHIEUDICHVU" Type="Self.PHIEUDICHVU" Multiplicity="1" />
-          <End Role="CTPDV" Type="Self.CTPDV" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PHIEUDICHVU">
-              <PropertyRef Name="SoPhieuDV" />
-            </Principal>
-            <Dependent Role="CTPDV">
-              <PropertyRef Name="SoPhieuDV" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1364,11 +1273,9 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <EntitySet Name="BAOCAOTONKHOes" EntityType="Self.BAOCAOTONKHO" />
           <EntitySet Name="CHUCVUs" EntityType="Self.CHUCVU" />
           <EntitySet Name="CTPBHs" EntityType="Self.CTPBH" />
-          <EntitySet Name="CTPDVs" EntityType="Self.CTPDV" />
           <EntitySet Name="CTPMHs" EntityType="Self.CTPMH" />
           <EntitySet Name="CTPNHs" EntityType="Self.CTPNH" />
           <EntitySet Name="DICHVUs" EntityType="Self.DICHVU" />
-          <EntitySet Name="HINHTHUCGIACONGs" EntityType="Self.HINHTHUCGIACONG" />
           <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
           <EntitySet Name="LOAISANPHAMs" EntityType="Self.LOAISANPHAM" />
           <EntitySet Name="NHACUNGCAPs" EntityType="Self.NHACUNGCAP" />
@@ -1388,18 +1295,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <AssociationSet Name="FK_CTPBH_PBH" Association="Self.FK_CTPBH_PBH">
             <End Role="PHIEUBANHANG" EntitySet="PHIEUBANHANGs" />
             <End Role="CTPBH" EntitySet="CTPBHs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTPDV_DV" Association="Self.FK_CTPDV_DV">
-            <End Role="DICHVU" EntitySet="DICHVUs" />
-            <End Role="CTPDV" EntitySet="CTPDVs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTPDV_LSP" Association="Self.FK_CTPDV_LSP">
-            <End Role="LOAISANPHAM" EntitySet="LOAISANPHAMs" />
-            <End Role="CTPDV" EntitySet="CTPDVs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTPDV_PDV" Association="Self.FK_CTPDV_PDV">
-            <End Role="PHIEUDICHVU" EntitySet="PHIEUDICHVUs" />
-            <End Role="CTPDV" EntitySet="CTPDVs" />
           </AssociationSet>
           <AssociationSet Name="FK_CTPMH_LSP" Association="Self.FK_CTPMH_LSP">
             <End Role="LOAISANPHAM" EntitySet="LOAISANPHAMs" />
@@ -1487,11 +1382,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
             <End Role="SANPHAM" EntitySet="SANPHAMs" />
           </AssociationSet>
           <EntitySet Name="Baocaos" EntityType="DBQLCuaHangVangBacDaQuyModel.Baocao" />
-          <EntitySet Name="CTGIACONGSPs" EntityType="DBQLCuaHangVangBacDaQuyModel.CTGIACONGSP" />
-          <AssociationSet Name="FK_CTGIACONGSP" Association="DBQLCuaHangVangBacDaQuyModel.FK_CTGIACONGSP">
-            <End Role="CTPDV" EntitySet="CTPDVs" />
-            <End Role="CTGIACONGSP" EntitySet="CTGIACONGSPs" />
-          </AssociationSet>
           <EntitySet Name="PHIEUGIACONGs" EntityType="DBQLCuaHangVangBacDaQuyModel.PHIEUGIACONG" />
           <AssociationSet Name="FK_PGC_NV" Association="DBQLCuaHangVangBacDaQuyModel.FK_PGC_NV">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
@@ -1502,10 +1392,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
             <End Role="PHIEUGIACONG" EntitySet="PHIEUGIACONGs" />
           </AssociationSet>
           <EntitySet Name="CTPGCs" EntityType="DBQLCuaHangVangBacDaQuyModel.CTPGC" />
-          <AssociationSet Name="FK_CTPGC_ID" Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPGC_ID">
-            <End Role="CTPDV" EntitySet="CTPDVs" />
-            <End Role="CTPGC" EntitySet="CTPGCs" />
-          </AssociationSet>
           <AssociationSet Name="FK_CTPGC_PGC" Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPGC_PGC">
             <End Role="PHIEUGIACONG" EntitySet="PHIEUGIACONGs" />
             <End Role="CTPGC" EntitySet="CTPGCs" />
@@ -1528,6 +1414,23 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <FunctionImport Name="CalculateNumberOfCostBill" ReturnType="Collection(DBQLCuaHangVangBacDaQuyModel.CalculateNumberOfCostBill_Result)">
           <Parameter Name="date" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="CTPDVs" EntityType="DBQLCuaHangVangBacDaQuyModel.CTPDV" />
+          <AssociationSet Name="FK_CTPDV_DV" Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_DV">
+            <End Role="DICHVU" EntitySet="DICHVUs" />
+            <End Role="CTPDV" EntitySet="CTPDVs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPDV_LSP" Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_LSP">
+            <End Role="LOAISANPHAM" EntitySet="LOAISANPHAMs" />
+            <End Role="CTPDV" EntitySet="CTPDVs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPDV_PDV" Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_PDV">
+            <End Role="PHIEUDICHVU" EntitySet="PHIEUDICHVUs" />
+            <End Role="CTPDV" EntitySet="CTPDVs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPGC_ID" Association="DBQLCuaHangVangBacDaQuyModel.FK_CTPGC_ID">
+            <End Role="CTPDV" EntitySet="CTPDVs" />
+            <End Role="CTPGC" EntitySet="CTPGCs" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="SANPHAM">
           <Key>
@@ -1622,26 +1525,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <Property Name="SoLuongBan" Type="Int32" Nullable="false" />
           <Property Name="TonCuoi" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="CTGIACONGSP">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="HinhThucGiaCong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CTPDV" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTGIACONGSP" FromRole="CTGIACONGSP" ToRole="CTPDV" />
-        </EntityType>
-        <Association Name="FK_CTGIACONGSP">
-          <End Type="DBQLCuaHangVangBacDaQuyModel.CTPDV" Role="CTPDV" Multiplicity="1" />
-          <End Type="DBQLCuaHangVangBacDaQuyModel.CTGIACONGSP" Role="CTGIACONGSP" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="CTPDV">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CTGIACONGSP">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="PHIEUGIACONG">
           <Key>
             <PropertyRef Name="SoPhieuGC" />
@@ -1691,21 +1574,9 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <Property Name="TrongLuong" Type="Double" Nullable="false" />
           <Property Name="TienCong" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="ThanhTien" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <NavigationProperty Name="CTPDV" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPGC_ID" FromRole="CTPGC" ToRole="CTPDV" />
           <NavigationProperty Name="PHIEUGIACONG" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPGC_PGC" FromRole="CTPGC" ToRole="PHIEUGIACONG" />
+          <NavigationProperty Name="CTPDV" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPGC_ID" FromRole="CTPGC" ToRole="CTPDV" />
         </EntityType>
-        <Association Name="FK_CTPGC_ID">
-          <End Type="DBQLCuaHangVangBacDaQuyModel.CTPDV" Role="CTPDV" Multiplicity="1" />
-          <End Type="DBQLCuaHangVangBacDaQuyModel.CTPGC" Role="CTPGC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CTPDV">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CTPGC">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CTPGC_PGC">
           <End Type="DBQLCuaHangVangBacDaQuyModel.PHIEUGIACONG" Role="PHIEUGIACONG" Multiplicity="1" />
           <End Type="DBQLCuaHangVangBacDaQuyModel.CTPGC" Role="CTPGC" Multiplicity="*" />
@@ -1757,6 +1628,71 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <Property Type="Int32" Name="sophieugiacong" Nullable="true" />
           <Property Type="Int32" Name="sophieuchi" Nullable="true" />
         </ComplexType>
+        <EntityType Name="CTPDV">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoPhieuDV" Type="Int32" Nullable="false" />
+          <Property Name="MaLoaiSP" Type="Int32" />
+          <Property Name="MaDV" Type="Int32" />
+          <Property Name="SoLuong" Type="Int32" Nullable="false" />
+          <Property Name="TienCong" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ThanhTien" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="DICHVU" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_DV" FromRole="CTPDV" ToRole="DICHVU" />
+          <NavigationProperty Name="LOAISANPHAM" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_LSP" FromRole="CTPDV" ToRole="LOAISANPHAM" />
+          <NavigationProperty Name="PHIEUDICHVU" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPDV_PDV" FromRole="CTPDV" ToRole="PHIEUDICHVU" />
+          <NavigationProperty Name="CTPGCs" Relationship="DBQLCuaHangVangBacDaQuyModel.FK_CTPGC_ID" FromRole="CTPDV" ToRole="CTPGC" />
+        </EntityType>
+        <Association Name="FK_CTPDV_DV">
+          <End Type="DBQLCuaHangVangBacDaQuyModel.DICHVU" Role="DICHVU" Multiplicity="0..1" />
+          <End Type="DBQLCuaHangVangBacDaQuyModel.CTPDV" Role="CTPDV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DICHVU">
+              <PropertyRef Name="MaDV" />
+            </Principal>
+            <Dependent Role="CTPDV">
+              <PropertyRef Name="MaDV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPDV_LSP">
+          <End Type="DBQLCuaHangVangBacDaQuyModel.LOAISANPHAM" Role="LOAISANPHAM" Multiplicity="0..1" />
+          <End Type="DBQLCuaHangVangBacDaQuyModel.CTPDV" Role="CTPDV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAISANPHAM">
+              <PropertyRef Name="MaLoaiSP" />
+            </Principal>
+            <Dependent Role="CTPDV">
+              <PropertyRef Name="MaLoaiSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPDV_PDV">
+          <End Type="DBQLCuaHangVangBacDaQuyModel.PHIEUDICHVU" Role="PHIEUDICHVU" Multiplicity="1" />
+          <End Type="DBQLCuaHangVangBacDaQuyModel.CTPDV" Role="CTPDV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUDICHVU">
+              <PropertyRef Name="SoPhieuDV" />
+            </Principal>
+            <Dependent Role="CTPDV">
+              <PropertyRef Name="SoPhieuDV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPGC_ID">
+          <End Type="DBQLCuaHangVangBacDaQuyModel.CTPDV" Role="CTPDV" Multiplicity="1" />
+          <End Type="DBQLCuaHangVangBacDaQuyModel.CTPGC" Role="CTPGC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CTPDV">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CTPGC">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1803,19 +1739,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CTPDVs">
-            <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.CTPDV">
-              <MappingFragment StoreEntitySet="CTPDV">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="SoPhieuDV" ColumnName="SoPhieuDV" />
-                <ScalarProperty Name="MaLoaiSP" ColumnName="MaLoaiSP" />
-                <ScalarProperty Name="MaDV" ColumnName="MaDV" />
-                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
-                <ScalarProperty Name="TienCong" ColumnName="TienCong" />
-                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CTPMHs">
             <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.CTPMH">
               <MappingFragment StoreEntitySet="CTPMH">
@@ -1847,14 +1770,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
                 <ScalarProperty Name="MaDV" ColumnName="MaDV" />
                 <ScalarProperty Name="TenDV" ColumnName="TenDV" />
                 <ScalarProperty Name="TienCong" ColumnName="TienCong" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HINHTHUCGIACONGs">
-            <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.HINHTHUCGIACONG">
-              <MappingFragment StoreEntitySet="HINHTHUCGIACONG">
-                <ScalarProperty Name="MaHTGC" ColumnName="MaHTGC" />
-                <ScalarProperty Name="TenHTGC" ColumnName="TenHTGC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2025,14 +1940,6 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CTGIACONGSPs">
-            <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.CTGIACONGSP">
-              <MappingFragment StoreEntitySet="CTGIACONGSP">
-                <ScalarProperty Name="HinhThucGiaCong" ColumnName="HinhThucGiaCong" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PHIEUGIACONGs">
             <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.PHIEUGIACONG">
               <MappingFragment StoreEntitySet="PHIEUGIACONG">
@@ -2098,6 +2005,20 @@ warning 6002: The table/view 'E:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="CTPDVs">
+            <EntityTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.CTPDV">
+              <MappingFragment StoreEntitySet="CTPDV">
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="TienCong" ColumnName="TienCong" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+                <ScalarProperty Name="MaLoaiSP" ColumnName="MaLoaiSP" />
+                <ScalarProperty Name="SoPhieuDV" ColumnName="SoPhieuDV" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

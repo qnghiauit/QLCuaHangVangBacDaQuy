@@ -27,11 +27,11 @@ namespace DTO
         public int SoLuong { get; set; }
         public decimal TienCong { get; set; }
         public decimal ThanhTien { get; set; }
+        public string GhiChu { get; set; }
     
         public virtual DICHVU DICHVU { get; set; }
         public virtual LOAISANPHAM LOAISANPHAM { get; set; }
         public virtual PHIEUDICHVU PHIEUDICHVU { get; set; }
-        public virtual CTGIACONGSP CTGIACONGSP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTPGC> CTPGCs { get; set; }
     }

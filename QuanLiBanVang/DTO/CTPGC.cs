@@ -21,7 +21,7 @@ namespace DTO
         public decimal TienCong { get; set; }
         public decimal ThanhTien { get; set; }
     
-        public virtual CTPDV CTPDV { get; set; }
         public virtual PHIEUGIACONG PHIEUGIACONG { get; set; }
+        public virtual CTPDV CTPDV { get; set; }
     }
 }

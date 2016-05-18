@@ -17,9 +17,9 @@ namespace DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LOAISANPHAM()
         {
-            this.CTPDVs = new HashSet<CTPDV>();
             this.CTPMHs = new HashSet<CTPMH>();
             this.SANPHAMs = new HashSet<SANPHAM>();
+            this.CTPDVs = new HashSet<CTPDV>();
         }
     
         public int MaLoaiSP { get; set; }
@@ -27,10 +27,10 @@ namespace DTO
         public Nullable<double> PhanTramLoiNhuan { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTPDV> CTPDVs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTPMH> CTPMHs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SANPHAM> SANPHAMs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTPDV> CTPDVs { get; set; }
     }
 }
