@@ -32,20 +32,20 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.richTextBoxDiaChi = new System.Windows.Forms.RichTextBox();
             this.textEditSoDienThoai = new DevExpress.XtraEditors.TextEdit();
+            this.textEditMaNCC = new DevExpress.XtraEditors.TextEdit();
             this.textEditTenNhaCungCap = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlMaNCC = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonLuu = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControlMaNCC = new DevExpress.XtraEditors.LabelControl();
-            this.textEditMaNCC = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoDienThoai.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditTenNhaCungCap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditMaNCC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditTenNhaCungCap.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -83,6 +83,13 @@
             this.textEditSoDienThoai.Size = new System.Drawing.Size(207, 20);
             this.textEditSoDienThoai.TabIndex = 1;
             // 
+            // textEditMaNCC
+            // 
+            this.textEditMaNCC.Location = new System.Drawing.Point(94, 53);
+            this.textEditMaNCC.Name = "textEditMaNCC";
+            this.textEditMaNCC.Size = new System.Drawing.Size(120, 20);
+            this.textEditMaNCC.TabIndex = 1;
+            // 
             // textEditTenNhaCungCap
             // 
             this.textEditTenNhaCungCap.Location = new System.Drawing.Point(94, 112);
@@ -105,6 +112,14 @@
             this.labelControl3.Size = new System.Drawing.Size(39, 13);
             this.labelControl3.TabIndex = 0;
             this.labelControl3.Text = "Địa chỉ :";
+            // 
+            // labelControlMaNCC
+            // 
+            this.labelControlMaNCC.Location = new System.Drawing.Point(63, 54);
+            this.labelControlMaNCC.Name = "labelControlMaNCC";
+            this.labelControlMaNCC.Size = new System.Drawing.Size(21, 13);
+            this.labelControlMaNCC.TabIndex = 0;
+            this.labelControlMaNCC.Text = "Mã :";
             // 
             // labelControl2
             // 
@@ -144,21 +159,6 @@
             this.simpleButtonLuu.Text = "Lưu";
             this.simpleButtonLuu.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
-            // labelControlMaNCC
-            // 
-            this.labelControlMaNCC.Location = new System.Drawing.Point(63, 54);
-            this.labelControlMaNCC.Name = "labelControlMaNCC";
-            this.labelControlMaNCC.Size = new System.Drawing.Size(21, 13);
-            this.labelControlMaNCC.TabIndex = 0;
-            this.labelControlMaNCC.Text = "Mã :";
-            // 
-            // textEditMaNCC
-            // 
-            this.textEditMaNCC.Location = new System.Drawing.Point(94, 53);
-            this.textEditMaNCC.Name = "textEditMaNCC";
-            this.textEditMaNCC.Size = new System.Drawing.Size(120, 20);
-            this.textEditMaNCC.TabIndex = 1;
-            // 
             // NhaCungCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,6 +168,7 @@
             this.Controls.Add(this.simpleButtonThoat);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.groupControl1);
+            this.LookAndFeel.SkinName = "Office 2007 Blue";
             this.Name = "NhaCungCap";
             this.Text = "Thêm nhà cung cấp";
             this.Load += new System.EventHandler(this.NhaCungCap_Load);
@@ -175,8 +176,8 @@
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoDienThoai.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditTenNhaCungCap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditMaNCC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditTenNhaCungCap.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

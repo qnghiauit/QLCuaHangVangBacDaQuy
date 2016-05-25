@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Linq;
@@ -73,8 +76,21 @@ namespace QuanLiBanVang
                 if (result == DialogResult.OK)
                 {
                     int id = Int32.Parse(currentRow[1].ToString());
-                    _bulTho.DeleteWorker(id);
-                    FillGridView();
+                    try
+                    {
+                        _bulTho = null;
+                        _bulTho = new BUL_Tho();
+                        _bulTho.DeleteWorker(id);
+                        FillGridView();
+                    }
+                    catch (DbUpdateException dbUpdateException)
+                    {
+                        SqlException eSqlException =
+                            ((SqlException)((UpdateException)dbUpdateException.InnerException).InnerException);
+                        if (eSqlException.Message.Contains("FK_PGC_THO"))
+                            MessageBox.Show("Không thể xoá thợ đã thực hiện gia công sản phẩm!", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

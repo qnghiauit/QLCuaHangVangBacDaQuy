@@ -125,5 +125,17 @@ namespace QuanLiBanVang
             OpenChildForm(nhapPhieuDichVu);
         }
 
+        private void barButtonItemDSLoaiDV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhSachDichVu danhSachDichVu = new DanhSachDichVu();
+            OpenChildForm(danhSachDichVu);
+        }
+
+        private void barButtonItemThemLoaiDV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            NhapDichVu nhapDichVu = new NhapDichVu();
+            OpenChildForm(nhapDichVu);
+        }
+
     }
 }

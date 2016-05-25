@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuaDichVu));
             this.simpleButtonHuy = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonOK = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.textEditTienCong = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.textEditTenDV = new DevExpress.XtraEditors.TextEdit();
@@ -42,37 +43,37 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenDV.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.simpleButtonHuy);
-            this.groupControl1.Controls.Add(this.simpleButtonOK);
-            this.groupControl1.Controls.Add(this.textEditTienCong);
-            this.groupControl1.Controls.Add(this.labelControl2);
-            this.groupControl1.Controls.Add(this.textEditTenDV);
-            this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Location = new System.Drawing.Point(12, 41);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(248, 125);
-            this.groupControl1.TabIndex = 11;
-            this.groupControl1.Text = "Chi tiết";
-            // 
             // simpleButtonHuy
             // 
-            this.simpleButtonHuy.Location = new System.Drawing.Point(157, 85);
+            this.simpleButtonHuy.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonHuy.Image")));
+            this.simpleButtonHuy.Location = new System.Drawing.Point(190, 138);
             this.simpleButtonHuy.Name = "simpleButtonHuy";
-            this.simpleButtonHuy.Size = new System.Drawing.Size(75, 23);
-            this.simpleButtonHuy.TabIndex = 11;
+            this.simpleButtonHuy.Size = new System.Drawing.Size(70, 27);
+            this.simpleButtonHuy.TabIndex = 15;
             this.simpleButtonHuy.Text = "Huỷ";
             this.simpleButtonHuy.Click += new System.EventHandler(this.simpleButtonHuy_Click);
             // 
             // simpleButtonOK
             // 
-            this.simpleButtonOK.Location = new System.Drawing.Point(80, 85);
+            this.simpleButtonOK.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonOK.Image")));
+            this.simpleButtonOK.Location = new System.Drawing.Point(104, 138);
             this.simpleButtonOK.Name = "simpleButtonOK";
-            this.simpleButtonOK.Size = new System.Drawing.Size(71, 23);
-            this.simpleButtonOK.TabIndex = 10;
-            this.simpleButtonOK.Text = "OK";
+            this.simpleButtonOK.Size = new System.Drawing.Size(80, 27);
+            this.simpleButtonOK.TabIndex = 14;
+            this.simpleButtonOK.Text = "Cập nhật";
             this.simpleButtonOK.Click += new System.EventHandler(this.simpleButtonOK_Click);
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.textEditTienCong);
+            this.groupControl1.Controls.Add(this.labelControl2);
+            this.groupControl1.Controls.Add(this.textEditTenDV);
+            this.groupControl1.Controls.Add(this.labelControl3);
+            this.groupControl1.Location = new System.Drawing.Point(13, 41);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(248, 91);
+            this.groupControl1.TabIndex = 13;
+            this.groupControl1.Text = "Chi tiết";
             // 
             // textEditTienCong
             // 
@@ -108,42 +109,49 @@
             // 
             // labelControl1
             // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Location = new System.Drawing.Point(74, 11);
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(11, 11);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(119, 24);
-            this.labelControl1.TabIndex = 10;
-            this.labelControl1.Text = "Sửa dịch vụ";
+            this.labelControl1.Size = new System.Drawing.Size(249, 24);
+            this.labelControl1.TabIndex = 12;
+            this.labelControl1.Text = "Sửa thông tin dịch vụ";
             // 
             // SuaDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(272, 177);
+            this.Controls.Add(this.simpleButtonHuy);
+            this.Controls.Add(this.simpleButtonOK);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);
             this.Name = "SuaDichVu";
-            this.Text = "SuaDichVu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Sửa dịch vụ";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTienCong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenDV.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButtonHuy;
         private DevExpress.XtraEditors.SimpleButton simpleButtonOK;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.TextEdit textEditTienCong;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit textEditTenDV;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+
 
     }
 }

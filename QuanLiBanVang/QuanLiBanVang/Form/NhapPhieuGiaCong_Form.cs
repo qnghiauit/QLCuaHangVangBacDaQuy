@@ -170,7 +170,7 @@ namespace QuanLiBanVang
                 textEditTenLoaiSP.Text = currentRow["TenLoaiSP"].ToString();
                 textEditHTGC.Text = currentRow["HTGC"].ToString();
                 textEditSoLuong.Text = currentRow["SoLuong"].ToString();
-                textEditTienCong.Text = (Convert.ToInt32(currentRow["TienCong"]) * phanTramTienGCThoNhan).ToString();
+                textEditTienCong.Text = ((int)(Convert.ToInt32(currentRow["TienCong"]) * phanTramTienGCThoNhan)).ToString();
             }
         }
         private void textEditSoLuong_EditValueChanged(object sender, EventArgs e)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhapTho));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.textEditDiaChi = new DevExpress.XtraEditors.TextEdit();
@@ -47,10 +48,14 @@
             // 
             // labelControl1
             // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Location = new System.Drawing.Point(57, 12);
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(12, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(190, 24);
+            this.labelControl1.Size = new System.Drawing.Size(270, 24);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Nhập thông tin thợ";
             // 
@@ -64,13 +69,13 @@
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Location = new System.Drawing.Point(12, 42);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(270, 106);
+            this.groupControl1.Size = new System.Drawing.Size(270, 111);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Chi tiết";
             // 
             // textEditDiaChi
             // 
-            this.textEditDiaChi.Location = new System.Drawing.Point(90, 75);
+            this.textEditDiaChi.Location = new System.Drawing.Point(90, 79);
             this.textEditDiaChi.Name = "textEditDiaChi";
             this.textEditDiaChi.Properties.Mask.EditMask = "(\\p{L}|[0-9]|\\s|[,/]){1,100}";
             this.textEditDiaChi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -79,16 +84,16 @@
             // 
             // textEditSDT
             // 
-            this.textEditSDT.Location = new System.Drawing.Point(90, 49);
+            this.textEditSDT.Location = new System.Drawing.Point(90, 53);
             this.textEditSDT.Name = "textEditSDT";
             this.textEditSDT.Properties.Mask.EditMask = "\\d{1,11}";
             this.textEditSDT.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textEditSDT.Size = new System.Drawing.Size(100, 20);
+            this.textEditSDT.Size = new System.Drawing.Size(175, 20);
             this.textEditSDT.TabIndex = 7;
             // 
             // textEditTenTho
             // 
-            this.textEditTenTho.Location = new System.Drawing.Point(90, 23);
+            this.textEditTenTho.Location = new System.Drawing.Point(90, 27);
             this.textEditTenTho.Name = "textEditTenTho";
             this.textEditTenTho.Properties.Mask.EditMask = "(\\p{L}|\\s){1,70}";
             this.textEditTenTho.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -97,7 +102,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(12, 78);
+            this.labelControl5.Location = new System.Drawing.Point(12, 82);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(32, 13);
             this.labelControl5.TabIndex = 3;
@@ -105,7 +110,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(12, 52);
+            this.labelControl4.Location = new System.Drawing.Point(12, 56);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(62, 13);
             this.labelControl4.TabIndex = 2;
@@ -113,7 +118,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(12, 26);
+            this.labelControl3.Location = new System.Drawing.Point(12, 30);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(37, 13);
             this.labelControl3.TabIndex = 1;
@@ -121,18 +126,20 @@
             // 
             // simpleButtonOK
             // 
-            this.simpleButtonOK.Location = new System.Drawing.Point(126, 154);
+            this.simpleButtonOK.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonOK.Image")));
+            this.simpleButtonOK.Location = new System.Drawing.Point(136, 159);
             this.simpleButtonOK.Name = "simpleButtonOK";
-            this.simpleButtonOK.Size = new System.Drawing.Size(75, 23);
+            this.simpleButtonOK.Size = new System.Drawing.Size(70, 27);
             this.simpleButtonOK.TabIndex = 2;
-            this.simpleButtonOK.Text = "OK";
+            this.simpleButtonOK.Text = "Lưu";
             this.simpleButtonOK.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButtonHuy
             // 
-            this.simpleButtonHuy.Location = new System.Drawing.Point(207, 154);
+            this.simpleButtonHuy.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonHuy.Image")));
+            this.simpleButtonHuy.Location = new System.Drawing.Point(212, 159);
             this.simpleButtonHuy.Name = "simpleButtonHuy";
-            this.simpleButtonHuy.Size = new System.Drawing.Size(75, 23);
+            this.simpleButtonHuy.Size = new System.Drawing.Size(70, 27);
             this.simpleButtonHuy.TabIndex = 3;
             this.simpleButtonHuy.Text = "Huỷ";
             this.simpleButtonHuy.Click += new System.EventHandler(this.simpleButtonHuy_Click);
@@ -141,13 +148,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 187);
+            this.ClientSize = new System.Drawing.Size(291, 194);
             this.Controls.Add(this.simpleButtonHuy);
             this.Controls.Add(this.simpleButtonOK);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);
             this.Name = "NhapTho";
-            this.Text = "Nhập thông tin thợ";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Nhập thợ";
+            this.SizeChanged += new System.EventHandler(this.NhapTho_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -155,7 +164,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditSDT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenTho.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

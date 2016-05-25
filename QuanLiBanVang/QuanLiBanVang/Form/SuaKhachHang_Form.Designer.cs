@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuaKhachHang));
             this.simpleButtonHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonOk = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonOK = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.textEditDiaChi = new DevExpress.XtraEditors.TextEdit();
             this.textEditSDT = new DevExpress.XtraEditors.TextEdit();
@@ -47,21 +48,23 @@
             // 
             // simpleButtonHuy
             // 
-            this.simpleButtonHuy.Location = new System.Drawing.Point(182, 163);
+            this.simpleButtonHuy.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonHuy.Image")));
+            this.simpleButtonHuy.Location = new System.Drawing.Point(219, 163);
             this.simpleButtonHuy.Name = "simpleButtonHuy";
-            this.simpleButtonHuy.Size = new System.Drawing.Size(75, 23);
+            this.simpleButtonHuy.Size = new System.Drawing.Size(70, 27);
             this.simpleButtonHuy.TabIndex = 11;
             this.simpleButtonHuy.Text = "Huỷ";
             this.simpleButtonHuy.Click += new System.EventHandler(this.simpleButtonHuy_Click);
             // 
-            // simpleButtonOk
+            // simpleButtonOK
             // 
-            this.simpleButtonOk.Location = new System.Drawing.Point(101, 163);
-            this.simpleButtonOk.Name = "simpleButtonOk";
-            this.simpleButtonOk.Size = new System.Drawing.Size(75, 23);
-            this.simpleButtonOk.TabIndex = 10;
-            this.simpleButtonOk.Text = "OK";
-            this.simpleButtonOk.Click += new System.EventHandler(this.simpleButtonOk_Click);
+            this.simpleButtonOK.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonOK.Image")));
+            this.simpleButtonOK.Location = new System.Drawing.Point(133, 163);
+            this.simpleButtonOK.Name = "simpleButtonOK";
+            this.simpleButtonOK.Size = new System.Drawing.Size(80, 27);
+            this.simpleButtonOK.TabIndex = 10;
+            this.simpleButtonOK.Text = "Cập nhật";
+            this.simpleButtonOK.Click += new System.EventHandler(this.simpleButtonOk_Click);
             // 
             // groupControl1
             // 
@@ -71,15 +74,15 @@
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Location = new System.Drawing.Point(12, 42);
+            this.groupControl1.Location = new System.Drawing.Point(10, 40);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(274, 115);
+            this.groupControl1.Size = new System.Drawing.Size(279, 115);
             this.groupControl1.TabIndex = 9;
             this.groupControl1.Text = "Chi tiết";
             // 
             // textEditDiaChi
             // 
-            this.textEditDiaChi.Location = new System.Drawing.Point(94, 84);
+            this.textEditDiaChi.Location = new System.Drawing.Point(89, 84);
             this.textEditDiaChi.Name = "textEditDiaChi";
             this.textEditDiaChi.Properties.Mask.EditMask = "(\\p{L}|[0-9]|\\s|[,/]){1,100}";
             this.textEditDiaChi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -88,16 +91,16 @@
             // 
             // textEditSDT
             // 
-            this.textEditSDT.Location = new System.Drawing.Point(94, 58);
+            this.textEditSDT.Location = new System.Drawing.Point(89, 58);
             this.textEditSDT.Name = "textEditSDT";
             this.textEditSDT.Properties.Mask.EditMask = "\\d{1,11}";
             this.textEditSDT.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textEditSDT.Size = new System.Drawing.Size(100, 20);
+            this.textEditSDT.Size = new System.Drawing.Size(175, 20);
             this.textEditSDT.TabIndex = 10;
             // 
             // textEditTenKH
             // 
-            this.textEditTenKH.Location = new System.Drawing.Point(94, 32);
+            this.textEditTenKH.Location = new System.Drawing.Point(89, 32);
             this.textEditTenKH.Name = "textEditTenKH";
             this.textEditTenKH.Properties.Mask.EditMask = "(\\p{L}|\\s){1,70}";
             this.textEditTenKH.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -106,7 +109,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(22, 87);
+            this.labelControl5.Location = new System.Drawing.Point(17, 87);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(32, 13);
             this.labelControl5.TabIndex = 3;
@@ -114,7 +117,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(22, 61);
+            this.labelControl4.Location = new System.Drawing.Point(17, 61);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(62, 13);
             this.labelControl4.TabIndex = 2;
@@ -122,7 +125,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(22, 35);
+            this.labelControl3.Location = new System.Drawing.Point(17, 35);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(34, 13);
             this.labelControl3.TabIndex = 1;
@@ -130,10 +133,14 @@
             // 
             // labelControl1
             // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Location = new System.Drawing.Point(12, 12);
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(9, 10);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(261, 24);
+            this.labelControl1.Size = new System.Drawing.Size(280, 24);
             this.labelControl1.TabIndex = 8;
             this.labelControl1.Text = "Sửa thông tin khách hàng";
             // 
@@ -143,11 +150,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(299, 200);
             this.Controls.Add(this.simpleButtonHuy);
-            this.Controls.Add(this.simpleButtonOk);
+            this.Controls.Add(this.simpleButtonOK);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);
             this.Name = "SuaKhachHang";
-            this.Text = "SuaKhachHang";
+            this.Text = "Sửa khách hàng";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -155,14 +162,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditSDT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenKH.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton simpleButtonHuy;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonOk;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonOK;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.TextEdit textEditDiaChi;
         private DevExpress.XtraEditors.TextEdit textEditSDT;
@@ -171,6 +177,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+
 
     }
 }

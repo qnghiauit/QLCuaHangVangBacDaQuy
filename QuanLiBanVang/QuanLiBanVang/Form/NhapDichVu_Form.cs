@@ -47,5 +47,12 @@ namespace QuanLiBanVang
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void NhapDichVu_SizeChanged(object sender, EventArgs e)
+        {
+            groupControl1.Left = (ClientSize.Width - groupControl1.Width) / 2;
+            simpleButtonHuy.Left = groupControl1.Right - simpleButtonOK.Width;
+            simpleButtonOK.Left = simpleButtonHuy.Left - simpleButtonOK.Width - 10; 
+        }
     }
 }

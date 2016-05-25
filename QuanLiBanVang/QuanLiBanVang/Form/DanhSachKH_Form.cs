@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Linq;
@@ -114,8 +117,20 @@ namespace QuanLiBanVang
                 if (result == DialogResult.OK)
                 {
                     int id = Int32.Parse(currentRow[1].ToString());
-                    _bulKhachHang.DeleteKhachHang(id);
-                    FillGridView();
+                    try
+                    {
+                        _bulKhachHang = null;
+                        _bulKhachHang = new BUL_KhachHang();_bulKhachHang.DeleteKhachHang(id);
+                        FillGridView();
+                    }
+                    catch (DbUpdateException dbUpdateException)
+                    {
+                        SqlException eSqlException = ((SqlException)((UpdateException)dbUpdateException.InnerException).InnerException);
+                        if (eSqlException.Message.Contains("FK_PDV_KH"))
+                            MessageBox.Show("Không thể xoá khách hàng đã có thực hiện giao dịch với cửa hàng!", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
                 }
             }
         }

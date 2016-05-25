@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPDV));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControlDSPDV = new DevExpress.XtraGrid.GridControl();
             this.gridViewDSPDV = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonDel = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonEdit = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -44,23 +45,28 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.Controls.Add(this.gridControlDSPDV);
-            this.groupControl1.Controls.Add(this.simpleButtonThoat);
             this.groupControl1.Controls.Add(this.simpleButtonDel);
             this.groupControl1.Controls.Add(this.simpleButtonEdit);
             this.groupControl1.Controls.Add(this.simpleButtonAdd);
             this.groupControl1.Location = new System.Drawing.Point(12, 41);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(663, 441);
+            this.groupControl1.Size = new System.Drawing.Size(703, 427);
             this.groupControl1.TabIndex = 5;
-            this.groupControl1.Text = "Danh sách";
+            this.groupControl1.Text = "Thông tin";
             // 
             // gridControlDSPDV
             // 
-            this.gridControlDSPDV.Location = new System.Drawing.Point(5, 23);
+            this.gridControlDSPDV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControlDSPDV.Location = new System.Drawing.Point(14, 30);
             this.gridControlDSPDV.MainView = this.gridViewDSPDV;
             this.gridControlDSPDV.Name = "gridControlDSPDV";
-            this.gridControlDSPDV.Size = new System.Drawing.Size(572, 349);
+            this.gridControlDSPDV.Size = new System.Drawing.Size(576, 380);
             this.gridControlDSPDV.TabIndex = 5;
             this.gridControlDSPDV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewDSPDV});
@@ -71,46 +77,55 @@
             this.gridViewDSPDV.Name = "gridViewDSPDV";
             this.gridViewDSPDV.OptionsBehavior.Editable = false;
             this.gridViewDSPDV.OptionsBehavior.ReadOnly = true;
+            this.gridViewDSPDV.OptionsCustomization.AllowColumnMoving = false;
             this.gridViewDSPDV.OptionsView.ShowGroupPanel = false;
             this.gridViewDSPDV.OptionsView.ShowIndicator = false;
             this.gridViewDSPDV.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gridViewDSPDV_CustomUnboundColumnData);
             this.gridViewDSPDV.DoubleClick += new System.EventHandler(this.gridViewDSPDV_DoubleClick);
             // 
-            // simpleButtonThoat
-            // 
-            this.simpleButtonThoat.Location = new System.Drawing.Point(583, 308);
-            this.simpleButtonThoat.Name = "simpleButtonThoat";
-            this.simpleButtonThoat.Size = new System.Drawing.Size(75, 23);
-            this.simpleButtonThoat.TabIndex = 4;
-            this.simpleButtonThoat.Text = "Thoát";
-            this.simpleButtonThoat.Click += new System.EventHandler(this.simpleButtonThoat_Click);
-            // 
             // simpleButtonDel
             // 
-            this.simpleButtonDel.Location = new System.Drawing.Point(583, 81);
+            this.simpleButtonDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonDel.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonDel.Image")));
+            this.simpleButtonDel.Location = new System.Drawing.Point(605, 96);
             this.simpleButtonDel.Name = "simpleButtonDel";
-            this.simpleButtonDel.Size = new System.Drawing.Size(75, 23);
+            this.simpleButtonDel.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonDel.TabIndex = 3;
             this.simpleButtonDel.Text = "Xoá";
             this.simpleButtonDel.Click += new System.EventHandler(this.simpleButtonDel_Click);
             // 
             // simpleButtonEdit
             // 
-            this.simpleButtonEdit.Location = new System.Drawing.Point(583, 52);
+            this.simpleButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonEdit.Image")));
+            this.simpleButtonEdit.Location = new System.Drawing.Point(605, 63);
             this.simpleButtonEdit.Name = "simpleButtonEdit";
-            this.simpleButtonEdit.Size = new System.Drawing.Size(75, 23);
+            this.simpleButtonEdit.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonEdit.TabIndex = 2;
-            this.simpleButtonEdit.Text = "Sửa";
+            this.simpleButtonEdit.Text = "Cập nhật";
             this.simpleButtonEdit.Click += new System.EventHandler(this.simpleButtonEdit_Click);
             // 
             // simpleButtonAdd
             // 
-            this.simpleButtonAdd.Location = new System.Drawing.Point(583, 23);
+            this.simpleButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonAdd.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonAdd.Image")));
+            this.simpleButtonAdd.Location = new System.Drawing.Point(605, 30);
             this.simpleButtonAdd.Name = "simpleButtonAdd";
-            this.simpleButtonAdd.Size = new System.Drawing.Size(75, 23);
+            this.simpleButtonAdd.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonAdd.TabIndex = 1;
-            this.simpleButtonAdd.Text = "Thêm";
+            this.simpleButtonAdd.Text = "Thêm mới";
             this.simpleButtonAdd.Click += new System.EventHandler(this.simpleButtonAdd_Click);
+            // 
+            // simpleButtonThoat
+            // 
+            this.simpleButtonThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonThoat.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonThoat.Image")));
+            this.simpleButtonThoat.Location = new System.Drawing.Point(628, 474);
+            this.simpleButtonThoat.Name = "simpleButtonThoat";
+            this.simpleButtonThoat.Size = new System.Drawing.Size(87, 27);
+            this.simpleButtonThoat.TabIndex = 4;
+            this.simpleButtonThoat.Text = "Thoát";
+            this.simpleButtonThoat.Click += new System.EventHandler(this.simpleButtonThoat_Click);
             // 
             // labelControl1
             // 
@@ -119,9 +134,9 @@
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(209, 11);
+            this.labelControl1.Location = new System.Drawing.Point(12, 11);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(284, 24);
+            this.labelControl1.Size = new System.Drawing.Size(703, 24);
             this.labelControl1.TabIndex = 4;
             this.labelControl1.Text = "Danh sách phiếu dịch vụ";
             // 
@@ -129,8 +144,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 494);
+            this.ClientSize = new System.Drawing.Size(727, 507);
             this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.simpleButtonThoat);
             this.Controls.Add(this.labelControl1);
             this.Name = "DanhSachPDV";
             this.Text = "Danh sách phiếu dịch vụ";

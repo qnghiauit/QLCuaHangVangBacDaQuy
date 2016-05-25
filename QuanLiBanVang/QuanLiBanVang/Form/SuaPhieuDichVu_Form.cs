@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Core;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 using DevExpress.XtraEditors.Controls;
 using QuanLiBanVang.ExtendClass;
@@ -322,7 +325,17 @@ namespace QuanLiBanVang
             if (currentRow != null)
             {
                 int id = Int32.Parse(currentRow[1].ToString());
-                _bulCtpdv.DeleteCTPDVById(id);
+                try
+                {
+                    _bulCtpdv.DeleteCTPDVById(id);
+                }
+                catch (DbUpdateException dbUpdateException)
+                {
+                    SqlException eSqlException = ((SqlException)((UpdateException)dbUpdateException.InnerException).InnerException);
+                    if (eSqlException.Message.Contains("FK_CTPGC_ID"))
+                        MessageBox.Show("Không thể xoá chi tiết phiếu dịch vụ đã được gia công!", "Lỗi",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 //Neu ok het
                 MessageBox.Show("Xoá chi tiết phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadInfoCtpdv();

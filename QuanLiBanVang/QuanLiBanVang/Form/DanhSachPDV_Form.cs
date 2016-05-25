@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Data.Entity.Core;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DTO;
@@ -14,20 +12,19 @@ using QuanLiBanVang.ExtendClass;
 
 namespace QuanLiBanVang
 {
-    public partial class DanhSachPDV : DevExpress.XtraEditors.XtraForm
+    public partial class DanhSachPDV : XtraForm
     {
         private BUL_PhieuDichVu _bulPhieuDichVu;
-        private BUL_NhanVien _bulNhanVien;
-        private BUL_KhachHang _bulKhachHang;
+        private List<KHACHHANG> _listKhachhang;
+        private List<NHANVIEN> _listNhanvien; 
         private DataColumn _keyField;
         private DataTable _dataTable;
         private MyCache _cache = new MyCache("IDcache");
-        private List<PHIEUDICHVU> _listPDV;
+        private List<PHIEUDICHVU> _listPdv;
         public DanhSachPDV()
         {
             InitializeComponent();
-            _bulNhanVien = new BUL_NhanVien();
-            _bulKhachHang = new BUL_KhachHang();
+            GetDataNvAndKh();
             CreateDataTable();
         }
         private void CreateDataTable()
@@ -53,27 +50,35 @@ namespace QuanLiBanVang
             gridViewDSPDV.Columns[6].Caption = "Tổng tiền";
             gridViewDSPDV.OptionsMenu.EnableColumnMenu = false;;
         }
-        private string GetTenKH(int id)
+
+        private void GetDataNvAndKh()
+        {
+            BUL_NhanVien bulNhanVien = new BUL_NhanVien();
+            BUL_KhachHang bulKhachHang= new BUL_KhachHang();
+            _listKhachhang = bulKhachHang.GetAllKhachhangs();
+            _listNhanvien = bulNhanVien.getAllStaff();
+        }
+        private string GetTenKh(int id)
         {
             if (id == 0)
                 return "Khách vãng lai";
-            return _bulKhachHang.GetKhachhangById(id).TenKH;
+            return _listKhachhang.Find(i => i.MaKH == id).TenKH;
         }
-        private string GetTenNV(int id)
+        private string GetTenNv(int id)
         {
-            return _bulNhanVien.getStaffById(id).HoTen;
+            return _listNhanvien.Find(i => i.MaNV == id).HoTen;
         }
         private void FillDataTable()
         {
             _dataTable.Rows.Clear();
-            _listPDV = _bulPhieuDichVu.GetAllPhieuDichVu();
-            foreach (PHIEUDICHVU t in _listPDV)
+            _listPdv = _bulPhieuDichVu.GetAllPhieuDichVu();
+            foreach (PHIEUDICHVU t in _listPdv)
             {
                 _dataTable.Rows.Add(new object[] { 
                     null,
                     t.SoPhieuDV, 
-                    GetTenKH(t.MaKH??0),
-                    GetTenNV(t.MaNV),
+                    GetTenKh(t.MaKH??0),
+                    GetTenNv(t.MaNV),
                     t.NgayDangKy,
                     t.NgayGiao,
                     t.TongTien});
@@ -84,7 +89,7 @@ namespace QuanLiBanVang
         {
             NhapPhieuDichVu nhap = new NhapPhieuDichVu();
             DialogResult result = nhap.ShowDialog();
-            if(result == System.Windows.Forms.DialogResult.OK)
+            if(result == DialogResult.OK)
                 FillDataTable();
         }
 
@@ -97,19 +102,28 @@ namespace QuanLiBanVang
         {
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn xoá phiếu dịch vụ này", "Cảnh báo",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Cancel)
-                return;
-            else
+            if (dialogResult == DialogResult.OK)
             {
                 DataRow currentRow = gridViewDSPDV.GetDataRow(gridViewDSPDV.FocusedRowHandle);
-                _bulPhieuDichVu.DeletePhieuDichVu(Convert.ToInt32(currentRow[1]));
-                FillDataTable();
+                try
+                {
+                    _bulPhieuDichVu.DeletePhieuDichVu(Convert.ToInt32(currentRow[1]));
+                    FillDataTable();
+                }
+                catch (DbUpdateException dbUpdateException)
+                {
+                    SqlException eSqlException = ((SqlException)((UpdateException)dbUpdateException.InnerException).InnerException);
+                    if (eSqlException.Message.Contains("FK_CTPGC_ID"))
+                        MessageBox.Show("Không thể xoá phiếu dịch vụ đã có chi tiết được gia công!", "Lỗi",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
         }
 
         private void simpleButtonThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void gridViewDSPDV_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
@@ -131,7 +145,7 @@ namespace QuanLiBanVang
             {
                 SuaPhieuDichVu sua = new SuaPhieuDichVu(Convert.ToInt32(currentRow[1]));
                 DialogResult result = sua.ShowDialog();
-                if (result == System.Windows.Forms.DialogResult.OK)
+                if (result == DialogResult.OK)
                 {
                     _bulPhieuDichVu = null;
                     _bulPhieuDichVu = new BUL_PhieuDichVu();
@@ -147,8 +161,7 @@ namespace QuanLiBanVang
 
         private void DanhSachPDV_SizeChanged(object sender, EventArgs e)
         {
-            groupControl1.Left = (this.ClientSize.Width - groupControl1.Width) / 2;
-            groupControl1.Top = (this.ClientSize.Height - groupControl1.Height) / 2;
+            
         }
     }
 }
