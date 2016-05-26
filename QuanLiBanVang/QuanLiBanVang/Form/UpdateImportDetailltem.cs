@@ -124,7 +124,42 @@ namespace QuanLiBanVang.Form
             return true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    // if content is not valid, exit method
+        //    if (!this.isValidImportViewData())
+        //    {
+        //        return;
+        //    }
+        //    ContainerItem selectedItem = (ContainerItem)this.comboBoxEditSP.SelectedItem;
+        //     SANPHAM sanPham = (SANPHAM)selectedItem.Value;
+        //    // otherwise, send back data
+        //    ImportItemGridViewDataSource data = new ImportItemGridViewDataSource
+        //    {
+        //        STT = this.Stt,
+        //        LoaiSanPham = this.comboBoxEditLoaiSP.Text,
+        //        MaSp = sanPham.MaSP,
+        //        TenSp = sanPham.TenSP,
+        //        SoLuong = int.Parse(this.textEditSoLuong.Text.Trim()),
+        //        GiaMua = decimal.Parse(this.textEditGiaMua.Text.Trim())
+        //    };
+        //    data.ThanhTien = decimal.Multiply(data.SoLuong , data.GiaMua);
+        //    // send back data to main form
+        //   this.sendBack(data);
+        //    this.Close();// close the form
+        //}
+
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    this.Close();
+        //}
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void simpleButton_OK_Click(object sender, EventArgs e)
         {
             // if content is not valid, exit method
             if (!this.isValidImportViewData())
@@ -132,7 +167,7 @@ namespace QuanLiBanVang.Form
                 return;
             }
             ContainerItem selectedItem = (ContainerItem)this.comboBoxEditSP.SelectedItem;
-             SANPHAM sanPham = (SANPHAM)selectedItem.Value;
+            SANPHAM sanPham = (SANPHAM)selectedItem.Value;
             // otherwise, send back data
             ImportItemGridViewDataSource data = new ImportItemGridViewDataSource
             {
@@ -143,15 +178,10 @@ namespace QuanLiBanVang.Form
                 SoLuong = int.Parse(this.textEditSoLuong.Text.Trim()),
                 GiaMua = decimal.Parse(this.textEditGiaMua.Text.Trim())
             };
-            data.ThanhTien = decimal.Multiply(data.SoLuong , data.GiaMua);
+            data.ThanhTien = decimal.Multiply(data.SoLuong, data.GiaMua);
             // send back data to main form
-           this.sendBack(data);
+            this.sendBack(data);
             this.Close();// close the form
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

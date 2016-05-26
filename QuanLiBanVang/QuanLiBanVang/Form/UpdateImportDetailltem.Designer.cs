@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.textEditGiaMua = new DevExpress.XtraEditors.TextEdit();
             this.textEditSoLuong = new DevExpress.XtraEditors.TextEdit();
@@ -39,6 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton_OK = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditGiaMua.Properties)).BeginInit();
@@ -46,26 +46,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditSP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditLoaiSP.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(159, 233);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(67, 33);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Hủy";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(232, 233);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(67, 33);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupControl1
             // 
@@ -153,14 +133,32 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Loại SP :";
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(158, 233);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(68, 33);
+            this.simpleButton1.TabIndex = 6;
+            this.simpleButton1.Text = "Hủy";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // simpleButton_OK
+            // 
+            this.simpleButton_OK.Location = new System.Drawing.Point(232, 233);
+            this.simpleButton_OK.Name = "simpleButton_OK";
+            this.simpleButton_OK.Size = new System.Drawing.Size(67, 33);
+            this.simpleButton_OK.TabIndex = 7;
+            this.simpleButton_OK.Text = "OK";
+            this.simpleButton_OK.Click += new System.EventHandler(this.simpleButton_OK_Click);
+            // 
             // UpdateImportDetailltem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 271);
+            this.Controls.Add(this.simpleButton_OK);
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Name = "UpdateImportDetailltem";
             this.Text = "Update";
             this.Load += new System.EventHandler(this.UpdateImportDetailltem_Load);
@@ -177,8 +175,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.TextEdit textEditGiaMua;
         private DevExpress.XtraEditors.TextEdit textEditSoLuong;
@@ -188,5 +184,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_OK;
     }
 }

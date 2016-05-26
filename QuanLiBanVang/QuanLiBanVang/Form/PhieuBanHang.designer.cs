@@ -65,10 +65,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonLuu = new DevExpress.XtraEditors.SimpleButton();
             this.label13 = new System.Windows.Forms.Label();
             this.databaseSavingBackgrounWorker = new System.ComponentModel.BackgroundWorker();
+            this.simpleButton_Huy = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton_Luu = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -446,41 +446,6 @@
             this.label1.Text = "PHIẾU BÁN HÀNG";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.simpleButton1.Location = new System.Drawing.Point(569, 532);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(140, 42);
-            this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Text = "Hủy";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // simpleButtonLuu
-            // 
-            this.simpleButtonLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButtonLuu.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.simpleButtonLuu.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.simpleButtonLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.simpleButtonLuu.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButtonLuu.Appearance.Options.UseBackColor = true;
-            this.simpleButtonLuu.Appearance.Options.UseFont = true;
-            this.simpleButtonLuu.Appearance.Options.UseForeColor = true;
-            this.simpleButtonLuu.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.simpleButtonLuu.Location = new System.Drawing.Point(715, 532);
-            this.simpleButtonLuu.Name = "simpleButtonLuu";
-            this.simpleButtonLuu.Size = new System.Drawing.Size(121, 42);
-            this.simpleButtonLuu.TabIndex = 2;
-            this.simpleButtonLuu.Text = "Lưu";
-            this.simpleButtonLuu.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
             // label13
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -497,6 +462,24 @@
             this.databaseSavingBackgrounWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.databaseSavingBackgrounWorker_DoWork);
             this.databaseSavingBackgrounWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.databaseSavingBackgrounWorker_RunWorkerCompleted);
             // 
+            // simpleButton_Huy
+            // 
+            this.simpleButton_Huy.Location = new System.Drawing.Point(656, 534);
+            this.simpleButton_Huy.Name = "simpleButton_Huy";
+            this.simpleButton_Huy.Size = new System.Drawing.Size(85, 42);
+            this.simpleButton_Huy.TabIndex = 4;
+            this.simpleButton_Huy.Text = "Hủy";
+            this.simpleButton_Huy.Click += new System.EventHandler(this.simpleButton_Huy_Click_1);
+            // 
+            // simpleButton_Luu
+            // 
+            this.simpleButton_Luu.Location = new System.Drawing.Point(747, 532);
+            this.simpleButton_Luu.Name = "simpleButton_Luu";
+            this.simpleButton_Luu.Size = new System.Drawing.Size(89, 44);
+            this.simpleButton_Luu.TabIndex = 5;
+            this.simpleButton_Luu.Text = "Lưu";
+            this.simpleButton_Luu.Click += new System.EventHandler(this.simpleButton_Luu_Click);
+            // 
             // PhieuBanHang
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
@@ -504,9 +487,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 586);
+            this.Controls.Add(this.simpleButton_Luu);
+            this.Controls.Add(this.simpleButton_Huy);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.simpleButtonLuu);
-            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.label1);
             this.Name = "PhieuBanHang";
@@ -544,8 +527,6 @@
 
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonLuu;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgayThanhToan;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgayBan;
@@ -581,5 +562,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButtonTimKhachQuen;
         private DevExpress.XtraEditors.TextEdit textEditMaKhachHang;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_Huy;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_Luu;
     }
 }

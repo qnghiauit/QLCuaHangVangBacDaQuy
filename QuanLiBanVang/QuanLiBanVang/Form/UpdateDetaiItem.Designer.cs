@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.simpleButton_Ok = new DevExpress.XtraEditors.SimpleButton();
             this.textEditGiaBan = new DevExpress.XtraEditors.TextEdit();
             this.textEditSoLuong = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxEditSP = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -37,8 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.simpleButton_Huy = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditGiaBan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoLuong.Properties)).BeginInit();
@@ -62,6 +62,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết";
+            // 
+            // simpleButton_Ok
+            // 
+            this.simpleButton_Ok.Location = new System.Drawing.Point(203, 191);
+            this.simpleButton_Ok.Name = "simpleButton_Ok";
+            this.simpleButton_Ok.Size = new System.Drawing.Size(69, 33);
+            this.simpleButton_Ok.TabIndex = 5;
+            this.simpleButton_Ok.Text = "OK";
+            this.simpleButton_Ok.Click += new System.EventHandler(this.simpleButton_Ok_Click);
             // 
             // textEditGiaBan
             // 
@@ -135,34 +144,23 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Loại SP :";
             // 
-            // button1
+            // simpleButton_Huy
             // 
-            this.button1.Location = new System.Drawing.Point(206, 191);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(67, 33);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(132, 191);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(67, 33);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Hủy";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.simpleButton_Huy.Location = new System.Drawing.Point(133, 191);
+            this.simpleButton_Huy.Name = "simpleButton_Huy";
+            this.simpleButton_Huy.Size = new System.Drawing.Size(64, 33);
+            this.simpleButton_Huy.TabIndex = 2;
+            this.simpleButton_Huy.Text = "Hủy";
+            this.simpleButton_Huy.Click += new System.EventHandler(this.simpleButton_Huy_Click);
             // 
             // UpdateDetaiItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(285, 230);
+            this.Controls.Add(this.simpleButton_Ok);
+            this.Controls.Add(this.simpleButton_Huy);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Name = "UpdateDetaiItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa Chi Tiết";
@@ -188,7 +186,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_Ok;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_Huy;
     }
 }

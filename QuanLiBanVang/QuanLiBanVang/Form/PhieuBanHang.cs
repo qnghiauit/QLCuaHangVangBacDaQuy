@@ -48,8 +48,8 @@ namespace QuanLiBanVang
             if (this.actionType == ActionType.ACTION_CREATE_NEW) // incase user want to create new receipt 
             {
                 this.checkEditKhachQuen.Checked = false;
-             //   this.simpleButtonUpdate.Enabled = false;
-              //  this.simpleButtonUpdate.Visible = false;
+                //   this.simpleButtonUpdate.Enabled = false;
+                //  this.simpleButtonUpdate.Visible = false;
                 this.textEditMaKhachHang.Visible = false;
                 this.textEditSoPhieuBH.Visible = false;
                 this.simpleButtonTimKhachQuen.Visible = false;
@@ -203,11 +203,11 @@ namespace QuanLiBanVang
             return false;
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            // close the form
-            this.Close();
-        }
+        //private void simpleButton1_Click(object sender, EventArgs e)
+        //{
+        //    // close the form
+        //    this.Close();
+        //}
 
         private void comboBoxEditMaLoaiSp_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -250,26 +250,26 @@ namespace QuanLiBanVang
 
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            // check information
-            if (this.checkGerneralInformation())
-            {
-                // make sure that the detail is not null
-                if (this.gridViewDataSource.Count > 0)
-                {
-                    this.databaseSavingBackgrounWorker.RunWorkerAsync();
-                }
-                else
-                {
-                    MessageBox.Show(ErrorMessage.EMPTY_DETAILS_ERR_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show(ErrorMessage.CLIENT_INVALID_INPUT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //private void simpleButton2_Click(object sender, EventArgs e)
+        //{
+        //    // check information
+        //    if (this.checkGerneralInformation())
+        //    {
+        //        // make sure that the detail is not null
+        //        if (this.gridViewDataSource.Count > 0)
+        //        {
+        //            this.databaseSavingBackgrounWorker.RunWorkerAsync();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show(ErrorMessage.EMPTY_DETAILS_ERR_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show(ErrorMessage.CLIENT_INVALID_INPUT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         ///<summary>
         ///save all data into database
@@ -283,7 +283,7 @@ namespace QuanLiBanVang
             {
                 NgayBan = this.dateTimePickerNgayBan.Value,
                 NgayTra = this.dateTimePickerNgayThanhToan.Value,
-               // MaNV = UserAccess.Instance.GetUserId, // to be update code
+                // MaNV = UserAccess.Instance.GetUserId, // to be update code
                 // MaKH = 1, // to be update code
                 TongTien = this.tongTien
             };
@@ -407,8 +407,8 @@ namespace QuanLiBanVang
             // general information
             this.textEditSoPhieuBH.Text = data.SoPhieuBH.ToString();
             this.textEditSoPhieuBH.Enabled = false;
-           // this.textEditNhanVien.Text = data.NHANVIEN.HoTen;
-           // this.textEditNhanVien.Enabled = false;
+            // this.textEditNhanVien.Text = data.NHANVIEN.HoTen;
+            // this.textEditNhanVien.Enabled = false;
             this.dateTimePickerNgayBan.Value = data.NgayBan;
             this.dateTimePickerNgayBan.Enabled = false;
             this.dateTimePickerNgayThanhToan.Value = data.NgayTra;
@@ -433,12 +433,12 @@ namespace QuanLiBanVang
             this.simpleButtonThem.Enabled = false;
             this.simpleButtonThem.Visible = false;
 
-            this.simpleButtonLuu.Enabled = false;
+            this.simpleButton_Luu.Enabled = false;
 
-          //  this.simpleButtonUpdate.Enabled = false;
-           // this.simpleButtonUpdate.Visible = false;
+            //  this.simpleButtonUpdate.Enabled = false;
+            // this.simpleButtonUpdate.Visible = false;
 
-            this.simpleButtonLuu.Visible = false;
+            this.simpleButton_Luu.Visible = false;
             this.comboBoxEditMaLoaiSp.Visible = false;
             this.comboBoxEditMaSp.Visible = false;
             this.textEditSoLuong.Visible = false;
@@ -551,6 +551,37 @@ namespace QuanLiBanVang
         private void simpleButtonLapPhieuNo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void simpleButton_Huy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton_Huy_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void simpleButton_Luu_Click(object sender, EventArgs e)
+        {
+            // check information
+            if (this.checkGerneralInformation())
+            {
+                // make sure that the detail is not null
+                if (this.gridViewDataSource.Count > 0)
+                {
+                    this.databaseSavingBackgrounWorker.RunWorkerAsync();
+                }
+                else
+                {
+                    MessageBox.Show(ErrorMessage.EMPTY_DETAILS_ERR_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(ErrorMessage.CLIENT_INVALID_INPUT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
