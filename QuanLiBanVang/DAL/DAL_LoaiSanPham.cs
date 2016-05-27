@@ -19,6 +19,7 @@ namespace DAL
 
             _context.LOAISANPHAMs.Add(productType);
             _context.SaveChanges();
+            
         }
         public List<DTO.LOAISANPHAM> getAllProductType()
         {
@@ -64,6 +65,7 @@ namespace DAL
             var target = _context.LOAISANPHAMs.Find(id);
             _context.LOAISANPHAMs.Remove(target);
             _context.SaveChanges();
+            
         }
         public string getProductNameById(int id)
         {

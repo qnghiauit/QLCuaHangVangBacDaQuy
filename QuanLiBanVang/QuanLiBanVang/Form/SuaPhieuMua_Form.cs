@@ -163,13 +163,17 @@ namespace QuanLiBanVang.Report
                         if (client.MaKH == _buyBill.MaKH)
                         {
                             this.cboClientName.SelectedIndex = i;
+                            this.lblPhoneNumber.Text= client.SDT;
                             break;
                         }
                     }
+                    
                 }
                 else
                 {
                     this.rdoClientType.SelectedIndex = 0;
+                    this.lblPhoneNumber.Text = "(Không có)";
+                    this.cboClientName.Enabled = false;
                 }
                 this.dtpkCreateDate.EditValue = _buyBill.NgayMua;
                 foreach (DTO.CTPMH i in listBuyDetails)
@@ -207,15 +211,38 @@ namespace QuanLiBanVang.Report
             if (this.rdoClientType.SelectedIndex == 0)
             {
                 this.cboClientName.Enabled = false;
+                this.lblPhoneNumber.Text = "(Không có)";
             }
             else
             {
                 this.cboClientName.Enabled = true;
+                //this.lblPhoneNumber.Text = ((this.cboClientName.SelectedItem as ExtendClass.ContainerItem).Value as DTO.KHACHHANG).SDT;
             }
         }
-
+        private bool checkLegalDetail()
+        {
+            if (txtPrice.Text == "")
+                return false;
+            if (txtPrice.Text == "")
+                return false;
+            if (txtQuantity.Text == "")
+                return false;
+            if (this.dtpkCreateDate.EditValue.ToString() == "")
+                return false;
+            if (this.rdoClientType.SelectedIndex == 1)
+            {
+                if (this.cboClientName.SelectedItem == null)
+                    return false;
+            }
+            return true;
+        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!checkLegalDetail())
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DTO.CTPMH detail = new DTO.CTPMH();
             string product = "";
             string producttype = "";
@@ -263,17 +290,27 @@ namespace QuanLiBanVang.Report
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            this._buyBill.NgayMua = ((DateTime)this.dtpkCreateDate.EditValue).Date;
-            if (this.rdoClientType.SelectedIndex == 0)
-            {
-                this._buyBill.MaKH = (int?)null;
-            }
-            else
-            {
-                this._buyBill.MaKH = ((this.cboClientName.SelectedItem as ExtendClass.ContainerItem).Value as DTO.KHACHHANG).MaKH;
-            }
-            this.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Close();
+            //if (this.checkLegalDetail())
+            //{
+                this._buyBill.NgayMua = ((DateTime)this.dtpkCreateDate.EditValue).Date;
+                if (this.rdoClientType.SelectedIndex == 0)
+                {
+                    this._buyBill.MaKH = (int?)null;
+                }
+                else
+                {
+                    this._buyBill.MaKH = ((this.cboClientName.SelectedItem as ExtendClass.ContainerItem).Value as DTO.KHACHHANG).MaKH;
+                }
+                this._bulBuyBill.updateBuyBill(_buyBill);
+                MessageBox.Show("Cập nhật thành công!");
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
+            //}
+            //else
+            //{
+                //MessageBox.Show("Vui long nhap day du thong tin!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //return;
+            //}
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

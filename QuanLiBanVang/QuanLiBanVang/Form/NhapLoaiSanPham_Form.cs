@@ -23,23 +23,10 @@ namespace QuanLiBanVang.Report
         }
         public bool CheckControlValidation()
         {
-            foreach (Control control in this.groupControlInfo.Controls)
-            {
-                if (control is TextEdit)
-                {
-                    if ((control as TextEdit).Text == "")
-                    {
-                        return false;
-                    }
-                }
-                if (control is ComboBoxEdit)
-                {
-                    if ((control as ComboBoxEdit).SelectedIndex == -1)
-                    {
-                        return false;
-                    }
-                }
-            }
+            if (this.txtName.Text == "")
+                return false;
+            if (this.txtPercent.Text == "")
+                return false;
             return true;
         }
         private void btnSave_Click(object sender, EventArgs e)

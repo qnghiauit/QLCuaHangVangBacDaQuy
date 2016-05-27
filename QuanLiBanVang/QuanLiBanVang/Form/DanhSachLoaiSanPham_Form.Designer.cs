@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachLoaiSanPham_Form));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.dgvListProductType = new DevExpress.XtraGrid.GridControl();
@@ -84,6 +85,7 @@
             this.dgvProductType.GridControl = this.dgvListProductType;
             this.dgvProductType.Name = "dgvProductType";
             this.dgvProductType.OptionsBehavior.Editable = false;
+            this.dgvProductType.OptionsCustomization.AllowColumnMoving = false;
             this.dgvProductType.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.dgvProductType.OptionsSelection.MultiSelect = true;
             this.dgvProductType.OptionsView.ShowGroupPanel = false;
@@ -93,10 +95,11 @@
             // 
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.Location = new System.Drawing.Point(374, 89);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(87, 28);
+            this.btnAdd.Size = new System.Drawing.Size(95, 29);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -105,10 +108,11 @@
             // 
             this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Appearance.Options.UseFont = true;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.Location = new System.Drawing.Point(373, 147);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(87, 28);
+            this.btnDelete.Size = new System.Drawing.Size(95, 29);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -117,10 +121,11 @@
             // 
             this.btnUpdate.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Appearance.Options.UseFont = true;
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
             this.btnUpdate.Location = new System.Drawing.Point(373, 208);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(87, 28);
+            this.btnUpdate.Size = new System.Drawing.Size(95, 29);
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -129,10 +134,11 @@
             // 
             this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Appearance.Options.UseFont = true;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.Location = new System.Drawing.Point(373, 269);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(87, 28);
+            this.btnExit.Size = new System.Drawing.Size(95, 29);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -142,7 +148,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 347);
+            this.ClientSize = new System.Drawing.Size(480, 347);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);

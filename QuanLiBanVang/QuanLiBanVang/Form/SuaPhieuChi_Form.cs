@@ -39,6 +39,7 @@ namespace QuanLiBanVang.Report
         private void SuaPhieuChi_Form_Load(object sender, EventArgs e)
         {
             this.dtpkCreateDate.Properties.MinValue = DateTime.Now;
+            this.dtpkCreateDate.Properties.MaxValue = DateTime.Now;
             this.dtpkCreateDate.Enabled = false;
             this.dtpkCreateDate.EditValue = _paymentBill.NgayLap;
             this.txtPrice.Text = int.Parse(_paymentBill.SoTien.ToString()).ToString();
@@ -54,6 +55,11 @@ namespace QuanLiBanVang.Report
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!CheckControlValidation())
+            {
+                MessageBox.Show("Vui lòng nhập chính xác và đầy đủ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             this._paymentBill.SoTien = decimal.Parse(this.txtPrice.Text);
             this._paymentBill.NgayLap = (DateTime)this.dtpkCreateDate.EditValue;
             this._paymentBill.NoiDungChi = this.txtContent.Text;

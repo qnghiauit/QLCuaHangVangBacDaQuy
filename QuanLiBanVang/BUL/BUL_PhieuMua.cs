@@ -19,7 +19,15 @@ namespace BUL
         }
         public void deleteBuyBill(int id)
         {
-            _dalBuyBill.deleteBuyBill(id);
+            try
+            {
+                _dalBuyBill.deleteBuyBill(id);
+            }
+            catch (Exception e)
+            {
+                _dalBuyBill = null;
+                _dalBuyBill = new DAL.DAL_PhieuMua();
+            }
         }
         public List<DTO.PHIEUMUAHANG> getAllBuyBill()
         {

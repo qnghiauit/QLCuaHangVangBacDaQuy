@@ -41,6 +41,8 @@ namespace QuanLiBanVang
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
+            InitInventoryReport();
+            SetAccessControl();
         }
         //Open from or focus if opened
         public void OpenChildForm(XtraForm form)
@@ -71,7 +73,20 @@ namespace QuanLiBanVang
             }
             return IsOpenend;
         }
-
+        private void SetAccessControl()
+        {
+            int level = ExtendClass.UserAccess.Instance.GetAccessLevel;
+            switch (level)
+            {
+                case 1:
+                    {
+                        this.barButtonItem29.Enabled = false;
+                        this.barButtonItem30.Enabled = false;
+                        break;
+                    }
+                default: break;
+            }
+        }
         private void barButtonItemDSKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             DanhSachKH dsKhachHangFrom = new DanhSachKH();
@@ -135,6 +150,97 @@ namespace QuanLiBanVang
         {
             NhapDichVu nhapDichVu = new NhapDichVu();
             OpenChildForm(nhapDichVu);
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TongQuan tongQuan_frm = new TongQuan();
+            OpenChildForm(tongQuan_frm);
+        }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Report.DanhSachLoaiSanPham_Form dsLoaiSanPham_frm = new Report.DanhSachLoaiSanPham_Form();
+            OpenChildForm(dsLoaiSanPham_frm);
+        }
+
+        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Report.NhapLoaiSanPham_Form nhapLoaiSanPham_frm = new Report.NhapLoaiSanPham_Form();
+            OpenChildForm(nhapLoaiSanPham_frm);
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Report.DanhSachSanPham_Form dsSanPham_frm = new Report.DanhSachSanPham_Form();
+            OpenChildForm(dsSanPham_frm);
+        }
+
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Report.NhapSanPham_Form nhapSanPham_frm = new Report.NhapSanPham_Form();
+            OpenChildForm(nhapSanPham_frm);
+        }
+
+        private void barButtonItem19_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Report.DanhSachPhieuMua_Form dsPhieuMua_frm = new Report.DanhSachPhieuMua_Form();
+            OpenChildForm(dsPhieuMua_frm);
+        }
+
+        private void barButtonItem20_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Report.NhapPhieuMua_Form nhapPhieuMua_frm = new Report.NhapPhieuMua_Form();
+            OpenChildForm(nhapPhieuMua_frm);
+        }
+
+        private void barButtonItem22_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Report.DanhSachPhieuChi_Form dsPhieuChi_frm = new Report.DanhSachPhieuChi_Form();
+            OpenChildForm(dsPhieuChi_frm);
+        }
+
+        private void barButtonItem23_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Report.NhapPhieuChi_Form nhapPhieuchi_frm = new Report.NhapPhieuChi_Form();
+            OpenChildForm(nhapPhieuchi_frm);
+        }
+
+        private void barButtonItem21_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barButtonItem24_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Report.DanhSachNhanVien_Form dsNhanVien_frm = new Report.DanhSachNhanVien_Form();
+            OpenChildForm(dsNhanVien_frm);
+        }
+
+        private void barButtonItem27_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Report.NhapNhanVien_Form nhapNhanVien_frm = new Report.NhapNhanVien_Form();
+            OpenChildForm(nhapNhanVien_frm);
+        }
+
+        private void barButtonItem26_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProcess));
+            thread.SetApartmentState(System.Threading.ApartmentState.STA);
+            thread.Start();
+            this.Close();
+        }
+
+        private void barButtonItem15_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Report.BaoCaoTonKho_Form baoCaoTonKho_frm = new Report.BaoCaoTonKho_Form();
+            OpenChildForm(baoCaoTonKho_frm);
+        }
+
+        private void barButtonItem16_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form.BaoCaoCongNo_Form baoCaoConNo_frm = new Form.BaoCaoCongNo_Form();
+            OpenChildForm(baoCaoConNo_frm);
         }
 
     }

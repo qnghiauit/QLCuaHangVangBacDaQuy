@@ -36,40 +36,40 @@
             DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.lblLastUpdate = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.lblIncome = new DevExpress.XtraEditors.LabelControl();
             this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
+            this.lblTotal = new DevExpress.XtraEditors.LabelControl();
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
+            this.lblCost = new DevExpress.XtraEditors.LabelControl();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.lblServiceBill = new DevExpress.XtraEditors.LabelControl();
+            this.lblOweBill = new DevExpress.XtraEditors.LabelControl();
+            this.lblSaleBill = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.lblFeeBill = new DevExpress.XtraEditors.LabelControl();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.lblOutsourcing = new DevExpress.XtraEditors.LabelControl();
+            this.lblImportBill = new DevExpress.XtraEditors.LabelControl();
+            this.lblBuyBill = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
+            this.lblPause = new DevExpress.XtraEditors.LabelControl();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.lblOutOfStock = new DevExpress.XtraEditors.LabelControl();
+            this.lblInStock = new DevExpress.XtraEditors.LabelControl();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             this.chartControlProduct = new DevExpress.XtraCharts.ChartControl();
@@ -98,38 +98,40 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(12, 12);
+            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(17, 11);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(104, 27);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "Cập nhật:";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(93, 17);
+            this.labelControl1.Location = new System.Drawing.Point(152, 17);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(87, 13);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "Cập nhật lần cuối:";
             // 
-            // labelControl2
+            // lblLastUpdate
             // 
-            this.labelControl2.Location = new System.Drawing.Point(186, 17);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(97, 13);
-            this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "12:50:34 27/8/2016";
+            this.lblLastUpdate.Location = new System.Drawing.Point(249, 17);
+            this.lblLastUpdate.Name = "lblLastUpdate";
+            this.lblLastUpdate.Size = new System.Drawing.Size(97, 13);
+            this.lblLastUpdate.TabIndex = 2;
+            this.lblLastUpdate.Text = "12:50:34 27/8/2016";
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.labelControl20);
+            this.groupControl1.Controls.Add(this.lblIncome);
             this.groupControl1.Controls.Add(this.labelControl32);
             this.groupControl1.Controls.Add(this.labelControl31);
             this.groupControl1.Controls.Add(this.labelControl30);
             this.groupControl1.Controls.Add(this.labelControl29);
-            this.groupControl1.Controls.Add(this.labelControl28);
+            this.groupControl1.Controls.Add(this.lblTotal);
             this.groupControl1.Controls.Add(this.labelControl27);
-            this.groupControl1.Controls.Add(this.labelControl26);
+            this.groupControl1.Controls.Add(this.lblCost);
             this.groupControl1.Controls.Add(this.labelControl23);
             this.groupControl1.Controls.Add(this.labelControl17);
             this.groupControl1.Controls.Add(this.pictureEdit1);
@@ -139,15 +141,15 @@
             this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "Tình hình tài chính";
             // 
-            // labelControl20
+            // lblIncome
             // 
-            this.labelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl20.Location = new System.Drawing.Point(130, 33);
-            this.labelControl20.Name = "labelControl20";
-            this.labelControl20.Size = new System.Drawing.Size(70, 13);
-            this.labelControl20.TabIndex = 11;
-            this.labelControl20.Text = "1.000.000";
+            this.lblIncome.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lblIncome.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblIncome.Location = new System.Drawing.Point(130, 33);
+            this.lblIncome.Name = "lblIncome";
+            this.lblIncome.Size = new System.Drawing.Size(70, 13);
+            this.lblIncome.TabIndex = 11;
+            this.lblIncome.Text = "1.000.000";
             // 
             // labelControl32
             // 
@@ -181,15 +183,15 @@
             this.labelControl29.TabIndex = 7;
             this.labelControl29.Text = "______________";
             // 
-            // labelControl28
+            // lblTotal
             // 
-            this.labelControl28.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl28.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl28.Location = new System.Drawing.Point(140, 82);
-            this.labelControl28.Name = "labelControl28";
-            this.labelControl28.Size = new System.Drawing.Size(60, 13);
-            this.labelControl28.TabIndex = 6;
-            this.labelControl28.Text = "500000";
+            this.lblTotal.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lblTotal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblTotal.Location = new System.Drawing.Point(140, 82);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(60, 13);
+            this.lblTotal.TabIndex = 6;
+            this.lblTotal.Text = "500000";
             // 
             // labelControl27
             // 
@@ -199,15 +201,15 @@
             this.labelControl27.TabIndex = 5;
             this.labelControl27.Text = "Danh thu";
             // 
-            // labelControl26
+            // lblCost
             // 
-            this.labelControl26.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl26.Location = new System.Drawing.Point(130, 52);
-            this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Size = new System.Drawing.Size(70, 13);
-            this.labelControl26.TabIndex = 4;
-            this.labelControl26.Text = "1.000.000";
+            this.lblCost.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lblCost.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblCost.Location = new System.Drawing.Point(130, 52);
+            this.lblCost.Name = "lblCost";
+            this.lblCost.Size = new System.Drawing.Size(70, 13);
+            this.lblCost.TabIndex = 4;
+            this.lblCost.Text = "1.000.000";
             // 
             // labelControl23
             // 
@@ -236,9 +238,9 @@
             // 
             // groupControl2
             // 
-            this.groupControl2.Controls.Add(this.labelControl8);
-            this.groupControl2.Controls.Add(this.labelControl7);
-            this.groupControl2.Controls.Add(this.labelControl6);
+            this.groupControl2.Controls.Add(this.lblServiceBill);
+            this.groupControl2.Controls.Add(this.lblOweBill);
+            this.groupControl2.Controls.Add(this.lblSaleBill);
             this.groupControl2.Controls.Add(this.labelControl5);
             this.groupControl2.Controls.Add(this.labelControl4);
             this.groupControl2.Controls.Add(this.labelControl3);
@@ -248,29 +250,29 @@
             this.groupControl2.TabIndex = 4;
             this.groupControl2.Text = "Số phiếu thu";
             // 
-            // labelControl8
+            // lblServiceBill
             // 
-            this.labelControl8.Location = new System.Drawing.Point(103, 64);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(6, 13);
-            this.labelControl8.TabIndex = 5;
-            this.labelControl8.Text = "0";
+            this.lblServiceBill.Location = new System.Drawing.Point(103, 64);
+            this.lblServiceBill.Name = "lblServiceBill";
+            this.lblServiceBill.Size = new System.Drawing.Size(6, 13);
+            this.lblServiceBill.TabIndex = 5;
+            this.lblServiceBill.Text = "0";
             // 
-            // labelControl7
+            // lblOweBill
             // 
-            this.labelControl7.Location = new System.Drawing.Point(103, 44);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(6, 13);
-            this.labelControl7.TabIndex = 4;
-            this.labelControl7.Text = "2";
+            this.lblOweBill.Location = new System.Drawing.Point(103, 44);
+            this.lblOweBill.Name = "lblOweBill";
+            this.lblOweBill.Size = new System.Drawing.Size(6, 13);
+            this.lblOweBill.TabIndex = 4;
+            this.lblOweBill.Text = "2";
             // 
-            // labelControl6
+            // lblSaleBill
             // 
-            this.labelControl6.Location = new System.Drawing.Point(103, 24);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(6, 13);
-            this.labelControl6.TabIndex = 3;
-            this.labelControl6.Text = "1";
+            this.lblSaleBill.Location = new System.Drawing.Point(103, 24);
+            this.lblSaleBill.Name = "lblSaleBill";
+            this.lblSaleBill.Size = new System.Drawing.Size(6, 13);
+            this.lblSaleBill.TabIndex = 3;
+            this.lblSaleBill.Text = "1";
             // 
             // labelControl5
             // 
@@ -298,11 +300,11 @@
             // 
             // groupControl3
             // 
-            this.groupControl3.Controls.Add(this.labelControl15);
+            this.groupControl3.Controls.Add(this.lblFeeBill);
             this.groupControl3.Controls.Add(this.labelControl16);
-            this.groupControl3.Controls.Add(this.labelControl9);
-            this.groupControl3.Controls.Add(this.labelControl10);
-            this.groupControl3.Controls.Add(this.labelControl11);
+            this.groupControl3.Controls.Add(this.lblOutsourcing);
+            this.groupControl3.Controls.Add(this.lblImportBill);
+            this.groupControl3.Controls.Add(this.lblBuyBill);
             this.groupControl3.Controls.Add(this.labelControl12);
             this.groupControl3.Controls.Add(this.labelControl13);
             this.groupControl3.Controls.Add(this.labelControl14);
@@ -312,45 +314,45 @@
             this.groupControl3.TabIndex = 5;
             this.groupControl3.Text = "Số phiếu chi";
             // 
-            // labelControl15
+            // lblFeeBill
             // 
-            this.labelControl15.Location = new System.Drawing.Point(102, 82);
-            this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(6, 13);
-            this.labelControl15.TabIndex = 13;
-            this.labelControl15.Text = "0";
+            this.lblFeeBill.Location = new System.Drawing.Point(102, 82);
+            this.lblFeeBill.Name = "lblFeeBill";
+            this.lblFeeBill.Size = new System.Drawing.Size(6, 13);
+            this.lblFeeBill.TabIndex = 13;
+            this.lblFeeBill.Text = "0";
             // 
             // labelControl16
             // 
             this.labelControl16.Location = new System.Drawing.Point(5, 82);
             this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(67, 13);
+            this.labelControl16.Size = new System.Drawing.Size(42, 13);
             this.labelControl16.TabIndex = 12;
-            this.labelControl16.Text = "Phiếu chi khác";
+            this.labelControl16.Text = "Phiếu chi";
             // 
-            // labelControl9
+            // lblOutsourcing
             // 
-            this.labelControl9.Location = new System.Drawing.Point(102, 64);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(6, 13);
-            this.labelControl9.TabIndex = 11;
-            this.labelControl9.Text = "0";
+            this.lblOutsourcing.Location = new System.Drawing.Point(102, 64);
+            this.lblOutsourcing.Name = "lblOutsourcing";
+            this.lblOutsourcing.Size = new System.Drawing.Size(6, 13);
+            this.lblOutsourcing.TabIndex = 11;
+            this.lblOutsourcing.Text = "0";
             // 
-            // labelControl10
+            // lblImportBill
             // 
-            this.labelControl10.Location = new System.Drawing.Point(102, 44);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(6, 13);
-            this.labelControl10.TabIndex = 10;
-            this.labelControl10.Text = "2";
+            this.lblImportBill.Location = new System.Drawing.Point(102, 44);
+            this.lblImportBill.Name = "lblImportBill";
+            this.lblImportBill.Size = new System.Drawing.Size(6, 13);
+            this.lblImportBill.TabIndex = 10;
+            this.lblImportBill.Text = "2";
             // 
-            // labelControl11
+            // lblBuyBill
             // 
-            this.labelControl11.Location = new System.Drawing.Point(102, 24);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(6, 13);
-            this.labelControl11.TabIndex = 9;
-            this.labelControl11.Text = "1";
+            this.lblBuyBill.Location = new System.Drawing.Point(102, 24);
+            this.lblBuyBill.Name = "lblBuyBill";
+            this.lblBuyBill.Size = new System.Drawing.Size(6, 13);
+            this.lblBuyBill.TabIndex = 9;
+            this.lblBuyBill.Text = "1";
             // 
             // labelControl12
             // 
@@ -378,10 +380,10 @@
             // 
             // groupControl4
             // 
-            this.groupControl4.Controls.Add(this.labelControl24);
+            this.groupControl4.Controls.Add(this.lblPause);
             this.groupControl4.Controls.Add(this.labelControl25);
-            this.groupControl4.Controls.Add(this.labelControl18);
-            this.groupControl4.Controls.Add(this.labelControl19);
+            this.groupControl4.Controls.Add(this.lblOutOfStock);
+            this.groupControl4.Controls.Add(this.lblInStock);
             this.groupControl4.Controls.Add(this.labelControl21);
             this.groupControl4.Controls.Add(this.labelControl22);
             this.groupControl4.Location = new System.Drawing.Point(678, 44);
@@ -390,13 +392,13 @@
             this.groupControl4.TabIndex = 6;
             this.groupControl4.Text = "Thông tin kho";
             // 
-            // labelControl24
+            // lblPause
             // 
-            this.labelControl24.Location = new System.Drawing.Point(148, 42);
-            this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Size = new System.Drawing.Size(6, 13);
-            this.labelControl24.TabIndex = 13;
-            this.labelControl24.Text = "0";
+            this.lblPause.Location = new System.Drawing.Point(148, 42);
+            this.lblPause.Name = "lblPause";
+            this.lblPause.Size = new System.Drawing.Size(6, 13);
+            this.lblPause.TabIndex = 13;
+            this.lblPause.Text = "0";
             // 
             // labelControl25
             // 
@@ -406,21 +408,21 @@
             this.labelControl25.TabIndex = 12;
             this.labelControl25.Text = "Số sản phẩm ngừng bán";
             // 
-            // labelControl18
+            // lblOutOfStock
             // 
-            this.labelControl18.Location = new System.Drawing.Point(148, 61);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(6, 13);
-            this.labelControl18.TabIndex = 11;
-            this.labelControl18.Text = "0";
+            this.lblOutOfStock.Location = new System.Drawing.Point(148, 61);
+            this.lblOutOfStock.Name = "lblOutOfStock";
+            this.lblOutOfStock.Size = new System.Drawing.Size(6, 13);
+            this.lblOutOfStock.TabIndex = 11;
+            this.lblOutOfStock.Text = "0";
             // 
-            // labelControl19
+            // lblInStock
             // 
-            this.labelControl19.Location = new System.Drawing.Point(148, 23);
-            this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(6, 13);
-            this.labelControl19.TabIndex = 10;
-            this.labelControl19.Text = "2";
+            this.lblInStock.Location = new System.Drawing.Point(148, 23);
+            this.lblInStock.Name = "lblInStock";
+            this.lblInStock.Size = new System.Drawing.Size(6, 13);
+            this.lblInStock.TabIndex = 10;
+            this.lblInStock.Text = "2";
             // 
             // labelControl21
             // 
@@ -492,7 +494,7 @@
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.labelControl2);
+            this.Controls.Add(this.lblLastUpdate);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.simpleButton1);
             this.Name = "TongQuan";
@@ -528,42 +530,42 @@
 
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl lblLastUpdate;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.GroupControl groupControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl lblServiceBill;
+        private DevExpress.XtraEditors.LabelControl lblOweBill;
+        private DevExpress.XtraEditors.LabelControl lblSaleBill;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.LabelControl lblFeeBill;
         private DevExpress.XtraEditors.LabelControl labelControl16;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl lblOutsourcing;
+        private DevExpress.XtraEditors.LabelControl lblImportBill;
+        private DevExpress.XtraEditors.LabelControl lblBuyBill;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.GroupControl groupControl4;
-        private DevExpress.XtraEditors.LabelControl labelControl24;
+        private DevExpress.XtraEditors.LabelControl lblPause;
         private DevExpress.XtraEditors.LabelControl labelControl25;
-        private DevExpress.XtraEditors.LabelControl labelControl18;
-        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.LabelControl lblOutOfStock;
+        private DevExpress.XtraEditors.LabelControl lblInStock;
         private DevExpress.XtraEditors.LabelControl labelControl21;
         private DevExpress.XtraEditors.LabelControl labelControl22;
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.LabelControl labelControl27;
-        private DevExpress.XtraEditors.LabelControl labelControl26;
+        private DevExpress.XtraEditors.LabelControl lblCost;
         private DevExpress.XtraEditors.LabelControl labelControl23;
-        private DevExpress.XtraEditors.LabelControl labelControl20;
+        private DevExpress.XtraEditors.LabelControl lblIncome;
         private DevExpress.XtraEditors.LabelControl labelControl32;
         private DevExpress.XtraEditors.LabelControl labelControl31;
         private DevExpress.XtraEditors.LabelControl labelControl30;
         private DevExpress.XtraEditors.LabelControl labelControl29;
-        private DevExpress.XtraEditors.LabelControl labelControl28;
+        private DevExpress.XtraEditors.LabelControl lblTotal;
         private DevExpress.XtraCharts.ChartControl chartControlProduct;
         private DBQLCuaHangVangBacDaQuyDataSetTableAdapters.SANPHAMTableAdapter sANPHAMTableAdapter;
         private DBQLCuaHangVangBacDaQuyDataSet dBQLCuaHangVangBacDaQuyDataSet;

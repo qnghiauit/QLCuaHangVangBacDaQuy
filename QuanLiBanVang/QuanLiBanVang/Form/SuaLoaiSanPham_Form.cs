@@ -35,7 +35,7 @@ namespace QuanLiBanVang.Report
             if (_productType != null)
             {
                 this.txtName.Text = _productType.TenLoaiSP;
-                this.txtPercent.Text = _productType.PhanTramLoiNhuan.ToString(); ;
+                this.txtPercent.Text = (_productType.PhanTramLoiNhuan*100).ToString(); ;
             }
         }
         public bool CheckControlValidation()

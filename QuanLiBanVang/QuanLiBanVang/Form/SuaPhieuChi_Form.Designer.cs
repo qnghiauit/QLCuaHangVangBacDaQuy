@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuaPhieuChi_Form));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.txtContent = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.dtpkCreateDate = new DevExpress.XtraEditors.DateEdit();
             this.txtPrice = new DevExpress.XtraEditors.TextEdit();
@@ -38,13 +40,12 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.txtContent = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).BeginInit();
             this.groupControlInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtContent.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpkCreateDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpkCreateDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtContent.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -71,6 +72,14 @@
             this.groupControlInfo.Size = new System.Drawing.Size(396, 156);
             this.groupControlInfo.TabIndex = 1;
             this.groupControlInfo.Text = "Thông tin phiếu chi";
+            // 
+            // txtContent
+            // 
+            this.txtContent.Location = new System.Drawing.Point(106, 24);
+            this.txtContent.Name = "txtContent";
+            this.txtContent.Properties.MaxLength = 200;
+            this.txtContent.Size = new System.Drawing.Size(116, 20);
+            this.txtContent.TabIndex = 8;
             // 
             // labelControl5
             // 
@@ -133,9 +142,10 @@
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.Location = new System.Drawing.Point(97, 214);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(95, 29);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -143,20 +153,13 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.Location = new System.Drawing.Point(219, 214);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(95, 29);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // txtContent
-            // 
-            this.txtContent.Location = new System.Drawing.Point(106, 24);
-            this.txtContent.Name = "txtContent";
-            this.txtContent.Properties.MaxLength = 200;
-            this.txtContent.Size = new System.Drawing.Size(116, 20);
-            this.txtContent.TabIndex = 8;
             // 
             // SuaPhieuChi_Form
             // 
@@ -173,10 +176,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtContent.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpkCreateDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpkCreateDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtContent.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

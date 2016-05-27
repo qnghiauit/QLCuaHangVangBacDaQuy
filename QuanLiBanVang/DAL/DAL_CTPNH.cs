@@ -17,6 +17,7 @@ namespace DAL
         {
             this.databaseContext = new DBQLCuaHangVangBacDaQuyEntities();
             this.databaseContext.CTPNHs.Load();
+
         }
 
 

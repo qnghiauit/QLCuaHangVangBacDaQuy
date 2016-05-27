@@ -37,13 +37,30 @@ namespace QuanLiBanVang.Report
 
         private void NhapPhieuChi_Form_Load(object sender, EventArgs e)
         {
+            
             this.dtpkCreateDate.EditValue = DateTime.Now;
+            this.dtpkCreateDate.Properties.MaxValue = DateTime.Now;
+            this.dtpkCreateDate.Properties.MinValue = DateTime.Now;
             this.dtpkCreateDate.Enabled = false;
            
         }
-
+        private bool CheckControlValidation()
+        {
+            if (txtContent.Text == "")
+                return false;
+            if (txtCost.Text == "")
+                return false;
+            if (dtpkCreateDate.EditValue.ToString() == "")
+                return false;
+            return true;
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!CheckControlValidation())
+            {
+                MessageBox.Show("Vui lòng nhập chính xác và đầy đủ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DTO.PHIEUCHI newBill = new DTO.PHIEUCHI();
             newBill.NoiDungChi = this.txtContent.Text;
             newBill.NgayLap = (DateTime)this.dtpkCreateDate.EditValue;

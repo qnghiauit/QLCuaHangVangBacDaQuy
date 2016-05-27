@@ -14,6 +14,12 @@ namespace QuanLiBanVang.Report
             InitializeComponent();
             _selection = 0;
         }
+        public BaoCaoCongNo(DateTime date)
+        {
+            InitializeComponent();
+            this.xrLabelDate.Text = (date.Day + "/" + date.Month + "/" + date.Year).ToString();
+            _selection = 0;
+        }
         public BaoCaoCongNo(int selection)
         {
             InitializeComponent();

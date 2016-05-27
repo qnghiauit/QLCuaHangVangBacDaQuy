@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPhieuMua_Form));
             this.groupControlListBuyBill = new DevExpress.XtraEditors.GroupControl();
             this.dgvListBuyBill = new DevExpress.XtraGrid.GridControl();
             this.dgvBuyBill = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlListBuyBill)).BeginInit();
             this.groupControlListBuyBill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListBuyBill)).BeginInit();
@@ -87,53 +87,43 @@
             // 
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
-            this.btnAdd.Location = new System.Drawing.Point(56, 292);
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Location = new System.Drawing.Point(94, 291);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(95, 29);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Nhập";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.Location = new System.Drawing.Point(177, 292);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Appearance.Options.UseFont = true;
-            this.btnUpdate.Location = new System.Drawing.Point(294, 292);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 4;
-            this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnExit
             // 
             this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Appearance.Options.UseFont = true;
-            this.btnExit.Location = new System.Drawing.Point(408, 292);
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(363, 291);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.Size = new System.Drawing.Size(95, 29);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Thoát";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.Location = new System.Drawing.Point(233, 292);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(95, 29);
+            this.btnUpdate.TabIndex = 6;
+            this.btnUpdate.Text = "Cập nhật";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // DanhSachPhieuMua_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 321);
-            this.Controls.Add(this.btnExit);
+            this.ClientSize = new System.Drawing.Size(549, 326);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.groupControlListBuyBill);
@@ -156,8 +146,7 @@
         private DevExpress.XtraGrid.GridControl dgvListBuyBill;
         private DevExpress.XtraGrid.Views.Grid.GridView dgvBuyBill;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
-        private DevExpress.XtraEditors.SimpleButton btnDelete;
-        private DevExpress.XtraEditors.SimpleButton btnUpdate;
         private DevExpress.XtraEditors.SimpleButton btnExit;
+        private DevExpress.XtraEditors.SimpleButton btnUpdate;
     }
 }

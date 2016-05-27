@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUL_BangThamSo.cs" />
     <Compile Include="BUL_BaoCaoTonKho.cs" />
     <Compile Include="BUL_ChucVu.cs" />
     <Compile Include="BUL_CTPBH.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="BUL_PhieuNhapHang.cs" />
     <Compile Include="BUL_SanPham.cs" />
     <Compile Include="BUL_Tho.cs" />
+    <Compile Include="BUL_TongQuanStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

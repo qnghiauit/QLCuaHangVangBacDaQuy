@@ -40,9 +40,20 @@ namespace BUL
         {
             return _dalProductType.getProductNameById(id);
         }
-        public void deleteProductType(int id)
+        public bool deleteProductType(int id)
         {
-            _dalProductType.deleteProduct(id);
+            try
+            {
+                _dalProductType.deleteProduct(id);
+                return true;
+            }
+            catch (Exception e)
+            {
+                
+                _dalProductType = null;
+                _dalProductType = new DAL.DAL_LoaiSanPham();
+                return false;
+            }
         }
         public DTO.LOAISANPHAM getLastProduct()
         {

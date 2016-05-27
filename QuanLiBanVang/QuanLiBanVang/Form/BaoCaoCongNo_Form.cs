@@ -83,7 +83,8 @@ namespace QuanLiBanVang.Form
 
         private void BaoCaoCongNo_Form_Load(object sender, EventArgs e)
         {
-            _templateReport = new Report.BaoCaoCongNo();
+            
+            _templateReport = new Report.BaoCaoCongNo(DateTime.Now);
             this.dcmvReport.DocumentSource = _templateReport;
             _templateReport.CreateDocument();
         }

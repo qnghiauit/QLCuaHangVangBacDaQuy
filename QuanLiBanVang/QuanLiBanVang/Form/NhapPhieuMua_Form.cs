@@ -94,15 +94,34 @@ namespace QuanLiBanVang.Report
             if (this.rdoClientType.SelectedIndex == 0)
             {
                 this.cboClientName.Enabled = false;
+                this.lblPhoneNumber.Text = "(Không có)";
             }
             else
             {
                 this.cboClientName.Enabled = true;
+                //this.lblPhoneNumber.Text = ((this.cboClientName.SelectedItem as ExtendClass.ContainerItem).Value as DTO.KHACHHANG).SDT;
             }
+        }
+        private bool checkLegalDetail()
+        {
+            if (this.txtWeight.Text == "")
+                return false;
+            if (txtPrice.Text == "")
+                return false;
+            if (txtPrice.Text == "")
+                return false;
+            if (txtQuantity.Text == "")
+                return false;
+            return true;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!checkLegalDetail())
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DTO.CTPMH detail = new DTO.CTPMH();
             string product ="";
             string producttype = "";
@@ -169,12 +188,13 @@ namespace QuanLiBanVang.Report
             this.dgvBuyList.DataSource = _detailTable;
             this.dgvBuy.Columns[0].Visible = false;
             this.dgvBuy.Columns[1].Visible = false;
+            this.lblPhoneNumber.Text = "";
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (this.dgvBuy.RowCount > 1)
-            {
+            //if (this.dgvBuy.RowCount > 1)
+           // {
                 int pos = -1;
                 foreach (int i in this.dgvBuy.GetSelectedRows())
                 {
@@ -185,12 +205,12 @@ namespace QuanLiBanVang.Report
                 {
                     this.dgvBuy.DeleteRow(pos);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Không thể xóa! Mỗi phiếu mua phải có ít nhất 1 chi tiết");
-                return;
-            }
+           // }
+            //else
+            //{
+               // MessageBox.Show("Không thể xóa! Mỗi phiếu mua phải có ít nhất 1 chi tiết");
+               // return;
+            //}
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -211,17 +231,20 @@ namespace QuanLiBanVang.Report
                 if (this.cboClientName.SelectedIndex == -1)
                     return false;
             }
+            
             return true;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (this.dgvBuy.RowCount == 0)
+                MessageBox.Show("Không thể lưu phiếu mua! Mỗi phiếu mua phải có ít nhất 1 chi tiết phiếu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (this.CheckControlValidation() == true)
             {
                 DTO.PHIEUMUAHANG newBuyBill = new DTO.PHIEUMUAHANG();
                 newBuyBill.NgayMua = ((DateTime)dtpkCreateDate.EditValue).Date;
                 if (rdoClientType.SelectedIndex == 1)
                 {
-                    newBuyBill.MaKH = (cboClientName.SelectedItem as DTO.KHACHHANG).MaKH;
+                    newBuyBill.MaKH = ((cboClientName.SelectedItem as ExtendClass.ContainerItem).Value as DTO.KHACHHANG).MaKH;
                 }
                 newBuyBill.MaNV = 4;
                 this._bulBuyBill.addNewBuyBill(newBuyBill);
@@ -251,6 +274,14 @@ namespace QuanLiBanVang.Report
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin quy định");
                 return;
+            }
+        }
+
+        private void cboClientName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cboClientName.SelectedItem != null)
+            {
+                this.lblPhoneNumber.Text = ((this.cboClientName.SelectedItem as ExtendClass.ContainerItem).Value as DTO.KHACHHANG).SDT.ToString();
             }
         }
     }

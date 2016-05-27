@@ -37,6 +37,8 @@ namespace QuanLiBanVang.Report
             _bulClient = new BUL.BUL_KhachHang();
             _staffId = staffid;
             _myCache = new ExtendClass.MyCache("Id");
+            
+            
         }
         private void createTable()
         {
@@ -112,6 +114,7 @@ namespace QuanLiBanVang.Report
             List<DTO.PHIEUMUAHANG> listbuybill = _bulBuyBill.getAllBuyBill();
             List<DTO.NHANVIEN> liststaff = _bulStaff.getAllStaff();
             List<DTO.KHACHHANG> listclient = _bulClient.GetAllKhachhangs();
+            createTable();
             this.initTableData(listbuybill, liststaff, listclient);
             this.dgvListBuyBill.DataSource = _buyTable; 
         }
@@ -141,29 +144,29 @@ namespace QuanLiBanVang.Report
             }
             return true;
         }
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            DataRow row = null;
-            int pos = -1;
-            foreach (int i in this.dgvBuyBill.GetSelectedRows())
-            {
-                pos = i;
-                row = this.dgvBuyBill.GetDataRow(i);
-                break;
-            }
-            if (row != null)
-            {
-                if (this.checkLegalDateChange(((DateTime)row[3]).Date) == true)
-                {
-                    this.dgvBuyBill.DeleteRow(pos);
-                }
-                else
-                {
-                    MessageBox.Show("Không thể xóa phiếu khác ngày hiện tại!");
-                    return;
-                }
-            }
-        }
+        //private void btnDelete_Click(object sender, EventArgs e)
+        //{
+        //    DataRow row = null;
+        //    int pos = -1;
+        //    foreach (int i in this.dgvBuyBill.GetSelectedRows())
+        //    {
+        //        pos = i;
+        //        row = this.dgvBuyBill.GetDataRow(i);
+        //        break;
+        //    }
+        //    if (row != null)
+        //    {
+        //        if (this.checkLegalDateChange(((DateTime)row[3]).Date) == true)
+        //        {
+        //            this.dgvBuyBill.DeleteRow(pos);
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Không thể xóa phiếu khác ngày hiện tại!");
+        //            return;
+        //        }
+        //    }
+        //}
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -195,10 +198,15 @@ namespace QuanLiBanVang.Report
                     }
                     else
                     {
-                        this.updateRowInTableData(pos, editedBill, _bulStaff.getStaffById(editedBill.MaNV).HoTen,"");
+                        this.updateRowInTableData(pos, editedBill, _bulStaff.getStaffById(editedBill.MaNV).HoTen, "");
                     }
                 }
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

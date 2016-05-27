@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhapSanPham_Form));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
             this.radioGroupState = new DevExpress.XtraEditors.RadioGroup();
@@ -149,9 +150,10 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.Location = new System.Drawing.Point(121, 219);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(95, 29);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -161,9 +163,10 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.Location = new System.Drawing.Point(248, 219);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(95, 29);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

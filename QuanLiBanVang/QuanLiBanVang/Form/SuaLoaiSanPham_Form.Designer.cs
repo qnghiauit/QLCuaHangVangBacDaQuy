@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuaLoaiSanPham_Form));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -110,9 +111,10 @@
             // 
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.Location = new System.Drawing.Point(72, 168);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(95, 29);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -121,9 +123,10 @@
             // 
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.Location = new System.Drawing.Point(228, 168);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(95, 29);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

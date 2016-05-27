@@ -21,6 +21,7 @@ namespace DAL
         }
         public DTO.CHUCVU getPositionById(int id)
         {
+            
             return _context.CHUCVUs.Single(pos => pos.MaCV == id);
         }
         

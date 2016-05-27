@@ -65,6 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BANGTHAMSO.cs">
+      <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Baocao.cs">
       <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
     </Compile>
@@ -102,9 +105,6 @@
       <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DICHVU.cs">
-      <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HINHTHUCGIACONG.cs">
       <DependentUpon>QLCHVBDQModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KHACHHANG.cs">

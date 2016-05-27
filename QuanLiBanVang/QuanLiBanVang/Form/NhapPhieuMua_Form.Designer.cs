@@ -30,6 +30,8 @@
         {
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControlGeneralInfo = new DevExpress.XtraEditors.GroupControl();
+            this.lblPhoneNumber = new DevExpress.XtraEditors.LabelControl();
+            this.lblPhone = new DevExpress.XtraEditors.LabelControl();
             this.cboClientName = new DevExpress.XtraEditors.ComboBoxEdit();
             this.rdoClientType = new DevExpress.XtraEditors.RadioGroup();
             this.dtpkCreateDate = new DevExpress.XtraEditors.DateEdit();
@@ -85,6 +87,8 @@
             // 
             // groupControlGeneralInfo
             // 
+            this.groupControlGeneralInfo.Controls.Add(this.lblPhoneNumber);
+            this.groupControlGeneralInfo.Controls.Add(this.lblPhone);
             this.groupControlGeneralInfo.Controls.Add(this.cboClientName);
             this.groupControlGeneralInfo.Controls.Add(this.rdoClientType);
             this.groupControlGeneralInfo.Controls.Add(this.dtpkCreateDate);
@@ -97,6 +101,24 @@
             this.groupControlGeneralInfo.TabIndex = 1;
             this.groupControlGeneralInfo.Text = "Thông tin chung";
             // 
+            // lblPhoneNumber
+            // 
+            this.lblPhoneNumber.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNumber.Location = new System.Drawing.Point(402, 111);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Size = new System.Drawing.Size(49, 13);
+            this.lblPhoneNumber.TabIndex = 7;
+            this.lblPhoneNumber.Text = "0123456";
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(301, 111);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(76, 13);
+            this.lblPhone.TabIndex = 6;
+            this.lblPhone.Text = "Số điện thoại:";
+            // 
             // cboClientName
             // 
             this.cboClientName.Location = new System.Drawing.Point(117, 108);
@@ -106,6 +128,7 @@
             this.cboClientName.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboClientName.Size = new System.Drawing.Size(157, 20);
             this.cboClientName.TabIndex = 3;
+            this.cboClientName.SelectedIndexChanged += new System.EventHandler(this.cboClientName_SelectedIndexChanged);
             // 
             // rdoClientType
             // 
@@ -430,5 +453,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl lbTotal;
         private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl lblPhoneNumber;
+        private DevExpress.XtraEditors.LabelControl lblPhone;
     }
 }

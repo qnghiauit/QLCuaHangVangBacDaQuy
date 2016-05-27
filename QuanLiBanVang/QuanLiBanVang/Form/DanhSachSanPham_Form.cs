@@ -143,7 +143,12 @@ namespace QuanLiBanVang.Report
             if (row != null)
             {
                 //delete 
-                this._bulProduct.deleteProduct((int)row[0]);
+
+                if (!this._bulProduct.deleteProduct((int)row[0]))
+                {
+                    MessageBox.Show("Không thể xóa loại sản phẩm đang dùng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 this.dgvProduct.DeleteRow(pos);
             }
             

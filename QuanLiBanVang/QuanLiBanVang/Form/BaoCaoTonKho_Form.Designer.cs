@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaoCaoTonKho_Form));
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
             this.btnDisplay = new DevExpress.XtraEditors.SimpleButton();
@@ -59,18 +60,20 @@
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(503, 43);
+            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
+            this.btnExport.Location = new System.Drawing.Point(504, 35);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.Size = new System.Drawing.Size(111, 29);
             this.btnExport.TabIndex = 5;
-            this.btnExport.Text = "Xuất file";
+            this.btnExport.Text = "Xuất file PDF";
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnDisplay
             // 
-            this.btnDisplay.Location = new System.Drawing.Point(340, 43);
+            this.btnDisplay.Image = ((System.Drawing.Image)(resources.GetObject("btnDisplay.Image")));
+            this.btnDisplay.Location = new System.Drawing.Point(341, 35);
             this.btnDisplay.Name = "btnDisplay";
-            this.btnDisplay.Size = new System.Drawing.Size(75, 23);
+            this.btnDisplay.Size = new System.Drawing.Size(108, 29);
             this.btnDisplay.TabIndex = 4;
             this.btnDisplay.Text = "Xem báo cáo";
             this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
@@ -95,9 +98,9 @@
             // 
             this.labelControlDate.Location = new System.Drawing.Point(5, 43);
             this.labelControlDate.Name = "labelControlDate";
-            this.labelControlDate.Size = new System.Drawing.Size(40, 13);
+            this.labelControlDate.Size = new System.Drawing.Size(52, 13);
             this.labelControlDate.TabIndex = 0;
-            this.labelControlDate.Text = "Từ ngày";
+            this.labelControlDate.Text = "Ngày xem:";
             // 
             // groupControlReport
             // 

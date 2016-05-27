@@ -30,7 +30,8 @@ namespace QuanLiBanVang.Report
         {
             _templateReport = null;
             _templateReport = new BaoCaoTonKho();
-            _templateReport.FilterString = ((DateTime)this.dtpkDisplayDate.EditValue).Date.ToShortDateString();
+            string value = ((DateTime)(this.dtpkDisplayDate.EditValue)).ToShortDateString();
+            _templateReport.FilterString = "[NgayBC] like '%" + value + "%'";
             this.dcmvReport.DocumentSource = null;
             this.dcmvReport.DocumentSource = _templateReport;
             _templateReport.CreateDocument();
@@ -43,7 +44,8 @@ namespace QuanLiBanVang.Report
             this.dtpkDisplayDate.EditValue = DateTime.Now;
 
             _templateReport = new Report.BaoCaoTonKho();
-            _templateReport.FilterString = "[NgayBC] = " + ((DateTime)(this.dtpkDisplayDate.EditValue)).ToShortDateString();
+            string value = ((DateTime)(this.dtpkDisplayDate.EditValue)).ToShortDateString();
+            _templateReport.FilterString = "[NgayBC] like '%" + value + "%'";
             this.dcmvReport.DocumentSource = _templateReport;
             _templateReport.CreateDocument();
            

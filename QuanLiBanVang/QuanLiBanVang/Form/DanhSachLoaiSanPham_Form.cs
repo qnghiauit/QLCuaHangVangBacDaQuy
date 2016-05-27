@@ -32,14 +32,14 @@ namespace QuanLiBanVang.Report
             var datarow = _productTypeTable.NewRow();
             datarow[0] = producttype.MaLoaiSP;
             datarow[1] = producttype.TenLoaiSP;
-            datarow[2] = producttype.PhanTramLoiNhuan;
+            datarow[2] = producttype.PhanTramLoiNhuan *100;
 
             _productTypeTable.Rows.Add(datarow);
         }
         private void updateRowInDatatable(int index, DTO.LOAISANPHAM producttype)
         {
             _productTypeTable.Rows[index][1] = producttype.TenLoaiSP;
-            _productTypeTable.Rows[index][2] = producttype.PhanTramLoiNhuan;
+            _productTypeTable.Rows[index][2] = producttype.PhanTramLoiNhuan*100;
 
             this.dgvProductType.RefreshRow(index);
 
@@ -104,7 +104,11 @@ namespace QuanLiBanVang.Report
             }
             if (row != null)
             {
-                _bulProductType.deleteProductType((int)row[0]);
+                if (!_bulProductType.deleteProductType((int)row[0]))
+                {
+                    MessageBox.Show("Không thể xóa loại sản phẩm đã có tham chiếu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 this.dgvProductType.DeleteRow(pos);
             }
         }

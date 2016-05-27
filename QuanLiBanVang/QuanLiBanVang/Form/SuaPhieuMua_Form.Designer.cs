@@ -43,7 +43,6 @@
             this.cboProductType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cboProduct = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtQuantity = new DevExpress.XtraEditors.TextEdit();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -56,6 +55,8 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lblPhone = new DevExpress.XtraEditors.LabelControl();
+            this.lblPhoneNumber = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuyList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).BeginInit();
@@ -167,7 +168,6 @@
             this.groupControlDetail.Controls.Add(this.cboProductType);
             this.groupControlDetail.Controls.Add(this.cboProduct);
             this.groupControlDetail.Controls.Add(this.txtQuantity);
-            this.groupControlDetail.Controls.Add(this.btnDelete);
             this.groupControlDetail.Controls.Add(this.btnAdd);
             this.groupControlDetail.Controls.Add(this.labelControl7);
             this.groupControlDetail.Controls.Add(this.labelControl6);
@@ -177,7 +177,7 @@
             this.groupControlDetail.Name = "groupControlDetail";
             this.groupControlDetail.Size = new System.Drawing.Size(672, 256);
             this.groupControlDetail.TabIndex = 7;
-            this.groupControlDetail.Text = "Chi tiết";
+            this.groupControlDetail.Text = "Chi tiết phiếu mua";
             // 
             // labelControl9
             // 
@@ -233,17 +233,6 @@
             this.txtQuantity.Size = new System.Drawing.Size(108, 20);
             this.txtQuantity.TabIndex = 6;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.Location = new System.Drawing.Point(586, 187);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 10;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // btnAdd
             // 
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -281,6 +270,8 @@
             // 
             // groupControlGeneralInfo
             // 
+            this.groupControlGeneralInfo.Controls.Add(this.lblPhoneNumber);
+            this.groupControlGeneralInfo.Controls.Add(this.lblPhone);
             this.groupControlGeneralInfo.Controls.Add(this.cboClientName);
             this.groupControlGeneralInfo.Controls.Add(this.rdoClientType);
             this.groupControlGeneralInfo.Controls.Add(this.dtpkCreateDate);
@@ -318,6 +309,7 @@
             // dtpkCreateDate
             // 
             this.dtpkCreateDate.EditValue = null;
+            this.dtpkCreateDate.Enabled = false;
             this.dtpkCreateDate.Location = new System.Drawing.Point(117, 30);
             this.dtpkCreateDate.Name = "dtpkCreateDate";
             this.dtpkCreateDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -364,6 +356,24 @@
             this.labelControl1.Size = new System.Drawing.Size(217, 33);
             this.labelControl1.TabIndex = 5;
             this.labelControl1.Text = "PHIẾU MUA HÀNG";
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(306, 111);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(76, 13);
+            this.lblPhone.TabIndex = 4;
+            this.lblPhone.Text = "Số điện thoại:";
+            // 
+            // lblPhoneNumber
+            // 
+            this.lblPhoneNumber.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNumber.Location = new System.Drawing.Point(407, 111);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Size = new System.Drawing.Size(49, 13);
+            this.lblPhoneNumber.TabIndex = 5;
+            this.lblPhoneNumber.Text = "0123456";
             // 
             // SuaPhieuMua_Form
             // 
@@ -417,7 +427,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit cboProductType;
         private DevExpress.XtraEditors.ComboBoxEdit cboProduct;
         private DevExpress.XtraEditors.TextEdit txtQuantity;
-        private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl6;
@@ -430,5 +439,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl lblPhoneNumber;
+        private DevExpress.XtraEditors.LabelControl lblPhone;
     }
 }

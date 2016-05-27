@@ -8,19 +8,20 @@ namespace QuanLiBanVang
 {
     static class Program
     {
-        /// <summary> The main entry point for the application.
+        /// <summary>
+        /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = "Office 2007 Blue";
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = "Seven";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // purpose to change language DateTimePicker to Vietnamese
             // Application.CurrentCulture = new System.Globalization.CultureInfo("zh-Hans");
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new MainForm());
+            Application.Run(new Form.ThayDoiQuyDinh_Form());
         }
     }
 }
