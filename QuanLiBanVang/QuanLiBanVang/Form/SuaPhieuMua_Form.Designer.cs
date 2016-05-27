@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuaPhieuMua_Form));
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.dgvBuy = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dgvBuyList = new DevExpress.XtraGrid.GridControl();
@@ -48,6 +49,8 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.groupControlGeneralInfo = new DevExpress.XtraEditors.GroupControl();
+            this.lblPhoneNumber = new DevExpress.XtraEditors.LabelControl();
+            this.lblPhone = new DevExpress.XtraEditors.LabelControl();
             this.cboClientName = new DevExpress.XtraEditors.ComboBoxEdit();
             this.rdoClientType = new DevExpress.XtraEditors.RadioGroup();
             this.dtpkCreateDate = new DevExpress.XtraEditors.DateEdit();
@@ -55,8 +58,6 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.lblPhone = new DevExpress.XtraEditors.LabelControl();
-            this.lblPhoneNumber = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuyList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).BeginInit();
@@ -76,11 +77,13 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.Location = new System.Drawing.Point(384, 453);
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(681, 428);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -100,21 +103,26 @@
             // 
             // dgvBuyList
             // 
+            this.dgvBuyList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBuyList.Location = new System.Drawing.Point(5, 86);
             this.dgvBuyList.MainView = this.dgvBuy;
             this.dgvBuyList.Name = "dgvBuyList";
-            this.dgvBuyList.Size = new System.Drawing.Size(575, 165);
+            this.dgvBuyList.Size = new System.Drawing.Size(747, 165);
             this.dgvBuyList.TabIndex = 0;
             this.dgvBuyList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvBuy});
             // 
             // btnSave
             // 
-            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Location = new System.Drawing.Point(199, 453);
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.Location = new System.Drawing.Point(588, 428);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(87, 27);
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -123,7 +131,7 @@
             // 
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl11.Location = new System.Drawing.Point(636, 60);
+            this.labelControl11.Location = new System.Drawing.Point(615, 57);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(27, 16);
             this.labelControl11.TabIndex = 16;
@@ -158,6 +166,9 @@
             // 
             // groupControlDetail
             // 
+            this.groupControlDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControlDetail.Controls.Add(this.labelControl11);
             this.groupControlDetail.Controls.Add(this.lbTotal);
             this.groupControlDetail.Controls.Add(this.labelControl10);
@@ -173,9 +184,9 @@
             this.groupControlDetail.Controls.Add(this.labelControl6);
             this.groupControlDetail.Controls.Add(this.labelControl5);
             this.groupControlDetail.Controls.Add(this.dgvBuyList);
-            this.groupControlDetail.Location = new System.Drawing.Point(11, 191);
+            this.groupControlDetail.Location = new System.Drawing.Point(11, 164);
             this.groupControlDetail.Name = "groupControlDetail";
-            this.groupControlDetail.Size = new System.Drawing.Size(672, 256);
+            this.groupControlDetail.Size = new System.Drawing.Size(757, 258);
             this.groupControlDetail.TabIndex = 7;
             this.groupControlDetail.Text = "Chi tiết phiếu mua";
             // 
@@ -235,11 +246,13 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Appearance.Options.UseFont = true;
-            this.btnAdd.Location = new System.Drawing.Point(586, 118);
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Location = new System.Drawing.Point(665, 27);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(87, 27);
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -270,6 +283,9 @@
             // 
             // groupControlGeneralInfo
             // 
+            this.groupControlGeneralInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControlGeneralInfo.Controls.Add(this.lblPhoneNumber);
             this.groupControlGeneralInfo.Controls.Add(this.lblPhone);
             this.groupControlGeneralInfo.Controls.Add(this.cboClientName);
@@ -278,15 +294,33 @@
             this.groupControlGeneralInfo.Controls.Add(this.labelControl4);
             this.groupControlGeneralInfo.Controls.Add(this.labelControl3);
             this.groupControlGeneralInfo.Controls.Add(this.labelControl2);
-            this.groupControlGeneralInfo.Location = new System.Drawing.Point(11, 51);
+            this.groupControlGeneralInfo.Location = new System.Drawing.Point(11, 42);
             this.groupControlGeneralInfo.Name = "groupControlGeneralInfo";
-            this.groupControlGeneralInfo.Size = new System.Drawing.Size(672, 134);
+            this.groupControlGeneralInfo.Size = new System.Drawing.Size(757, 116);
             this.groupControlGeneralInfo.TabIndex = 6;
             this.groupControlGeneralInfo.Text = "Thông tin chung";
             // 
+            // lblPhoneNumber
+            // 
+            this.lblPhoneNumber.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNumber.Location = new System.Drawing.Point(403, 88);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Size = new System.Drawing.Size(49, 13);
+            this.lblPhoneNumber.TabIndex = 5;
+            this.lblPhoneNumber.Text = "0123456";
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(302, 88);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(76, 13);
+            this.lblPhone.TabIndex = 4;
+            this.lblPhone.Text = "Số điện thoại:";
+            // 
             // cboClientName
             // 
-            this.cboClientName.Location = new System.Drawing.Point(117, 108);
+            this.cboClientName.Location = new System.Drawing.Point(117, 85);
             this.cboClientName.Name = "cboClientName";
             this.cboClientName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -297,7 +331,7 @@
             // rdoClientType
             // 
             this.rdoClientType.EditValue = true;
-            this.rdoClientType.Location = new System.Drawing.Point(117, 71);
+            this.rdoClientType.Location = new System.Drawing.Point(117, 56);
             this.rdoClientType.Name = "rdoClientType";
             this.rdoClientType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Vãng lai"),
@@ -325,7 +359,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(5, 111);
+            this.labelControl4.Location = new System.Drawing.Point(5, 88);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(76, 13);
             this.labelControl4.TabIndex = 2;
@@ -333,7 +367,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(5, 71);
+            this.labelControl3.Location = new System.Drawing.Point(5, 61);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(77, 13);
             this.labelControl3.TabIndex = 1;
@@ -349,44 +383,30 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl1.Location = new System.Drawing.Point(254, 12);
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(12, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(217, 33);
+            this.labelControl1.Size = new System.Drawing.Size(756, 24);
             this.labelControl1.TabIndex = 5;
-            this.labelControl1.Text = "PHIẾU MUA HÀNG";
-            // 
-            // lblPhone
-            // 
-            this.lblPhone.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(306, 111);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(76, 13);
-            this.lblPhone.TabIndex = 4;
-            this.lblPhone.Text = "Số điện thoại:";
-            // 
-            // lblPhoneNumber
-            // 
-            this.lblPhoneNumber.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNumber.Location = new System.Drawing.Point(407, 111);
-            this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(49, 13);
-            this.lblPhoneNumber.TabIndex = 5;
-            this.lblPhoneNumber.Text = "0123456";
+            this.labelControl1.Text = "Phiếu mua hàng";
             // 
             // SuaPhieuMua_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 488);
+            this.ClientSize = new System.Drawing.Size(780, 464);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupControlDetail);
             this.Controls.Add(this.groupControlGeneralInfo);
             this.Controls.Add(this.labelControl1);
             this.Name = "SuaPhieuMua_Form";
-            this.Text = "SuaPhieuMua_Form";
+            this.Text = "Sửa phiếu mua hàng";
             this.Load += new System.EventHandler(this.SuaPhieuMua_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuyList)).EndInit();
@@ -406,7 +426,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpkCreateDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpkCreateDate.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

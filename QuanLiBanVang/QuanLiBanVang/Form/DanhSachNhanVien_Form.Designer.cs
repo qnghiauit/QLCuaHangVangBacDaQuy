@@ -45,29 +45,42 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl1.Location = new System.Drawing.Point(138, 12);
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(12, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(288, 33);
+            this.labelControl1.Size = new System.Drawing.Size(582, 33);
             this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "DANH SÁCH NHÂN VIÊN";
+            this.labelControl1.Text = "Danh sách nhân viên";
             // 
             // groupControlListStaff
             // 
+            this.groupControlListStaff.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControlListStaff.Controls.Add(this.dgvListStaff);
-            this.groupControlListStaff.Location = new System.Drawing.Point(12, 51);
+            this.groupControlListStaff.Controls.Add(this.btnDelete);
+            this.groupControlListStaff.Controls.Add(this.btnUpdate);
+            this.groupControlListStaff.Controls.Add(this.btnAdd);
+            this.groupControlListStaff.Location = new System.Drawing.Point(9, 45);
             this.groupControlListStaff.Name = "groupControlListStaff";
-            this.groupControlListStaff.Size = new System.Drawing.Size(550, 262);
+            this.groupControlListStaff.Size = new System.Drawing.Size(585, 268);
             this.groupControlListStaff.TabIndex = 1;
             this.groupControlListStaff.Text = "Danh sách";
             // 
             // dgvListStaff
             // 
+            this.dgvListStaff.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvListStaff.Location = new System.Drawing.Point(5, 23);
             this.dgvListStaff.MainView = this.dgvStaff;
             this.dgvListStaff.Name = "dgvListStaff";
-            this.dgvListStaff.Size = new System.Drawing.Size(540, 234);
+            this.dgvListStaff.Size = new System.Drawing.Size(473, 234);
             this.dgvListStaff.TabIndex = 0;
             this.dgvListStaff.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvStaff});
@@ -86,48 +99,44 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Appearance.Options.UseFont = true;
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(60, 319);
+            this.btnAdd.Location = new System.Drawing.Point(489, 23);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(95, 29);
+            this.btnAdd.Size = new System.Drawing.Size(87, 27);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Appearance.Options.UseFont = true;
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(186, 319);
+            this.btnDelete.Location = new System.Drawing.Point(489, 89);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(95, 29);
+            this.btnDelete.Size = new System.Drawing.Size(87, 27);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Appearance.Options.UseFont = true;
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
-            this.btnUpdate.Location = new System.Drawing.Point(307, 319);
+            this.btnUpdate.Location = new System.Drawing.Point(489, 56);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(95, 29);
+            this.btnUpdate.Size = new System.Drawing.Size(87, 27);
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Appearance.Options.UseFont = true;
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(432, 319);
+            this.btnExit.Location = new System.Drawing.Point(507, 319);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(95, 29);
+            this.btnExit.Size = new System.Drawing.Size(87, 27);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -136,22 +145,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 364);
+            this.ClientSize = new System.Drawing.Size(606, 351);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupControlListStaff);
             this.Controls.Add(this.labelControl1);
             this.Name = "DanhSachNhanVien_Form";
-            this.Text = "DanhSachNhanVien_Form";
+            this.Text = "Danh sách nhân viên";
             this.Load += new System.EventHandler(this.DanhSachNhanVien_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlListStaff)).EndInit();
             this.groupControlListStaff.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListStaff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

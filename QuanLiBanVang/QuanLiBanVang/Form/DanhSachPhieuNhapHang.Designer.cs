@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPhieuNhapHang));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridviewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.gridviewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             this.chiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.buttonThoat = new System.Windows.Forms.Button();
-            this.buttonThem = new System.Windows.Forms.Button();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -52,20 +52,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.Controls.Add(this.gridControl1);
-            this.groupControl1.Location = new System.Drawing.Point(12, 47);
+            this.groupControl1.Controls.Add(this.simpleButton1);
+            this.groupControl1.Location = new System.Drawing.Point(12, 42);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(600, 341);
+            this.groupControl1.Size = new System.Drawing.Size(600, 346);
             this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "Chi tiết";
+            this.groupControl1.Text = "Thông tin";
             // 
             // gridControl1
             // 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.ContextMenuStrip = this.gridviewContextMenuStrip;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 20);
+            this.gridControl1.Location = new System.Drawing.Point(4, 22);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(596, 319);
+            this.gridControl1.Size = new System.Drawing.Size(498, 319);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -105,42 +108,46 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.Location = new System.Drawing.Point(12, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(328, 29);
+            this.labelControl1.Size = new System.Drawing.Size(600, 24);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "Danh sách phiếu nhập hàng";
             // 
-            // buttonThoat
+            // simpleButton1
             // 
-            this.buttonThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonThoat.Location = new System.Drawing.Point(527, 395);
-            this.buttonThoat.Name = "buttonThoat";
-            this.buttonThoat.Size = new System.Drawing.Size(85, 34);
-            this.buttonThoat.TabIndex = 2;
-            this.buttonThoat.Text = "Thoát";
-            this.buttonThoat.UseVisualStyleBackColor = true;
-            this.buttonThoat.Click += new System.EventHandler(this.button1_Click);
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(506, 23);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(87, 27);
+            this.simpleButton1.TabIndex = 3;
+            this.simpleButton1.Text = "Thêm";
+            this.simpleButton1.Click += new System.EventHandler(this.button2_Click);
             // 
-            // buttonThem
+            // simpleButton2
             // 
-            this.buttonThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonThem.Location = new System.Drawing.Point(436, 395);
-            this.buttonThem.Name = "buttonThem";
-            this.buttonThem.Size = new System.Drawing.Size(85, 34);
-            this.buttonThem.TabIndex = 2;
-            this.buttonThem.Text = "Thêm";
-            this.buttonThem.UseVisualStyleBackColor = true;
-            this.buttonThem.Click += new System.EventHandler(this.button2_Click);
+            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(525, 394);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(87, 27);
+            this.simpleButton2.TabIndex = 4;
+            this.simpleButton2.Text = "Thoát";
+            this.simpleButton2.Click += new System.EventHandler(this.button1_Click);
             // 
             // DanhSachPhieuNhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 441);
-            this.Controls.Add(this.buttonThem);
-            this.Controls.Add(this.buttonThoat);
+            this.ClientSize = new System.Drawing.Size(624, 430);
+            this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.groupControl1);
             this.Name = "DanhSachPhieuNhapHang";
@@ -152,7 +159,6 @@
             this.gridviewContextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -162,11 +168,11 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private System.Windows.Forms.Button buttonThoat;
-        private System.Windows.Forms.Button buttonThem;
         private System.Windows.Forms.ContextMenuStrip gridviewContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem chiTiếtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sửaToolStripMenuItem;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

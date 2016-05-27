@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateDetaiItem));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.simpleButton_Ok = new DevExpress.XtraEditors.SimpleButton();
             this.textEditGiaBan = new DevExpress.XtraEditors.TextEdit();
             this.textEditSoLuong = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxEditSP = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.simpleButton_Ok = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_Huy = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditGiaBan.Properties)).BeginInit();
@@ -58,31 +59,22 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 173);
+            this.groupBox1.Size = new System.Drawing.Size(216, 142);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết";
             // 
-            // simpleButton_Ok
-            // 
-            this.simpleButton_Ok.Location = new System.Drawing.Point(203, 191);
-            this.simpleButton_Ok.Name = "simpleButton_Ok";
-            this.simpleButton_Ok.Size = new System.Drawing.Size(69, 33);
-            this.simpleButton_Ok.TabIndex = 5;
-            this.simpleButton_Ok.Text = "OK";
-            this.simpleButton_Ok.Click += new System.EventHandler(this.simpleButton_Ok_Click);
-            // 
             // textEditGiaBan
             // 
             this.textEditGiaBan.Enabled = false;
-            this.textEditGiaBan.Location = new System.Drawing.Point(75, 144);
+            this.textEditGiaBan.Location = new System.Drawing.Point(75, 102);
             this.textEditGiaBan.Name = "textEditGiaBan";
-            this.textEditGiaBan.Size = new System.Drawing.Size(100, 20);
+            this.textEditGiaBan.Size = new System.Drawing.Size(122, 20);
             this.textEditGiaBan.TabIndex = 4;
             // 
             // textEditSoLuong
             // 
-            this.textEditSoLuong.Location = new System.Drawing.Point(75, 104);
+            this.textEditSoLuong.Location = new System.Drawing.Point(75, 76);
             this.textEditSoLuong.Name = "textEditSoLuong";
             this.textEditSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.textEditSoLuong.Size = new System.Drawing.Size(43, 20);
@@ -90,11 +82,11 @@
             // 
             // comboBoxEditSP
             // 
-            this.comboBoxEditSP.Location = new System.Drawing.Point(75, 64);
+            this.comboBoxEditSP.Location = new System.Drawing.Point(75, 50);
             this.comboBoxEditSP.Name = "comboBoxEditSP";
             this.comboBoxEditSP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditSP.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxEditSP.Size = new System.Drawing.Size(122, 20);
             this.comboBoxEditSP.TabIndex = 3;
             this.comboBoxEditSP.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit2_SelectedIndexChanged);
             // 
@@ -104,14 +96,14 @@
             this.comboBoxEditLoaiSP.Name = "comboBoxEditLoaiSP";
             this.comboBoxEditLoaiSP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditLoaiSP.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxEditLoaiSP.Size = new System.Drawing.Size(122, 20);
             this.comboBoxEditLoaiSP.TabIndex = 3;
             this.comboBoxEditLoaiSP.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditLoaiSP_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 147);
+            this.label4.Location = new System.Drawing.Point(6, 105);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 2;
@@ -120,7 +112,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 108);
+            this.label3.Location = new System.Drawing.Point(6, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 2;
@@ -129,7 +121,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 68);
+            this.label2.Location = new System.Drawing.Point(6, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 2;
@@ -144,11 +136,22 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Loại SP :";
             // 
+            // simpleButton_Ok
+            // 
+            this.simpleButton_Ok.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Ok.Image")));
+            this.simpleButton_Ok.Location = new System.Drawing.Point(48, 158);
+            this.simpleButton_Ok.Name = "simpleButton_Ok";
+            this.simpleButton_Ok.Size = new System.Drawing.Size(87, 27);
+            this.simpleButton_Ok.TabIndex = 5;
+            this.simpleButton_Ok.Text = "OK";
+            this.simpleButton_Ok.Click += new System.EventHandler(this.simpleButton_Ok_Click);
+            // 
             // simpleButton_Huy
             // 
-            this.simpleButton_Huy.Location = new System.Drawing.Point(133, 191);
+            this.simpleButton_Huy.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Huy.Image")));
+            this.simpleButton_Huy.Location = new System.Drawing.Point(141, 158);
             this.simpleButton_Huy.Name = "simpleButton_Huy";
-            this.simpleButton_Huy.Size = new System.Drawing.Size(64, 33);
+            this.simpleButton_Huy.Size = new System.Drawing.Size(87, 27);
             this.simpleButton_Huy.TabIndex = 2;
             this.simpleButton_Huy.Text = "Hủy";
             this.simpleButton_Huy.Click += new System.EventHandler(this.simpleButton_Huy_Click);
@@ -157,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 230);
+            this.ClientSize = new System.Drawing.Size(242, 195);
             this.Controls.Add(this.simpleButton_Ok);
             this.Controls.Add(this.simpleButton_Huy);
             this.Controls.Add(this.groupBox1);

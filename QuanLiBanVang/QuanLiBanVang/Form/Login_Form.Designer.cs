@@ -54,9 +54,9 @@
             this.groupControlInfo.Controls.Add(this.labelControl3);
             this.groupControlInfo.Controls.Add(this.labelControl2);
             this.groupControlInfo.Controls.Add(this.pbIcon);
-            this.groupControlInfo.Location = new System.Drawing.Point(12, 51);
+            this.groupControlInfo.Location = new System.Drawing.Point(12, 42);
             this.groupControlInfo.Name = "groupControlInfo";
-            this.groupControlInfo.Size = new System.Drawing.Size(318, 128);
+            this.groupControlInfo.Size = new System.Drawing.Size(318, 108);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Thông tin người dùng";
             // 
@@ -64,7 +64,7 @@
             // 
             this.lbState.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbState.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lbState.Location = new System.Drawing.Point(34, 107);
+            this.lbState.Location = new System.Drawing.Point(85, 83);
             this.lbState.Name = "lbState";
             this.lbState.Size = new System.Drawing.Size(145, 14);
             this.lbState.TabIndex = 5;
@@ -72,7 +72,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(85, 74);
+            this.txtPassword.Location = new System.Drawing.Point(85, 57);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Mask.EditMask = "([a-z]|[A-Z]|[0-9]){1,20}";
             this.txtPassword.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -91,7 +91,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(5, 77);
+            this.labelControl3.Location = new System.Drawing.Point(5, 60);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(44, 13);
             this.labelControl3.TabIndex = 1;
@@ -108,7 +108,7 @@
             // pbIcon
             // 
             this.pbIcon.EditValue = ((object)(resources.GetObject("pbIcon.EditValue")));
-            this.pbIcon.Location = new System.Drawing.Point(234, 34);
+            this.pbIcon.Location = new System.Drawing.Point(247, 31);
             this.pbIcon.Name = "pbIcon";
             this.pbIcon.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pbIcon.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
@@ -117,36 +117,40 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl1.Location = new System.Drawing.Point(97, 12);
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(12, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(146, 33);
+            this.labelControl1.Size = new System.Drawing.Size(325, 24);
             this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "ĐĂNG NHẬP";
+            this.labelControl1.Text = "Đăng nhập";
             // 
             // btnLogin
             // 
-            this.btnLogin.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Appearance.Options.UseFont = true;
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
             this.btnLogin.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(46, 185);
+            this.btnLogin.Location = new System.Drawing.Point(140, 156);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(107, 33);
+            this.btnLogin.Size = new System.Drawing.Size(97, 27);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Appearance.Options.UseFont = true;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(177, 185);
+            this.btnExit.Location = new System.Drawing.Point(243, 156);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(107, 33);
+            this.btnExit.Size = new System.Drawing.Size(87, 27);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -155,14 +159,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 230);
+            this.ClientSize = new System.Drawing.Size(349, 192);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.groupControlInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Login_Form";
-            this.Text = "Login";
+            this.Text = "Đăng nhập vào hệ thống";
             this.Load += new System.EventHandler(this.Login_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
@@ -171,7 +175,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUserID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

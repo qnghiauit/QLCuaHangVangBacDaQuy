@@ -44,19 +44,27 @@
             // 
             // groupControlListBuyBill
             // 
+            this.groupControlListBuyBill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControlListBuyBill.Controls.Add(this.btnUpdate);
             this.groupControlListBuyBill.Controls.Add(this.dgvListBuyBill);
-            this.groupControlListBuyBill.Location = new System.Drawing.Point(12, 51);
+            this.groupControlListBuyBill.Controls.Add(this.btnAdd);
+            this.groupControlListBuyBill.Location = new System.Drawing.Point(12, 42);
             this.groupControlListBuyBill.Name = "groupControlListBuyBill";
-            this.groupControlListBuyBill.Size = new System.Drawing.Size(530, 235);
+            this.groupControlListBuyBill.Size = new System.Drawing.Size(530, 244);
             this.groupControlListBuyBill.TabIndex = 0;
-            this.groupControlListBuyBill.Text = "Danh sách";
+            this.groupControlListBuyBill.Text = "Thông tin";
             // 
             // dgvListBuyBill
             // 
+            this.dgvListBuyBill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvListBuyBill.Location = new System.Drawing.Point(5, 23);
             this.dgvListBuyBill.MainView = this.dgvBuyBill;
             this.dgvListBuyBill.Name = "dgvListBuyBill";
-            this.dgvListBuyBill.Size = new System.Drawing.Size(512, 200);
+            this.dgvListBuyBill.Size = new System.Drawing.Size(427, 216);
             this.dgvListBuyBill.TabIndex = 0;
             this.dgvListBuyBill.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvBuyBill});
@@ -75,44 +83,47 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl1.Location = new System.Drawing.Point(150, 12);
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(12, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(217, 33);
+            this.labelControl1.Size = new System.Drawing.Size(530, 24);
             this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "PHIẾU MUA HÀNG";
+            this.labelControl1.Text = "Danh sách phiếu mua hàng";
             // 
             // btnAdd
             // 
-            this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Appearance.Options.UseFont = true;
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(94, 291);
+            this.btnAdd.Location = new System.Drawing.Point(438, 23);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(95, 29);
+            this.btnAdd.Size = new System.Drawing.Size(87, 27);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Nhập";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Appearance.Options.UseFont = true;
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(363, 291);
+            this.btnExit.Location = new System.Drawing.Point(455, 292);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(95, 29);
+            this.btnExit.Size = new System.Drawing.Size(87, 27);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
-            this.btnUpdate.Location = new System.Drawing.Point(233, 292);
+            this.btnUpdate.Location = new System.Drawing.Point(438, 56);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(95, 29);
+            this.btnUpdate.Size = new System.Drawing.Size(87, 27);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -122,20 +133,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 326);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.groupControlListBuyBill);
             this.Name = "DanhSachPhieuMua_Form";
-            this.Text = "DanhSachPhieuMua_Form";
+            this.Text = "Danh sách phiếu mua";
             this.Load += new System.EventHandler(this.DanhSachPhieuMua_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlListBuyBill)).EndInit();
             this.groupControlListBuyBill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListBuyBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuyBill)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

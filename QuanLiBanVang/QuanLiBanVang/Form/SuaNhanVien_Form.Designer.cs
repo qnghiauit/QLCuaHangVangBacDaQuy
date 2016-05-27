@@ -72,19 +72,19 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(282, 431);
+            this.btnCancel.Location = new System.Drawing.Point(266, 366);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(95, 29);
+            this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.TabIndex = 16;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(5, 105);
+            this.labelControl10.Location = new System.Drawing.Point(5, 88);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(27, 13);
             this.labelControl10.TabIndex = 8;
@@ -92,7 +92,7 @@
             // 
             // cboPosition
             // 
-            this.cboPosition.Location = new System.Drawing.Point(104, 194);
+            this.cboPosition.Location = new System.Drawing.Point(104, 162);
             this.cboPosition.Name = "cboPosition";
             this.cboPosition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -102,7 +102,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(5, 197);
+            this.labelControl9.Location = new System.Drawing.Point(5, 165);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(40, 13);
             this.labelControl9.TabIndex = 14;
@@ -111,18 +111,18 @@
             // rdoGender
             // 
             this.rdoGender.EditValue = true;
-            this.rdoGender.Location = new System.Drawing.Point(104, 97);
+            this.rdoGender.Location = new System.Drawing.Point(104, 81);
             this.rdoGender.Name = "rdoGender";
             this.rdoGender.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Nam"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Nữ")});
-            this.rdoGender.Size = new System.Drawing.Size(145, 28);
+            this.rdoGender.Size = new System.Drawing.Size(145, 23);
             this.rdoGender.TabIndex = 3;
             // 
             // dtpkBirth
             // 
             this.dtpkBirth.EditValue = null;
-            this.dtpkBirth.Location = new System.Drawing.Point(104, 63);
+            this.dtpkBirth.Location = new System.Drawing.Point(104, 55);
             this.dtpkBirth.Name = "dtpkBirth";
             this.dtpkBirth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -137,7 +137,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(6, 66);
+            this.labelControl8.Location = new System.Drawing.Point(5, 58);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(47, 13);
             this.labelControl8.TabIndex = 11;
@@ -145,7 +145,7 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(104, 161);
+            this.txtPhone.Location = new System.Drawing.Point(104, 136);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Properties.Mask.EditMask = "[0-9]{1,20}";
             this.txtPhone.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -154,7 +154,7 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(104, 131);
+            this.txtAddress.Location = new System.Drawing.Point(104, 110);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Properties.Mask.EditMask = "(\\p{L}|[0-9]|\\s|[,/]){1,100}";
             this.txtAddress.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -163,7 +163,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(6, 134);
+            this.labelControl7.Location = new System.Drawing.Point(5, 113);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(32, 13);
             this.labelControl7.TabIndex = 8;
@@ -180,7 +180,7 @@
             // 
             // cboGroupUser
             // 
-            this.cboGroupUser.Location = new System.Drawing.Point(104, 102);
+            this.cboGroupUser.Location = new System.Drawing.Point(104, 85);
             this.cboGroupUser.Name = "cboGroupUser";
             this.cboGroupUser.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -197,15 +197,15 @@
             this.groupControlAccountInfo.Controls.Add(this.labelControl4);
             this.groupControlAccountInfo.Controls.Add(this.txtUsername);
             this.groupControlAccountInfo.Controls.Add(this.txtPassword);
-            this.groupControlAccountInfo.Location = new System.Drawing.Point(12, 285);
+            this.groupControlAccountInfo.Location = new System.Drawing.Point(12, 240);
             this.groupControlAccountInfo.Name = "groupControlAccountInfo";
-            this.groupControlAccountInfo.Size = new System.Drawing.Size(492, 140);
+            this.groupControlAccountInfo.Size = new System.Drawing.Size(341, 120);
             this.groupControlAccountInfo.TabIndex = 14;
             this.groupControlAccountInfo.Text = "Thông tin tài khoản";
             // 
             // chkbChangePassword
             // 
-            this.chkbChangePassword.Location = new System.Drawing.Point(285, 68);
+            this.chkbChangePassword.Location = new System.Drawing.Point(254, 59);
             this.chkbChangePassword.Name = "chkbChangePassword";
             this.chkbChangePassword.Properties.Caption = "Đổi mật khẩu";
             this.chkbChangePassword.Size = new System.Drawing.Size(85, 19);
@@ -222,7 +222,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(5, 71);
+            this.labelControl4.Location = new System.Drawing.Point(5, 62);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(44, 13);
             this.labelControl4.TabIndex = 2;
@@ -239,7 +239,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(104, 68);
+            this.txtPassword.Location = new System.Drawing.Point(104, 59);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Mask.EditMask = "([a-z]|[A-Z]|[0-9]){1,20}";
             this.txtPassword.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -250,7 +250,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(5, 164);
+            this.labelControl6.Location = new System.Drawing.Point(5, 139);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(62, 13);
             this.labelControl6.TabIndex = 4;
@@ -258,7 +258,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(5, 104);
+            this.labelControl5.Location = new System.Drawing.Point(5, 86);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(38, 13);
             this.labelControl5.TabIndex = 3;
@@ -274,12 +274,12 @@
             // 
             // btnSave
             // 
-            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(123, 431);
+            this.btnSave.Location = new System.Drawing.Point(173, 366);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(95, 29);
+            this.btnSave.Size = new System.Drawing.Size(87, 27);
             this.btnSave.TabIndex = 15;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -298,27 +298,31 @@
             this.groupControlInfo.Controls.Add(this.labelControl6);
             this.groupControlInfo.Controls.Add(this.labelControl5);
             this.groupControlInfo.Controls.Add(this.labelControl2);
-            this.groupControlInfo.Location = new System.Drawing.Point(12, 52);
+            this.groupControlInfo.Location = new System.Drawing.Point(12, 43);
             this.groupControlInfo.Name = "groupControlInfo";
-            this.groupControlInfo.Size = new System.Drawing.Size(492, 227);
+            this.groupControlInfo.Size = new System.Drawing.Size(341, 191);
             this.groupControlInfo.TabIndex = 13;
             this.groupControlInfo.Text = "Thông tin nhân viên";
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl1.Location = new System.Drawing.Point(116, 13);
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(12, 13);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(282, 33);
+            this.labelControl1.Size = new System.Drawing.Size(341, 24);
             this.labelControl1.TabIndex = 12;
-            this.labelControl1.Text = "TÀI KHOẢN NHÂN VIÊN";
+            this.labelControl1.Text = "Tài khoản nhân viên";
             // 
             // SuaNhanVien_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 466);
+            this.ClientSize = new System.Drawing.Size(364, 401);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupControlAccountInfo);
             this.Controls.Add(this.btnSave);
@@ -345,7 +349,6 @@
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -28,23 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuBanHang));
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.textEditMaKhachHang = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButtonTimKhachQuen = new DevExpress.XtraEditors.SimpleButton();
-            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.textEditTongTien = new DevExpress.XtraEditors.TextEdit();
-            this.textEditSoLuong = new DevExpress.XtraEditors.TextEdit();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.contextMenuStripUpdateGridData = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStripUpdateGridData = new System.Windows.Forms.ContextMenuStrip();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.databaseSavingBackgrounWorker = new System.ComponentModel.BackgroundWorker();
+            this.simpleButton_Huy = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton_Luu = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.textEditTongTien = new DevExpress.XtraEditors.TextEdit();
+            this.textEditSoLuong = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonThem = new DevExpress.XtraEditors.SimpleButton();
+            this.label13 = new System.Windows.Forms.Label();
             this.textEditDonGia = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxEditMaSp = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEditMaLoaiSp = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -52,6 +50,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.textEditMaKhachHang = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButtonTimKhachQuen = new DevExpress.XtraEditors.SimpleButton();
             this.textEditSoPhieuBH = new DevExpress.XtraEditors.TextEdit();
             this.textEditDiaChiKhachHang = new DevExpress.XtraEditors.TextEdit();
             this.textEditTenKhachHang = new DevExpress.XtraEditors.TextEdit();
@@ -63,165 +65,24 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.databaseSavingBackgrounWorker = new System.ComponentModel.BackgroundWorker();
-            this.simpleButton_Huy = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton_Luu = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditMaKhachHang.Properties)).BeginInit();
+            this.contextMenuStripUpdateGridData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTongTien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoLuong.Properties)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            this.contextMenuStripUpdateGridData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditDonGia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditMaSp.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditMaLoaiSp.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditMaKhachHang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoPhieuBH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditDiaChiKhachHang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenKhachHang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditKhachQuen.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.groupControl1.Appearance.Options.UseBackColor = true;
-            this.groupControl1.Controls.Add(this.groupControl2);
-            this.groupControl1.Controls.Add(this.label12);
-            this.groupControl1.Location = new System.Drawing.Point(12, 41);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(824, 485);
-            this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = " Lập phiếu";
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.Controls.Add(this.textEditMaKhachHang);
-            this.groupControl2.Controls.Add(this.labelControl1);
-            this.groupControl2.Controls.Add(this.simpleButtonTimKhachQuen);
-            this.groupControl2.Controls.Add(this.groupControl3);
-            this.groupControl2.Controls.Add(this.textEditSoPhieuBH);
-            this.groupControl2.Controls.Add(this.textEditDiaChiKhachHang);
-            this.groupControl2.Controls.Add(this.textEditTenKhachHang);
-            this.groupControl2.Controls.Add(this.dateTimePickerNgayThanhToan);
-            this.groupControl2.Controls.Add(this.dateTimePickerNgayBan);
-            this.groupControl2.Controls.Add(this.checkEditKhachQuen);
-            this.groupControl2.Controls.Add(this.label4);
-            this.groupControl2.Controls.Add(this.label6);
-            this.groupControl2.Controls.Add(this.label8);
-            this.groupControl2.Controls.Add(this.label3);
-            this.groupControl2.Controls.Add(this.label2);
-            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(2, 20);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(820, 463);
-            this.groupControl2.TabIndex = 0;
-            this.groupControl2.Text = "Thông tin";
-            this.groupControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl2_Paint);
-            // 
-            // textEditMaKhachHang
-            // 
-            this.textEditMaKhachHang.Location = new System.Drawing.Point(71, 95);
-            this.textEditMaKhachHang.Name = "textEditMaKhachHang";
-            this.textEditMaKhachHang.Size = new System.Drawing.Size(100, 20);
-            this.textEditMaKhachHang.TabIndex = 16;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(20, 99);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(40, 13);
-            this.labelControl1.TabIndex = 15;
-            this.labelControl1.Text = "Mã KH : ";
-            // 
-            // simpleButtonTimKhachQuen
-            // 
-            this.simpleButtonTimKhachQuen.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonTimKhachQuen.Image")));
-            this.simpleButtonTimKhachQuen.Location = new System.Drawing.Point(579, 116);
-            this.simpleButtonTimKhachQuen.Name = "simpleButtonTimKhachQuen";
-            this.simpleButtonTimKhachQuen.Size = new System.Drawing.Size(128, 44);
-            this.simpleButtonTimKhachQuen.TabIndex = 14;
-            this.simpleButtonTimKhachQuen.Text = "Tìm khách quen";
-            this.simpleButtonTimKhachQuen.Click += new System.EventHandler(this.simpleButtonTimKhachQuen_Click);
-            // 
-            // groupControl3
-            // 
-            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl3.Controls.Add(this.textEditTongTien);
-            this.groupControl3.Controls.Add(this.textEditSoLuong);
-            this.groupControl3.Controls.Add(this.groupBox1);
-            this.groupControl3.Controls.Add(this.simpleButtonThem);
-            this.groupControl3.Controls.Add(this.textEditDonGia);
-            this.groupControl3.Controls.Add(this.comboBoxEditMaSp);
-            this.groupControl3.Controls.Add(this.comboBoxEditMaLoaiSp);
-            this.groupControl3.Controls.Add(this.label5);
-            this.groupControl3.Controls.Add(this.label11);
-            this.groupControl3.Controls.Add(this.label10);
-            this.groupControl3.Controls.Add(this.label9);
-            this.groupControl3.Location = new System.Drawing.Point(0, 174);
-            this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(814, 284);
-            this.groupControl3.TabIndex = 1;
-            this.groupControl3.Text = "Chi tiết";
-            // 
-            // textEditTongTien
-            // 
-            this.textEditTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textEditTongTien.Enabled = false;
-            this.textEditTongTien.Location = new System.Drawing.Point(99, 254);
-            this.textEditTongTien.Name = "textEditTongTien";
-            this.textEditTongTien.Size = new System.Drawing.Size(186, 20);
-            this.textEditTongTien.TabIndex = 11;
-            // 
-            // textEditSoLuong
-            // 
-            this.textEditSoLuong.Location = new System.Drawing.Point(420, 28);
-            this.textEditSoLuong.Name = "textEditSoLuong";
-            this.textEditSoLuong.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.textEditSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEditSoLuong.Size = new System.Drawing.Size(65, 20);
-            this.textEditSoLuong.TabIndex = 10;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.gridControl1);
-            this.groupBox1.Location = new System.Drawing.Point(7, 58);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(804, 177);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh sách ";
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
-            this.gridControl1.ContextMenuStrip = this.contextMenuStripUpdateGridData;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(3, 17);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(798, 157);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            this.gridControl1.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.gridControl1_ControlAdded);
             // 
             // contextMenuStripUpdateGridData
             // 
@@ -245,6 +106,85 @@
             this.sửaToolStripMenuItem.Text = "Sửa";
             this.sửaToolStripMenuItem.Click += new System.EventHandler(this.sửaToolStripMenuItem_Click);
             // 
+            // databaseSavingBackgrounWorker
+            // 
+            this.databaseSavingBackgrounWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.databaseSavingBackgrounWorker_DoWork);
+            this.databaseSavingBackgrounWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.databaseSavingBackgrounWorker_RunWorkerCompleted);
+            // 
+            // simpleButton_Huy
+            // 
+            this.simpleButton_Huy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton_Huy.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Huy.Image")));
+            this.simpleButton_Huy.Location = new System.Drawing.Point(749, 550);
+            this.simpleButton_Huy.Name = "simpleButton_Huy";
+            this.simpleButton_Huy.Size = new System.Drawing.Size(87, 27);
+            this.simpleButton_Huy.TabIndex = 4;
+            this.simpleButton_Huy.Text = "Hủy";
+            this.simpleButton_Huy.Click += new System.EventHandler(this.simpleButton_Huy_Click_1);
+            // 
+            // simpleButton_Luu
+            // 
+            this.simpleButton_Luu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton_Luu.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Luu.Image")));
+            this.simpleButton_Luu.Location = new System.Drawing.Point(656, 550);
+            this.simpleButton_Luu.Name = "simpleButton_Luu";
+            this.simpleButton_Luu.Size = new System.Drawing.Size(87, 27);
+            this.simpleButton_Luu.TabIndex = 5;
+            this.simpleButton_Luu.Text = "Lưu";
+            this.simpleButton_Luu.Click += new System.EventHandler(this.simpleButton_Luu_Click);
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.labelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl2.Location = new System.Drawing.Point(12, 13);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(824, 24);
+            this.labelControl2.TabIndex = 6;
+            this.labelControl2.Text = "Phiếu bán hàng";
+            // 
+            // groupControl3
+            // 
+            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl3.Controls.Add(this.gridControl1);
+            this.groupControl3.Controls.Add(this.textEditTongTien);
+            this.groupControl3.Controls.Add(this.textEditSoLuong);
+            this.groupControl3.Controls.Add(this.simpleButtonThem);
+            this.groupControl3.Controls.Add(this.label13);
+            this.groupControl3.Controls.Add(this.textEditDonGia);
+            this.groupControl3.Controls.Add(this.comboBoxEditMaSp);
+            this.groupControl3.Controls.Add(this.comboBoxEditMaLoaiSp);
+            this.groupControl3.Controls.Add(this.label5);
+            this.groupControl3.Controls.Add(this.label11);
+            this.groupControl3.Controls.Add(this.label10);
+            this.groupControl3.Controls.Add(this.label9);
+            this.groupControl3.Location = new System.Drawing.Point(17, 191);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(814, 353);
+            this.groupControl3.TabIndex = 8;
+            this.groupControl3.Text = "Chi tiết";
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.ContextMenuStrip = this.contextMenuStripUpdateGridData;
+            this.gridControl1.Location = new System.Drawing.Point(5, 58);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(798, 264);
+            this.gridControl1.TabIndex = 12;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
             // gridView1
             // 
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
@@ -255,17 +195,45 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsSelection.MultiSelect = true;
-            this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
+            // 
+            // textEditTongTien
+            // 
+            this.textEditTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textEditTongTien.Enabled = false;
+            this.textEditTongTien.Location = new System.Drawing.Point(620, 328);
+            this.textEditTongTien.Name = "textEditTongTien";
+            this.textEditTongTien.Size = new System.Drawing.Size(186, 20);
+            this.textEditTongTien.TabIndex = 11;
+            // 
+            // textEditSoLuong
+            // 
+            this.textEditSoLuong.Location = new System.Drawing.Point(420, 28);
+            this.textEditSoLuong.Name = "textEditSoLuong";
+            this.textEditSoLuong.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.textEditSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.textEditSoLuong.Size = new System.Drawing.Size(65, 20);
+            this.textEditSoLuong.TabIndex = 10;
             // 
             // simpleButtonThem
             // 
-            this.simpleButtonThem.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.simpleButtonThem.Location = new System.Drawing.Point(698, 23);
+            this.simpleButtonThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonThem.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonThem.Image")));
+            this.simpleButtonThem.Location = new System.Drawing.Point(716, 25);
             this.simpleButtonThem.Name = "simpleButtonThem";
-            this.simpleButtonThem.Size = new System.Drawing.Size(108, 29);
+            this.simpleButtonThem.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonThem.TabIndex = 8;
             this.simpleButtonThem.Text = "Thêm";
-            this.simpleButtonThem.Click += new System.EventHandler(this.simpleButtonThem_Click);
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label13.Location = new System.Drawing.Point(536, 329);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(78, 16);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Tổng Tiền :";
             // 
             // textEditDonGia
             // 
@@ -284,7 +252,6 @@
             this.comboBoxEditMaSp.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEditMaSp.Size = new System.Drawing.Size(100, 20);
             this.comboBoxEditMaSp.TabIndex = 6;
-            this.comboBoxEditMaSp.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditMaSp_SelectedIndexChanged);
             // 
             // comboBoxEditMaLoaiSp
             // 
@@ -295,7 +262,6 @@
             this.comboBoxEditMaLoaiSp.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEditMaLoaiSp.Size = new System.Drawing.Size(76, 20);
             this.comboBoxEditMaLoaiSp.TabIndex = 6;
-            this.comboBoxEditMaLoaiSp.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditMaLoaiSp_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -333,6 +299,54 @@
             this.label9.TabIndex = 5;
             this.label9.Text = "Loại SP :";
             // 
+            // groupControl2
+            // 
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl2.Controls.Add(this.textEditMaKhachHang);
+            this.groupControl2.Controls.Add(this.labelControl1);
+            this.groupControl2.Controls.Add(this.simpleButtonTimKhachQuen);
+            this.groupControl2.Controls.Add(this.textEditSoPhieuBH);
+            this.groupControl2.Controls.Add(this.textEditDiaChiKhachHang);
+            this.groupControl2.Controls.Add(this.textEditTenKhachHang);
+            this.groupControl2.Controls.Add(this.dateTimePickerNgayThanhToan);
+            this.groupControl2.Controls.Add(this.dateTimePickerNgayBan);
+            this.groupControl2.Controls.Add(this.checkEditKhachQuen);
+            this.groupControl2.Controls.Add(this.label4);
+            this.groupControl2.Controls.Add(this.label6);
+            this.groupControl2.Controls.Add(this.label8);
+            this.groupControl2.Controls.Add(this.label3);
+            this.groupControl2.Controls.Add(this.label2);
+            this.groupControl2.Location = new System.Drawing.Point(17, 43);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(814, 142);
+            this.groupControl2.TabIndex = 7;
+            this.groupControl2.Text = "Thông tin";
+            // 
+            // textEditMaKhachHang
+            // 
+            this.textEditMaKhachHang.Location = new System.Drawing.Point(71, 86);
+            this.textEditMaKhachHang.Name = "textEditMaKhachHang";
+            this.textEditMaKhachHang.Size = new System.Drawing.Size(100, 20);
+            this.textEditMaKhachHang.TabIndex = 16;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(8, 94);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(40, 13);
+            this.labelControl1.TabIndex = 15;
+            this.labelControl1.Text = "Mã KH : ";
+            // 
+            // simpleButtonTimKhachQuen
+            // 
+            this.simpleButtonTimKhachQuen.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonTimKhachQuen.Image")));
+            this.simpleButtonTimKhachQuen.Location = new System.Drawing.Point(639, 87);
+            this.simpleButtonTimKhachQuen.Name = "simpleButtonTimKhachQuen";
+            this.simpleButtonTimKhachQuen.Size = new System.Drawing.Size(109, 27);
+            this.simpleButtonTimKhachQuen.TabIndex = 14;
+            this.simpleButtonTimKhachQuen.Text = "Tìm khách quen";
+            // 
             // textEditSoPhieuBH
             // 
             this.textEditSoPhieuBH.Enabled = false;
@@ -343,7 +357,7 @@
             // 
             // textEditDiaChiKhachHang
             // 
-            this.textEditDiaChiKhachHang.Location = new System.Drawing.Point(71, 121);
+            this.textEditDiaChiKhachHang.Location = new System.Drawing.Point(71, 112);
             this.textEditDiaChiKhachHang.Name = "textEditDiaChiKhachHang";
             this.textEditDiaChiKhachHang.Size = new System.Drawing.Size(485, 20);
             this.textEditDiaChiKhachHang.TabIndex = 11;
@@ -371,12 +385,11 @@
             // 
             // checkEditKhachQuen
             // 
-            this.checkEditKhachQuen.Location = new System.Drawing.Point(579, 91);
+            this.checkEditKhachQuen.Location = new System.Drawing.Point(562, 91);
             this.checkEditKhachQuen.Name = "checkEditKhachQuen";
             this.checkEditKhachQuen.Properties.Caption = "Khách quen";
             this.checkEditKhachQuen.Size = new System.Drawing.Size(95, 19);
             this.checkEditKhachQuen.TabIndex = 9;
-            this.checkEditKhachQuen.CheckedChanged += new System.EventHandler(this.checkEdit1_CheckedChanged);
             // 
             // label4
             // 
@@ -399,7 +412,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 124);
+            this.label8.Location = new System.Drawing.Point(5, 115);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 5;
@@ -408,7 +421,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 63);
+            this.label3.Location = new System.Drawing.Point(5, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 7;
@@ -423,63 +436,6 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Số phiếu :";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(10, 423);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 14);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Tổng Tiền : ";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label1.Location = new System.Drawing.Point(7, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(228, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "PHIẾU BÁN HÀNG";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label13.Location = new System.Drawing.Point(25, 490);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(78, 16);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Tổng Tiền :";
-            // 
-            // databaseSavingBackgrounWorker
-            // 
-            this.databaseSavingBackgrounWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.databaseSavingBackgrounWorker_DoWork);
-            this.databaseSavingBackgrounWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.databaseSavingBackgrounWorker_RunWorkerCompleted);
-            // 
-            // simpleButton_Huy
-            // 
-            this.simpleButton_Huy.Location = new System.Drawing.Point(656, 534);
-            this.simpleButton_Huy.Name = "simpleButton_Huy";
-            this.simpleButton_Huy.Size = new System.Drawing.Size(85, 42);
-            this.simpleButton_Huy.TabIndex = 4;
-            this.simpleButton_Huy.Text = "Hủy";
-            this.simpleButton_Huy.Click += new System.EventHandler(this.simpleButton_Huy_Click_1);
-            // 
-            // simpleButton_Luu
-            // 
-            this.simpleButton_Luu.Location = new System.Drawing.Point(747, 532);
-            this.simpleButton_Luu.Name = "simpleButton_Luu";
-            this.simpleButton_Luu.Size = new System.Drawing.Size(89, 44);
-            this.simpleButton_Luu.TabIndex = 5;
-            this.simpleButton_Luu.Text = "Lưu";
-            this.simpleButton_Luu.Click += new System.EventHandler(this.simpleButton_Luu_Click);
-            // 
             // PhieuBanHang
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
@@ -487,82 +443,74 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 586);
+            this.Controls.Add(this.groupControl3);
+            this.Controls.Add(this.groupControl2);
+            this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.simpleButton_Luu);
             this.Controls.Add(this.simpleButton_Huy);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.label1);
             this.Name = "PhieuBanHang";
             this.Text = "Phiếu Bán Hàng";
             this.Load += new System.EventHandler(this.PhieuBanHang_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
+            this.contextMenuStripUpdateGridData.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditTongTien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditSoLuong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDonGia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditMaSp.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditMaLoaiSp.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditMaKhachHang.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
-            this.groupControl3.ResumeLayout(false);
-            this.groupControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditTongTien.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditSoLuong.Properties)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            this.contextMenuStripUpdateGridData.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditDonGia.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditMaSp.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditMaLoaiSp.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoPhieuBH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditDiaChiKhachHang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenKhachHang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditKhachQuen.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.GroupControl groupControl1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripUpdateGridData;
+        private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sửaToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker databaseSavingBackgrounWorker;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_Huy;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_Luu;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.GroupControl groupControl3;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.TextEdit textEditTongTien;
+        private DevExpress.XtraEditors.TextEdit textEditSoLuong;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonThem;
+        private System.Windows.Forms.Label label13;
+        private DevExpress.XtraEditors.TextEdit textEditDonGia;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditMaSp;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditMaLoaiSp;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
         private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraEditors.TextEdit textEditMaKhachHang;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonTimKhachQuen;
+        private DevExpress.XtraEditors.TextEdit textEditSoPhieuBH;
+        private DevExpress.XtraEditors.TextEdit textEditDiaChiKhachHang;
+        private DevExpress.XtraEditors.TextEdit textEditTenKhachHang;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgayThanhToan;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgayBan;
         private DevExpress.XtraEditors.CheckEdit checkEditKhachQuen;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private DevExpress.XtraEditors.TextEdit textEditDiaChiKhachHang;
-        private DevExpress.XtraEditors.TextEdit textEditTenKhachHang;
-        private System.Windows.Forms.Label label8;
-        private DevExpress.XtraEditors.GroupControl groupControl3;
-        private DevExpress.XtraEditors.TextEdit textEditDonGia;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditMaSp;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditMaLoaiSp;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private DevExpress.XtraEditors.TextEdit textEditSoLuong;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonThem;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label12;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.TextEdit textEditSoPhieuBH;
-        private DevExpress.XtraEditors.TextEdit textEditTongTien;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripUpdateGridData;
-        private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sửaToolStripMenuItem;
-        private System.ComponentModel.BackgroundWorker databaseSavingBackgrounWorker;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonTimKhachQuen;
-        private DevExpress.XtraEditors.TextEdit textEditMaKhachHang;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton_Huy;
-        private DevExpress.XtraEditors.SimpleButton simpleButton_Luu;
     }
 }

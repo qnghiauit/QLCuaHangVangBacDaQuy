@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuThuTienNo));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.textEditConLai = new DevExpress.XtraEditors.TextEdit();
             this.textEditSoTienTra = new DevExpress.XtraEditors.TextEdit();
@@ -81,23 +82,23 @@
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.textEditTenKhachHang);
             this.groupControl1.Controls.Add(this.labelControlTenKhachHang);
-            this.groupControl1.Location = new System.Drawing.Point(16, 59);
+            this.groupControl1.Location = new System.Drawing.Point(16, 46);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(7);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(592, 329);
+            this.groupControl1.Size = new System.Drawing.Size(592, 229);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
             // textEditConLai
             // 
-            this.textEditConLai.Location = new System.Drawing.Point(135, 247);
+            this.textEditConLai.Location = new System.Drawing.Point(135, 195);
             this.textEditConLai.Name = "textEditConLai";
             this.textEditConLai.Size = new System.Drawing.Size(304, 20);
             this.textEditConLai.TabIndex = 7;
             // 
             // textEditSoTienTra
             // 
-            this.textEditSoTienTra.Location = new System.Drawing.Point(135, 214);
+            this.textEditSoTienTra.Location = new System.Drawing.Point(135, 169);
             this.textEditSoTienTra.Name = "textEditSoTienTra";
             this.textEditSoTienTra.Size = new System.Drawing.Size(304, 20);
             this.textEditSoTienTra.TabIndex = 7;
@@ -106,14 +107,14 @@
             // textEditSoTienNo
             // 
             this.textEditSoTienNo.Enabled = false;
-            this.textEditSoTienNo.Location = new System.Drawing.Point(135, 178);
+            this.textEditSoTienNo.Location = new System.Drawing.Point(135, 143);
             this.textEditSoTienNo.Name = "textEditSoTienNo";
             this.textEditSoTienNo.Size = new System.Drawing.Size(304, 20);
             this.textEditSoTienNo.TabIndex = 7;
             // 
             // dateTimePickerNgayTra
             // 
-            this.dateTimePickerNgayTra.Location = new System.Drawing.Point(135, 141);
+            this.dateTimePickerNgayTra.Location = new System.Drawing.Point(135, 116);
             this.dateTimePickerNgayTra.Name = "dateTimePickerNgayTra";
             this.dateTimePickerNgayTra.Size = new System.Drawing.Size(304, 21);
             this.dateTimePickerNgayTra.TabIndex = 6;
@@ -121,7 +122,7 @@
             // 
             // dateTimePickerNgayLap
             // 
-            this.dateTimePickerNgayLap.Location = new System.Drawing.Point(135, 104);
+            this.dateTimePickerNgayLap.Location = new System.Drawing.Point(135, 89);
             this.dateTimePickerNgayLap.Name = "dateTimePickerNgayLap";
             this.dateTimePickerNgayLap.Size = new System.Drawing.Size(304, 21);
             this.dateTimePickerNgayLap.TabIndex = 6;
@@ -143,7 +144,7 @@
             // 
             // textEditMaKhachHang
             // 
-            this.textEditMaKhachHang.Location = new System.Drawing.Point(104, 58);
+            this.textEditMaKhachHang.Location = new System.Drawing.Point(104, 53);
             this.textEditMaKhachHang.Name = "textEditMaKhachHang";
             this.textEditMaKhachHang.Size = new System.Drawing.Size(100, 20);
             this.textEditMaKhachHang.TabIndex = 3;
@@ -157,7 +158,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(77, 251);
+            this.labelControl4.Location = new System.Drawing.Point(69, 198);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(39, 13);
             this.labelControl4.TabIndex = 2;
@@ -165,7 +166,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(61, 218);
+            this.labelControl8.Location = new System.Drawing.Point(69, 172);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(57, 13);
             this.labelControl8.TabIndex = 2;
@@ -173,7 +174,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(61, 182);
+            this.labelControl7.Location = new System.Drawing.Point(69, 146);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(55, 13);
             this.labelControl7.TabIndex = 2;
@@ -181,7 +182,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(67, 145);
+            this.labelControl6.Location = new System.Drawing.Point(69, 122);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(49, 13);
             this.labelControl6.TabIndex = 2;
@@ -189,7 +190,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(67, 108);
+            this.labelControl5.Location = new System.Drawing.Point(69, 95);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(49, 13);
             this.labelControl5.TabIndex = 2;
@@ -197,7 +198,7 @@
             // 
             // labelControl
             // 
-            this.labelControl.Location = new System.Drawing.Point(19, 62);
+            this.labelControl.Location = new System.Drawing.Point(19, 56);
             this.labelControl.Name = "labelControl";
             this.labelControl.Size = new System.Drawing.Size(79, 13);
             this.labelControl.TabIndex = 2;
@@ -205,7 +206,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(30, 31);
+            this.labelControl2.Location = new System.Drawing.Point(19, 31);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(68, 13);
             this.labelControl2.TabIndex = 2;
@@ -213,14 +214,14 @@
             // 
             // textEditTenKhachHang
             // 
-            this.textEditTenKhachHang.Location = new System.Drawing.Point(356, 58);
+            this.textEditTenKhachHang.Location = new System.Drawing.Point(355, 53);
             this.textEditTenKhachHang.Name = "textEditTenKhachHang";
             this.textEditTenKhachHang.Size = new System.Drawing.Size(188, 20);
             this.textEditTenKhachHang.TabIndex = 1;
             // 
             // labelControlTenKhachHang
             // 
-            this.labelControlTenKhachHang.Location = new System.Drawing.Point(266, 62);
+            this.labelControlTenKhachHang.Location = new System.Drawing.Point(248, 56);
             this.labelControlTenKhachHang.Name = "labelControlTenKhachHang";
             this.labelControlTenKhachHang.Size = new System.Drawing.Size(83, 13);
             this.labelControlTenKhachHang.TabIndex = 0;
@@ -228,28 +229,35 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.Location = new System.Drawing.Point(16, 16);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(7);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(204, 29);
+            this.labelControl1.Size = new System.Drawing.Size(592, 24);
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "Phiếu thu tiền nợ";
             // 
             // simpleButtonLuu
             // 
-            this.simpleButtonLuu.Location = new System.Drawing.Point(436, 400);
+            this.simpleButtonLuu.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonLuu.Image")));
+            this.simpleButtonLuu.Location = new System.Drawing.Point(432, 285);
             this.simpleButtonLuu.Name = "simpleButtonLuu";
-            this.simpleButtonLuu.Size = new System.Drawing.Size(83, 29);
+            this.simpleButtonLuu.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonLuu.TabIndex = 3;
             this.simpleButtonLuu.Text = "Lưu";
             this.simpleButtonLuu.Click += new System.EventHandler(this.simpleButtonLuu_Click);
             // 
             // simpleButtonThoat
             // 
-            this.simpleButtonThoat.Location = new System.Drawing.Point(525, 400);
+            this.simpleButtonThoat.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonThoat.Image")));
+            this.simpleButtonThoat.Location = new System.Drawing.Point(521, 285);
             this.simpleButtonThoat.Name = "simpleButtonThoat";
-            this.simpleButtonThoat.Size = new System.Drawing.Size(83, 29);
+            this.simpleButtonThoat.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonThoat.TabIndex = 3;
             this.simpleButtonThoat.Text = "Thoát";
             // 
@@ -258,7 +266,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.ClientSize = new System.Drawing.Size(624, 323);
             this.Controls.Add(this.simpleButtonThoat);
             this.Controls.Add(this.simpleButtonLuu);
             this.Controls.Add(this.labelControl1);
@@ -279,7 +287,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditMaPhieuNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenKhachHang.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

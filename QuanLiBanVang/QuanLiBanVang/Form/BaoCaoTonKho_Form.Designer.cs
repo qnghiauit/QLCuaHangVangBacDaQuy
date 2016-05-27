@@ -48,22 +48,24 @@
             // 
             // groupControlInfo
             // 
+            this.groupControlInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControlInfo.Controls.Add(this.btnExport);
             this.groupControlInfo.Controls.Add(this.btnDisplay);
             this.groupControlInfo.Controls.Add(this.dtpkDisplayDate);
             this.groupControlInfo.Controls.Add(this.labelControlDate);
-            this.groupControlInfo.Location = new System.Drawing.Point(12, 45);
+            this.groupControlInfo.Location = new System.Drawing.Point(12, 42);
             this.groupControlInfo.Name = "groupControlInfo";
-            this.groupControlInfo.Size = new System.Drawing.Size(754, 81);
+            this.groupControlInfo.Size = new System.Drawing.Size(754, 65);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Thông tin báo cáo";
             // 
             // btnExport
             // 
             this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
-            this.btnExport.Location = new System.Drawing.Point(504, 35);
+            this.btnExport.Location = new System.Drawing.Point(372, 26);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(111, 29);
+            this.btnExport.Size = new System.Drawing.Size(100, 27);
             this.btnExport.TabIndex = 5;
             this.btnExport.Text = "Xuất file PDF";
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
@@ -71,9 +73,9 @@
             // btnDisplay
             // 
             this.btnDisplay.Image = ((System.Drawing.Image)(resources.GetObject("btnDisplay.Image")));
-            this.btnDisplay.Location = new System.Drawing.Point(341, 35);
+            this.btnDisplay.Location = new System.Drawing.Point(266, 26);
             this.btnDisplay.Name = "btnDisplay";
-            this.btnDisplay.Size = new System.Drawing.Size(108, 29);
+            this.btnDisplay.Size = new System.Drawing.Size(100, 27);
             this.btnDisplay.TabIndex = 4;
             this.btnDisplay.Text = "Xem báo cáo";
             this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
@@ -81,7 +83,7 @@
             // dtpkDisplayDate
             // 
             this.dtpkDisplayDate.EditValue = null;
-            this.dtpkDisplayDate.Location = new System.Drawing.Point(91, 40);
+            this.dtpkDisplayDate.Location = new System.Drawing.Point(89, 30);
             this.dtpkDisplayDate.Name = "dtpkDisplayDate";
             this.dtpkDisplayDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -96,7 +98,7 @@
             // 
             // labelControlDate
             // 
-            this.labelControlDate.Location = new System.Drawing.Point(5, 43);
+            this.labelControlDate.Location = new System.Drawing.Point(31, 33);
             this.labelControlDate.Name = "labelControlDate";
             this.labelControlDate.Size = new System.Drawing.Size(52, 13);
             this.labelControlDate.TabIndex = 0;
@@ -104,16 +106,21 @@
             // 
             // groupControlReport
             // 
+            this.groupControlReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControlReport.Controls.Add(this.dcmvReport);
-            this.groupControlReport.Location = new System.Drawing.Point(12, 132);
+            this.groupControlReport.Location = new System.Drawing.Point(12, 113);
             this.groupControlReport.Name = "groupControlReport";
-            this.groupControlReport.Size = new System.Drawing.Size(756, 401);
+            this.groupControlReport.Size = new System.Drawing.Size(756, 420);
             this.groupControlReport.TabIndex = 1;
             this.groupControlReport.Text = "Bảng báo cáo";
             // 
             // dcmvReport
             // 
-            this.dcmvReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dcmvReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dcmvReport.IsMetric = false;
             this.dcmvReport.Location = new System.Drawing.Point(2, 20);
             this.dcmvReport.Name = "dcmvReport";
@@ -122,13 +129,17 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl1.Location = new System.Drawing.Point(275, 6);
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(12, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(232, 33);
+            this.labelControl1.Size = new System.Drawing.Size(756, 24);
             this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "BÁO CÁO TỒN KHO";
+            this.labelControl1.Text = "Báo cáo tồn kho";
             // 
             // BaoCaoTonKho_Form
             // 
@@ -139,7 +150,7 @@
             this.Controls.Add(this.groupControlReport);
             this.Controls.Add(this.groupControlInfo);
             this.Name = "BaoCaoTonKho_Form";
-            this.Text = "BaoCaoTonKho_Form";
+            this.Text = "Báo cáo tồn kho";
             this.Load += new System.EventHandler(this.BaoCaoTonKho_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
@@ -149,7 +160,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlReport)).EndInit();
             this.groupControlReport.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
