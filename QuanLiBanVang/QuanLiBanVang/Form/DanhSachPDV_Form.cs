@@ -9,6 +9,7 @@ using DevExpress.XtraEditors;
 using DTO;
 using BUL;
 using QuanLiBanVang.ExtendClass;
+using QuanLiBanVang.Properties;
 
 namespace QuanLiBanVang
 {
@@ -43,12 +44,12 @@ namespace QuanLiBanVang
             gridControlDSPDV.DataSource = _dataTable;
             gridViewDSPDV.Columns[0].Visible = 
             gridViewDSPDV.Columns[1].Visible = false;
-            gridViewDSPDV.Columns[2].Caption = "Tên khách hàng";
-            gridViewDSPDV.Columns[3].Caption = "Tên nhân viên";
-            gridViewDSPDV.Columns[4].Caption = "Ngày đăng ký";
-            gridViewDSPDV.Columns[5].Caption = "Ngày giao";
-            gridViewDSPDV.Columns[6].Caption = "Tổng tiền";
-            gridViewDSPDV.OptionsMenu.EnableColumnMenu = false;;
+            gridViewDSPDV.Columns[2].Caption = Resources.TenKH;
+            gridViewDSPDV.Columns[3].Caption = Resources.TenNV;
+            gridViewDSPDV.Columns[4].Caption = Resources.NgayDK;
+            gridViewDSPDV.Columns[5].Caption = Resources.NgayGiao;
+            gridViewDSPDV.Columns[6].Caption = Resources.TongTien;
+            gridViewDSPDV.OptionsMenu.EnableColumnMenu = false;
         }
 
         private void GetDataNvAndKh()
@@ -100,7 +101,7 @@ namespace QuanLiBanVang
 
         private void simpleButtonDel_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn xoá phiếu dịch vụ này", "Cảnh báo",
+            DialogResult dialogResult = MessageBox.Show(Resources.DetailMessageBox_XacNhanXoa, Resources.TitleMessageBox_ThongBao,
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.OK)
             {
@@ -114,7 +115,7 @@ namespace QuanLiBanVang
                 {
                     SqlException eSqlException = ((SqlException)((UpdateException)dbUpdateException.InnerException).InnerException);
                     if (eSqlException.Message.Contains("FK_CTPGC_ID"))
-                        MessageBox.Show("Không thể xoá phiếu dịch vụ đã có chi tiết được gia công!", "Lỗi",
+                        MessageBox.Show(Resources.DanhSachPDV_DelError, Resources.TitleMessageBox_Error,
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
@@ -162,6 +163,22 @@ namespace QuanLiBanVang
         private void DanhSachPDV_SizeChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void gridViewDSPDV_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+                popupMenu1.ShowPopup(MousePosition);
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenEditDialog();
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            simpleButtonDel_Click(sender,e);
         }
     }
 }

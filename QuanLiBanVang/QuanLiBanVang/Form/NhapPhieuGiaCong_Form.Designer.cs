@@ -386,6 +386,7 @@
             this.gridViewCTPGC_review.GridControl = this.gridControlCTPGC_review;
             this.gridViewCTPGC_review.Name = "gridViewCTPGC_review";
             this.gridViewCTPGC_review.OptionsBehavior.Editable = false;
+            this.gridViewCTPGC_review.OptionsCustomization.AllowColumnMoving = false;
             this.gridViewCTPGC_review.OptionsView.ShowGroupPanel = false;
             this.gridViewCTPGC_review.OptionsView.ShowIndicator = false;
             this.gridViewCTPGC_review.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gridViewCTPGC_CustomUnboundColumnData);
@@ -408,6 +409,7 @@
             this.gridViewCTSPGC.GridControl = this.gridControlCTSPGC;
             this.gridViewCTSPGC.Name = "gridViewCTSPGC";
             this.gridViewCTSPGC.OptionsBehavior.Editable = false;
+            this.gridViewCTSPGC.OptionsCustomization.AllowColumnMoving = false;
             this.gridViewCTSPGC.OptionsView.ShowGroupPanel = false;
             this.gridViewCTSPGC.OptionsView.ShowIndicator = false;
             this.gridViewCTSPGC.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridViewCTPGC_RowCellClick);
@@ -468,6 +470,7 @@
             this.labelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
+            this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.labelControl10.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl10.Location = new System.Drawing.Point(12, 12);

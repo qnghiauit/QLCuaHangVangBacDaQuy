@@ -91,6 +91,7 @@
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.Location = new System.Drawing.Point(12, 9);
@@ -420,6 +421,7 @@
             this.gridViewCT_PDV.GridControl = this.gridControlCTPDV;
             this.gridViewCT_PDV.Name = "gridViewCT_PDV";
             this.gridViewCT_PDV.OptionsBehavior.Editable = false;
+            this.gridViewCT_PDV.OptionsCustomization.AllowColumnMoving = false;
             this.gridViewCT_PDV.OptionsView.ShowGroupPanel = false;
             this.gridViewCT_PDV.OptionsView.ShowIndicator = false;
             this.gridViewCT_PDV.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gridViewCT_PDV_CustomUnboundColumnData);

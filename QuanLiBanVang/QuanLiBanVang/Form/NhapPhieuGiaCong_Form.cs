@@ -7,6 +7,7 @@ using QuanLiBanVang.ExtendClass;
 using BUL;
 using DevExpress.XtraEditors.Controls;
 using DTO;
+using QuanLiBanVang.Properties;
 
 namespace QuanLiBanVang
 {
@@ -57,10 +58,10 @@ namespace QuanLiBanVang
                 gridViewCTSPGC.Columns[1].Visible =
                     gridViewCTSPGC.Columns[2].Visible =
                         gridViewCTSPGC.Columns[3].Visible =false;
-            gridViewCTSPGC.Columns[4].Caption = "Tên loại sản phẩm";
-            gridViewCTSPGC.Columns[5].Caption = "Hình thức gia công";
-            gridViewCTSPGC.Columns[6].Caption = "Số lượng";
-            gridViewCTSPGC.Columns[7].Caption = "Tiền công";
+            gridViewCTSPGC.Columns[4].Caption = Resources.TenLoaiSP;
+            gridViewCTSPGC.Columns[5].Caption = Resources.HTGC;
+            gridViewCTSPGC.Columns[6].Caption = Resources.SoLuong;
+            gridViewCTSPGC.Columns[7].Caption = Resources.TienCong;
             gridViewCTSPGC.OptionsMenu.EnableColumnMenu = false;
 
         }
@@ -83,11 +84,11 @@ namespace QuanLiBanVang
                 gridViewCTPGC_review.Columns[1].Visible =
                     gridViewCTPGC_review.Columns[2].Visible =
                         gridViewCTPGC_review.Columns[3].Visible = false;
-            gridViewCTPGC_review.Columns[4].Caption = "Tên loại sản phẩm";
-            gridViewCTPGC_review.Columns[5].Caption = "Hình thức gia công";
-            gridViewCTPGC_review.Columns[6].Caption = "Số lượng";
-            gridViewCTPGC_review.Columns[7].Caption = "Tiền công";
-            gridViewCTPGC_review.Columns[8].Caption = "Thành tiền";
+            gridViewCTPGC_review.Columns[4].Caption = Resources.TenLoaiSP;
+            gridViewCTPGC_review.Columns[5].Caption = Resources.HTGC;
+            gridViewCTPGC_review.Columns[6].Caption = Resources.SoLuong;
+            gridViewCTPGC_review.Columns[7].Caption = Resources.TienCong;
+            gridViewCTPGC_review.Columns[8].Caption = Resources.ThanhTien;
             gridViewCTPGC_review.OptionsMenu.EnableColumnMenu = false;
 
         }
@@ -198,24 +199,24 @@ namespace QuanLiBanVang
             string thanhTien = textEditThanhTien.Text;
             if (tenLoaiSp.Equals(""))
             {
-                MessageBox.Show("Bạn phải chọn sản phẩm cần gia công!", "Lỗi", MessageBoxButtons.OK,
+                MessageBox.Show(Resources.NhapPhieuGiaCong_SPCanGiaCongEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
             if (soLuong.Equals("") || soLuong.Equals("0"))
             {
-                MessageBox.Show("Bạn phải nhập vào số lượng lớn hơn 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuGiaCong_SoLuongBeHonKhong, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (tienCong.Equals(""))
             {
-                MessageBox.Show("Bạn phải nhập vào tiền công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuGiaCong_TienCongEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             DataRow currentRow = gridViewCTSPGC.GetDataRow(gridViewCTSPGC.FocusedRowHandle);
             if (Int32.Parse(soLuong) > Int32.Parse(currentRow["SoLuong"].ToString()))
             {
-                MessageBox.Show("Số lượng gia công không được lớn hơn số lượng sản phẩm!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuGiaCong_SLGiaCongLonHonSLCo, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             DataRow drReview = _dataTableCtpgcReview.Select("Id=" + currentRow["Id"]).FirstOrDefault();
@@ -279,31 +280,31 @@ namespace QuanLiBanVang
             //Check logic condition
             if (comboBoxEditTenTho.SelectedIndex == -1)
             {
-                MessageBox.Show("Tên thợ không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuGiaCong_TenThoEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 comboBoxEditTenTho.Focus();
                 return;
             }
             if (dateEditNgayNhanHang.Text.Equals(""))
             {
-                MessageBox.Show("Ngày nhận hàng không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuGiaCong_NgayNhanHangEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateEditNgayNhanHang.Focus();
                 return;
             }
             if (dateEditNgayThanhToan.Text.Equals(""))
             {
-                MessageBox.Show("Ngày thanh toán không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuGiaCong_NgayThanhToanEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateEditNgayThanhToan.Focus();
                 return;
             }
             if (dateEditNgayNhanHang.DateTime > dateEditNgayThanhToan.DateTime)
             {
-                MessageBox.Show("Ngày thanh toán phải lớn hơn hoặc bằng ngày nhận hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuGiaCong_NgayThanhToanTruocNgayNhanHang, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateEditNgayThanhToan.Focus();
                 return;
             }
             if (_dataTableCtpgcReview.Rows.Count == 0)
             {
-                MessageBox.Show("Mỗi phiếu gia công phải có ít nhất 1 chi tiết phiếu gia công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuGiaCong_SLChiTietPGCToiThieu, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             //Create PGC
@@ -330,12 +331,12 @@ namespace QuanLiBanVang
                 bulCtpgc.AddNewCTPGC(ctpgc);
             }
             //Neu ok het
-            MessageBox.Show("Phiếu gia công được tạo thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(Resources.NhapPhieuGiaCong_TaoPGCThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK, MessageBoxIcon.Information);
             simpleButtonLuu.Enabled = false;
             simpleButtonThem.Enabled = false;
             simpleButtonXoa.Enabled = false;
             _isResultOk = true;
-            simpleButtonExit.Text = "Thoát";
+            simpleButtonExit.Text = Resources.ThoatKhoiForm;
         }
         private void PhieuGiaCong_FormClosing(object sender, FormClosingEventArgs e)
         {

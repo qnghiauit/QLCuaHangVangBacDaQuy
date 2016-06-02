@@ -9,6 +9,7 @@ using DevExpress.XtraEditors.Controls;
 using QuanLiBanVang.ExtendClass;
 using BUL;
 using DTO;
+using QuanLiBanVang.Properties;
 
 namespace QuanLiBanVang
 {
@@ -58,7 +59,7 @@ namespace QuanLiBanVang
             if (makh == 0)
             {
                 checkEditKhachQuen.Checked = false;
-                comboBoxEditTenKhach.Text = "Khách vãng lai";
+                comboBoxEditTenKhach.Text = Resources.KhachVangLai;
             }
             else
             {
@@ -225,32 +226,35 @@ namespace QuanLiBanVang
             gridViewCT_PDV.Columns[2].Visible =
             gridViewCT_PDV.Columns[3].Visible =
             gridViewCT_PDV.Columns[5].Visible = false;
-            gridViewCT_PDV.Columns[4].Caption = "Tên loại sản phẩm";
-            gridViewCT_PDV.Columns[6].Caption = "Tên dịch vụ";
-            gridViewCT_PDV.Columns[7].Caption = "Số lượng";
-            gridViewCT_PDV.Columns[8].Caption = "Tiền công";
-            gridViewCT_PDV.Columns[9].Caption = "Thành tiền";
-            gridViewCT_PDV.Columns[10].Caption = "Ghi chú";
+            gridViewCT_PDV.Columns[4].Caption = Resources.TenLoaiSP;
+            gridViewCT_PDV.Columns[6].Caption = Resources.TenDichVu;
+            gridViewCT_PDV.Columns[7].Caption = Resources.SoLuong;
+            gridViewCT_PDV.Columns[8].Caption = Resources.TienCong;
+            gridViewCT_PDV.Columns[9].Caption = Resources.ThanhTien;
+            gridViewCT_PDV.Columns[10].Caption = Resources.GhiChu;
             gridViewCT_PDV.OptionsMenu.EnableColumnMenu = false;
         }
         private void comboBoxEditTenDV_SelectedIndexChanged(object sender, EventArgs e)
         {
             BUL_DichVu bulDichVu = new BUL_DichVu();
-            DICHVU dv = (comboBoxEditTenDV.SelectedItem as ContainerItem).Value as DICHVU;
-            decimal tiencong = bulDichVu.GetDichvuById(dv.MaDV).TienCong??0;
-            textEditTienCong.Text = ((int)tiencong).ToString();
-            CalculateThanhTien();
-            if (dv.MaDV == 2)
+            DICHVU dv = ((ContainerItem) comboBoxEditTenDV.SelectedItem).Value as DICHVU;
+            if (dv != null)
             {
-                textEditTienCong.ReadOnly = false;
-                textEditHTGC.ReadOnly = false;
-            }
-            else
-            {
-                textEditTienCong.ReadOnly = true;
-                textEditHTGC.Text = string.Empty;
-                textEditHTGC.ReadOnly = true;
-            }
+                decimal tiencong = bulDichVu.GetDichvuById(dv.MaDV).TienCong??0;
+                textEditTienCong.Text = ((int)tiencong).ToString();
+                CalculateThanhTien();
+                if (dv.MaDV == 2)
+                {
+                    textEditTienCong.ReadOnly = false;
+                    textEditHTGC.ReadOnly = false;
+                }
+                else
+                {
+                    textEditTienCong.ReadOnly = true;
+                    textEditHTGC.Text = string.Empty;
+                    textEditHTGC.ReadOnly = true;
+                }
+            }           
         }
         private void textEditSoLuong_EditValueChanged(object sender, EventArgs e)
         {
@@ -266,25 +270,25 @@ namespace QuanLiBanVang
         {
             if (comboBoxEditLoaiSP.SelectedIndex == -1)
             {
-                MessageBox.Show("Loại sản phẩm không được để trống!\nChọn Khác nếu cửa hàng không kinh doanh loại sản phẩm này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuDichVu_LoaiSPEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 comboBoxEditLoaiSP.Focus();
                 return false;
             }
             if (comboBoxEditTenDV.SelectedIndex == -1)
             {
-                MessageBox.Show("Tên dịch vụ không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapDichVu_TenDVEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 comboBoxEditTenDV.Focus();
                 return false;
             }
             if (textEditSoLuong.Text == "" || Int32.Parse(textEditSoLuong.Text) == 0)
             {
-                MessageBox.Show("Số lượng phải lớn hơn 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuDichVu_SoLuongEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textEditSoLuong.Focus();
                 return false;
             }
-            if (textEditHTGC.Equals("") && comboBoxEditTenDV.Text.Equals("Gia công"))
+            if (string.IsNullOrEmpty(textEditHTGC.Text) && comboBoxEditTenDV.Text.Equals("Gia công"))
             {
-                MessageBox.Show("Bạn phải nhập hình thức gia công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuDichVu_HTGCEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textEditHTGC.Focus();
                 return false;
             }
@@ -294,21 +298,21 @@ namespace QuanLiBanVang
         {
             if (!CheckLogicError())
                 return;
-            LOAISANPHAM lsp = (comboBoxEditLoaiSP.SelectedItem as ContainerItem).Value as LOAISANPHAM;
-            DICHVU dv = (comboBoxEditTenDV.SelectedItem as ContainerItem).Value as DICHVU;
+            LOAISANPHAM lsp = ((ContainerItem) comboBoxEditLoaiSP.SelectedItem).Value as LOAISANPHAM;
+            DICHVU dv = ((ContainerItem) comboBoxEditTenDV.SelectedItem).Value as DICHVU;
 
             CTPDV ctpdv = new CTPDV();
             ctpdv.SoPhieuDV = _soPDV;
             if (lsp != null)
                 ctpdv.MaLoaiSP = lsp.MaLoaiSP;
-            ctpdv.MaDV = dv.MaDV;
+            if (dv != null) ctpdv.MaDV = dv.MaDV;
             ctpdv.SoLuong = Int32.Parse(textEditSoLuong.Text);
             ctpdv.TienCong = Int32.Parse(textEditTienCong.Text);
             ctpdv.ThanhTien = Int32.Parse(textEditThanhTien.Text);
             ctpdv.GhiChu = textEditHTGC.Text;
             _bulCtpdv.AddNewCTPDV(ctpdv);
             //Neu ok het
-            MessageBox.Show("Thêm chi tiết phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(Resources.SuaPhieuDichVu_ThemCTPDVThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadInfoCtpdv();
             _isResultOk = true;
         }
@@ -317,7 +321,7 @@ namespace QuanLiBanVang
         {
             if (_dataTable.Rows.Count == 1)
             {
-                MessageBox.Show("Mỗi phiếu dịch vụ phải có ít nhất 1 chi tiết phiếu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuDichVu_SoPDVToiThieu, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
                 
@@ -333,11 +337,11 @@ namespace QuanLiBanVang
                 {
                     SqlException eSqlException = ((SqlException)((UpdateException)dbUpdateException.InnerException).InnerException);
                     if (eSqlException.Message.Contains("FK_CTPGC_ID"))
-                        MessageBox.Show("Không thể xoá chi tiết phiếu dịch vụ đã được gia công!", "Lỗi",
+                        MessageBox.Show(Resources.SuaPhieuDichVu_XoaCTPDVDaGiaCongError, Resources.TitleMessageBox_Error,
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 //Neu ok het
-                MessageBox.Show("Xoá chi tiết phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Resources.SuaPhieuDichVu_XoaCTPDVThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadInfoCtpdv();
                 _isResultOk = true;
             }                
@@ -362,19 +366,19 @@ namespace QuanLiBanVang
             //Check logic condition
             if (dateEditNgayGiao.Text == "")
             {
-                MessageBox.Show("Ngày giao không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuDichVu_NgayGiaoEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateEditNgayDK.Focus();
                 return;
             }
             if(dateEditNgayDK.DateTime > dateEditNgayGiao.DateTime)
             {
-                MessageBox.Show("Ngày giao phải lớn hơn hoặc bằng ngày đăng ký!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuDichVu_NgayGiaoTruocNgayDK, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateEditNgayGiao.Focus();
                 return;
             }
             if(_dataTable.Rows.Count == 0)
             {
-                MessageBox.Show("Mỗi phiếu dịch vụ phải có ít nhất 1 chi tiết phiếu dịch vụ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.NhapPhieuDichVu_SoPDVToiThieu, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 comboBoxEditLoaiSP.Focus();
                 return;
             }
@@ -383,7 +387,7 @@ namespace QuanLiBanVang
             _pdv.NgayGiao = dateEditNgayGiao.DateTime;
             _bulPhieuDichVu.UpdatePhieuDichVu(_pdv);
             //Neu ok het
-            MessageBox.Show("Sửa phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(Resources.SuaPhieuDichVu_SuaPDVThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK, MessageBoxIcon.Information);
             simpleButtonOK.Enabled = false;
             _isResultOk = true;
 
@@ -405,22 +409,22 @@ namespace QuanLiBanVang
                 int id = Int32.Parse(currentRow[1].ToString());
                 if (!CheckLogicError())
                     return;
-                LOAISANPHAM lsp = (comboBoxEditLoaiSP.SelectedItem as ContainerItem).Value as LOAISANPHAM;
-                DICHVU dv = (comboBoxEditTenDV.SelectedItem as ContainerItem).Value as DICHVU;
+                LOAISANPHAM lsp = ((ContainerItem) comboBoxEditLoaiSP.SelectedItem).Value as LOAISANPHAM;
+                DICHVU dv = ((ContainerItem) comboBoxEditTenDV.SelectedItem).Value as DICHVU;
 
                 CTPDV ctpdv = _bulCtpdv.GetCTPDVById(id);
                 if (lsp != null)
                     ctpdv.MaLoaiSP = lsp.MaLoaiSP;
                 else
                     ctpdv.MaLoaiSP = null;
-                ctpdv.MaDV = dv.MaDV;
+                if (dv != null) ctpdv.MaDV = dv.MaDV;
                 ctpdv.SoLuong = Int32.Parse(textEditSoLuong.Text);
                 ctpdv.TienCong = Int32.Parse(textEditTienCong.Text);
                 ctpdv.ThanhTien = Int32.Parse(textEditThanhTien.Text);
                 ctpdv.GhiChu = textEditHTGC.Text;
                 _bulCtpdv.UpdateCTPDV(ctpdv);
                 //Neu ok het
-                MessageBox.Show("Sửa chi tiết phiếu dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Resources.SuaCTPDVThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadInfoCtpdv();
                 _isResultOk = true;
             }           

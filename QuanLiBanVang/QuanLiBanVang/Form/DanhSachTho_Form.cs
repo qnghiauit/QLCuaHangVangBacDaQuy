@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Core;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUL;
-using DevExpress.XtraEditors;
 using DTO;
 using QuanLiBanVang.ExtendClass;
+using QuanLiBanVang.Properties;
 
 namespace QuanLiBanVang
 {
@@ -70,7 +65,7 @@ namespace QuanLiBanVang
             DataRow currentRow = gridViewDSTho.GetDataRow(gridViewDSTho.FocusedRowHandle);
             if (currentRow != null)
             {
-                DialogResult result = MessageBox.Show("Bạn có chắn chắc muốn xoá?", "Thông báo",
+                DialogResult result = MessageBox.Show(Resources.DetailMessageBox_XacNhanXoa, Resources.TitleMessageBox_ThongBao,
                     MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
@@ -88,7 +83,7 @@ namespace QuanLiBanVang
                         SqlException eSqlException =
                             ((SqlException)((UpdateException)dbUpdateException.InnerException).InnerException);
                         if (eSqlException.Message.Contains("FK_PGC_THO"))
-                            MessageBox.Show("Không thể xoá thợ đã thực hiện gia công sản phẩm!", "Lỗi",
+                            MessageBox.Show(Resources.DanhSachTho_DelError, Resources.TitleMessageBox_Error,
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -97,7 +92,7 @@ namespace QuanLiBanVang
 
         private void simpleButtonThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void gridViewDSTho_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
@@ -131,15 +126,31 @@ namespace QuanLiBanVang
             gridControlDSTho.DataSource = _dataTable;
             gridViewDSTho.Columns[0].Visible = false;
             gridViewDSTho.Columns[1].Visible = false;
-            gridViewDSTho.Columns[2].Caption = "Tên thợ";
-            gridViewDSTho.Columns[3].Caption = "Số điện thoại";
-            gridViewDSTho.Columns[4].Caption = "Địa chỉ";
+            gridViewDSTho.Columns[2].Caption = Resources.TenTho;
+            gridViewDSTho.Columns[3].Caption = Resources.SDT;
+            gridViewDSTho.Columns[4].Caption = Resources.DiaChi;
             gridViewDSTho.OptionsMenu.EnableColumnMenu = false;
         }
 
         private void gridViewDSTho_DoubleClick(object sender, EventArgs e)
         {
             OpenEditDialog();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenEditDialog();
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            simpleButtonXoa_Click(sender,e);
+        }
+
+        private void gridViewDSTho_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+                popupMenu1.ShowPopup(MousePosition);
         }
     }
 }

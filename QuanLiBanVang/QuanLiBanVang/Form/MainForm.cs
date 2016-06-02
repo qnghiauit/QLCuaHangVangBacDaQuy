@@ -80,8 +80,9 @@ namespace QuanLiBanVang
             {
                 case 1:
                     {
-                        this.barButtonItem29.Enabled = false;
-                        this.barButtonItem30.Enabled = false;
+                        this.barButtonItem21.Enabled = false;
+                        this.barButtonItem24.Enabled = false;
+                        this.barButtonItem27.Enabled = false;
                         break;
                     }
                 default: break;

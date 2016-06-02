@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUL;
-using DevExpress.XtraEditors;
 using DTO;
+using QuanLiBanVang.Properties;
 
 namespace QuanLiBanVang
 {
@@ -23,33 +15,33 @@ namespace QuanLiBanVang
             InitializeComponent();
             _bulDichVu = new BUL_DichVu();
             _dichvu = _bulDichVu.GetDichvuById(id);
-            this.textEditTenDV.Text = _dichvu.TenDV;
-            this.textEditTienCong.Text = ((int)(_dichvu.TienCong ?? 0)).ToString();
+            textEditTenDV.Text = _dichvu.TenDV;
+            textEditTienCong.Text = ((int)(_dichvu.TienCong ?? 0)).ToString();
         }
 
         private void simpleButtonOK_Click(object sender, EventArgs e)
         {
-            if (this.textEditTenDV.Text == "")
+            if (textEditTenDV.Text == "")
             {
-                MessageBox.Show("Tên dịch vụ không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.NhapDichVu_TenDVEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (this.textEditTienCong.Text == "")
+            if (textEditTienCong.Text == "")
             {
-                MessageBox.Show("Tiền công không được để trống!\nNếu tiền công phụ thuộc vào chi tiết gia công thì nhập vào 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.NhapDichVu_TienCongEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            _dichvu.TenDV = this.textEditTenDV.Text;
-            _dichvu.TienCong = Int32.Parse(this.textEditTienCong.Text);
+            _dichvu.TenDV = textEditTenDV.Text;
+            _dichvu.TienCong = Int32.Parse(textEditTienCong.Text);
             _bulDichVu.UpdateDichVu(_dichvu);
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void simpleButtonHuy_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

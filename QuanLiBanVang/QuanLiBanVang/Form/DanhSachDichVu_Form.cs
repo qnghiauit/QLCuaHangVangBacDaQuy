@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUL;
-using DevExpress.XtraEditors;
 using DTO;
 using QuanLiBanVang.ExtendClass;
+using QuanLiBanVang.Properties;
 
 namespace QuanLiBanVang
 {
@@ -41,8 +36,8 @@ namespace QuanLiBanVang
             gridControlDSDV.DataSource = _dataTable;
             gridViewDSDV.Columns[0].Visible = false;
             gridViewDSDV.Columns[1].Visible = false;
-            gridViewDSDV.Columns[2].Caption = "Tên dịch vụ";
-            gridViewDSDV.Columns[3].Caption = "Tiền công";
+            gridViewDSDV.Columns[2].Caption = Resources.TenDichVu;
+            gridViewDSDV.Columns[3].Caption = Resources.TienCong;
             gridViewDSDV.OptionsMenu.EnableColumnMenu = false;
         }
 
@@ -50,9 +45,9 @@ namespace QuanLiBanVang
         {
             _dataTable.Rows.Clear();
             _listDichvu = _bulDichVu.GetAllDichvus();
-            foreach (DICHVU t in _listDichvu)
+            foreach (var t in _listDichvu)
             {
-                _dataTable.Rows.Add(new object[] { null, t.MaDV, t.TenDV, t.TienCong });
+                _dataTable.Rows.Add(null, t.MaDV, t.TenDV, t.TienCong);
             }
             gridControlDSDV.DataSource = _dataTable;
         }       
@@ -94,7 +89,7 @@ namespace QuanLiBanVang
             DataRow currentRow = gridViewDSDV.GetDataRow(gridViewDSDV.FocusedRowHandle);
             if (currentRow != null)
             {
-                DialogResult result = MessageBox.Show("Bạn có chắn chắc muốn xoá?", "Thông báo",
+                DialogResult result = MessageBox.Show(Resources.DetailMessageBox_XacNhanXoa, Resources.TitleMessageBox_ThongBao,
                     MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
@@ -102,7 +97,7 @@ namespace QuanLiBanVang
                     int id = Int32.Parse(currentRow[1].ToString());
                     if (id == 2)
                     {
-                        MessageBox.Show("Đây là dịch vụ mặc định, không xoá được", "Lỗi", MessageBoxButtons.OK,
+                        MessageBox.Show(Resources.DanhSachDichVu_DelError, Resources.TitleMessageBox_Error, MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return;
                     }
@@ -127,6 +122,22 @@ namespace QuanLiBanVang
         private void gridViewDSDV_DoubleClick(object sender, EventArgs e)
         {
             OpenEditDialog();
+        }
+
+        private void gridViewDSDV_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if(e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+                popupMenu1.ShowPopup(MousePosition);
+        }
+
+        private void barButtonItemCapNhat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenEditDialog();
+        }
+
+        private void barButtonItemXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            simpleButtonDel_Click(sender,e);
         }
     }
 }

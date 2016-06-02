@@ -15,6 +15,6 @@ namespace DTO
     public partial class BANGTHAMSO
     {
         public string TenThamSo { get; set; }
-        public Nullable<double> GiaTri { get; set; }
+        public double GiaTri { get; set; }
     }
 }

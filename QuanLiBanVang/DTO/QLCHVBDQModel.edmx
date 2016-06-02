@@ -10,7 +10,7 @@
             <PropertyRef Name="TenThamSo" />
           </Key>
           <Property Name="TenThamSo" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="GiaTri" Type="float" />
+          <Property Name="GiaTri" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="BAOCAOTHUCHI">
           <Key>
@@ -271,7 +271,7 @@
           <Property Name="DiaChi" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOING TASK\PROJECT MOI NHAT\TRUNK\QUANLIBANVANG\DTO\DBQLCUAHANGVANGBACDAQUY.MDF.dbo.Baocao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'D:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIBANVANG\DTO\DBQLCUAHANGVANGBACDAQUY.MDF.dbo.Baocao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Baocao">
           <Key>
             <PropertyRef Name="NgayBC" />
@@ -1707,7 +1707,7 @@ warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOIN
             <PropertyRef Name="TenThamSo" />
           </Key>
           <Property Name="TenThamSo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="GiaTri" Type="Double" />
+          <Property Name="GiaTri" Type="Double" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>

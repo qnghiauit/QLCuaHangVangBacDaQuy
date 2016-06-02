@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUL;
-using DevExpress.XtraEditors;
 using DTO;
+using QuanLiBanVang.Properties;
 
 namespace QuanLiBanVang
 {
@@ -22,40 +15,40 @@ namespace QuanLiBanVang
             InitializeComponent();
             _bulTho = new BUL_Tho();
             _tho = _bulTho.GetWorkerById(id);
-            this.textEditTenTho.Text = _tho.TenTho;
-            this.textEditDiaChi.Text = _tho.DiaChi;
-            this.textEditSDT.Text = _tho.SDT;
+            textEditTenTho.Text = _tho.TenTho;
+            textEditDiaChi.Text = _tho.DiaChi;
+            textEditSDT.Text = _tho.SDT;
         }
 
         private void simpleButtonOK_Click(object sender, EventArgs e)
         {
-            if (this.textEditTenTho.Text == "")
+            if (textEditTenTho.Text == "")
             {
-                MessageBox.Show("Tên thợ gia công không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.NhapPhieuGiaCong_TenThoEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (this.textEditSDT.Text == "")
+            if (textEditSDT.Text == "")
             {
-                MessageBox.Show("Số điện thoại không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.NhapKhachHang_SDTEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (this.textEditDiaChi.Text == "")
+            if (textEditDiaChi.Text == "")
             {
-                MessageBox.Show("Địa chỉ không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.NhapKhachHang_DiaChiEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            _tho.TenTho = this.textEditTenTho.Text;
-            _tho.DiaChi = this.textEditDiaChi.Text;
-            _tho.SDT = this.textEditSDT.Text;
+            _tho.TenTho = textEditTenTho.Text;
+            _tho.DiaChi = textEditDiaChi.Text;
+            _tho.SDT = textEditSDT.Text;
             _bulTho.UpdateWorker(_tho);
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void simpleButtonHuy_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

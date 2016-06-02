@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Core;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUL;
-using DevExpress.XtraEditors;
 using DTO;
 using QuanLiBanVang.ExtendClass;
+using QuanLiBanVang.Properties;
 
 namespace QuanLiBanVang
 {
@@ -58,10 +53,10 @@ namespace QuanLiBanVang
             gridControlDSKH.DataSource = _dataTable;
             gridViewDSKH.Columns[0].Visible = false;
             gridViewDSKH.Columns[1].Visible = false;
-            gridViewDSKH.Columns[2].Caption = "Tên khách hàng";
-            gridViewDSKH.Columns[3].Caption = "Số điện thoại";
-            gridViewDSKH.Columns[4].Caption = "Địa chỉ";
-            gridViewDSKH.Columns[5].Caption = "Số tiền nợ";
+            gridViewDSKH.Columns[2].Caption = Resources.TenKH;
+            gridViewDSKH.Columns[3].Caption = Resources.SDT;
+            gridViewDSKH.Columns[4].Caption = Resources.DiaChi;
+            gridViewDSKH.Columns[5].Caption = Resources.SoTienNo;
             gridViewDSKH.OptionsMenu.EnableColumnMenu = false;
         }
 
@@ -111,7 +106,7 @@ namespace QuanLiBanVang
             DataRow currentRow = gridViewDSKH.GetDataRow(gridViewDSKH.FocusedRowHandle);
             if (currentRow != null)
             {
-                DialogResult result = MessageBox.Show("Bạn có chắn chắc muốn xoá?", "Thông báo",
+                DialogResult result = MessageBox.Show(Resources.DetailMessageBox_XacNhanXoa,Resources.TitleMessageBox_ThongBao,
                     MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
@@ -120,14 +115,15 @@ namespace QuanLiBanVang
                     try
                     {
                         _bulKhachHang = null;
-                        _bulKhachHang = new BUL_KhachHang();_bulKhachHang.DeleteKhachHang(id);
+                        _bulKhachHang = new BUL_KhachHang();
+                        _bulKhachHang.DeleteKhachHang(id);
                         FillGridView();
                     }
                     catch (DbUpdateException dbUpdateException)
                     {
                         SqlException eSqlException = ((SqlException)((UpdateException)dbUpdateException.InnerException).InnerException);
                         if (eSqlException.Message.Contains("FK_PDV_KH"))
-                            MessageBox.Show("Không thể xoá khách hàng đã có thực hiện giao dịch với cửa hàng!", "Lỗi",
+                            MessageBox.Show(Resources.DanhSachKH_DelError,Resources.TitleMessageBox_Error,
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     
@@ -136,12 +132,28 @@ namespace QuanLiBanVang
         }
         private void simpleButtonThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void gridViewDSKH_DoubleClick(object sender, EventArgs e)
         {
             OpenEditDialog();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenEditDialog();
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            simpleButtonXoa_Click(sender,e);
+        }
+
+        private void gridViewDSKH_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+                popupMenu1.ShowPopup(MousePosition);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace QuanLiBanVang
             // Application.CurrentCulture = new System.Globalization.CultureInfo("zh-Hans");
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new Form.ThayDoiQuyDinh_Form());
+            Application.Run(new NhapDichVu());
         }
     }
 }

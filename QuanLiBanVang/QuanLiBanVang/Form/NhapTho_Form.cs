@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUL;
 using DevExpress.XtraEditors;
 using DTO;
+using QuanLiBanVang.Properties;
 
 namespace QuanLiBanVang
 {
-    public partial class NhapTho : DevExpress.XtraEditors.XtraForm
+    public partial class NhapTho : XtraForm
     {
         private BUL_Tho _bulTho;
         public NhapTho()
@@ -23,36 +17,36 @@ namespace QuanLiBanVang
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            if (this.textEditTenTho.Text == "")
+            if (string.IsNullOrEmpty(textEditTenTho.Text))
             {
-                MessageBox.Show("Tên thợ gia công không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.NhapPhieuGiaCong_TenThoEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (this.textEditSDT.Text == "")
+            if (string.IsNullOrEmpty(textEditSDT.Text))
             {
-                MessageBox.Show("Số điện thoại không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.NhapKhachHang_SDTEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (this.textEditDiaChi.Text == "")
+            if (string.IsNullOrEmpty(textEditDiaChi.Text))
             {
-                MessageBox.Show("Địa chỉ không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.NhapKhachHang_DiaChiEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             THO newTho = new THO
             {
-                TenTho = this.textEditTenTho.Text,
-                SDT = this.textEditSDT.Text,
-                DiaChi = this.textEditDiaChi.Text
+                TenTho = textEditTenTho.Text,
+                SDT = textEditSDT.Text,
+                DiaChi = textEditDiaChi.Text
             };
             _bulTho.AddNewWorker(newTho);
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void simpleButtonHuy_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         private void NhapTho_SizeChanged(object sender, EventArgs e)

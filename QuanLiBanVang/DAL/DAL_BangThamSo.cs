@@ -28,5 +28,10 @@ namespace DAL
         {
             return _context.BANGTHAMSOes.ToList();
         }
+
+        public double getValueByArgument(string argument)
+        {
+            return _context.BANGTHAMSOes.Find(argument).GiaTri;
+        }
     }
 }
