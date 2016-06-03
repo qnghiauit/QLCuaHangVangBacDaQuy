@@ -44,7 +44,7 @@ namespace QuanLiBanVang.Form
                 return;
 
             }
-            decimal MINIMUN_PERCENTAGE = this.bulThamSo.getValueByArgument("TienTraToiThieu");
+            decimal MINIMUN_PERCENTAGE = Convert.ToDecimal(this.bulThamSo.getValueByArgument("TienTraToiThieu"));
             if (Decimal.Compare(this.prepaidExpenses, Decimal.Multiply(this.total, MINIMUN_PERCENTAGE)) < 0)
             {
                 MessageBox.Show(ErrorMessage.NOT_QUALIFIED_TO_OWE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
