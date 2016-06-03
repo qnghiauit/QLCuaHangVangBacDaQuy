@@ -42,7 +42,7 @@ namespace QuanLiBanVang.Form
             // this.bulPhieuBanHang = new BUL_PhieuBanHang();
             // this.gridControlListReceipts.DataSource = this.bulPhieuBanHang.toBindingList();
 
-            if (this.gridView1.SelectedRowsCount < 0 || this.gridView1.SelectedRowsCount > 1) return;
+            if (this.gridView1.SelectedRowsCount < 0 || this.gridView1.SelectedRowsCount > 1 || this.gridView1.DataRowCount == 0) return;
             // get item from focused row of gridview
             PHIEUBANHANG focusedRow = (PHIEUBANHANG)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
             // open new form

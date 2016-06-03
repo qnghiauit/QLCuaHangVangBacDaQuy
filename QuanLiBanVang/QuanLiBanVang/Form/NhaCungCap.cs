@@ -19,6 +19,8 @@ namespace QuanLiBanVang.Form
 
         // datbase context
         private BUL_NhaCungCap bulProvider = new BUL_NhaCungCap();
+        private ActionType formActionType; // mark user's intention when opening the form
+
         public NhaCungCap()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace QuanLiBanVang.Form
         {
             this.InitializeComponent();
             // setup the view coresponding to the type of the form
+            this.formActionType = type;
             switch (type)
             {
                 case ActionType.ACTION_VIEW:
@@ -39,6 +42,9 @@ namespace QuanLiBanVang.Form
                     this.labelControlMaNCC.Enabled = false;
                     this.textEditMaNCC.Visible = false;
                     this.labelControlMaNCC.Visible = false;
+                    break;
+                case ActionType.ACTION_UPDATE:
+                    this.updateProviderActionType(data);
                     break;
                 default: break;
             }
@@ -86,23 +92,40 @@ namespace QuanLiBanVang.Form
         /// <param name="e"></param>
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            if (this.isValidInformation())
+            if (this.formActionType == ActionType.ACTION_CREATE_NEW)
             {
-                // save new supplier
-                this.bulProvider.add(new NHACUNGCAP
+                if (this.isValidInformation())
                 {
-                    // MACC is auto increment
-                    TenNCC = this.textEditTenNhaCungCap.Text.Trim(),
-                    DiaChi = this.richTextBoxDiaChi.Text.Trim(),
-                    SDT = this.textEditSoDienThoai.Text.Trim()
+                    // save new supplier
+                    this.bulProvider.add(new NHACUNGCAP
+                    {
+                        // MACC is auto increment
+                        TenNCC = this.textEditTenNhaCungCap.Text.Trim(),
+                        DiaChi = this.richTextBoxDiaChi.Text.Trim(),
+                        SDT = this.textEditSoDienThoai.Text.Trim()
 
-                });
-                // show notification to user
-                DialogResult notification = MessageBox.Show(NotificationMessage.MESSAGE_SAVING_JOB_DONE, NotificationMessage.MESSAGE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (notification == DialogResult.OK)
-                {
-                    this.Close();
+                    });
+                    // show notification to user
+                    DialogResult notification = MessageBox.Show(NotificationMessage.MESSAGE_SAVING_JOB_DONE,
+                        NotificationMessage.MESSAGE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (notification == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
                 }
+            }
+            else if (this.formActionType == ActionType.ACTION_UPDATE && this.isValidInformation())
+            {
+                NHACUNGCAP modifiedProvider = new NHACUNGCAP
+                {
+                    TenNCC = this.textEditTenNhaCungCap.Text,
+                    DiaChi = this.richTextBoxDiaChi.Text,
+                    SDT = this.textEditSoDienThoai.Text
+                };
+                this.bulProvider.updateProvider(int.Parse(this.textEditMaNCC.Text), modifiedProvider);
+                // show notification to user
+                DialogResult notification = MessageBox.Show(NotificationMessage.MESSAGE_UPDATE_JOB_DONE,
+                    NotificationMessage.MESSAGE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         /// <summary>
@@ -113,16 +136,38 @@ namespace QuanLiBanVang.Form
         private void viewActionType(NHACUNGCAP data)
         {
             this.textEditMaNCC.Text = data.MaNCC.ToString();
-           // this.textEditMaNCC.Enabled = false;
+            this.textEditMaNCC.Enabled = false;
             this.textEditTenNhaCungCap.Text = data.TenNCC;
-           // this.textEditTenNhaCungCap.Enabled = false;
+            this.textEditTenNhaCungCap.Enabled = false;
             this.textEditSoDienThoai.Text = data.SDT;
-           // this.textEditSoDienThoai.Enabled = false;
+            this.textEditSoDienThoai.Enabled = false;
             this.richTextBoxDiaChi.Text = data.DiaChi;
+            this.richTextBoxDiaChi.Enabled = false;
 
             // invisible button
             this.simpleButtonLuu.Enabled = false;
             this.simpleButtonLuu.Visible = false;
+        }
+
+        private void updateProviderActionType(NHACUNGCAP argument)
+        {
+            // make sure argument is valid
+            if (argument == null)
+            {
+                return;
+            }
+
+            this.textEditMaNCC.Text = argument.MaNCC.ToString();
+            this.textEditMaNCC.Enabled = false;
+            this.textEditTenNhaCungCap.Text = argument.TenNCC;
+            this.textEditTenNhaCungCap.Enabled = true;
+            this.textEditSoDienThoai.Text = argument.SDT;
+            this.textEditSoDienThoai.Enabled = true;
+            this.richTextBoxDiaChi.Text = argument.DiaChi;
+
+
+            // update button text
+            this.simpleButtonLuu.Text = "Sủa";
         }
     }
 }

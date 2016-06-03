@@ -165,46 +165,46 @@ namespace QuanLiBanVang.Form
         }
 
 
-        /// <summary>
-        /// add new record into gridview, as well as add new item of the list to be saved into database
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void simpleButton3_Click(object sender, EventArgs e)
-        {
-            // at first , check content of View (ComboxboxEdit and TextEdit)
-            if (!this.isValidImportViewData())
-            {
-                return; // exit method
-            }
-            ContainerItem selectedItem = (ContainerItem)this.comboBoxEditSP.SelectedItem;
-            SANPHAM selectedProduct = (SANPHAM)selectedItem.Value;
-            // make sure that we have no duplicated elements
-            if (this.bindingListDataSource.Any(x => x.MaSp == selectedProduct.MaSP))
-            {
-                MessageBox.Show(ErrorMessage.EXISTED_PRODUCT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // exit method
-            }
-            else
-            {
-                // otherwise, instace new element
-                ImportItemGridViewDataSource newElement = new ImportItemGridViewDataSource
-                {
-                    STT = this.bindingListDataSource.Count,
-                    LoaiSanPham = this.comboBoxEditLoaiSp.Text,
-                    MaSp = selectedProduct.MaSP,
-                    TenSp = selectedProduct.TenSP,
-                    SoLuong = Int32.Parse(this.textEditSoLuong.Text.Trim()),
-                    GiaMua = decimal.Parse(this.textEditGiaMua.Text.Trim())
-                };
-                // update cost
-                newElement.ThanhTien = newElement.SoLuong * newElement.GiaMua;
-                this.bindingListDataSource.Add(newElement); //add into list
-                // update total
-                this.updateTotal();
-            }
+        ///// <summary>
+        ///// add new record into gridview, as well as add new item of the list to be saved into database
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void simpleButton3_Click(object sender, EventArgs e)
+        //{
+        //    // at first , check content of View (ComboxboxEdit and TextEdit)
+        //    if (!this.isValidImportViewData())
+        //    {
+        //        return; // exit method
+        //    }
+        //    ContainerItem selectedItem = (ContainerItem)this.comboBoxEditSP.SelectedItem;
+        //    SANPHAM selectedProduct = (SANPHAM)selectedItem.Value;
+        //    // make sure that we have no duplicated elements
+        //    if (this.bindingListDataSource.Any(x => x.MaSp == selectedProduct.MaSP))
+        //    {
+        //        MessageBox.Show(ErrorMessage.EXISTED_PRODUCT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return; // exit method
+        //    }
+        //    else
+        //    {
+        //        // otherwise, instace new element
+        //        ImportItemGridViewDataSource newElement = new ImportItemGridViewDataSource
+        //        {
+        //            STT = this.bindingListDataSource.Count,
+        //            LoaiSanPham = this.comboBoxEditLoaiSp.Text,
+        //            MaSp = selectedProduct.MaSP,
+        //            TenSp = selectedProduct.TenSP,
+        //            SoLuong = Int32.Parse(this.textEditSoLuong.Text.Trim()),
+        //            GiaMua = decimal.Parse(this.textEditGiaMua.Text.Trim())
+        //        };
+        //        // update cost
+        //        newElement.ThanhTien = newElement.SoLuong * newElement.GiaMua;
+        //        this.bindingListDataSource.Add(newElement); //add into list
+        //        // update total
+        //        this.updateTotal();
+        //    }
 
-        }
+        //}
 
         private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -334,6 +334,46 @@ namespace QuanLiBanVang.Form
         {
             // close the form
             this.Close();
+        }
+
+        /// <summary>
+        ///  add new record into gridview, as well as add new item of the list to be saved into database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void simpleButton3_Click_1(object sender, EventArgs e)
+        {
+            // at first , check content of View (ComboxboxEdit and TextEdit)
+            if (!this.isValidImportViewData())
+            {
+                return; // exit method
+            }
+            ContainerItem selectedItem = (ContainerItem)this.comboBoxEditSP.SelectedItem;
+            SANPHAM selectedProduct = (SANPHAM)selectedItem.Value;
+            // make sure that we have no duplicated elements
+            if (this.bindingListDataSource.Any(x => x.MaSp == selectedProduct.MaSP))
+            {
+                MessageBox.Show(ErrorMessage.EXISTED_PRODUCT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // exit method
+            }
+            else
+            {
+                // otherwise, instace new element
+                ImportItemGridViewDataSource newElement = new ImportItemGridViewDataSource
+                {
+                    STT = this.bindingListDataSource.Count,
+                    LoaiSanPham = this.comboBoxEditLoaiSp.Text,
+                    MaSp = selectedProduct.MaSP,
+                    TenSp = selectedProduct.TenSP,
+                    SoLuong = Int32.Parse(this.textEditSoLuong.Text.Trim()),
+                    GiaMua = decimal.Parse(this.textEditGiaMua.Text.Trim())
+                };
+                // update cost
+                newElement.ThanhTien = newElement.SoLuong * newElement.GiaMua;
+                this.bindingListDataSource.Add(newElement); //add into list
+                // update total
+                this.updateTotal();
+            }
         }
     }
 }

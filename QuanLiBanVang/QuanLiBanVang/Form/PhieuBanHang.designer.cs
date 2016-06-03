@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuBanHang));
-            this.contextMenuStripUpdateGridData = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStripUpdateGridData = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseSavingBackgrounWorker = new System.ComponentModel.BackgroundWorker();
@@ -223,6 +224,7 @@
             this.simpleButtonThem.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonThem.TabIndex = 8;
             this.simpleButtonThem.Text = "Thêm";
+            this.simpleButtonThem.Click += new System.EventHandler(this.simpleButtonThem_Click_1);
             // 
             // label13
             // 
@@ -341,11 +343,12 @@
             // simpleButtonTimKhachQuen
             // 
             this.simpleButtonTimKhachQuen.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonTimKhachQuen.Image")));
-            this.simpleButtonTimKhachQuen.Location = new System.Drawing.Point(639, 87);
+            this.simpleButtonTimKhachQuen.Location = new System.Drawing.Point(651, 87);
             this.simpleButtonTimKhachQuen.Name = "simpleButtonTimKhachQuen";
             this.simpleButtonTimKhachQuen.Size = new System.Drawing.Size(109, 27);
             this.simpleButtonTimKhachQuen.TabIndex = 14;
             this.simpleButtonTimKhachQuen.Text = "Tìm khách quen";
+            this.simpleButtonTimKhachQuen.Click += new System.EventHandler(this.simpleButtonTimKhachQuen_Click_1);
             // 
             // textEditSoPhieuBH
             // 
@@ -390,6 +393,7 @@
             this.checkEditKhachQuen.Properties.Caption = "Khách quen";
             this.checkEditKhachQuen.Size = new System.Drawing.Size(95, 19);
             this.checkEditKhachQuen.TabIndex = 9;
+            this.checkEditKhachQuen.CheckedChanged += new System.EventHandler(this.checkEditKhachQuen_CheckedChanged);
             // 
             // label4
             // 

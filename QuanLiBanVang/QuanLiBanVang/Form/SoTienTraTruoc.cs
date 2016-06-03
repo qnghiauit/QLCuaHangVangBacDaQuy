@@ -14,11 +14,14 @@ namespace QuanLiBanVang.Form
 {
     public partial class SoTienTraTruoc : DevExpress.XtraEditors.XtraForm
     {
-        public static readonly decimal MINIMUN_PERCENTAGE = 0.6M;
+
+        private BUL.BUL_BangThamSo bulThamSo;
         private decimal total;
         private decimal prepaidExpenses;
         public SoTienTraTruoc()
         {
+            this.bulThamSo = new BUL.BUL_BangThamSo();
+           
             InitializeComponent();
         }
 
@@ -41,6 +44,7 @@ namespace QuanLiBanVang.Form
                 return;
 
             }
+            decimal MINIMUN_PERCENTAGE = this.bulThamSo.getValueByArgument("TienTraToiThieu");
             if (Decimal.Compare(this.prepaidExpenses, Decimal.Multiply(this.total, MINIMUN_PERCENTAGE)) < 0)
             {
                 MessageBox.Show(ErrorMessage.NOT_QUALIFIED_TO_OWE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);

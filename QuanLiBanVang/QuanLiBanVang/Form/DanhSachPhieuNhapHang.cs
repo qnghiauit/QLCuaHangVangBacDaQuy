@@ -31,6 +31,8 @@ namespace QuanLiBanVang.Form
 
         private void chiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // check the gridview is valid 
+            if (this.gridView1.SelectedRowsCount < 0 || this.gridView1.SelectedRowsCount > 1 || this.gridView1.DataRowCount == 0) { return; }
             PHIEUNHAPHANG selectedImportReceipt = (PHIEUNHAPHANG)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
             // start the form
             PhieuNhapHang viewImportDetailForm = new PhieuNhapHang(ActionType.ACTION_VIEW, selectedImportReceipt);

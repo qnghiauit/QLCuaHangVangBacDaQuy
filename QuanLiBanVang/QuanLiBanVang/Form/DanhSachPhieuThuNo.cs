@@ -44,6 +44,7 @@ namespace QuanLiBanVang.Form
             this.gridControlDanhSachPhieuNo.DataSource = null;
             // see all receipts of selected frequenter //
             ContainerItem selectedItem = (ContainerItem)this.comboBoxEditKhachHang.SelectedItem;
+            if (selectedItem == null) { return; }
             KHACHHANG selectedFrequenter = (KHACHHANG)selectedItem.Value;
 
             this.bulPhieuBanHang = new BUL_PhieuBanHang();

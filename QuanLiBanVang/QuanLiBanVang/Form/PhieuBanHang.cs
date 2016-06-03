@@ -105,51 +105,51 @@ namespace QuanLiBanVang
         /// 
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void simpleButtonThem_Click(object sender, EventArgs e)
-        {
-            if (this.checkValidItem())
-            {
-                // first , add this item into list first
-                ContainerItem productTypeItem = (ContainerItem)this.comboBoxEditMaLoaiSp.SelectedItem;
-                LOAISANPHAM selectedProdcuctType = (LOAISANPHAM)productTypeItem.Value;
-                ContainerItem productItem = (ContainerItem)this.comboBoxEditMaSp.SelectedItem;
-                SANPHAM selectedProduct = (SANPHAM)productItem.Value;
-                // check number of products in stock
-                int numberOfProducts = Int32.Parse(this.textEditSoLuong.Text);
-                if (numberOfProducts > selectedProduct.SoLuongTon)
-                {
-                    MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+        //private void simpleButtonThem_Click(object sender, EventArgs e)
+        //{
+        //    if (this.checkValidItem())
+        //    {
+        //        // first , add this item into list first
+        //        ContainerItem productTypeItem = (ContainerItem)this.comboBoxEditMaLoaiSp.SelectedItem;
+        //        LOAISANPHAM selectedProdcuctType = (LOAISANPHAM)productTypeItem.Value;
+        //        ContainerItem productItem = (ContainerItem)this.comboBoxEditMaSp.SelectedItem;
+        //        SANPHAM selectedProduct = (SANPHAM)productItem.Value;
+        //        // check number of products in stock
+        //        int numberOfProducts = Int32.Parse(this.textEditSoLuong.Text);
+        //        if (numberOfProducts > selectedProduct.SoLuongTon)
+        //        {
+        //            MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            return;
+        //        }
 
-                // make sure san pham did not exist before in list
-                if (!this.gridViewDataSource.Any(x => x.MaSP == selectedProduct.MaSP))
-                {
+        //        // make sure san pham did not exist before in list
+        //        if (!this.gridViewDataSource.Any(x => x.MaSP == selectedProduct.MaSP))
+        //        {
 
-                    // new record data for gridview
-                    DetailGridViewDataSource newRow = new DetailGridViewDataSource
-                    {
-                        MaLoaiSp = selectedProdcuctType.MaLoaiSP,
-                        Stt = this.gridViewDataSource.Count,
-                        LoaiSP = selectedProdcuctType.TenLoaiSP,
-                        MaSP = selectedProduct.MaSP,
-                        SoLuong = int.Parse(this.textEditSoLuong.Text),
-                        TenSp = selectedProduct.TenSP,
-                        GiaBan = decimal.Multiply(Convert.ToDecimal(selectedProduct.GiaMua),
-                                                    Convert.ToDecimal(selectedProdcuctType.PhanTramLoiNhuan + 1)),
-                    };
-                    newRow.ThanhTien = decimal.Multiply(newRow.GiaBan, newRow.SoLuong);
-                    // add valid element to two lists
-                    this.gridViewDataSource.Add(newRow);
-                    this.updateTotal(); // update the total
-                }
-                else
-                {
-                    MessageBox.Show(ErrorMessage.EXISTED_PRODUCT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+        //            // new record data for gridview
+        //            DetailGridViewDataSource newRow = new DetailGridViewDataSource
+        //            {
+        //                MaLoaiSp = selectedProdcuctType.MaLoaiSP,
+        //                Stt = this.gridViewDataSource.Count,
+        //                LoaiSP = selectedProdcuctType.TenLoaiSP,
+        //                MaSP = selectedProduct.MaSP,
+        //                SoLuong = int.Parse(this.textEditSoLuong.Text),
+        //                TenSp = selectedProduct.TenSP,
+        //                GiaBan = decimal.Multiply(Convert.ToDecimal(selectedProduct.GiaMua),
+        //                                            Convert.ToDecimal(selectedProdcuctType.PhanTramLoiNhuan + 1)),
+        //            };
+        //            newRow.ThanhTien = decimal.Multiply(newRow.GiaBan, newRow.SoLuong);
+        //            // add valid element to two lists
+        //            this.gridViewDataSource.Add(newRow);
+        //            this.updateTotal(); // update the total
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show(ErrorMessage.EXISTED_PRODUCT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
 
-            }
-        }
+        //    }
+        //}
         /*
          * before adding new record into grid control , data must be check to be valid
          * 
@@ -584,6 +584,76 @@ namespace QuanLiBanVang
             }
         }
 
+        private void checkEditKhachQuen_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkEditKhachQuen.Checked)
+            {
+                this.simpleButtonTimKhachQuen.Visible = true;
+                this.simpleButtonTimKhachQuen.Enabled = true;
+            }
+            else
+            {
+                this.simpleButtonTimKhachQuen.Enabled = false;
+                this.simpleButtonTimKhachQuen.Visible = false;
+                this.frequenter = null;
+            }
+        }
+
+        // show form containing list of frequenters for staff to choose 
+        private void simpleButtonTimKhachQuen_Click_1(object sender, EventArgs e)
+        {
+            DanhSachKhachQuen frequenterListForm = new DanhSachKhachQuen();
+            frequenterListForm.frequenterSender = new DanhSachKhachQuen.FrequenterInformationSendBack(this.onReceiveFrequenter);
+            frequenterListForm.ShowDialog();
+        }
+
+        // insert new item into user's cart
+        private void simpleButtonThem_Click_1(object sender, EventArgs e)
+        {
+            if (this.checkValidItem())
+            {
+                // first , add this item into list first
+                ContainerItem productTypeItem = (ContainerItem)this.comboBoxEditMaLoaiSp.SelectedItem;
+                LOAISANPHAM selectedProdcuctType = (LOAISANPHAM)productTypeItem.Value;
+                ContainerItem productItem = (ContainerItem)this.comboBoxEditMaSp.SelectedItem;
+                SANPHAM selectedProduct = (SANPHAM)productItem.Value;
+                // check number of products in stock
+                int numberOfProducts = Int32.Parse(this.textEditSoLuong.Text);
+                if (numberOfProducts > selectedProduct.SoLuongTon)
+                {
+                    MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // make sure san pham did not exist before in list
+                if (!this.gridViewDataSource.Any(x => x.MaSP == selectedProduct.MaSP))
+                {
+
+                    // new record data for gridview
+                    DetailGridViewDataSource newRow = new DetailGridViewDataSource
+                    {
+                        MaLoaiSp = selectedProdcuctType.MaLoaiSP,
+                        Stt = this.gridViewDataSource.Count,
+                        LoaiSP = selectedProdcuctType.TenLoaiSP,
+                        MaSP = selectedProduct.MaSP,
+                        SoLuong = int.Parse(this.textEditSoLuong.Text),
+                        TenSp = selectedProduct.TenSP,
+                        GiaBan = decimal.Multiply(Convert.ToDecimal(selectedProduct.GiaMua),
+                                                    Convert.ToDecimal(selectedProdcuctType.PhanTramLoiNhuan + 1)),
+                    };
+                    newRow.ThanhTien = decimal.Multiply(newRow.GiaBan, newRow.SoLuong);
+                    // add valid element to two lists
+                    this.gridViewDataSource.Add(newRow);
+                    this.updateTotal(); // update the total
+                }
+                else
+                {
+                    MessageBox.Show(ErrorMessage.EXISTED_PRODUCT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
 
 
         ////------------------------------//
@@ -598,8 +668,5 @@ namespace QuanLiBanVang
         //}
 
     }
-
-
-
 
 }
