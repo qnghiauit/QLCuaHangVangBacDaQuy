@@ -69,5 +69,12 @@ namespace QuanLiBanVang.Report
             this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close();
         }
+
+        private void NhapSanPham_Form_SizeChanged(object sender, EventArgs e)
+        {
+            groupControlInfo.Left = (ClientSize.Width - groupControlInfo.Width) / 2;
+            btnCancel.Left = groupControlInfo.Right - btnSave.Width;
+            btnSave.Left = btnCancel.Left - btnSave.Width - 10; 
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachDichVu));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControlDSDV = new DevExpress.XtraGrid.GridControl();
@@ -37,10 +38,10 @@
             this.simpleButtonAdd = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barButtonItemCapNhat = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemXoa = new DevExpress.XtraBars.BarButtonItem();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -89,7 +90,6 @@
             this.gridViewDSDV.OptionsBehavior.ReadOnly = true;
             this.gridViewDSDV.OptionsCustomization.AllowColumnMoving = false;
             this.gridViewDSDV.OptionsView.ShowGroupPanel = false;
-            this.gridViewDSDV.OptionsView.ShowIndicator = false;
             this.gridViewDSDV.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gridViewDSDV_PopupMenuShowing);
             this.gridViewDSDV.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gridViewDSDV_CustomUnboundColumnData);
             this.gridViewDSDV.DoubleClick += new System.EventHandler(this.gridViewDSDV_DoubleClick);

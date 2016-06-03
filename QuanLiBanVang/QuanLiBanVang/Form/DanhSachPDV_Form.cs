@@ -101,24 +101,28 @@ namespace QuanLiBanVang
 
         private void simpleButtonDel_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show(Resources.DetailMessageBox_XacNhanXoa, Resources.TitleMessageBox_ThongBao,
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.OK)
+            DataRow currentRow = gridViewDSPDV.GetDataRow(gridViewDSPDV.FocusedRowHandle);
+            if (currentRow != null)
             {
-                DataRow currentRow = gridViewDSPDV.GetDataRow(gridViewDSPDV.FocusedRowHandle);
-                try
+                DialogResult dialogResult = MessageBox.Show(Resources.DetailMessageBox_XacNhanXoa,
+                    Resources.TitleMessageBox_ThongBao,
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.OK)
                 {
-                    _bulPhieuDichVu.DeletePhieuDichVu(Convert.ToInt32(currentRow[1]));
-                    FillDataTable();
+                    try
+                    {
+                        _bulPhieuDichVu.DeletePhieuDichVu(Convert.ToInt32(currentRow[1]));
+                        FillDataTable();
+                    }
+                    catch (DbUpdateException dbUpdateException)
+                    {
+                        SqlException eSqlException =
+                            ((SqlException) ((UpdateException) dbUpdateException.InnerException).InnerException);
+                        if (eSqlException.Message.Contains("FK_CTPGC_ID"))
+                            MessageBox.Show(Resources.DanhSachPDV_DelError, Resources.TitleMessageBox_Error,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (DbUpdateException dbUpdateException)
-                {
-                    SqlException eSqlException = ((SqlException)((UpdateException)dbUpdateException.InnerException).InnerException);
-                    if (eSqlException.Message.Contains("FK_CTPGC_ID"))
-                        MessageBox.Show(Resources.DanhSachPDV_DelError, Resources.TitleMessageBox_Error,
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                
             }
         }
 

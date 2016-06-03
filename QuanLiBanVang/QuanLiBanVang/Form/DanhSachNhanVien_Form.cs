@@ -7,6 +7,7 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUL;
 using DevExpress.XtraEditors;
 
 namespace QuanLiBanVang.Report
@@ -23,6 +24,7 @@ namespace QuanLiBanVang.Report
         {
             InitializeComponent();
             _bulStaff = new BUL.BUL_NhanVien();
+            _bulPosition = new BUL_ChucVu();
             _myCache = new ExtendClass.MyCache("Id");
             
         }

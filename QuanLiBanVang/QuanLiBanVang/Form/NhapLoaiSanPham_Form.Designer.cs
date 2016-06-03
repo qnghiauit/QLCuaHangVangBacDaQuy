@@ -152,6 +152,7 @@
             this.Controls.Add(this.labelControl1);
             this.Name = "NhapLoaiSanPham_Form";
             this.Text = "Nhập loại sản phẩm";
+            this.SizeChanged += new System.EventHandler(this.NhapLoaiSanPham_Form_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();

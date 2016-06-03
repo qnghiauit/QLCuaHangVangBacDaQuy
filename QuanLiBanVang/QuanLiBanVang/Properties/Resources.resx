@@ -306,4 +306,7 @@ Số lượng tối đa có thể nhập: </value>
   <data name="SuaPhieuGiaCong_SuaCTPGCThanhCong" xml:space="preserve">
     <value>Sửa chi tiết phiếu gia công thành công!</value>
   </data>
+  <data name="ThemThanhCong" xml:space="preserve">
+    <value>Thêm thành công!</value>
+  </data>
 </root>

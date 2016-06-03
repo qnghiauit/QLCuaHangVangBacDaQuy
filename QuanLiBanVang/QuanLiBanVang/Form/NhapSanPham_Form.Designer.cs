@@ -186,6 +186,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập sản phẩm";
             this.Load += new System.EventHandler(this.NhapSanPham_Form_Load);
+            this.SizeChanged += new System.EventHandler(this.NhapSanPham_Form_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();

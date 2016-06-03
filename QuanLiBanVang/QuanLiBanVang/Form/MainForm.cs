@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using QuanLiBanVang.Form;
 
 namespace QuanLiBanVang
 {
@@ -96,7 +97,8 @@ namespace QuanLiBanVang
 
         private void barButtonItemDSNhaCungCap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+            DanhSachNhaCungCap nhaCungCap = new DanhSachNhaCungCap();
+            OpenChildForm(nhaCungCap);
         }
 
         private void barButtonItemDSThoGiaCong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -243,6 +245,51 @@ namespace QuanLiBanVang
             Form.BaoCaoCongNo_Form baoCaoConNo_frm = new Form.BaoCaoCongNo_Form();
             OpenChildForm(baoCaoConNo_frm);
         }
+
+        private void barButtonItemDSPhieuBanHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhSachPhieuBanHang danhSachPhieuBanHang = new DanhSachPhieuBanHang();
+            OpenChildForm(danhSachPhieuBanHang);
+        }
+
+        private void barButtonItemLapPBH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            PhieuBanHang phieuBanHang = new PhieuBanHang();
+            OpenChildForm(phieuBanHang);
+        }
+
+        private void barButtonItemDSPhieuThuTienNo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhSachPhieuThuNo phieuThuNo = new DanhSachPhieuThuNo();
+            OpenChildForm(phieuThuNo);
+        }
+
+        private void barButtonItemLapPhieuTTN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            PhieuThuTienNo phieuThuTienNo = new PhieuThuTienNo();
+            OpenChildForm(phieuThuTienNo);
+        }
+
+        private void barButtonItemDSphieuNhapHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhSachPhieuNhapHang phieuNhapHang = new DanhSachPhieuNhapHang();
+            OpenChildForm(phieuNhapHang);
+        }
+
+        private void barButtonItemThemPhieuNhapHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            PhieuNhapHang phieuNhapHang = new PhieuNhapHang();
+            OpenChildForm(phieuNhapHang);
+        }
+
+        private void barButtonItemThemNCC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            NhaCungCap nhaCungCap = new NhaCungCap();
+            OpenChildForm(nhaCungCap);
+        }
+
+
+
 
     }
 }

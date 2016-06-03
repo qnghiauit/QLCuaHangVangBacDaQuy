@@ -577,6 +577,15 @@ namespace QuanLiBanVang.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thêm thành công!.
+        /// </summary>
+        internal static string ThemThanhCong {
+            get {
+                return ResourceManager.GetString("ThemThanhCong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thoát.
         /// </summary>
         internal static string ThoatKhoiForm {

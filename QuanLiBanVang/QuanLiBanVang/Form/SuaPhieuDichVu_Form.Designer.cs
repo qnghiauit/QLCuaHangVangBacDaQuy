@@ -430,7 +430,6 @@
             this.gridViewCT_PDV.OptionsBehavior.Editable = false;
             this.gridViewCT_PDV.OptionsCustomization.AllowColumnMoving = false;
             this.gridViewCT_PDV.OptionsView.ShowGroupPanel = false;
-            this.gridViewCT_PDV.OptionsView.ShowIndicator = false;
             this.gridViewCT_PDV.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridViewCT_PDV_RowCellClick);
             this.gridViewCT_PDV.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gridViewCT_PDV_CustomUnboundColumnData);
             // 

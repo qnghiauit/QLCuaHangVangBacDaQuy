@@ -388,7 +388,6 @@
             this.gridViewCTPGC_review.OptionsBehavior.Editable = false;
             this.gridViewCTPGC_review.OptionsCustomization.AllowColumnMoving = false;
             this.gridViewCTPGC_review.OptionsView.ShowGroupPanel = false;
-            this.gridViewCTPGC_review.OptionsView.ShowIndicator = false;
             this.gridViewCTPGC_review.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gridViewCTPGC_CustomUnboundColumnData);
             // 
             // gridControlCTSPGC
@@ -411,7 +410,6 @@
             this.gridViewCTSPGC.OptionsBehavior.Editable = false;
             this.gridViewCTSPGC.OptionsCustomization.AllowColumnMoving = false;
             this.gridViewCTSPGC.OptionsView.ShowGroupPanel = false;
-            this.gridViewCTSPGC.OptionsView.ShowIndicator = false;
             this.gridViewCTSPGC.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridViewCTPGC_RowCellClick);
             this.gridViewCTSPGC.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gridViewCT_PDV_CustomUnboundColumnData);
             // 

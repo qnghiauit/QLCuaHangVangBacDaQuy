@@ -139,9 +139,9 @@
             // 
             this.labelControl2.Location = new System.Drawing.Point(5, 32);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(52, 13);
+            this.labelControl2.Size = new System.Drawing.Size(58, 13);
             this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "Loại chi phí";
+            this.labelControl2.Text = "Nội dung chi";
             // 
             // btnSave
             // 
@@ -181,6 +181,7 @@
             this.Name = "NhapPhieuChi_Form";
             this.Text = "Nhập phiếu chi";
             this.Load += new System.EventHandler(this.NhapPhieuChi_Form_Load);
+            this.SizeChanged += new System.EventHandler(this.NhapPhieuChi_Form_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();
