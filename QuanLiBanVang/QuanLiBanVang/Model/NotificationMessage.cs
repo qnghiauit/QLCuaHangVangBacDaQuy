@@ -10,5 +10,6 @@ namespace QuanLiBanVang.Model
     {
         public static readonly string MESSAGE_TITLE = "Thông báo";
         public static readonly string MESSAGE_SAVING_JOB_DONE = "Lưu thành công.";
+        public static readonly string MESSAGE_UPDATE_JOB_DONE = "Sửa thành công";
     }
 }
