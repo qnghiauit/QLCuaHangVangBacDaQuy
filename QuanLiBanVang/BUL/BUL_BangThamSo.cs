@@ -23,7 +23,7 @@ namespace BUL
             return _dalAgurment.getAllAgurment();
         }
 
-        public double getValueByArgument(string argument)
+        public decimal getValueByArgument(string argument)
         {
             return _dalAgurment.getValueByArgument(argument);
         }

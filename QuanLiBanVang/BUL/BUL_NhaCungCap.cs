@@ -37,5 +37,25 @@ namespace BUL
         {
             this.dalProvider.add(newProvider);
         }
+
+        /// <summary>
+        /// Updates existing provider
+        /// </summary>
+        /// <param name="id"> id of provider to be updated</param>
+        /// <param name="newInformation">new information for the updating provider</param>
+        public void updateProvider(int id, NHACUNGCAP newInformation)
+        {
+            this.dalProvider.updateProvider(id, newInformation);
+        }
+
+        /// <summary>
+        /// Delete a provider from database
+        /// </summary>
+        /// <param name="id"> identifer of the provider to be deleted</param>
+        public void deleteProvider(int id)
+        {
+            this.dalProvider.deleteProvider(id);
+        }
+
     }
 }
