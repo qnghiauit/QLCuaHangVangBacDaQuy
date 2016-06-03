@@ -23,7 +23,7 @@ namespace DAL
         {
             this.databaseContext = new DBQLCuaHangVangBacDaQuyEntities();
         }
-        
+
         // <summary>
         // returns all records in the NHACUNGCAP table
         //</summary>
@@ -41,6 +41,44 @@ namespace DAL
         {
             this.databaseContext.NHACUNGCAPs.Add(newProvider);
             this.databaseContext.SaveChanges();
+        }
+
+        /// <summary>
+        /// Updates existing provider
+        /// </summary>
+        /// <param name="id"> id of provider to be updated</param>
+        /// <param name="newInformation">new information for the updating provider</param>
+        public void updateProvider(int id, NHACUNGCAP newInformation)
+        {
+            var provider = this.databaseContext.NHACUNGCAPs.Find(id);
+            if (provider != null)
+            {
+                provider.TenNCC = newInformation.TenNCC;
+                provider.DiaChi = newInformation.DiaChi;
+                provider.SDT = newInformation.SDT;
+                this.databaseContext.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Delete a provider from database
+        /// </summary>
+        /// <param name="id"> identifer of the provider to be deleted</param>
+        public void deleteProvider(int id)
+        {
+            try
+            {
+                var provider = this.databaseContext.NHACUNGCAPs.Find(id);
+                if (provider != null)
+                {
+                    this.databaseContext.NHACUNGCAPs.Remove(provider);
+                    this.databaseContext.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.Message);
+            }
         }
     }
 }
