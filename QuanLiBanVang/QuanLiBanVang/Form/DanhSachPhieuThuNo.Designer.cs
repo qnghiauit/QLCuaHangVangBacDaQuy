@@ -34,17 +34,17 @@
             this.comboBoxEditKhachHang = new DevExpress.XtraEditors.ComboBoxEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.gridControlDanhSachPhieuNo = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControlPhieuBanHang = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStripGridPhieuBanHang = new System.Windows.Forms.ContextMenuStrip();
             this.xemPhiếuNợToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuNợToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridControlPhieuBanHang = new DevExpress.XtraGrid.GridControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditKhachHang.Properties)).BeginInit();
@@ -52,15 +52,14 @@
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDanhSachPhieuNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlPhieuBanHang)).BeginInit();
             this.contextMenuStripGridPhieuBanHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlPhieuBanHang)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
-            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.comboBoxEditKhachHang);
@@ -113,6 +112,24 @@
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "Chi tiết";
             // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Underline);
+            this.labelControl4.Location = new System.Drawing.Point(9, 237);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(95, 13);
+            this.labelControl4.TabIndex = 2;
+            this.labelControl4.Text = "Phiếu nợ tương ứng";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Underline);
+            this.labelControl3.Location = new System.Drawing.Point(9, 33);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(47, 13);
+            this.labelControl3.TabIndex = 1;
+            this.labelControl3.Text = "Phiếu bán";
+            // 
             // gridControlDanhSachPhieuNo
             // 
             this.gridControlDanhSachPhieuNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -130,6 +147,22 @@
             // 
             this.gridView2.GridControl = this.gridControlDanhSachPhieuNo;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsCustomization.AllowGroup = false;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridControlPhieuBanHang
+            // 
+            this.gridControlPhieuBanHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControlPhieuBanHang.ContextMenuStrip = this.contextMenuStripGridPhieuBanHang;
+            this.gridControlPhieuBanHang.Location = new System.Drawing.Point(9, 52);
+            this.gridControlPhieuBanHang.MainView = this.gridView1;
+            this.gridControlPhieuBanHang.Name = "gridControlPhieuBanHang";
+            this.gridControlPhieuBanHang.Size = new System.Drawing.Size(552, 179);
+            this.gridControlPhieuBanHang.TabIndex = 0;
+            this.gridControlPhieuBanHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
             // 
             // contextMenuStripGridPhieuBanHang
             // 
@@ -153,10 +186,16 @@
             this.lậpPhiếuNợToolStripMenuItem.Text = "Lập phiếu nợ";
             this.lậpPhiếuNợToolStripMenuItem.Click += new System.EventHandler(this.lậpPhiếuNợToolStripMenuItem_Click);
             // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControlPhieuBanHang;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsCustomization.AllowGroup = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
             // simpleButtonThoat
             // 
             this.simpleButtonThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButtonThoat.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonThoat.Image")));
             this.simpleButtonThoat.Location = new System.Drawing.Point(494, 573);
             this.simpleButtonThoat.Name = "simpleButtonThoat";
             this.simpleButtonThoat.Size = new System.Drawing.Size(87, 27);
@@ -177,43 +216,6 @@
             this.labelControl2.Size = new System.Drawing.Size(569, 24);
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "Danh sách phiếu nợ";
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControlPhieuBanHang;
-            this.gridView1.Name = "gridView1";
-            // 
-            // gridControlPhieuBanHang
-            // 
-            this.gridControlPhieuBanHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlPhieuBanHang.ContextMenuStrip = this.contextMenuStripGridPhieuBanHang;
-            this.gridControlPhieuBanHang.Location = new System.Drawing.Point(9, 52);
-            this.gridControlPhieuBanHang.MainView = this.gridView1;
-            this.gridControlPhieuBanHang.Name = "gridControlPhieuBanHang";
-            this.gridControlPhieuBanHang.Size = new System.Drawing.Size(552, 179);
-            this.gridControlPhieuBanHang.TabIndex = 0;
-            this.gridControlPhieuBanHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Underline);
-            this.labelControl3.Location = new System.Drawing.Point(9, 33);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(47, 13);
-            this.labelControl3.TabIndex = 1;
-            this.labelControl3.Text = "Phiếu bán";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Underline);
-            this.labelControl4.Location = new System.Drawing.Point(9, 237);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(95, 13);
-            this.labelControl4.TabIndex = 2;
-            this.labelControl4.Text = "Phiếu nợ tương ứng";
             // 
             // DanhSachPhieuThuNo
             // 
@@ -236,9 +238,9 @@
             this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDanhSachPhieuNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlPhieuBanHang)).EndInit();
             this.contextMenuStripGridPhieuBanHang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlPhieuBanHang)).EndInit();
             this.ResumeLayout(false);
 
         }

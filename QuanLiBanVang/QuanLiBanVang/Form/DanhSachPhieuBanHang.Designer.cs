@@ -46,9 +46,9 @@
             this.colKHACHHANG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNHANVIEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPHIEUTHUTIENNOes = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlListReceipts)).BeginInit();
@@ -123,6 +123,7 @@
             this.gridView1.GridControl = this.gridControlListReceipts;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // colSoPhieuBH
             // 
@@ -196,6 +197,17 @@
             this.colPHIEUTHUTIENNOes.Name = "colPHIEUTHUTIENNOes";
             this.colPHIEUTHUTIENNOes.Width = 82;
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(548, 23);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(87, 27);
+            this.simpleButton2.TabIndex = 3;
+            this.simpleButton2.Text = "Thêm";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
             // labelControl1
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -220,17 +232,6 @@
             this.simpleButton1.TabIndex = 2;
             this.simpleButton1.Text = "Thoát";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(548, 23);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(87, 27);
-            this.simpleButton2.TabIndex = 3;
-            this.simpleButton2.Text = "Thêm";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // DanhSachPhieuBanHang
             // 

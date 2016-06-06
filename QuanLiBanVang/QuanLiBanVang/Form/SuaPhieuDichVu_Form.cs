@@ -63,8 +63,10 @@ namespace QuanLiBanVang
             }
             else
             {
+                KHACHHANG kh = _listKh.Find(i => i.MaKH == makh);
                 checkEditKhachQuen.Checked = true;
-                comboBoxEditTenKhach.SelectedIndex = _listKh.IndexOf(_listKh.Find(i => i.MaKH == makh));
+                comboBoxEditTenKhach.SelectedIndex = _listKh.IndexOf(kh);
+                textEditDiaChi.Text = kh.DiaChi;
             }
             LoadInfoCtpdv();
         }

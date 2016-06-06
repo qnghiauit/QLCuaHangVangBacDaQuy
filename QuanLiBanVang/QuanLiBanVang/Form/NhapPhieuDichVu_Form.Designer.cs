@@ -39,7 +39,7 @@
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.comboBoxEditTenKhach = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.textEditDiaChi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.dateEditNgayGiao = new DevExpress.XtraEditors.DateEdit();
             this.dateEditNgayDK = new DevExpress.XtraEditors.DateEdit();
@@ -68,7 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditKhachQuen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditTenKhach.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayGiao.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayGiao.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayDK.Properties.CalendarTimeProperties)).BeginInit();
@@ -134,7 +134,7 @@
             this.groupControl1.Controls.Add(this.labelControl14);
             this.groupControl1.Controls.Add(this.labelControl6);
             this.groupControl1.Controls.Add(this.comboBoxEditTenKhach);
-            this.groupControl1.Controls.Add(this.textEdit3);
+            this.groupControl1.Controls.Add(this.textEditDiaChi);
             this.groupControl1.Controls.Add(this.labelControl11);
             this.groupControl1.Controls.Add(this.dateEditNgayGiao);
             this.groupControl1.Controls.Add(this.dateEditNgayDK);
@@ -188,13 +188,14 @@
             this.comboBoxEditTenKhach.Properties.MaxLength = 70;
             this.comboBoxEditTenKhach.Size = new System.Drawing.Size(185, 20);
             this.comboBoxEditTenKhach.TabIndex = 11;
+            this.comboBoxEditTenKhach.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditTenKhach_SelectedIndexChanged);
             // 
-            // textEdit3
+            // textEditDiaChi
             // 
-            this.textEdit3.Location = new System.Drawing.Point(94, 133);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(327, 20);
-            this.textEdit3.TabIndex = 10;
+            this.textEditDiaChi.Location = new System.Drawing.Point(94, 133);
+            this.textEditDiaChi.Name = "textEditDiaChi";
+            this.textEditDiaChi.Size = new System.Drawing.Size(327, 20);
+            this.textEditDiaChi.TabIndex = 10;
             // 
             // labelControl11
             // 
@@ -468,7 +469,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditKhachQuen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditTenKhach.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayGiao.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayGiao.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayDK.Properties.CalendarTimeProperties)).EndInit();
@@ -499,7 +500,7 @@
         private DevExpress.XtraEditors.DateEdit dateEditNgayGiao;
         private DevExpress.XtraEditors.DateEdit dateEditNgayDK;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditTenKhach;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit textEditDiaChi;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraGrid.GridControl gridControlCTPDV;

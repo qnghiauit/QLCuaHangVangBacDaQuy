@@ -359,7 +359,13 @@ namespace QuanLiBanVang
         private void textEditTienCong_EditValueChanged_1(object sender, EventArgs e)
         {
             CalculateThanhTien();
-        }      
-        
+        }
+
+        private void comboBoxEditTenKhach_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            KHACHHANG kh = ((ContainerItem)comboBoxEditTenKhach.SelectedItem).Value as KHACHHANG;
+            if (kh != null) 
+                textEditDiaChi.Text = kh.DiaChi;
+        }
     }
 }

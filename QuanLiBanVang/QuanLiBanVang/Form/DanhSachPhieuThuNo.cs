@@ -23,6 +23,7 @@ namespace QuanLiBanVang.Form
         {
             InitializeComponent();
             this.bulKhachHang = new BUL_KhachHang();
+
         }
 
         private void DanhSachPhieuThuNo_Load(object sender, EventArgs e)
@@ -50,6 +51,9 @@ namespace QuanLiBanVang.Form
             this.bulPhieuBanHang = new BUL_PhieuBanHang();
             this.gridControlPhieuBanHang.RefreshDataSource();
             this.gridControlPhieuBanHang.DataSource = this.bulPhieuBanHang.findReceiptsByFrequenterId(selectedFrequenter.MaKH);
+            this.gridView1.Columns[6].Visible =
+                this.gridView1.Columns[7].Visible =
+                    this.gridView1.Columns[8].Visible = this.gridView1.Columns[9].Visible = false;
         }
 
         private void xemPhiếuNợToolStripMenuItem_Click(object sender, EventArgs e)

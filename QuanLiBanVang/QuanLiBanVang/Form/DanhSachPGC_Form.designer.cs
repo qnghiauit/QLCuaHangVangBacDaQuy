@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPGC));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.gridControlDSPDV = new DevExpress.XtraGrid.GridControl();
-            this.gridViewDSPDV = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControlDSPGC = new DevExpress.XtraGrid.GridControl();
+            this.gridViewDSPGC = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.simpleButtonDel = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonEdit = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonAdd = new DevExpress.XtraEditors.SimpleButton();
@@ -48,8 +48,8 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlDSPDV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewDSPDV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlDSPGC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDSPGC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +59,7 @@
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl1.Controls.Add(this.gridControlDSPDV);
+            this.groupControl1.Controls.Add(this.gridControlDSPGC);
             this.groupControl1.Controls.Add(this.simpleButtonDel);
             this.groupControl1.Controls.Add(this.simpleButtonEdit);
             this.groupControl1.Controls.Add(this.simpleButtonAdd);
@@ -69,30 +69,30 @@
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Thông tin";
             // 
-            // gridControlDSPDV
+            // gridControlDSPGC
             // 
-            this.gridControlDSPDV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gridControlDSPGC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlDSPDV.Location = new System.Drawing.Point(13, 26);
-            this.gridControlDSPDV.MainView = this.gridViewDSPDV;
-            this.gridControlDSPDV.Name = "gridControlDSPDV";
-            this.gridControlDSPDV.Size = new System.Drawing.Size(578, 360);
-            this.gridControlDSPDV.TabIndex = 5;
-            this.gridControlDSPDV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewDSPDV});
+            this.gridControlDSPGC.Location = new System.Drawing.Point(13, 26);
+            this.gridControlDSPGC.MainView = this.gridViewDSPGC;
+            this.gridControlDSPGC.Name = "gridControlDSPGC";
+            this.gridControlDSPGC.Size = new System.Drawing.Size(578, 360);
+            this.gridControlDSPGC.TabIndex = 5;
+            this.gridControlDSPGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewDSPGC});
             // 
-            // gridViewDSPDV
+            // gridViewDSPGC
             // 
-            this.gridViewDSPDV.GridControl = this.gridControlDSPDV;
-            this.gridViewDSPDV.Name = "gridViewDSPDV";
-            this.gridViewDSPDV.OptionsBehavior.Editable = false;
-            this.gridViewDSPDV.OptionsBehavior.ReadOnly = true;
-            this.gridViewDSPDV.OptionsCustomization.AllowColumnMoving = false;
-            this.gridViewDSPDV.OptionsView.ShowGroupPanel = false;
-            this.gridViewDSPDV.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gridViewDSPDV_PopupMenuShowing);
-            this.gridViewDSPDV.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gridViewDSPDV_CustomUnboundColumnData);
-            this.gridViewDSPDV.DoubleClick += new System.EventHandler(this.gridViewDSPDV_DoubleClick);
+            this.gridViewDSPGC.GridControl = this.gridControlDSPGC;
+            this.gridViewDSPGC.Name = "gridViewDSPGC";
+            this.gridViewDSPGC.OptionsBehavior.Editable = false;
+            this.gridViewDSPGC.OptionsBehavior.ReadOnly = true;
+            this.gridViewDSPGC.OptionsCustomization.AllowColumnMoving = false;
+            this.gridViewDSPGC.OptionsView.ShowGroupPanel = false;
+            this.gridViewDSPGC.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gridViewDSPDV_PopupMenuShowing);
+            this.gridViewDSPGC.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gridViewDSPDV_CustomUnboundColumnData);
+            this.gridViewDSPGC.DoubleClick += new System.EventHandler(this.gridViewDSPDV_DoubleClick);
             // 
             // simpleButtonDel
             // 
@@ -231,8 +231,8 @@
             this.Load += new System.EventHandler(this.DanhSachPDV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlDSPDV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewDSPDV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlDSPGC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDSPGC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
@@ -243,8 +243,8 @@
         #endregion
 
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraGrid.GridControl gridControlDSPDV;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewDSPDV;
+        private DevExpress.XtraGrid.GridControl gridControlDSPGC;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewDSPGC;
         private DevExpress.XtraEditors.SimpleButton simpleButtonThoat;
         private DevExpress.XtraEditors.SimpleButton simpleButtonDel;
         private DevExpress.XtraEditors.SimpleButton simpleButtonEdit;

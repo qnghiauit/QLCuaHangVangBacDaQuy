@@ -38,15 +38,15 @@ namespace QuanLiBanVang
             _dataTable.Columns.Add("NgayNhanHang", typeof(DateTime));
             _dataTable.Columns.Add("NgayThanhToan", typeof(DateTime));
             _dataTable.Columns.Add("TongTien", typeof(int));
-            gridControlDSPDV.DataSource = _dataTable;
-            gridViewDSPDV.Columns[0].Visible = 
-            gridViewDSPDV.Columns[1].Visible = false;
-            gridViewDSPDV.Columns[2].Caption = Resources.TenTho;
-            gridViewDSPDV.Columns[3].Caption = Resources.TenNV;
-            gridViewDSPDV.Columns[4].Caption = Resources.NgayNhanHang;
-            gridViewDSPDV.Columns[5].Caption = Resources.NgayThanhToan;
-            gridViewDSPDV.Columns[6].Caption = Resources.TongTien;
-            gridViewDSPDV.OptionsMenu.EnableColumnMenu = false;
+            gridControlDSPGC.DataSource = _dataTable;
+            gridViewDSPGC.Columns[0].Visible = 
+            gridViewDSPGC.Columns[1].Visible = false;
+            gridViewDSPGC.Columns[2].Caption = Resources.TenTho;
+            gridViewDSPGC.Columns[3].Caption = Resources.TenNV;
+            gridViewDSPGC.Columns[4].Caption = Resources.NgayNhanHang;
+            gridViewDSPGC.Columns[5].Caption = Resources.NgayThanhToan;
+            gridViewDSPGC.Columns[6].Caption = Resources.TongTien;
+            gridViewDSPGC.OptionsMenu.EnableColumnMenu = false;
         }
         private string GetTenTho(int id)
         {
@@ -71,7 +71,7 @@ namespace QuanLiBanVang
                     t.NgayThanhToan,
                     t.TongTien});
             }
-            gridControlDSPDV.DataSource = _dataTable;
+            gridControlDSPGC.DataSource = _dataTable;
         }
         private void simpleButtonAdd_Click(object sender, EventArgs e)
         {
@@ -92,7 +92,7 @@ namespace QuanLiBanVang
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if(dialogResult == DialogResult.OK)
             {
-                DataRow currentRow = gridViewDSPDV.GetDataRow(gridViewDSPDV.FocusedRowHandle);
+                DataRow currentRow = gridViewDSPGC.GetDataRow(gridViewDSPGC.FocusedRowHandle);
                 _bulPhieuGiaCong.DeletePhieuGiaCong(Convert.ToInt32(currentRow[1]));
                 FillDataTable();
             }
@@ -117,7 +117,7 @@ namespace QuanLiBanVang
         }
         private void OpenEditDialog()
         {
-            DataRow currentRow = gridViewDSPDV.GetDataRow(gridViewDSPDV.FocusedRowHandle);
+            DataRow currentRow = gridViewDSPGC.GetDataRow(gridViewDSPGC.FocusedRowHandle);
             if (currentRow != null)
             {
                 SuaPhieuGiaCong_Form sua = new SuaPhieuGiaCong_Form(Convert.ToInt32(currentRow[1]));
