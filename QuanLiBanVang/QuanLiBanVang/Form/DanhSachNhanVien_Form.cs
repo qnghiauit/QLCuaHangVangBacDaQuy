@@ -26,6 +26,8 @@ namespace QuanLiBanVang.Report
             _bulStaff = new BUL.BUL_NhanVien();
             _bulPosition = new BUL_ChucVu();
             _myCache = new ExtendClass.MyCache("Id");
+            _bulPosition = new BUL.BUL_ChucVu();
+            _bulGroupUser = new BUL.BUL_NhomNguoiDung();
             
         }
         private void createTable()
@@ -63,6 +65,7 @@ namespace QuanLiBanVang.Report
             datarow[5] = staff.SDT;
             datarow[6] = staff.TenDangNhap;
             datarow[7] = groupusername;
+            this._staffTable.Rows.Add(datarow);
 
         }
         private void updateRowInDataTable(int index, DTO.NHANVIEN staff, string pos, string groupusername)

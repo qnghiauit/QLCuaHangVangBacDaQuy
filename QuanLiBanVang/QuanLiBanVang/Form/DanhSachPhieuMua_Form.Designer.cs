@@ -88,6 +88,7 @@
             this.dgvBuyBill.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.dgvBuyBill.OptionsBehavior.Editable = false;
             this.dgvBuyBill.OptionsCustomization.AllowColumnMoving = false;
+            this.dgvBuyBill.OptionsCustomization.AllowColumnResizing = false;
             this.dgvBuyBill.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.dgvBuyBill.OptionsSelection.MultiSelect = true;
             this.dgvBuyBill.OptionsView.ShowGroupPanel = false;

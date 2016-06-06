@@ -15,11 +15,13 @@ namespace QuanLiBanVang.Report
     {
         private BUL.BUL_SanPham _bulSanPham;
         private BUL.BUL_LoaiSanPham _bulLoaiSanPham;
+        private BUL.BUL_BaoCaoTonKho _bulInventory;
         public NhapSanPham_Form()
         {
             InitializeComponent();
             _bulSanPham = new BUL.BUL_SanPham();
             _bulLoaiSanPham = new BUL.BUL_LoaiSanPham();
+            _bulInventory = new BUL.BUL_BaoCaoTonKho();
         }
         public bool CheckControlValidation()
         {
@@ -46,6 +48,16 @@ namespace QuanLiBanVang.Report
                 _product.TrongLuong = float.Parse(this.txtWeight.Text);
                 _product.TinhTrang = (bool)(this.radioGroupState.EditValue);
                 _bulSanPham.addNewProduct(_product);
+
+                DTO.BAOCAOTONKHO _newReport = new DTO.BAOCAOTONKHO();
+                _newReport.NgayBC = DateTime.Now.Date;
+                _newReport.MaSP = _product.MaSP;
+                _newReport.TonDau = 0;
+                _newReport.SoLuongMua = 0;
+                _newReport.SoLuongBan = 0;
+                _newReport.TonCuoi = 0;
+
+                _bulInventory.addNewInventoryReport(_newReport);
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
             }
         }

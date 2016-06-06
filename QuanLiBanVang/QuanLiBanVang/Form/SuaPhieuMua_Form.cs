@@ -122,75 +122,81 @@ namespace QuanLiBanVang.Report
         {
             //if (_buyBill != null)
             //{
-                List<DTO.KHACHHANG> listClient = _bulClient.GetAllKhachhangs();
-                List<DTO.SANPHAM> listProduct = _bulProduct.getAllProduct();
-                List<DTO.LOAISANPHAM> listProductType = _bulProductType.getAllProductType();
-                List<DTO.CTPMH> listBuyDetails = _bulBuyDetail.getBuyDetailsByBillId(_buyBill.SoPhieuMua);
-                this.createTable();
-                ExtendClass.ContainerItem blankItem = new ExtendClass.ContainerItem();
-                blankItem.Text = "";
-                blankItem.Value = null;
-                this.cboProduct.Properties.Items.Add(blankItem);
-                this.cboProductType.Properties.Items.Add(blankItem);
-                foreach (DTO.SANPHAM i in listProduct)
+            List<DTO.KHACHHANG> listClient = _bulClient.GetAllKhachhangs();
+            List<DTO.SANPHAM> listProduct = _bulProduct.getAllProduct();
+            List<DTO.LOAISANPHAM> listProductType = _bulProductType.getAllProductType();
+            List<DTO.CTPMH> listBuyDetails = _bulBuyDetail.getBuyDetailsByBillId(_buyBill.SoPhieuMua);
+            this.createTable();
+            ExtendClass.ContainerItem blankItem = new ExtendClass.ContainerItem();
+            blankItem.Text = "";
+            blankItem.Value = null;
+            this.cboProduct.Properties.Items.Add(blankItem);
+            this.cboProductType.Properties.Items.Add(blankItem);
+            foreach (DTO.SANPHAM i in listProduct)
+            {
+                ExtendClass.ContainerItem item = new ExtendClass.ContainerItem();
+                item.Text = i.TenSP;
+                item.Value = item;
+                this.cboProduct.Properties.Items.Add(item);
+            }
+            foreach (DTO.LOAISANPHAM i in listProductType)
+            {
+                ExtendClass.ContainerItem item = new ExtendClass.ContainerItem();
+                item.Text = i.TenLoaiSP;
+                item.Value = i;
+                this.cboProductType.Properties.Items.Add(item);
+            }
+            foreach (DTO.KHACHHANG i in listClient)
+            {
+                ExtendClass.ContainerItem item = new ExtendClass.ContainerItem();
+                item.Text = i.TenKH;
+                item.Value = i;
+                this.cboClientName.Properties.Items.Add(item);
+            }
+            if (this._buyBill.MaKH.ToString() != "")
+            {
+                this.rdoClientType.SelectedIndex = 1;
+                for (int i = 0; i < this.cboClientName.Properties.Items.Count; i++)
                 {
-                    ExtendClass.ContainerItem item = new ExtendClass.ContainerItem();
-                    item.Text = i.TenSP;
-                    item.Value = item;
-                    this.cboProduct.Properties.Items.Add(item);
-                }
-                foreach (DTO.LOAISANPHAM i in listProductType)
-                {
-                    ExtendClass.ContainerItem item = new ExtendClass.ContainerItem();
-                    item.Text = i.TenLoaiSP;
-                    item.Value = i;
-                    this.cboProductType.Properties.Items.Add(item);
-                }
-                foreach (DTO.KHACHHANG i in listClient)
-                {
-                    ExtendClass.ContainerItem item = new ExtendClass.ContainerItem();
-                    item.Text = i.TenKH;
-                    item.Value = i;
-                    this.cboClientName.Properties.Items.Add(item);
-                }
-                if (this._buyBill.MaKH.ToString() != "")
-                {
-                    this.rdoClientType.SelectedIndex = 1;
-                    for (int i = 0; i < this.cboClientName.Properties.Items.Count; i++)
+                    ExtendClass.ContainerItem item = this.cboClientName.Properties.Items[i] as ExtendClass.ContainerItem;
+                    DTO.KHACHHANG client = item.Value as DTO.KHACHHANG;
+                    if (client.MaKH == _buyBill.MaKH)
                     {
-                        ExtendClass.ContainerItem item = this.cboClientName.Properties.Items[i] as ExtendClass.ContainerItem;
-                        DTO.KHACHHANG client = item.Value as DTO.KHACHHANG;
-                        if (client.MaKH == _buyBill.MaKH)
-                        {
-                            this.cboClientName.SelectedIndex = i;
-                            this.lblPhoneNumber.Text= client.SDT;
-                            break;
-                        }
+                        this.cboClientName.SelectedIndex = i;
+                        this.lblPhoneNumber.Text = client.SDT;
+                        break;
                     }
-                    
                 }
-                else
+
+            }
+            else
+            {
+                this.rdoClientType.SelectedIndex = 0;
+                this.lblPhoneNumber.Text = "(Không có)";
+                this.cboClientName.Enabled = false;
+            }
+            this.dtpkCreateDate.EditValue = _buyBill.NgayMua;
+            foreach (DTO.CTPMH i in listBuyDetails)
+            {
+                string product = "";
+                string producttype = "";
+                if (i.MaSP.ToString() != "")
                 {
-                    this.rdoClientType.SelectedIndex = 0;
-                    this.lblPhoneNumber.Text = "(Không có)";
-                    this.cboClientName.Enabled = false;
+                    product = _bulProduct.getProductById((int)i.MaSP).TenSP;
                 }
-                this.dtpkCreateDate.EditValue = _buyBill.NgayMua;
-                foreach (DTO.CTPMH i in listBuyDetails)
+                if (i.MaLoaiSP.ToString() != "")
                 {
-                    string product = "";
-                    string producttype = "";
-                    if (i.MaSP.ToString() != "")
-                    {
-                        product = _bulProduct.getProductById((int)i.MaSP).TenSP;
-                    }
-                    if (i.MaLoaiSP.ToString() != "")
-                    {
-                        producttype = _bulProductType.getProductTypeNameById((int)i.MaLoaiSP);
-                    }
-                    this.addNewRowToDataTable(i, product, producttype);
+                    producttype = _bulProductType.getProductTypeNameById((int)i.MaLoaiSP);
                 }
-                this.dgvBuyList.DataSource = this._detailTable;
+                this.addNewRowToDataTable(i, product, producttype);
+            }
+            this.dgvBuyList.DataSource = this._detailTable;
+            if (DateTime.Compare(this._buyBill.NgayMua, DateTime.Now) < 0)
+            {
+                this.rdoClientType.Enabled = false;
+                this.cboClientName.Enabled = false;
+                this.btnAdd.Enabled = false;
+            }
             //}
         }
 

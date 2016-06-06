@@ -116,7 +116,8 @@ namespace QuanLiBanVang.Report
             List<DTO.KHACHHANG> listclient = _bulClient.GetAllKhachhangs();
             createTable();
             this.initTableData(listbuybill, liststaff, listclient);
-            this.dgvListBuyBill.DataSource = _buyTable; 
+            this.dgvListBuyBill.DataSource = _buyTable;
+            this.dgvBuyBill.Columns["Id"].Visible = false;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -180,11 +181,11 @@ namespace QuanLiBanVang.Report
             }
             if (row != null)
             {
-                if (!this.checkLegalDateChange(((DateTime)row[3]).Date) == true)
-                {
-                    MessageBox.Show("Không thể sửa phiếu của ngày trước!");
-                    return;
-                }
+                //if (!this.checkLegalDateChange(((DateTime)row[3]).Date) == true)
+                //{
+                //    MessageBox.Show("Không thể sửa phiếu của ngày trước!");
+                //    return;
+                //}
                 SuaPhieuMua_Form updateBuyBillForm = new SuaPhieuMua_Form((int)row[0]);
                 DialogResult result = updateBuyBillForm.ShowDialog();
                 if (result == System.Windows.Forms.DialogResult.OK)

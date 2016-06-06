@@ -99,6 +99,7 @@
             this.dgvProductType.Name = "dgvProductType";
             this.dgvProductType.OptionsBehavior.Editable = false;
             this.dgvProductType.OptionsCustomization.AllowColumnMoving = false;
+            this.dgvProductType.OptionsCustomization.AllowColumnResizing = false;
             this.dgvProductType.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.dgvProductType.OptionsSelection.MultiSelect = true;
             this.dgvProductType.OptionsView.ShowGroupPanel = false;

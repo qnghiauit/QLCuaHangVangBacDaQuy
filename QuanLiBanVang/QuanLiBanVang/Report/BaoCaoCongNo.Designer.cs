@@ -40,6 +40,8 @@
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLabelDate = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabelCompanyName = new DevExpress.XtraReports.UI.XRLabel();
             this.xrReportInventory = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
@@ -48,10 +50,8 @@
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
-            this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabelDate = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -153,8 +153,24 @@
             this.xrLabel11,
             this.xrLabelCompanyName,
             this.xrReportInventory});
-            this.ReportHeader.HeightF = 100F;
+            this.ReportHeader.HeightF = 198.9583F;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // xrLabelDate
+            // 
+            this.xrLabelDate.LocationFloat = new DevExpress.Utils.PointFloat(232.2917F, 77.00002F);
+            this.xrLabelDate.Name = "xrLabelDate";
+            this.xrLabelDate.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabelDate.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabelDate.Text = "xrLabelDate";
+            // 
+            // xrLabel11
+            // 
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(80.41668F, 77.00002F);
+            this.xrLabel11.Name = "xrLabel11";
+            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel11.Text = "Ngày báo cáo:";
             // 
             // xrLabelCompanyName
             // 
@@ -250,16 +266,6 @@
             this.PageFooter.HeightF = 71.875F;
             this.PageFooter.Name = "PageFooter";
             // 
-            // xrLabel9
-            // 
-            this.xrLabel9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(415.1043F, 38.87501F);
-            this.xrLabel9.Name = "xrLabel9";
-            this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel9.StylePriority.UseFont = false;
-            this.xrLabel9.Text = "KÝ TÊN";
-            // 
             // xrLabel10
             // 
             this.xrLabel10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -270,21 +276,15 @@
             this.xrLabel10.StylePriority.UseFont = false;
             this.xrLabel10.Text = ".............,ngày......tháng......năm....";
             // 
-            // xrLabel11
+            // xrLabel9
             // 
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(80.41668F, 77.00002F);
-            this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel11.Text = "Ngày báo cáo:";
-            // 
-            // xrLabelDate
-            // 
-            this.xrLabelDate.LocationFloat = new DevExpress.Utils.PointFloat(232.2917F, 77.00002F);
-            this.xrLabelDate.Name = "xrLabelDate";
-            this.xrLabelDate.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabelDate.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabelDate.Text = "xrLabelDate";
+            this.xrLabel9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(415.1043F, 38.87501F);
+            this.xrLabel9.Name = "xrLabel9";
+            this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel9.StylePriority.UseFont = false;
+            this.xrLabel9.Text = "KÝ TÊN";
             // 
             // BaoCaoCongNo
             // 

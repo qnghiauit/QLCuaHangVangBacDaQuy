@@ -13,8 +13,8 @@ namespace QuanLiBanVang
 {
     public partial class TongQuan : DevExpress.XtraEditors.XtraForm
     {
-        private int _income;
-        private int _cost;
+        private decimal _income;
+        private decimal _cost;
         private DTO.CalculateNumberOfCostBill_Result _numberOfCostBill;
         private DTO.CalculateNumberOfIncomeBill_Result _numberOfIncomeBill;
         private DTO.CalculateStoreStatus_Result _storeStatus;

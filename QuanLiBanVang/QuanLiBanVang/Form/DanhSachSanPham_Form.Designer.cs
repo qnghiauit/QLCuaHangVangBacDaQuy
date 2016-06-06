@@ -82,7 +82,6 @@
             this.dgvProduct.OptionsCustomization.AllowColumnResizing = false;
             this.dgvProduct.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.dgvProduct.OptionsSelection.MultiSelect = true;
-            this.dgvProduct.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.dgvProduct.OptionsView.ShowGroupPanel = false;
             this.dgvProduct.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.dgvProduct_CustomUnboundColumnData);
             // 

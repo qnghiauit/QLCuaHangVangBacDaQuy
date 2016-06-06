@@ -29,6 +29,7 @@ namespace QuanLiBanVang.Report
 
             _bulPaymentBill = new BUL.BUL_PhieuChi();
             _paymentBill = _bulPaymentBill.getPaymentBillById(id);
+            
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -41,6 +42,7 @@ namespace QuanLiBanVang.Report
             this.dtpkCreateDate.Properties.MinValue = DateTime.Now;
             this.dtpkCreateDate.Properties.MaxValue = DateTime.Now;
             this.dtpkCreateDate.Enabled = false;
+
             this.dtpkCreateDate.EditValue = _paymentBill.NgayLap;
             this.txtPrice.Text = int.Parse(_paymentBill.SoTien.ToString()).ToString();
 

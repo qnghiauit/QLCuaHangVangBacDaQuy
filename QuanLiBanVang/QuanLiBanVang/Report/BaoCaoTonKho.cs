@@ -12,6 +12,9 @@ namespace QuanLiBanVang.Report
         {
             InitializeComponent();
         }
-
+        public BaoCaoTonKho(DateTime date)
+        {
+ 
+        }
     }
 }

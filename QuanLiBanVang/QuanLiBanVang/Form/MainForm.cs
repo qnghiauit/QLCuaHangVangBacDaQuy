@@ -42,8 +42,17 @@ namespace QuanLiBanVang
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            InitInventoryReport();
-            SetAccessControl();
+            //this.Hide();
+            //Report.Login_Form login_frm = new Report.Login_Form();
+            //DialogResult result = login_frm.ShowDialog();
+            //if (result == System.Windows.Forms.DialogResult.OK)
+            //{
+            //    this.Show();
+            //    InitInventoryReport();
+            //    SetAccessControl();
+            //}
+            //else
+            //    this.Close();
         }
         //Open from or focus if opened
         public void OpenChildForm(XtraForm form)
@@ -81,9 +90,9 @@ namespace QuanLiBanVang
             {
                 case 1:
                     {
-                        this.barButtonItem21.Enabled = false;
-                        this.barButtonItem24.Enabled = false;
-                        this.barButtonItem27.Enabled = false;
+                        this.barButtonItemQD.Enabled = false;
+                        this.barButtonItemDSNV.Enabled = false;
+                        this.barButtonItemThemNV.Enabled = false;
                         break;
                     }
                 default: break;
