@@ -36,23 +36,24 @@ namespace QuanLiBanVang
                     report.NgayBC = DateTime.Now.Date;
                     report.MaSP = i.MaSP;
                     report.TonDau = i.SoLuongTon;
+                    report.TonCuoi = i.SoLuongTon;
                     bulReport.addNewInventoryReport(report);
                 }
             }
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //this.Hide();
-            //Report.Login_Form login_frm = new Report.Login_Form();
-            //DialogResult result = login_frm.ShowDialog();
-            //if (result == System.Windows.Forms.DialogResult.OK)
-            //{
-            //    this.Show();
-            //    InitInventoryReport();
-            //    SetAccessControl();
-            //}
-            //else
-            //    this.Close();
+            this.Hide();
+            Report.Login_Form login_frm = new Report.Login_Form();
+            DialogResult result = login_frm.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                this.Show();
+                InitInventoryReport();
+                SetAccessControl();
+            }
+            else
+                this.Close();
         }
         //Open from or focus if opened
         public void OpenChildForm(XtraForm form)

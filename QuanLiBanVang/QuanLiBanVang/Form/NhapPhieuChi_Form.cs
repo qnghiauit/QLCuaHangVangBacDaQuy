@@ -62,6 +62,7 @@ namespace QuanLiBanVang.Report
                 return;
             }
             DTO.PHIEUCHI newBill = new DTO.PHIEUCHI();
+            newBill.MaNV = ExtendClass.UserAccess.Instance.GetUserId;
             newBill.NoiDungChi = this.txtContent.Text;
             newBill.NgayLap = (DateTime)this.dtpkCreateDate.EditValue;
             newBill.SoTien = decimal.Parse(this.txtCost.Text);
