@@ -13,11 +13,11 @@ namespace BUL
         {
             _dalTongQuan = new DAL.DAL_TongQuanStore();
         }
-        public int calculateIncomeInDate(DateTime t)
+        public decimal calculateIncomeInDate(DateTime t)
         {
             return _dalTongQuan.calculateIncomeInDate(t);
         }
-        public int calculateCostInDate(DateTime t)
+        public decimal calculateCostInDate(DateTime t)
         {
             return _dalTongQuan.calculateCostInDate(t);
         }
