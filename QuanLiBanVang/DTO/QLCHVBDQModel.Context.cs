@@ -107,5 +107,23 @@ namespace DTO
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("CalculateIncomeInDate", dateParameter);
         }
+    
+        public virtual ObjectResult<Nullable<decimal>> CalculateFeeInDate(Nullable<System.DateTime> date)
+        {
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("CalculateFeeInDate", dateParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> CalculateRevenueInDate(Nullable<System.DateTime> date)
+        {
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("CalculateRevenueInDate", dateParameter);
+        }
     }
 }

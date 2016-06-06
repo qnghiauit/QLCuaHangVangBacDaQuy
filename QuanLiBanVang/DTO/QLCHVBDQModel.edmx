@@ -271,7 +271,7 @@
           <Property Name="DiaChi" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'D:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIBANVANG\DTO\DBQLCUAHANGVANGBACDAQUY.MDF.dbo.Baocao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOING TASK\PROJECT MOI NHAT\TRUNK\QUANLIBANVANG\DTO\DBQLCUAHANGVANGBACDAQUY.MDF.dbo.Baocao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Baocao">
           <Key>
             <PropertyRef Name="NgayBC" />
@@ -663,6 +663,9 @@ warning 6002: The table/view 'D:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
         <Function Name="CalculateCostInDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="date" Type="date" Mode="In" />
         </Function>
+        <Function Name="CalculateFeeInDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
         <Function Name="CalculateIncomeInDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="date" Type="date" Mode="In" />
         </Function>
@@ -670,6 +673,9 @@ warning 6002: The table/view 'D:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <Parameter Name="date" Type="date" Mode="In" />
         </Function>
         <Function Name="CalculateNumberOfIncomeBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="CalculateRevenueInDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="date" Type="date" Mode="In" />
         </Function>
         <Function Name="CalculateStoreStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -1493,6 +1499,12 @@ warning 6002: The table/view 'D:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
           <Parameter Name="date" Mode="In" Type="DateTime" />
           </FunctionImport>
           <EntitySet Name="BANGTHAMSOes" EntityType="DBQLCuaHangVangBacDaQuyModel.BANGTHAMSO" />
+          <FunctionImport Name="CalculateFeeInDate" ReturnType="Collection(Decimal)">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="CalculateRevenueInDate" ReturnType="Collection(Decimal)">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="SANPHAM">
           <Key>
@@ -2043,6 +2055,8 @@ warning 6002: The table/view 'D:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIB
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CalculateFeeInDate" FunctionName="DBQLCuaHangVangBacDaQuyModel.Store.CalculateFeeInDate" />
+          <FunctionImportMapping FunctionImportName="CalculateRevenueInDate" FunctionName="DBQLCuaHangVangBacDaQuyModel.Store.CalculateRevenueInDate" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
