@@ -17,6 +17,10 @@ namespace BUL
         {
             _dalStaff.addNewStaff(staff);
         }
+        public bool addNewUser(DTO.NHANVIEN staff)
+        {
+            return _dalStaff.addNewUser(staff);
+        }
         public void updateStaff(DTO.NHANVIEN updateStaff)
         {
             _dalStaff.updateStaff(updateStaff);
