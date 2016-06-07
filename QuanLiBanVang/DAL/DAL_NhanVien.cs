@@ -18,6 +18,20 @@ namespace DAL
             _context.NHANVIENs.Add(staff);
             _context.SaveChanges();
         }
+        public bool addNewUser(DTO.NHANVIEN staff)
+        {
+            bool isDuplicate = _context.NHANVIENs.Any(nv => nv.TenDangNhap == staff.TenDangNhap);
+            if (isDuplicate)
+            {
+                return false;
+            }
+            else
+            {
+                _context.NHANVIENs.Add(staff);
+                _context.SaveChanges();
+                return true;
+            }
+        }
         public DTO.NHANVIEN getStaffById(int id)
         {
             return _context.NHANVIENs.Where(nv => nv.MaNV == id).Single();
