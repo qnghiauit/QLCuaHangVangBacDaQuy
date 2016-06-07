@@ -23,6 +23,7 @@ namespace QuanLiBanVang.Report
         }
         public SuaNhanVien_Form(int id)
         {
+            InitializeComponent();
             _bulStaff = new BUL.BUL_NhanVien();
             _bulGroupUser = new BUL.BUL_NhomNguoiDung();
             _bulPosition = new BUL.BUL_ChucVu();

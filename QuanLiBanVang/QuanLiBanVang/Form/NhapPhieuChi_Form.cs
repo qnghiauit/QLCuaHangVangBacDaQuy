@@ -68,7 +68,8 @@ namespace QuanLiBanVang.Report
             newBill.SoTien = decimal.Parse(this.txtCost.Text);
             this._bulPaymentBill.addNewPaymentBill(newBill);
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Close();
+            MessageBox.Show("Nhập phiếu chi thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
 
         private void NhapPhieuChi_Form_SizeChanged(object sender, EventArgs e)

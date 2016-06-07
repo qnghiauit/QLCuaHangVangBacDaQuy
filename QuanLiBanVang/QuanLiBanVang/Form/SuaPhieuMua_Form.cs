@@ -36,6 +36,7 @@ namespace QuanLiBanVang.Report
         }
         public SuaPhieuMua_Form(int id)
         {
+
             InitializeComponent();
             _myCache = new ExtendClass.MyCache("Id");
             _bulBuyBill = new BUL.BUL_PhieuMua();
@@ -45,6 +46,7 @@ namespace QuanLiBanVang.Report
             _bulClient = new BUL.BUL_KhachHang();
             _detailTable = new DataTable();
             _buyBill = _bulBuyBill.getBuyBillById(id);
+
         }
 
         public void createTable()
@@ -57,8 +59,9 @@ namespace QuanLiBanVang.Report
             _detailTable.Columns.Add("Loại sản phẩm", typeof(string));
             _detailTable.Columns.Add("Số lượng", typeof(int));
             _detailTable.Columns.Add("Trọng lượng", typeof(float));
-            _detailTable.Columns.Add("Giá mua", typeof(decimal));
-            _detailTable.Columns.Add("Thành tiền", typeof(decimal));
+            _detailTable.Columns.Add("Giá mua", typeof(int));
+            _detailTable.Columns.Add("Thành tiền", typeof(int));
+            
         }
         public void addNewRowToDataTable(DTO.CTPMH buydetail, string product, string producttype)
         {
@@ -191,12 +194,16 @@ namespace QuanLiBanVang.Report
                 this.addNewRowToDataTable(i, product, producttype);
             }
             this.dgvBuyList.DataSource = this._detailTable;
-            if (DateTime.Compare(this._buyBill.NgayMua, DateTime.Now) < 0)
+            this.cboProduct.Enabled = false;
+            if (DateTime.Compare(this._buyBill.NgayMua.Date, DateTime.Now.Date) < 0)
             {
                 this.rdoClientType.Enabled = false;
                 this.cboClientName.Enabled = false;
                 this.btnAdd.Enabled = false;
             }
+            this.lbTotal.Text = _buyBill.TongTien.ToString();
+            this.dgvBuy.Columns[0].Visible = false;
+            
             //}
         }
 
@@ -265,12 +272,12 @@ namespace QuanLiBanVang.Report
             detail.SoPhieuMua = _buyBill.SoPhieuMua;
             detail.TrongLuong = float.Parse(txtWeight.Text);
             detail.SoLuong = int.Parse(txtQuantity.Text);
-            detail.GiaMua = decimal.Parse(txtPrice.Text);
-            detail.Thanhtien = (decimal)(detail.SoLuong * detail.GiaMua);
+            detail.GiaMua = int.Parse(txtPrice.Text);
+            detail.Thanhtien = (int)(detail.SoLuong * detail.GiaMua);
             
-            double total = double.Parse(lbTotal.Text);
-            total += (double)detail.Thanhtien;
-            this.lbTotal.Text = total.ToString();
+            decimal total = decimal.Parse(lbTotal.Text);
+            total += (decimal)detail.Thanhtien;
+            this.lbTotal.Text = ((int)total).ToString();
 
             this._bulBuyDetail.addNewBuyDetail(detail);
             
@@ -307,6 +314,7 @@ namespace QuanLiBanVang.Report
                 {
                     this._buyBill.MaKH = ((this.cboClientName.SelectedItem as ExtendClass.ContainerItem).Value as DTO.KHACHHANG).MaKH;
                 }
+               // _buyBill.TongTien = decimal.Parse(this.lbTotal.Text);
                 this._bulBuyBill.updateBuyBill(_buyBill);
                 MessageBox.Show("Cập nhật thành công!");
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -324,6 +332,35 @@ namespace QuanLiBanVang.Report
             
             this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close();
+        }
+
+        private void cboProductType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cboProductType.SelectedIndex == 0)
+            {
+                this.cboProduct.SelectedIndex = 0;
+                this.cboProduct.Enabled = false;
+            }
+            else
+            {
+
+                int productTypeid = ((this.cboProductType.SelectedItem as ExtendClass.ContainerItem).Value as DTO.LOAISANPHAM).MaLoaiSP;
+                List<DTO.SANPHAM> listProduct = _bulProduct.getProductByProductType(productTypeid);
+                this.cboProduct.Properties.Items.Clear();
+                ExtendClass.ContainerItem noneItem = new ExtendClass.ContainerItem();
+                noneItem.Text = "";
+                noneItem.Value = "";
+                this.cboProduct.Properties.Items.Add(noneItem);
+                this.cboProduct.SelectedIndex = 0;
+                foreach (DTO.SANPHAM i in listProduct)
+                {
+                    ExtendClass.ContainerItem item = new ExtendClass.ContainerItem();
+                    item.Text = i.TenSP;
+                    item.Value = i;
+                    this.cboProduct.Properties.Items.Add(item);
+                }
+                this.cboProduct.Enabled = true;
+            }
         }
     }
 }

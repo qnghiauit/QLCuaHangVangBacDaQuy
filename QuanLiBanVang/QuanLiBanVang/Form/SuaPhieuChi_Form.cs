@@ -44,7 +44,8 @@ namespace QuanLiBanVang.Report
             this.dtpkCreateDate.Enabled = false;
 
             this.dtpkCreateDate.EditValue = _paymentBill.NgayLap;
-            this.txtPrice.Text = int.Parse(_paymentBill.SoTien.ToString()).ToString();
+            this.txtContent.Text = _paymentBill.NoiDungChi;
+            this.txtPrice.Text = ((int)_paymentBill.SoTien).ToString();
 
         }
         private bool CheckControlValidation()
@@ -67,6 +68,7 @@ namespace QuanLiBanVang.Report
             this._paymentBill.NoiDungChi = this.txtContent.Text;
             this._bulPaymentBill.updatePaymentBill(_paymentBill);
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            MessageBox.Show("Cập nhật phiếu chi thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
     }

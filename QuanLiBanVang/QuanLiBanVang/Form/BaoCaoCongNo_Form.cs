@@ -50,22 +50,23 @@ namespace QuanLiBanVang.Form
                 if (result == DialogResult.OK)
                 {
                     fileName = this.folderBrowserDialog.SelectedPath;
-                }
 
-                PdfExportOptions pdfOption = this._templateReport.ExportOptions.Pdf;
-                pdfOption.Compressed = true;
-                pdfOption.ImageQuality = PdfJpegImageQuality.Medium;
-                pdfOption.NeverEmbeddedFonts = "Tahoma;Courier New";
-                pdfOption.DocumentOptions.Application = "QuanLiBanVang";
-                pdfOption.DocumentOptions.Author = ExtendClass.UserAccess.Instance.GetStaffName;
-                pdfOption.DocumentOptions.Keywords = "Xtra Report";
-                pdfOption.DocumentOptions.Subject = "Bao cao cong no";
-                pdfOption.DocumentOptions.Title = "Báo cáo công nợ";
-                fileName += "\\" + pdfOption.DocumentOptions.Title + ".pdf";
-                pdfOption.PageRange = "1";
-                _templateReport.ExportToPdf(fileName);
-                MessageBox.Show("Xuất file thành công!");
-                this.StartProcess(fileName);
+
+                    PdfExportOptions pdfOption = this._templateReport.ExportOptions.Pdf;
+                    pdfOption.Compressed = true;
+                    pdfOption.ImageQuality = PdfJpegImageQuality.Medium;
+                    pdfOption.NeverEmbeddedFonts = "Tahoma;Courier New";
+                    pdfOption.DocumentOptions.Application = "QuanLiBanVang";
+                    pdfOption.DocumentOptions.Author = ExtendClass.UserAccess.Instance.GetStaffName;
+                    pdfOption.DocumentOptions.Keywords = "Xtra Report";
+                    pdfOption.DocumentOptions.Subject = "Bao cao cong no";
+                    pdfOption.DocumentOptions.Title = "Báo cáo công nợ";
+                    fileName += "\\" + pdfOption.DocumentOptions.Title + ".pdf";
+                    pdfOption.PageRange = "1";
+                    _templateReport.ExportToPdf(fileName);
+                    MessageBox.Show("Xuất file thành công!","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    this.StartProcess(fileName);
+                }
             }
         }
         public void StartProcess(string path)

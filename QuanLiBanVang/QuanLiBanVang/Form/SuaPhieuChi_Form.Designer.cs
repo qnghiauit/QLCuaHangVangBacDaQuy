@@ -83,7 +83,7 @@
             this.txtContent.Name = "txtContent";
             this.txtContent.Properties.MaxLength = 200;
             this.txtContent.Size = new System.Drawing.Size(116, 20);
-            this.txtContent.TabIndex = 8;
+            this.txtContent.TabIndex = 1;
             // 
             // labelControl5
             // 
@@ -117,7 +117,7 @@
             this.txtPrice.Properties.Mask.EditMask = "\\d{3,10}";
             this.txtPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtPrice.Size = new System.Drawing.Size(116, 20);
-            this.txtPrice.TabIndex = 3;
+            this.txtPrice.TabIndex = 2;
             // 
             // labelControl4
             // 
@@ -150,7 +150,7 @@
             this.btnSave.Location = new System.Drawing.Point(200, 154);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 27);
-            this.btnSave.TabIndex = 4;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -161,7 +161,7 @@
             this.btnCancel.Location = new System.Drawing.Point(293, 154);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 

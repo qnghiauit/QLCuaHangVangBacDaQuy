@@ -143,13 +143,21 @@ namespace QuanLiBanVang.Report
             if (row != null)
             {
                 //delete 
-
-                if (!this._bulProduct.deleteProduct((int)row[0]))
+                DialogResult dresult = MessageBox.Show("Bạn có chắc muốn xóa sản phẩm này không?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dresult == System.Windows.Forms.DialogResult.OK)
                 {
-                    MessageBox.Show("Không thể xóa loại sản phẩm đang dùng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (!this._bulProduct.deleteProduct((int)row[0]))
+                    {
+                        MessageBox.Show("Không thể xóa loại sản phẩm đang dùng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa sản phẩm thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.dgvProduct.DeleteRow(pos);
+                    }
                 }
-                this.dgvProduct.DeleteRow(pos);
+                
             }
             
         }

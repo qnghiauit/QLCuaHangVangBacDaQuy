@@ -36,7 +36,7 @@ namespace QuanLiBanVang.Report
             _paymentTable.Columns.Add("Ngày lập", typeof(DateTime));
             _paymentTable.Columns.Add("Người lập", typeof(string));
             _paymentTable.Columns.Add("Nội dung chi", typeof(string));
-            _paymentTable.Columns.Add("Số tiền", typeof(decimal));
+            _paymentTable.Columns.Add("Số tiền", typeof(int));
             
 
         }
@@ -115,8 +115,13 @@ namespace QuanLiBanVang.Report
                 //    MessageBox.Show("Không thể xóa phiếu chi đã duyệt!");
                 //    return;
                 //}
+                DialogResult dresult = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dresult == System.Windows.Forms.DialogResult.OK)
+                {
                     this._bulPaymentBill.deletePaymentBill((int)row[0]);
                     this.dgvPaymentBill.DeleteRow(pos);
+                    MessageBox.Show("Đã xóa thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
@@ -139,15 +144,20 @@ namespace QuanLiBanVang.Report
             if (row != null)
             {
                 //DateTime current = DateTime.UtcNow.Date;
-                //if (DateTime.Compare(((DateTime)row[1]).Date, current) < 0)
-                //{
-                //    MessageBox.Show("Không thể xóa phiếu chi đã duyệt!");
-                //    return;
-                //}
-                _bulPaymentBill = null;
-                _bulPaymentBill = new BUL.BUL_PhieuChi();
-                DTO.PHIEUCHI updateRow = _bulPaymentBill.getPaymentBillById((int)row[0]);
-                this.updateRowInDataTable(pos, updateRow, _bulStaff.getStaffById(updateRow.MaNV).HoTen);
+                if (DateTime.Compare(((DateTime)row[1]).Date, DateTime.Now.Date) < 0)
+                {
+                    MessageBox.Show("Không thể xóa phiếu chi đã duyệt!");
+                    return;
+                }
+                SuaPhieuChi_Form editPayment_frm = new SuaPhieuChi_Form((int)row[0]);
+                DialogResult dresult = editPayment_frm.ShowDialog();
+                if (dresult == System.Windows.Forms.DialogResult.OK)
+                {
+                    _bulPaymentBill = null;
+                    _bulPaymentBill = new BUL.BUL_PhieuChi();
+                    DTO.PHIEUCHI updateRow = _bulPaymentBill.getPaymentBillById((int)row[0]);
+                    this.updateRowInDataTable(pos, updateRow, _bulStaff.getStaffById(updateRow.MaNV).HoTen);
+                }
             }
         }
 

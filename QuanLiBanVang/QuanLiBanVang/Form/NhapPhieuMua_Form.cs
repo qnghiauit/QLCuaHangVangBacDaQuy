@@ -55,8 +55,8 @@ namespace QuanLiBanVang.Report
             _detailTable.Columns.Add("Loại sản phẩm", typeof(string));
             _detailTable.Columns.Add("Số lượng", typeof(int));
             _detailTable.Columns.Add("Trọng lượng", typeof(float));
-            _detailTable.Columns.Add("Giá mua", typeof(decimal));
-            _detailTable.Columns.Add("Thành tiền", typeof(decimal));
+            _detailTable.Columns.Add("Giá mua", typeof(int));
+            _detailTable.Columns.Add("Thành tiền", typeof(int));
         }
         public void addNewRowToDataTable(DTO.CTPMH buydetail, string product, string producttype)
         {
@@ -73,8 +73,8 @@ namespace QuanLiBanVang.Report
             datarow[3] = producttype;
             datarow[4] = buydetail.SoLuong;
             datarow[5] = buydetail.TrongLuong;
-            datarow[6] = buydetail.GiaMua;
-            datarow[7] = buydetail.Thanhtien;
+            datarow[6] = (int)buydetail.GiaMua;
+            datarow[7] = (int)buydetail.Thanhtien;
             _detailTable.Rows.Add(datarow);
         }
         private void dgvBuy_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
@@ -140,13 +140,15 @@ namespace QuanLiBanVang.Report
             detail.GiaMua = decimal.Parse(txtPrice.Text);
             detail.Thanhtien = (decimal)(detail.SoLuong * detail.GiaMua);
             this.addNewRowToDataTable(detail, product, producttype);
-            double total = double.Parse(lbTotal.Text);
-            total += (double)detail.Thanhtien;
+            
+            int total = int.Parse(lbTotal.Text);
+            total += (int)detail.Thanhtien;
             this.lbTotal.Text = total.ToString();
         }
 
         private void NhapPhieuMua_Form_Load(object sender, EventArgs e)
         {
+            
             this.dtpkCreateDate.Properties.MinValue = DateTime.Now;
             this.dtpkCreateDate.Properties.MaxValue = DateTime.Now;
             this.dtpkCreateDate.EditValue = DateTime.Now;
@@ -184,6 +186,7 @@ namespace QuanLiBanVang.Report
                 item.Value = i;
                 this.cboClientName.Properties.Items.Add(item);
             }
+            this.cboProduct.Enabled = false;
             createTable();
             this.dgvBuyList.DataSource = _detailTable;
             this.dgvBuy.Columns[0].Visible = false;
@@ -246,7 +249,8 @@ namespace QuanLiBanVang.Report
                 {
                     newBuyBill.MaKH = ((cboClientName.SelectedItem as ExtendClass.ContainerItem).Value as DTO.KHACHHANG).MaKH;
                 }
-                newBuyBill.MaNV = 4;
+                newBuyBill.MaNV = ExtendClass.UserAccess.Instance.GetUserId;
+                //newBuyBill.TongTien = decimal.Parse(this.lbTotal.Text);
                 this._bulBuyBill.addNewBuyBill(newBuyBill);
                 foreach (DataRow i in this._detailTable.Rows)
                 {
@@ -263,12 +267,12 @@ namespace QuanLiBanVang.Report
                     detail.SoPhieuMua = newBuyBill.SoPhieuMua;
                     detail.SoLuong = (int)i[4];
                     detail.TrongLuong = (float)i[5];
-                    detail.GiaMua = (decimal)i[6];
-                    detail.Thanhtien = (decimal)i[7];
+                    detail.GiaMua = (int)i[6];
+                    detail.Thanhtien = (int)i[7];
                     this._bulBuyDetail.addNewBuyDetail(detail);
                 }
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                MessageBox.Show("Nhập phiếu mua hàng thành công!", "Info", MessageBoxButtons.OK);
+                MessageBox.Show("Nhập phiếu mua hàng thành công!", "Info", MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
             else
             {
@@ -282,6 +286,35 @@ namespace QuanLiBanVang.Report
             if (this.cboClientName.SelectedItem != null)
             {
                 this.lblPhoneNumber.Text = ((this.cboClientName.SelectedItem as ExtendClass.ContainerItem).Value as DTO.KHACHHANG).SDT.ToString();
+            }
+        }
+
+        private void cboProductType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cboProductType.SelectedIndex == 0)
+            {
+                this.cboProduct.SelectedIndex = 0;
+                this.cboProduct.Enabled = false;
+            }
+            else
+            {
+                
+                int productTypeid = ((this.cboProductType.SelectedItem as ExtendClass.ContainerItem).Value as DTO.LOAISANPHAM).MaLoaiSP;
+                List<DTO.SANPHAM> listProduct = _bulProduct.getProductByProductType(productTypeid);
+                this.cboProduct.Properties.Items.Clear();
+                ExtendClass.ContainerItem noneItem = new ExtendClass.ContainerItem();
+                noneItem.Text = "";
+                noneItem.Value = "";
+                this.cboProduct.Properties.Items.Add(noneItem);
+                this.cboProduct.SelectedIndex = 0;
+                foreach (DTO.SANPHAM i in listProduct)
+                {
+                    ExtendClass.ContainerItem item = new ExtendClass.ContainerItem();
+                    item.Text = i.TenSP;
+                    item.Value = i;
+                    this.cboProduct.Properties.Items.Add(item);
+                }
+                this.cboProduct.Enabled = true;
             }
         }
     }

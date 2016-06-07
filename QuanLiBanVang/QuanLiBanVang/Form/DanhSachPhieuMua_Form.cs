@@ -47,7 +47,7 @@ namespace QuanLiBanVang.Report
             _buyTable.Columns.Add("Tên nhân viên", typeof(string));
             _buyTable.Columns.Add("Tên khách hàng", typeof(string));
             _buyTable.Columns.Add("Ngày lập", typeof(DateTime));
-            _buyTable.Columns.Add("Tổng tiền", typeof(decimal));
+            _buyTable.Columns.Add("Tổng tiền", typeof(int));
         }
         private void addNewRowToTableData(DTO.PHIEUMUAHANG buybill, string staffname, string clientname)
         {
@@ -56,7 +56,7 @@ namespace QuanLiBanVang.Report
             newRow[1] = staffname;
             newRow[2] = clientname;
             newRow[3] = buybill.NgayMua.Date;
-            newRow[4] = (decimal)buybill.TongTien;
+            newRow[4] = (int)buybill.TongTien;
             _buyTable.Rows.Add(newRow);
         }
         private void updateRowInTableData(int index, DTO.PHIEUMUAHANG buybill, string staffname, string clientname)
@@ -71,7 +71,7 @@ namespace QuanLiBanVang.Report
                 _buyTable.Rows[index][2] = "Khách vãng lai";
             }
             _buyTable.Rows[index][3] = buybill.NgayMua.Date;
-            _buyTable.Rows[index][4] = (decimal)buybill.TongTien;
+            _buyTable.Rows[index][4] = (int)buybill.TongTien;
             this.dgvBuyBill.RefreshRow(index);
         }
         private void initTableData(List<DTO.PHIEUMUAHANG> listbuybill, List<DTO.NHANVIEN> liststaff, List<DTO.KHACHHANG> listclient)

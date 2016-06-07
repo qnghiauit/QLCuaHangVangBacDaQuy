@@ -58,6 +58,7 @@ namespace QuanLiBanVang.Report
                 _newReport.TonCuoi = 0;
 
                 _bulInventory.addNewInventoryReport(_newReport);
+                MessageBox.Show("Nhập sản phẩm thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
             }
         }
