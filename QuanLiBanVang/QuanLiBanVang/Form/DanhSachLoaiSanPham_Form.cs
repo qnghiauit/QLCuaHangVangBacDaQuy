@@ -109,7 +109,7 @@ namespace QuanLiBanVang.Report
                 {
                     if (!_bulProductType.deleteProductType((int)row[0]))
                     {
-                        MessageBox.Show("Không thể xóa loại sản phẩm đã có tham chiếu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Không thể xóa loại sản phẩm đang kinh doanh!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     else

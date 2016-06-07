@@ -88,13 +88,22 @@ namespace QuanLiBanVang.Report
                 this._staff.MaNhom = ((this.cboGroupUser.SelectedItem as ExtendClass.ContainerItem).Value as DTO.NHOMNGUOIDUNG).MaNhom;
 
                 //Luu lai
-                this._bulStaff.addNewStaff(this._staff);
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.Close();
+                //this._bulStaff.addNewStaff(this._staff);
+                bool isSuceeded = this._bulStaff.addNewUser(this._staff);
+                if (isSuceeded)
+                {
+                    MessageBox.Show("Thêm tài khoản nhân viên mới thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản đã bị trùng, vui lòng chọn tên đăng nhập khác!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin cần thiết!");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin cần thiết!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
         }

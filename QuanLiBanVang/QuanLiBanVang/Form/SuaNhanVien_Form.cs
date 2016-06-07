@@ -107,6 +107,7 @@ namespace QuanLiBanVang.Report
         private void SuaNhanVien_Form_Load(object sender, EventArgs e)
         {
             this.loadStaffInfo();
+            this.txtUsername.Enabled = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -133,12 +134,13 @@ namespace QuanLiBanVang.Report
                 _staff.TenDangNhap = this.txtUsername.Text;
 
                 this._bulStaff.updateStaff(_staff);
+                MessageBox.Show("Cập nhật thông tin tài khoản thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin cần thiết!");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin cần thiết!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 

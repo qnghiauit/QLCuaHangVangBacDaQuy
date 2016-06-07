@@ -154,8 +154,20 @@ namespace QuanLiBanVang.Report
             }
             if (row != null)
             {
-                this._bulStaff.deleteStaff((int)row[0]);
-                this.dgvStaff.DeleteRow(pos);
+                if (ExtendClass.UserAccess.Instance.GetUserId == (int)row[0])
+                {
+                    MessageBox.Show("Không thể xóa tài khoản đang đăng nhập!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    DialogResult dresult = MessageBox.Show("Bạn có chắc muốn xóa tài khoản này?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (dresult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        this._bulStaff.deleteStaff((int)row[0]);
+                        this.dgvStaff.DeleteRow(pos);
+                    }
+                }
             }
         }
 
