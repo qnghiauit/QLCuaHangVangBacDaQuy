@@ -264,6 +264,7 @@
             this.comboBoxEditMaLoaiSp.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEditMaLoaiSp.Size = new System.Drawing.Size(76, 20);
             this.comboBoxEditMaLoaiSp.TabIndex = 6;
+            this.comboBoxEditMaLoaiSp.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditMaLoaiSp_SelectedIndexChanged);
             // 
             // label5
             // 

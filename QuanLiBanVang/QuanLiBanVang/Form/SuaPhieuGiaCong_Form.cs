@@ -21,13 +21,12 @@ namespace QuanLiBanVang
         private int _soPGC;
         private bool _isResultOk;
         private ComboBoxItemCollection _comboboxItemsTho;
-        private double phanTramTienGCThoNhan;
+        private double _phanTramTienGcThoNhan;
         public SuaPhieuGiaCong_Form(int soPgc)
         {
             InitializeComponent();
             _soPGC = soPgc;           
             _isResultOk = false;
-            phanTramTienGCThoNhan = 0.7;
         }
 
         private void PhieuGiaCong_Load(object sender, EventArgs e)
@@ -37,7 +36,9 @@ namespace QuanLiBanVang
             CreateDataTableCtpdvCanGiaCong();
             LoadCtpdvCanGiaCong();
             CreateDataTableCTPGC_review();
-            LoadCtpgc_review();        
+            LoadCtpgc_review();
+            _phanTramTienGcThoNhan = new BUL_BangThamSo().getValueByArgument("PhanTramTienGCThoNhan");
+            labelControlChuThichTienCong.Text = "=(" + (_phanTramTienGcThoNhan * 100) + "%)";
         }
         private void LoadThongTinPgc()
         {
@@ -207,7 +208,7 @@ namespace QuanLiBanVang
                 textEditTenLoaiSP.Text = currentRow["TenLoaiSP"].ToString();
                 textEditHTGC.Text = currentRow["HTGC"].ToString();
                 textEditSoLuong.Text = currentRow["SoLuong"].ToString();
-                textEditTienCong.Text = (Convert.ToInt32(currentRow["TienCong"]) * phanTramTienGCThoNhan).ToString();
+                textEditTienCong.Text = (Convert.ToInt32(currentRow["TienCong"]) * _phanTramTienGcThoNhan).ToString();
             }
         }
         private void textEditSoLuong_EditValueChanged(object sender, EventArgs e)
@@ -315,6 +316,10 @@ namespace QuanLiBanVang
                 MessageBox.Show(Resources.NhapPhieuGiaCong_SLChiTietPGCToiThieu, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            DialogResult dialogResult = MessageBox.Show(Resources.DetailMessageBox_XacNhanXoa,
+                Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dialogResult != DialogResult.OK)
+                return;
             DataRow currentRow = gridViewCTPGC_review.GetDataRow(gridViewCTPGC_review.FocusedRowHandle);
             if (currentRow != null)
             {
@@ -376,14 +381,11 @@ namespace QuanLiBanVang
             simpleButtonXoa.Enabled = false;
             simpleButtonSua.Enabled = false;
             _isResultOk = true;
-            simpleButtonExit.Text = Resources.ThoatKhoiForm;
+            Close();
         }
         private void PhieuGiaCong_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_isResultOk)
-                DialogResult = DialogResult.OK;
-            else
-                DialogResult = DialogResult.Cancel;
+            DialogResult = _isResultOk ? DialogResult.OK : DialogResult.Cancel;
         }
 
         private void simpleButtonExit_Click(object sender, EventArgs e)

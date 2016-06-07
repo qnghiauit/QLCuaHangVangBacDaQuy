@@ -20,24 +20,26 @@ namespace QuanLiBanVang
         private int _maNV;
         private bool _isResultOk;
         private ComboBoxItemCollection _comboboxItemsTho;
-        private double phanTramTienGCThoNhan;
+        private double _phanTramTienGcThoNhan;
         public NhapPhieuGiaCong_Form(int maNv = 4)
         {
             InitializeComponent();
             _maNV = maNv;
             _isResultOk = false;
-            phanTramTienGCThoNhan = 0.7;
+            
         }
 
         private void PhieuGiaCong_Load(object sender, EventArgs e)
         {
             dateEditNgayNhanHang.DateTime = DateTime.Today;
+            dateEditNgayNhanHang.ReadOnly = true;
             CreateDataTableCtspgc();
             LoadCtpdvCanGiaCong();
             CreateDataTablePGC_review();
             LoadEmployeeName();
             LoadDanhSachTho();
-
+            _phanTramTienGcThoNhan = new BUL_BangThamSo().getValueByArgument("PhanTramTienGCThoNhan");
+            labelControlChuThichTienCong.Text = "=(" + (_phanTramTienGcThoNhan*100) + "%)";
         }
 
         private void CreateDataTableCtspgc()
@@ -171,7 +173,7 @@ namespace QuanLiBanVang
                 textEditTenLoaiSP.Text = currentRow["TenLoaiSP"].ToString();
                 textEditHTGC.Text = currentRow["HTGC"].ToString();
                 textEditSoLuong.Text = currentRow["SoLuong"].ToString();
-                textEditTienCong.Text = ((int)(Convert.ToInt32(currentRow["TienCong"]) * phanTramTienGCThoNhan)).ToString();
+                textEditTienCong.Text = ((int)(Convert.ToInt32(currentRow["TienCong"]) * _phanTramTienGcThoNhan)).ToString();
             }
         }
         private void textEditSoLuong_EditValueChanged(object sender, EventArgs e)
@@ -295,6 +297,11 @@ namespace QuanLiBanVang
                 MessageBox.Show(Resources.NhapPhieuGiaCong_NgayThanhToanEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateEditNgayThanhToan.Focus();
                 return;
+            } if (dateEditNgayNhanHang.DateTime != DateTime.Today)
+            {
+                MessageBox.Show(Resources.NgNhanHang, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dateEditNgayNhanHang.Focus();
+                return;
             }
             if (dateEditNgayNhanHang.DateTime > dateEditNgayThanhToan.DateTime)
             {
@@ -336,7 +343,7 @@ namespace QuanLiBanVang
             simpleButtonThem.Enabled = false;
             simpleButtonXoa.Enabled = false;
             _isResultOk = true;
-            simpleButtonExit.Text = Resources.ThoatKhoiForm;
+            Close();
         }
         private void PhieuGiaCong_FormClosing(object sender, FormClosingEventArgs e)
         {

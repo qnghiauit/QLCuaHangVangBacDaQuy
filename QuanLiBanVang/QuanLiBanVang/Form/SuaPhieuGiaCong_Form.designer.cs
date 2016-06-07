@@ -68,6 +68,7 @@
             this.gridColumnthanhTien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnTienCong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlChuThichTienCong = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenNhanVien.Properties)).BeginInit();
@@ -199,6 +200,7 @@
             this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl2.Controls.Add(this.labelControlChuThichTienCong);
             this.groupControl2.Controls.Add(this.simpleButtonSua);
             this.groupControl2.Controls.Add(this.textEditTienCong);
             this.groupControl2.Controls.Add(this.simpleButtonXoa);
@@ -505,6 +507,15 @@
             this.labelControl10.TabIndex = 18;
             this.labelControl10.Text = "SỬA PHIẾU GIA CÔNG";
             // 
+            // labelControlChuThichTienCong
+            // 
+            this.labelControlChuThichTienCong.Location = new System.Drawing.Point(1028, 55);
+            this.labelControlChuThichTienCong.Name = "labelControlChuThichTienCong";
+            this.labelControlChuThichTienCong.Size = new System.Drawing.Size(39, 13);
+            this.labelControlChuThichTienCong.TabIndex = 41;
+            this.labelControlChuThichTienCong.Text = "(=70%)";
+            this.labelControlChuThichTienCong.ToolTip = "Phần trăm tiền công nhận được từ giá trị trên phiếu dịch vụ";
+            // 
             // SuaPhieuGiaCong_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -587,5 +598,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButtonXoa;
         private DevExpress.XtraEditors.TextEdit textEditTienCong;
         private DevExpress.XtraEditors.SimpleButton simpleButtonSua;
+        private DevExpress.XtraEditors.LabelControl labelControlChuThichTienCong;
     }
 }

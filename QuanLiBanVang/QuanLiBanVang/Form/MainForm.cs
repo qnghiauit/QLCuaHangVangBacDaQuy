@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using QuanLiBanVang.Form;
+using QuanLiBanVang.Model;
 
 namespace QuanLiBanVang
 {
@@ -24,7 +25,7 @@ namespace QuanLiBanVang
         }
         private void InitInventoryReport()
         {
-            
+
             BUL.BUL_BaoCaoTonKho bulReport = new BUL.BUL_BaoCaoTonKho();
             if (!bulReport.isReportExisted(DateTime.Now.Date))
             {
@@ -68,7 +69,7 @@ namespace QuanLiBanVang
         //Check if a form is opened already      
         private bool IsFormOpened(XtraForm form)
         {
-            bool IsOpenend = false;
+            bool isOpened = false;
             //If there is more than one form opened
             if (MdiChildren.Count() > 0)
             {
@@ -78,14 +79,13 @@ namespace QuanLiBanVang
                     {
                         //Active this form
                         xtraTabbedMdiManager1.Pages[item].MdiChild.Activate();
-                        IsOpenend = true;
+                        isOpened = true;
                     }
                 }
             }
-            return IsOpenend;
+            return isOpened;
         }
-        private void SetAccessControl()
-        {
+        private void SetAccessControl(){
             int level = ExtendClass.UserAccess.Instance.GetAccessLevel;
             switch (level)
             {
@@ -221,7 +221,8 @@ namespace QuanLiBanVang
 
         private void barButtonItem21_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            ThayDoiQuyDinh_Form thayDoiQuyDinhForm = new ThayDoiQuyDinh_Form();
+            OpenChildForm(thayDoiQuyDinhForm);
         }
 
         private void barButtonItem24_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -264,7 +265,7 @@ namespace QuanLiBanVang
 
         private void barButtonItemLapPBH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            PhieuBanHang phieuBanHang = new PhieuBanHang();
+            PhieuBanHang phieuBanHang = new PhieuBanHang(ActionType.ACTION_CREATE_NEW, null);
             OpenChildForm(phieuBanHang);
         }
 

@@ -5,14 +5,12 @@ using System.Windows.Forms;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
 namespace QuanLiBanVang
-{
-    static class Program
+{static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]
-        static void Main()
+        [STAThread]static void Main()
         {
             DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = "DevExpress Style";
             Application.EnableVisualStyles();
@@ -21,6 +19,6 @@ namespace QuanLiBanVang
             // Application.CurrentCulture = new System.Globalization.CultureInfo("zh-Hans");
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new NhapPhieuDichVu());}
+            Application.Run(new MainForm());}
     }
 }

@@ -77,6 +77,13 @@
             this.dBQLCuaHangVangBacDaQuyDataSet = new QuanLiBanVang.DBQLCuaHangVangBacDaQuyDataSet();
             this.sANPHAMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControlSlKH = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlSLNCC = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlSLTho = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -94,6 +101,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sANPHAMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             this.groupControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
+            this.groupControl6.SuspendLayout();
             this.SuspendLayout();
             // 
             // simpleButton1
@@ -442,6 +451,9 @@
             // 
             // chartControlProduct
             // 
+            this.chartControlProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chartControlProduct.DataAdapter = this.sANPHAMTableAdapter;
             this.chartControlProduct.DataSource = this.dBQLCuaHangVangBacDaQuyDataSet;
             simpleDiagram3D1.RotationMatrixSerializable = "1;0;0;0;0;0.5;-0.866025403784439;0;0;0.866025403784439;0.5;0;0;0;0;1";
@@ -455,7 +467,7 @@
             series1.View = pie3DSeriesView1;
             this.chartControlProduct.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chartControlProduct.Size = new System.Drawing.Size(855, 206);
+            this.chartControlProduct.Size = new System.Drawing.Size(1121, 206);
             this.chartControlProduct.TabIndex = 7;
             chartTitle1.Text = "Tình hình kho";
             this.chartControlProduct.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
@@ -477,18 +489,84 @@
             // 
             // groupControl5
             // 
+            this.groupControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl5.Controls.Add(this.chartControlProduct);
             this.groupControl5.Location = new System.Drawing.Point(12, 161);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(865, 234);
+            this.groupControl5.Size = new System.Drawing.Size(1131, 234);
             this.groupControl5.TabIndex = 7;
             this.groupControl5.Text = "Biểu đồ tình hình kho";
+            // 
+            // groupControl6
+            // 
+            this.groupControl6.Controls.Add(this.labelControlSlKH);
+            this.groupControl6.Controls.Add(this.labelControl6);
+            this.groupControl6.Controls.Add(this.labelControlSLNCC);
+            this.groupControl6.Controls.Add(this.labelControlSLTho);
+            this.groupControl6.Controls.Add(this.labelControl9);
+            this.groupControl6.Controls.Add(this.labelControl10);
+            this.groupControl6.Location = new System.Drawing.Point(884, 44);
+            this.groupControl6.Name = "groupControl6";
+            this.groupControl6.Size = new System.Drawing.Size(200, 111);
+            this.groupControl6.TabIndex = 14;
+            this.groupControl6.Text = "Thông tin đối tác";
+            // 
+            // labelControlSlKH
+            // 
+            this.labelControlSlKH.Location = new System.Drawing.Point(176, 42);
+            this.labelControlSlKH.Name = "labelControlSlKH";
+            this.labelControlSlKH.Size = new System.Drawing.Size(6, 13);
+            this.labelControlSlKH.TabIndex = 13;
+            this.labelControlSlKH.Text = "0";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(12, 42);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(150, 13);
+            this.labelControl6.TabIndex = 12;
+            this.labelControl6.Text = "Số lượng khách hàng thân thiết";
+            // 
+            // labelControlSLNCC
+            // 
+            this.labelControlSLNCC.Location = new System.Drawing.Point(176, 61);
+            this.labelControlSLNCC.Name = "labelControlSLNCC";
+            this.labelControlSLNCC.Size = new System.Drawing.Size(6, 13);
+            this.labelControlSLNCC.TabIndex = 11;
+            this.labelControlSLNCC.Text = "0";
+            // 
+            // labelControlSLTho
+            // 
+            this.labelControlSLTho.Location = new System.Drawing.Point(176, 23);
+            this.labelControlSLTho.Name = "labelControlSLTho";
+            this.labelControlSLTho.Size = new System.Drawing.Size(6, 13);
+            this.labelControlSLTho.TabIndex = 10;
+            this.labelControlSLTho.Text = "2";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(12, 61);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(109, 13);
+            this.labelControl9.TabIndex = 8;
+            this.labelControl9.Text = "Số lượng nhà cung cấp";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(12, 23);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(104, 13);
+            this.labelControl10.TabIndex = 7;
+            this.labelControl10.Text = "Số lượng thợ gia công";
             // 
             // TongQuan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 407);
+            this.ClientSize = new System.Drawing.Size(1155, 407);
+            this.Controls.Add(this.groupControl6);
             this.Controls.Add(this.groupControl5);
             this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.groupControl3);
@@ -521,6 +599,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.sANPHAMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
             this.groupControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
+            this.groupControl6.ResumeLayout(false);
+            this.groupControl6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -571,5 +652,12 @@
         private DBQLCuaHangVangBacDaQuyDataSet dBQLCuaHangVangBacDaQuyDataSet;
         private System.Windows.Forms.BindingSource sANPHAMBindingSource;
         private DevExpress.XtraEditors.GroupControl groupControl5;
+        private DevExpress.XtraEditors.GroupControl groupControl6;
+        private DevExpress.XtraEditors.LabelControl labelControlSlKH;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl labelControlSLNCC;
+        private DevExpress.XtraEditors.LabelControl labelControlSLTho;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
     }
 }

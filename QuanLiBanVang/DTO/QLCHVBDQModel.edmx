@@ -271,7 +271,7 @@
           <Property Name="DiaChi" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOING TASK\PROJECT MOI NHAT\TRUNK\QUANLIBANVANG\DTO\DBQLCUAHANGVANGBACDAQUY.MDF.dbo.Baocao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'D:\PROJECT\QLCUAHANGVANGBACDAQUY.GIT\TRUNK\QUANLIBANVANG\DTO\DBQLCUAHANGVANGBACDAQUY.MDF.dbo.Baocao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Baocao">
           <Key>
             <PropertyRef Name="NgayBC" />
@@ -675,6 +675,7 @@ warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOIN
         <Function Name="CalculateNumberOfIncomeBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="date" Type="date" Mode="In" />
         </Function>
+        <Function Name="CalculateNumberOfPartner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="CalculateRevenueInDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="date" Type="date" Mode="In" />
         </Function>
@@ -1500,11 +1501,12 @@ warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOIN
           </FunctionImport>
           <EntitySet Name="BANGTHAMSOes" EntityType="DBQLCuaHangVangBacDaQuyModel.BANGTHAMSO" />
           <FunctionImport Name="CalculateFeeInDate" ReturnType="Collection(Decimal)">
-            <Parameter Name="date" Mode="In" Type="DateTime" />
+          <Parameter Name="date" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="CalculateRevenueInDate" ReturnType="Collection(Decimal)">
-            <Parameter Name="date" Mode="In" Type="DateTime" />
+          <Parameter Name="date" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="CalculateNumberOfPartner" ReturnType="Collection(DBQLCuaHangVangBacDaQuyModel.CalculateNumberOfPartner_Result)" />
         </EntityContainer>
         <EntityType Name="SANPHAM">
           <Key>
@@ -1721,6 +1723,11 @@ warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOIN
           <Property Name="TenThamSo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="GiaTri" Type="Double" Nullable="false" />
         </EntityType>
+        <ComplexType Name="CalculateNumberOfPartner_Result">
+          <Property Type="Int32" Name="SlTho" Nullable="true" />
+          <Property Type="Int32" Name="SlKhachHang" Nullable="true" />
+          <Property Type="Int32" Name="SlNCC" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2057,6 +2064,15 @@ warning 6002: The table/view 'E:\LIB\NAM 3\KY 2\PHAN TICH THIET KE HE THONG\DOIN
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="CalculateFeeInDate" FunctionName="DBQLCuaHangVangBacDaQuyModel.Store.CalculateFeeInDate" />
           <FunctionImportMapping FunctionImportName="CalculateRevenueInDate" FunctionName="DBQLCuaHangVangBacDaQuyModel.Store.CalculateRevenueInDate" />
+          <FunctionImportMapping FunctionImportName="CalculateNumberOfPartner" FunctionName="DBQLCuaHangVangBacDaQuyModel.Store.CalculateNumberOfPartner">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBQLCuaHangVangBacDaQuyModel.CalculateNumberOfPartner_Result">
+                <ScalarProperty Name="SlTho" ColumnName="SlTho" />
+                <ScalarProperty Name="SlKhachHang" ColumnName="SlKhachHang" />
+                <ScalarProperty Name="SlNCC" ColumnName="SlNCC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

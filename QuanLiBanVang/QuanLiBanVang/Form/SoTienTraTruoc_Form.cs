@@ -12,20 +12,20 @@ using QuanLiBanVang.Model;
 
 namespace QuanLiBanVang.Form
 {
-    public partial class SoTienTraTruoc : DevExpress.XtraEditors.XtraForm
+    public partial class SoTienTraTruoc_Form : DevExpress.XtraEditors.XtraForm
     {
 
         private BUL.BUL_BangThamSo bulThamSo;
         private decimal total;
         private decimal prepaidExpenses;
-        public SoTienTraTruoc()
+        public SoTienTraTruoc_Form()
         {
             this.bulThamSo = new BUL.BUL_BangThamSo();
            
             InitializeComponent();
         }
 
-        public SoTienTraTruoc(decimal total)
+        public SoTienTraTruoc_Form(decimal total)
         {
             InitializeComponent();
             this.total = total;

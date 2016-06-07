@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO;
 
 namespace BUL
 {
@@ -32,6 +33,10 @@ namespace BUL
         public DTO.CalculateStoreStatus_Result calculateStoreStatus()
         {
             return _dalTongQuan.calculateStoreStatus();
+        }
+        public CalculateNumberOfPartner_Result CalculateNumberOfPartner()
+        {
+            return _dalTongQuan.CalculateNumberOfPartner();
         }
     }
 }

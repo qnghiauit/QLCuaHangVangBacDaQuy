@@ -48,6 +48,7 @@ namespace QuanLiBanVang.Report
                 {
                     this.lbState.Text = "Mật khẩu không chính xác vui lòng nhập lại!";
                     this.lbState.ForeColor = Color.Red;
+                    this.txtPassword.Text = null;
                     return;
                 }
             }
@@ -55,6 +56,7 @@ namespace QuanLiBanVang.Report
             {
                 this.lbState.Text = "Tên đăng nhập không chính xác vui lòng nhập lại!";
                 this.lbState.ForeColor = Color.Red;
+                this.txtPassword.Text = null;
                 return;
             }
         }

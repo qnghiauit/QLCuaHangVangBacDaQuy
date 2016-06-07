@@ -38,7 +38,6 @@ namespace QuanLiBanVang
         private void PhieuDichVu_Load(object sender, EventArgs e)
         {
             _comboboxItemsKh = comboBoxEditTenKhach.Properties.Items;
-            simpleButtonOK.Enabled = false;
             checkEditKhachQuen.ReadOnly = true;
             AddDichVuToComboBoxEdit();
             AddLoaiSpToComboBoxEdit();
@@ -55,6 +54,7 @@ namespace QuanLiBanVang
             checkEditKhachQuen.ReadOnly = true;
             comboBoxEditTenKhach.ReadOnly = true;
             textEditDiaChi.ReadOnly = true;
+            AddKhachHangToComboEdit();
             int makh = _pdv.MaKH ?? 0;
             if (makh == 0)
             {
@@ -188,16 +188,16 @@ namespace QuanLiBanVang
         }
         private void checkEditKhachQuen_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkEditKhachQuen.Checked){
-                comboBoxEditTenKhach.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
-                AddKhachHangToComboEdit();
-                comboBoxEditTenKhach.SelectedIndex = -1;
-            }
-            else
-            {
-                comboBoxEditTenKhach.Properties.TextEditStyle = TextEditStyles.Standard;
-                ClearAllItemInComboboxKh();           
-            }
+            //if (checkEditKhachQuen.Checked){
+            //    comboBoxEditTenKhach.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
+            //    AddKhachHangToComboEdit();
+            //    comboBoxEditTenKhach.SelectedIndex = -1;
+            //}
+            //else
+            //{
+            //    comboBoxEditTenKhach.Properties.TextEditStyle = TextEditStyles.Standard;
+            //    ClearAllItemInComboboxKh();           
+            //}
         }
         private void gridViewCT_PDV_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
@@ -326,7 +326,10 @@ namespace QuanLiBanVang
                 MessageBox.Show(Resources.NhapPhieuDichVu_SoPDVToiThieu, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-                
+            DialogResult dialogResult = MessageBox.Show(Resources.DetailMessageBox_XacNhanXoa,
+                Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if(dialogResult != DialogResult.OK)
+                return;
             DataRow currentRow = gridViewCT_PDV.GetDataRow(gridViewCT_PDV.FocusedRowHandle);
             if (currentRow != null)
             {
@@ -387,12 +390,11 @@ namespace QuanLiBanVang
 
             //Update PDV
             _pdv.NgayGiao = dateEditNgayGiao.DateTime;
-            _bulPhieuDichVu.UpdatePhieuDichVu(_pdv);
-            //Neu ok het
+            _pdv.TongTien = Convert.ToInt32(textEditTongTien.Text);
+            _bulPhieuDichVu.UpdatePhieuDichVu(_pdv);//Neu ok het
             MessageBox.Show(Resources.SuaPhieuDichVu_SuaPDVThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            simpleButtonOK.Enabled = false;
             _isResultOk = true;
-
+            Close();;
         }
 
         private void NhapPhieuDichVu_FormClosing(object sender, FormClosingEventArgs e)
@@ -452,10 +454,10 @@ namespace QuanLiBanVang
 
         private void dateEditNgayGiao_EditValueChanged(object sender, EventArgs e)
         {
-            if (dateEditNgayGiao.DateTime != _pdv.NgayGiao)
-                simpleButtonOK.Enabled = true;
-            else
-                simpleButtonOK.Enabled = false;
+            //if (dateEditNgayGiao.DateTime != _pdv.NgayGiao)
+            //    simpleButtonOK.Enabled = true;
+            //else
+            //    simpleButtonOK.Enabled = false;
         }
 
         private void textEditTienCong_EditValueChanged(object sender, EventArgs e)

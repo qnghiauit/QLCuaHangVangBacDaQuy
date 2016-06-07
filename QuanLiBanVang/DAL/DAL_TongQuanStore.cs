@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO;
 
 namespace DAL
 {
@@ -48,7 +49,11 @@ namespace DAL
         {
             return _context.CalculateStoreStatus().Single();
         }
-        
+
+        public CalculateNumberOfPartner_Result CalculateNumberOfPartner()
+        {
+            return _context.CalculateNumberOfPartner().Single();
+        }
 
     }
 }

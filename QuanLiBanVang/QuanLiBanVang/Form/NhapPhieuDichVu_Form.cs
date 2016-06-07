@@ -32,7 +32,7 @@ namespace QuanLiBanVang
             AddLoaiSpToComboBoxEdit();
             CreateDataTable();
             dateEditNgayDK.DateTime = DateTime.Today;
-            LoadEmployeeName();
+            dateEditNgayDK.ReadOnly = true;LoadEmployeeName();
         }
         private void LoadEmployeeName()
         {
@@ -288,6 +288,12 @@ namespace QuanLiBanVang
                 dateEditNgayDK.Focus();
                 return;
             }
+            if (dateEditNgayDK.DateTime != DateTime.Today)
+            {
+                MessageBox.Show(Resources.NgayLapPhieu, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dateEditNgayDK.Focus();
+                return;
+            }
             if(dateEditNgayDK.DateTime > dateEditNgayGiao.DateTime)
             {
                 MessageBox.Show(Resources.NhapPhieuDichVu_NgayGiaoTruocNgayDK, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -345,7 +351,7 @@ namespace QuanLiBanVang
             simpleButtonThem.Enabled = false;
             simpleButtonXoa.Enabled = false;
             _isResultOk = true;
-
+            Close();
         }
 
         private void NhapPhieuDichVu_FormClosing(object sender, FormClosingEventArgs e)
@@ -364,8 +370,11 @@ namespace QuanLiBanVang
         private void comboBoxEditTenKhach_SelectedIndexChanged(object sender, EventArgs e)
         {
             KHACHHANG kh = ((ContainerItem)comboBoxEditTenKhach.SelectedItem).Value as KHACHHANG;
-            if (kh != null) 
+            if (kh != null)
+            {
                 textEditDiaChi.Text = kh.DiaChi;
+                labelControlSDT.Text = kh.SDT;
+            }
         }
     }
 }

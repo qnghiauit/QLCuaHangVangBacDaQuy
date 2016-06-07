@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuNhapHang));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -39,7 +38,7 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.gridViewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.gridViewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -187,7 +186,7 @@
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(87, 27);
             this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "Thoát";
+            this.simpleButton1.Text = "Huỷ";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButtonSave

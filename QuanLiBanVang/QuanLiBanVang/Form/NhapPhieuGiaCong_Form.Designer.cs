@@ -39,6 +39,7 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControlChuThichTienCong = new DevExpress.XtraEditors.LabelControl();
             this.textEditTienCong = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonXoa = new DevExpress.XtraEditors.SimpleButton();
             this.textEditThanhTien = new DevExpress.XtraEditors.TextEdit();
@@ -184,6 +185,7 @@
             this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl2.Controls.Add(this.labelControlChuThichTienCong);
             this.groupControl2.Controls.Add(this.textEditTienCong);
             this.groupControl2.Controls.Add(this.simpleButtonXoa);
             this.groupControl2.Controls.Add(this.textEditThanhTien);
@@ -209,6 +211,15 @@
             this.groupControl2.TabIndex = 12;
             this.groupControl2.Text = "Chi tiết phiếu";
             // 
+            // labelControlChuThichTienCong
+            // 
+            this.labelControlChuThichTienCong.Location = new System.Drawing.Point(1021, 57);
+            this.labelControlChuThichTienCong.Name = "labelControlChuThichTienCong";
+            this.labelControlChuThichTienCong.Size = new System.Drawing.Size(39, 13);
+            this.labelControlChuThichTienCong.TabIndex = 40;
+            this.labelControlChuThichTienCong.Text = "(=70%)";
+            this.labelControlChuThichTienCong.ToolTip = "Phần trăm tiền công nhận được từ giá trị trên phiếu dịch vụ";
+            // 
             // textEditTienCong
             // 
             this.textEditTienCong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -220,7 +231,7 @@
             this.textEditTienCong.Properties.MaxLength = 6;
             this.textEditTienCong.Properties.ReadOnly = true;
             this.textEditTienCong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textEditTienCong.Size = new System.Drawing.Size(109, 20);
+            this.textEditTienCong.Size = new System.Drawing.Size(112, 20);
             this.textEditTienCong.TabIndex = 39;
             this.textEditTienCong.EditValueChanged += new System.EventHandler(this.textEditTienCong_EditValueChanged);
             // 
@@ -441,7 +452,7 @@
             this.simpleButtonExit.Name = "simpleButtonExit";
             this.simpleButtonExit.Size = new System.Drawing.Size(70, 27);
             this.simpleButtonExit.TabIndex = 15;
-            this.simpleButtonExit.Text = "Thoát";
+            this.simpleButtonExit.Text = "Huỷ";
             this.simpleButtonExit.Click += new System.EventHandler(this.simpleButtonExit_Click);
             // 
             // gridColumnSTT
@@ -556,5 +567,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.SimpleButton simpleButtonXoa;
         private DevExpress.XtraEditors.TextEdit textEditTienCong;
+        private DevExpress.XtraEditors.LabelControl labelControlChuThichTienCong;
     }
 }

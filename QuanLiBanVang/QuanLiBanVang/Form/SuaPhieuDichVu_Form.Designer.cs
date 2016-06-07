@@ -441,7 +441,7 @@
             this.simpleButtonThoat.Name = "simpleButtonThoat";
             this.simpleButtonThoat.Size = new System.Drawing.Size(70, 27);
             this.simpleButtonThoat.TabIndex = 12;
-            this.simpleButtonThoat.Text = "Thoát";
+            this.simpleButtonThoat.Text = "Huỷ";
             this.simpleButtonThoat.Click += new System.EventHandler(this.simpleButtonHuy_Click);
             // 
             // simpleButtonOK

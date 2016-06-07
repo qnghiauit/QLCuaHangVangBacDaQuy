@@ -34,6 +34,8 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControlSDT = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.textEditTenNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.checkEditKhachQuen = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
@@ -129,6 +131,8 @@
             // 
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.labelControlSDT);
+            this.groupControl1.Controls.Add(this.labelControl10);
             this.groupControl1.Controls.Add(this.textEditTenNhanVien);
             this.groupControl1.Controls.Add(this.checkEditKhachQuen);
             this.groupControl1.Controls.Add(this.labelControl14);
@@ -145,6 +149,22 @@
             this.groupControl1.Size = new System.Drawing.Size(827, 165);
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Thông tin phiếu";
+            // 
+            // labelControlSDT
+            // 
+            this.labelControlSDT.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControlSDT.Location = new System.Drawing.Point(401, 111);
+            this.labelControlSDT.Name = "labelControlSDT";
+            this.labelControlSDT.Size = new System.Drawing.Size(73, 13);
+            this.labelControlSDT.TabIndex = 26;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(376, 111);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(27, 13);
+            this.labelControl10.TabIndex = 25;
+            this.labelControl10.Text = "SĐT: ";
             // 
             // textEditTenNhanVien
             // 
@@ -365,11 +385,11 @@
             // textEditThanhTien
             // 
             this.textEditThanhTien.EditValue = "0";
-            this.textEditThanhTien.Location = new System.Drawing.Point(574, 29);
+            this.textEditThanhTien.Location = new System.Drawing.Point(589, 29);
             this.textEditThanhTien.Name = "textEditThanhTien";
             this.textEditThanhTien.Properties.ReadOnly = true;
             this.textEditThanhTien.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textEditThanhTien.Size = new System.Drawing.Size(136, 20);
+            this.textEditThanhTien.Size = new System.Drawing.Size(121, 20);
             this.textEditThanhTien.TabIndex = 16;
             // 
             // labelControl13
@@ -390,7 +410,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(517, 33);
+            this.labelControl9.Location = new System.Drawing.Point(532, 33);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(51, 13);
             this.labelControl9.TabIndex = 12;
@@ -434,7 +454,7 @@
             this.simpleButtonThoat.Name = "simpleButtonThoat";
             this.simpleButtonThoat.Size = new System.Drawing.Size(70, 27);
             this.simpleButtonThoat.TabIndex = 12;
-            this.simpleButtonThoat.Text = "Thoát";
+            this.simpleButtonThoat.Text = "Huỷ";
             this.simpleButtonThoat.Click += new System.EventHandler(this.simpleButtonHuy_Click);
             // 
             // simpleButtonOK
@@ -526,5 +546,7 @@
         private DevExpress.XtraEditors.TextEdit textEditTienCong;
         private DevExpress.XtraEditors.TextEdit textEditHTGC;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControlSDT;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
     }
 }

@@ -302,6 +302,7 @@
             this.barButtonItemDSPhieuBan.Id = 33;
             this.barButtonItemDSPhieuBan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemDSPhieuBan.LargeGlyph")));
             this.barButtonItemDSPhieuBan.Name = "barButtonItemDSPhieuBan";
+            this.barButtonItemDSPhieuBan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemDSPhieuBanHang_ItemClick);
             // 
             // barButtonItemDSPhieuNo
             // 
@@ -310,6 +311,7 @@
             this.barButtonItemDSPhieuNo.Id = 34;
             this.barButtonItemDSPhieuNo.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemDSPhieuNo.LargeGlyph")));
             this.barButtonItemDSPhieuNo.Name = "barButtonItemDSPhieuNo";
+            this.barButtonItemDSPhieuNo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemDSPhieuThuTienNo_ItemClick);
             // 
             // barButtonItemNhapPhieuBan
             // 
@@ -318,6 +320,7 @@
             this.barButtonItemNhapPhieuBan.Id = 35;
             this.barButtonItemNhapPhieuBan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemNhapPhieuBan.LargeGlyph")));
             this.barButtonItemNhapPhieuBan.Name = "barButtonItemNhapPhieuBan";
+            this.barButtonItemNhapPhieuBan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemLapPBH_ItemClick);
             // 
             // barButtonItemNhapPhieuNo
             // 
@@ -326,6 +329,7 @@
             this.barButtonItemNhapPhieuNo.Id = 36;
             this.barButtonItemNhapPhieuNo.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemNhapPhieuNo.LargeGlyph")));
             this.barButtonItemNhapPhieuNo.Name = "barButtonItemNhapPhieuNo";
+            this.barButtonItemNhapPhieuNo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemLapPhieuTTN_ItemClick);
             // 
             // barButtonItemDSPhieuNhap
             // 
@@ -334,6 +338,7 @@
             this.barButtonItemDSPhieuNhap.Id = 37;
             this.barButtonItemDSPhieuNhap.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemDSPhieuNhap.LargeGlyph")));
             this.barButtonItemDSPhieuNhap.Name = "barButtonItemDSPhieuNhap";
+            this.barButtonItemDSPhieuNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemDSphieuNhapHang_ItemClick);
             // 
             // barButtonItemThemPhieuNhap
             // 
@@ -342,6 +347,7 @@
             this.barButtonItemThemPhieuNhap.Id = 38;
             this.barButtonItemThemPhieuNhap.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemThemPhieuNhap.LargeGlyph")));
             this.barButtonItemThemPhieuNhap.Name = "barButtonItemThemPhieuNhap";
+            this.barButtonItemThemPhieuNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemThemPhieuNhapHang_ItemClick);
             // 
             // barButtonItemDSPhieuMua
             // 
@@ -404,6 +410,7 @@
             this.barButtonItemThemNCC.Id = 45;
             this.barButtonItemThemNCC.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemThemNCC.LargeGlyph")));
             this.barButtonItemThemNCC.Name = "barButtonItemThemNCC";
+            this.barButtonItemThemNCC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemThemNCC_ItemClick);
             // 
             // barButtonItemThemKH
             // 
@@ -688,8 +695,10 @@
             // 
             // ribbonPageGroup16
             // 
+            this.ribbonPageGroup16.AllowTextClipping = false;
             this.ribbonPageGroup16.ItemLinks.Add(this.barButtonItemQD);
             this.ribbonPageGroup16.Name = "ribbonPageGroup16";
+            this.ribbonPageGroup16.ShowCaptionButton = false;
             this.ribbonPageGroup16.Text = "Quy định";
             // 
             // ribbonPageGroup17
@@ -697,12 +706,14 @@
             this.ribbonPageGroup17.ItemLinks.Add(this.barButtonItemDSNV);
             this.ribbonPageGroup17.ItemLinks.Add(this.barButtonItemThemNV);
             this.ribbonPageGroup17.Name = "ribbonPageGroup17";
+            this.ribbonPageGroup17.ShowCaptionButton = false;
             this.ribbonPageGroup17.Text = "Phân quyền hệ thống";
             // 
             // ribbonPageGroup18
             // 
             this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItemDangXuat);
             this.ribbonPageGroup18.Name = "ribbonPageGroup18";
+            this.ribbonPageGroup18.ShowCaptionButton = false;
             this.ribbonPageGroup18.Text = "Thao tác";
             // 
             // xtraTabbedMdiManager1

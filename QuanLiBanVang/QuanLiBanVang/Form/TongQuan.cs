@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DTO;
 
 namespace QuanLiBanVang
 {
@@ -18,6 +19,7 @@ namespace QuanLiBanVang
         private DTO.CalculateNumberOfCostBill_Result _numberOfCostBill;
         private DTO.CalculateNumberOfIncomeBill_Result _numberOfIncomeBill;
         private DTO.CalculateStoreStatus_Result _storeStatus;
+        private CalculateNumberOfPartner_Result _numberOfPartnerResult;///Nghia
         private BUL.BUL_TongQuanStore _bulTongQuan;
         public TongQuan()
         {
@@ -34,6 +36,7 @@ namespace QuanLiBanVang
             _numberOfCostBill = _bulTongQuan.calculateNumberOfCostBill(t);
             _numberOfIncomeBill = _bulTongQuan.calculateNumberOfIncomeBill(t);
             _storeStatus = _bulTongQuan.calculateStoreStatus();
+            _numberOfPartnerResult = _bulTongQuan.CalculateNumberOfPartner();//Nghia
             this.lblIncome.Text = _income.ToString();
             this.lblCost.Text = _cost.ToString();
             this.lblTotal.Text = (_income - _cost).ToString();
@@ -48,7 +51,9 @@ namespace QuanLiBanVang
             this.lblPause.Text = _storeStatus.songungban.Value.ToString();
             this.lblOutOfStock.Text = _storeStatus.sosanphamhet.Value.ToString();
             this.lblLastUpdate.Text = DateTime.Now.ToString();
-        }
+            labelControlSLTho.Text = (_numberOfPartnerResult.SlTho ?? 0).ToString();
+            labelControlSlKH.Text = (_numberOfPartnerResult.SlKhachHang ?? 0).ToString();
+            labelControlSLNCC.Text = (_numberOfPartnerResult.SlNCC ?? 0).ToString();}
         private void TongQuan_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dBQLCuaHangVangBacDaQuyDataSet.SANPHAM' table. You can move, or remove it, as needed.

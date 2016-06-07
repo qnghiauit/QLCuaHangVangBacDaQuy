@@ -125,5 +125,10 @@ namespace DTO
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("CalculateRevenueInDate", dateParameter);
         }
+    
+        public virtual ObjectResult<CalculateNumberOfPartner_Result> CalculateNumberOfPartner()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CalculateNumberOfPartner_Result>("CalculateNumberOfPartner");
+        }
     }
 }

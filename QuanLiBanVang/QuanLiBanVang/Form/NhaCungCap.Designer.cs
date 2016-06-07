@@ -66,7 +66,7 @@
             // 
             // richTextBoxDiaChi
             // 
-            this.richTextBoxDiaChi.Location = new System.Drawing.Point(88, 105);
+            this.richTextBoxDiaChi.Location = new System.Drawing.Point(86, 105);
             this.richTextBoxDiaChi.Name = "richTextBoxDiaChi";
             this.richTextBoxDiaChi.Size = new System.Drawing.Size(205, 52);
             this.richTextBoxDiaChi.TabIndex = 2;
@@ -147,7 +147,7 @@
             this.simpleButtonThoat.Name = "simpleButtonThoat";
             this.simpleButtonThoat.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonThoat.TabIndex = 2;
-            this.simpleButtonThoat.Text = "Thoát";
+            this.simpleButtonThoat.Text = "Huỷ";
             this.simpleButtonThoat.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButtonLuu

@@ -259,7 +259,7 @@
             this.simpleButtonThoat.Name = "simpleButtonThoat";
             this.simpleButtonThoat.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonThoat.TabIndex = 3;
-            this.simpleButtonThoat.Text = "Thoát";
+            this.simpleButtonThoat.Text = "Huỷ";
             // 
             // PhieuThuTienNo
             // 

@@ -169,6 +169,15 @@ namespace QuanLiBanVang.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ngày lập phải là ngày hiện tại!.
+        /// </summary>
+        internal static string NgayLapPhieu {
+            get {
+                return ResourceManager.GetString("NgayLapPhieu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ngày nhận hàng.
         /// </summary>
         internal static string NgayNhanHang {
@@ -183,6 +192,15 @@ namespace QuanLiBanVang.Properties {
         internal static string NgayThanhToan {
             get {
                 return ResourceManager.GetString("NgayThanhToan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ngày nhận hàng phải là ngày hiện tại!.
+        /// </summary>
+        internal static string NgNhanHang {
+            get {
+                return ResourceManager.GetString("NgNhanHang", resourceCulture);
             }
         }
         
