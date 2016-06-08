@@ -81,7 +81,7 @@ namespace QuanLiBanVang.Report
                 _product.TinhTrang = (bool)this.radioGroupState.EditValue;
                 _bulSanPham.updateProduct(_product);
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                MessageBox.Show("Sửa sản phẩm thành cống", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sửa sản phẩm thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
         }

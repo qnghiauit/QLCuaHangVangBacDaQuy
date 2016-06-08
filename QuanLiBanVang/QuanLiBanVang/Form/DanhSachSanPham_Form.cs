@@ -48,7 +48,7 @@ namespace QuanLiBanVang.Report
             datarow[1] = product.TenSP;
             datarow[2] = producttype;
             datarow[3] = product.SoLuongTon;
-            datarow[4] = product.GiaMua;
+            datarow[4] = Math.Round(product.GiaMua).ToString();
             datarow[5] = product.TrongLuong;
             if (product.TinhTrang == true)
             {
@@ -113,7 +113,7 @@ namespace QuanLiBanVang.Report
             _productTable.Rows[index][1] = product.TenSP;
             _productTable.Rows[index][2] = producttype;
             _productTable.Rows[index][3] = product.SoLuongTon;
-            _productTable.Rows[index][4] = product.GiaMua;
+            _productTable.Rows[index][4] = Math.Round(product.GiaMua).ToString();
             _productTable.Rows[index][5] = product.TrongLuong;
             if (product.TinhTrang == true)
             {
