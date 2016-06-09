@@ -18,8 +18,8 @@ namespace DAL
         }
         public decimal calculateIncomeInDate(DateTime t)
         {
-            
-            decimal? x =_context.CalculateRevenueInDate(t.Date).Single();
+            string date = t.Date.ToString("dd-MM-yyyy");
+            decimal? x = _context.CalculateRevenueInDate(DateTime.Parse(date)).Single();
            
             if (x == null)
                 return 0;
@@ -29,7 +29,9 @@ namespace DAL
         }
         public decimal calculateCostInDate(DateTime t)
         {
-            decimal? x = _context.CalculateFeeInDate(t.Date).Single();
+
+            string date = t.Date.ToString("dd-MM-yyyy");
+            decimal? x = _context.CalculateFeeInDate(DateTime.Parse(date)).Single();
             //int? x = _context.CalculateCostInDate(t.Date).Single();
             if (x == null)
                 return 0;
@@ -39,11 +41,13 @@ namespace DAL
         }
         public DTO.CalculateNumberOfIncomeBill_Result calculateNumberOfIncomeBill(DateTime t)
         {
-            return _context.CalculateNumberOfIncomeBill(t.Date).Single();
+            string date = t.Date.ToString("dd-MM-yyyy");
+            return _context.CalculateNumberOfIncomeBill(DateTime.Parse(date)).Single();
         }
         public DTO.CalculateNumberOfCostBill_Result calculateNumberOfCostBill(DateTime t)
         {
-            return _context.CalculateNumberOfCostBill(t.Date).Single();
+            string date = t.Date.ToString("dd-MM-yyyy");
+            return _context.CalculateNumberOfCostBill(DateTime.Parse(date)).Single();
         }
         public DTO.CalculateStoreStatus_Result calculateStoreStatus()
         {
