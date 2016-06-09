@@ -37,9 +37,9 @@ namespace QuanLiBanVang
             _numberOfIncomeBill = _bulTongQuan.calculateNumberOfIncomeBill(t);
             _storeStatus = _bulTongQuan.calculateStoreStatus();
             _numberOfPartnerResult = _bulTongQuan.CalculateNumberOfPartner();//Nghia
-            this.lblIncome.Text = _income.ToString();
-            this.lblCost.Text = _cost.ToString();
-            this.lblTotal.Text = (_income - _cost).ToString();
+            this.lblIncome.Text = ((int)_income).ToString();
+            this.lblCost.Text = ((int)_cost).ToString();
+            this.lblTotal.Text = ((int)(_income - _cost)).ToString();
             this.lblSaleBill.Text = _numberOfIncomeBill.sophieuban.Value.ToString();
             this.lblOweBill.Text = _numberOfIncomeBill.sophieuno.Value.ToString();
             this.lblServiceBill.Text = _numberOfIncomeBill.sophieudv.Value.ToString();

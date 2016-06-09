@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TongQuan));
-            DevExpress.XtraCharts.SimpleDiagram3D simpleDiagram3D1 = new DevExpress.XtraCharts.SimpleDiagram3D();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.Pie3DSeriesView pie3DSeriesView1 = new DevExpress.XtraCharts.Pie3DSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.SimpleDiagram3D simpleDiagram3D2 = new DevExpress.XtraCharts.SimpleDiagram3D();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.Pie3DSeriesView pie3DSeriesView2 = new DevExpress.XtraCharts.Pie3DSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblLastUpdate = new DevExpress.XtraEditors.LabelControl();
@@ -94,9 +94,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBQLCuaHangVangBacDaQuyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sANPHAMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
@@ -154,15 +154,15 @@
             // 
             this.lblIncome.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lblIncome.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblIncome.Location = new System.Drawing.Point(130, 33);
+            this.lblIncome.Location = new System.Drawing.Point(119, 33);
             this.lblIncome.Name = "lblIncome";
-            this.lblIncome.Size = new System.Drawing.Size(70, 13);
+            this.lblIncome.Size = new System.Drawing.Size(91, 13);
             this.lblIncome.TabIndex = 11;
             this.lblIncome.Text = "1.000.000";
             // 
             // labelControl32
             // 
-            this.labelControl32.Location = new System.Drawing.Point(206, 52);
+            this.labelControl32.Location = new System.Drawing.Point(218, 52);
             this.labelControl32.Name = "labelControl32";
             this.labelControl32.Size = new System.Drawing.Size(6, 13);
             this.labelControl32.TabIndex = 10;
@@ -170,7 +170,7 @@
             // 
             // labelControl31
             // 
-            this.labelControl31.Location = new System.Drawing.Point(206, 33);
+            this.labelControl31.Location = new System.Drawing.Point(218, 33);
             this.labelControl31.Name = "labelControl31";
             this.labelControl31.Size = new System.Drawing.Size(6, 13);
             this.labelControl31.TabIndex = 9;
@@ -178,7 +178,7 @@
             // 
             // labelControl30
             // 
-            this.labelControl30.Location = new System.Drawing.Point(206, 82);
+            this.labelControl30.Location = new System.Drawing.Point(218, 82);
             this.labelControl30.Name = "labelControl30";
             this.labelControl30.Size = new System.Drawing.Size(6, 13);
             this.labelControl30.TabIndex = 8;
@@ -196,9 +196,9 @@
             // 
             this.lblTotal.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lblTotal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblTotal.Location = new System.Drawing.Point(140, 82);
+            this.lblTotal.Location = new System.Drawing.Point(119, 82);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(60, 13);
+            this.lblTotal.Size = new System.Drawing.Size(93, 13);
             this.lblTotal.TabIndex = 6;
             this.lblTotal.Text = "500000";
             // 
@@ -214,9 +214,9 @@
             // 
             this.lblCost.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lblCost.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblCost.Location = new System.Drawing.Point(130, 52);
+            this.lblCost.Location = new System.Drawing.Point(119, 52);
             this.lblCost.Name = "lblCost";
-            this.lblCost.Size = new System.Drawing.Size(70, 13);
+            this.lblCost.Size = new System.Drawing.Size(91, 13);
             this.lblCost.TabIndex = 4;
             this.lblCost.Text = "1.000.000";
             // 
@@ -456,22 +456,22 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chartControlProduct.DataAdapter = this.sANPHAMTableAdapter;
             this.chartControlProduct.DataSource = this.dBQLCuaHangVangBacDaQuyDataSet;
-            simpleDiagram3D1.RotationMatrixSerializable = "1;0;0;0;0;0.5;-0.866025403784439;0;0;0.866025403784439;0.5;0;0;0;0;1";
-            this.chartControlProduct.Diagram = simpleDiagram3D1;
+            simpleDiagram3D2.RotationMatrixSerializable = "1;0;0;0;0;0.5;-0.866025403784439;0;0;0.866025403784439;0.5;0;0;0;0;1";
+            this.chartControlProduct.Diagram = simpleDiagram3D2;
             this.chartControlProduct.Location = new System.Drawing.Point(5, 23);
             this.chartControlProduct.Name = "chartControlProduct";
-            series1.ArgumentDataMember = "SANPHAM.TenSP";
-            series1.LegendTextPattern = "{A}";
-            series1.Name = "SeriesProduct";
-            series1.ValueDataMembersSerializable = "SANPHAM.SoLuongTon";
-            series1.View = pie3DSeriesView1;
+            series2.ArgumentDataMember = "SANPHAM.TenSP";
+            series2.LegendTextPattern = "{A}";
+            series2.Name = "SeriesProduct";
+            series2.ValueDataMembersSerializable = "SANPHAM.SoLuongTon";
+            series2.View = pie3DSeriesView2;
             this.chartControlProduct.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
+        series2};
             this.chartControlProduct.Size = new System.Drawing.Size(1121, 206);
             this.chartControlProduct.TabIndex = 7;
-            chartTitle1.Text = "Tình hình kho";
+            chartTitle2.Text = "Tình hình kho";
             this.chartControlProduct.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle1});
+            chartTitle2});
             // 
             // sANPHAMTableAdapter
             // 
@@ -591,9 +591,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             this.groupControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBQLCuaHangVangBacDaQuyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sANPHAMBindingSource)).EndInit();
