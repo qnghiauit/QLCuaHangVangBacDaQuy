@@ -28,9 +28,22 @@ namespace QuanLiBanVang.Report
             this.pbIcon.ContextMenuStrip = new ContextMenuStrip();
             
         }
-
+        private bool CheckControlValidation()
+        {
+            if (this.txtPassword.Text == "")
+                return false;
+            if (this.txtUserID.Text == "")
+                return false;
+            return true;
+        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (!CheckControlValidation())
+            {
+                this.lbState.Text = "Vui lòng nhập đầy đủ thông tin đăng nhập!";
+                this.lbState.ForeColor = Color.Red;
+                return;
+            }
             DTO.NHANVIEN staff = _bulStaff.getStaffByUsername(this.txtUserID.Text);
             if (staff != null)
             {

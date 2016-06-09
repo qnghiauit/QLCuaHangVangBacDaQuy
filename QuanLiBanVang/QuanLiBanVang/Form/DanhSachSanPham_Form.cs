@@ -85,7 +85,7 @@ namespace QuanLiBanVang.Report
             this.createTable();
             this.initTableData(_listProduct, _listProductType);
             this.dgvListProduct.DataSource = this._productTable;
-            this.dgvProduct.Columns[0].Visible = false;
+            //this.dgvProduct.Columns[0].Visible = false;
         }
 
         private void dgvProduct_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
