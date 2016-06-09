@@ -16,6 +16,7 @@ using System.Collections.ObjectModel;
 
 namespace QuanLiBanVang.Form
 {
+    // da load duoc danh sach san pham len combobox r nhe.
     public partial class PhieuNhapHang_Form : DevExpress.XtraEditors.XtraForm
     {
         public static readonly int LIMIT_NUMBER_OF_IMPORT_PROFUCTS = 500;
