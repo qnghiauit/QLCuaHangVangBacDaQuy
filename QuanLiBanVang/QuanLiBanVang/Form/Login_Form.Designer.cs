@@ -56,42 +56,48 @@
             this.groupControlInfo.Controls.Add(this.pbIcon);
             this.groupControlInfo.Location = new System.Drawing.Point(12, 42);
             this.groupControlInfo.Name = "groupControlInfo";
-            this.groupControlInfo.Size = new System.Drawing.Size(350, 108);
+            this.groupControlInfo.Size = new System.Drawing.Size(327, 108);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Thông tin người dùng";
             // 
             // lbState
             // 
+            this.lbState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbState.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbState.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lbState.Location = new System.Drawing.Point(85, 83);
+            this.lbState.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lbState.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lbState.Location = new System.Drawing.Point(5, 83);
             this.lbState.Name = "lbState";
-            this.lbState.Size = new System.Drawing.Size(145, 14);
+            this.lbState.Size = new System.Drawing.Size(317, 14);
             this.lbState.TabIndex = 5;
             this.lbState.Text = "Nhập thông tin đăng nhập";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(85, 57);
+            this.txtPassword.Location = new System.Drawing.Point(94, 57);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Mask.EditMask = "([a-z]|[A-Z]|[0-9]){1,20}";
             this.txtPassword.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtPassword.Properties.UseSystemPasswordChar = true;
             this.txtPassword.Size = new System.Drawing.Size(145, 20);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // txtUserID
             // 
-            this.txtUserID.Location = new System.Drawing.Point(85, 31);
+            this.txtUserID.Location = new System.Drawing.Point(94, 31);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Properties.Mask.EditMask = "(\\p{L}|[0-9]){1,20}";
             this.txtUserID.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtUserID.Size = new System.Drawing.Size(145, 20);
             this.txtUserID.TabIndex = 1;
+            this.txtUserID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserID_KeyPress);
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(5, 60);
+            this.labelControl3.Location = new System.Drawing.Point(14, 60);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(44, 13);
             this.labelControl3.TabIndex = 1;
@@ -99,7 +105,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(5, 34);
+            this.labelControl2.Location = new System.Drawing.Point(14, 34);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(72, 13);
             this.labelControl2.TabIndex = 0;
@@ -108,24 +114,24 @@
             // pbIcon
             // 
             this.pbIcon.EditValue = ((object)(resources.GetObject("pbIcon.EditValue")));
-            this.pbIcon.Location = new System.Drawing.Point(274, 27);
+            this.pbIcon.Location = new System.Drawing.Point(257, 27);
             this.pbIcon.Name = "pbIcon";
             this.pbIcon.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pbIcon.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pbIcon.Size = new System.Drawing.Size(60, 60);
+            this.pbIcon.Size = new System.Drawing.Size(50, 50);
             this.pbIcon.TabIndex = 4;
             // 
             // labelControl1
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.Location = new System.Drawing.Point(12, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(350, 24);
+            this.labelControl1.Size = new System.Drawing.Size(330, 24);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "Đăng nhập";
             // 
@@ -135,7 +141,7 @@
             this.btnLogin.Appearance.Options.UseFont = true;
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
             this.btnLogin.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(172, 156);
+            this.btnLogin.Location = new System.Drawing.Point(149, 156);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(97, 27);
             this.btnLogin.TabIndex = 3;
@@ -148,7 +154,7 @@
             this.btnExit.Appearance.Options.UseFont = true;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(275, 156);
+            this.btnExit.Location = new System.Drawing.Point(252, 156);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(87, 27);
             this.btnExit.TabIndex = 4;
@@ -159,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 192);
+            this.ClientSize = new System.Drawing.Size(354, 192);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.labelControl1);

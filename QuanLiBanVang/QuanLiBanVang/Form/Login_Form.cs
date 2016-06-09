@@ -59,7 +59,7 @@ namespace QuanLiBanVang.Report
                 }
                 else
                 {
-                    this.lbState.Text = "Mật khẩu không chính xác vui lòng nhập lại!";
+                    this.lbState.Text = "Mật khẩu không chính xác!";
                     this.lbState.ForeColor = Color.Red;
                     this.txtPassword.Text = null;
                     return;
@@ -67,7 +67,7 @@ namespace QuanLiBanVang.Report
             }
             else
             {
-                this.lbState.Text = "Tên đăng nhập không chính xác vui lòng nhập lại!";
+                this.lbState.Text = "Tên đăng nhập không chính xác!";
                 this.lbState.ForeColor = Color.Red;
                 this.txtPassword.Text = null;
                 return;
@@ -78,6 +78,27 @@ namespace QuanLiBanVang.Report
         {
             this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close();
+        }
+
+        private void Login_Form_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
+
+        private void txtUserID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
         }
     }
 }
