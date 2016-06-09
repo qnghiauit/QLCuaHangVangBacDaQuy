@@ -187,8 +187,8 @@ namespace QuanLiBanVang
             && !string.IsNullOrEmpty(this.textEditTenKhachHang.Text))
             {
                 // check valid date
-                DateTime receiptDate = this.dateTimePickerNgayBan.Value;
-                DateTime paymentDate = this.dateTimePickerNgayBan.Value;
+                DateTime receiptDate = this.dateTimePickerNgayBan.DateTime;
+                DateTime paymentDate = this.dateTimePickerNgayBan.DateTime;
 
                 if (paymentDate.CompareTo(receiptDate) < 0)
                 {
@@ -260,8 +260,8 @@ namespace QuanLiBanVang
         {
             PHIEUBANHANG newReceipt = new PHIEUBANHANG()
             {
-                NgayBan = this.dateTimePickerNgayBan.Value,
-                NgayTra = this.dateTimePickerNgayThanhToan.Value,
+                NgayBan = this.dateTimePickerNgayBan.DateTime,
+                NgayTra = this.dateTimePickerNgayThanhToan.DateTime,
                 MaNV = 4,//UserAccess.Instance.GetUserId, // to be update code
                 // MaKH = 1, // to be update code
                 TongTien = this.tongTien
@@ -389,9 +389,9 @@ namespace QuanLiBanVang
             this.textEditSoPhieuBH.Enabled = false;
             // this.textEditNhanVien.Text = data.NHANVIEN.HoTen;
             // this.textEditNhanVien.Enabled = false;
-            this.dateTimePickerNgayBan.Value = data.NgayBan;
+            this.dateTimePickerNgayBan.DateTime = data.NgayBan;
             this.dateTimePickerNgayBan.Enabled = false;
-            this.dateTimePickerNgayThanhToan.Value = data.NgayTra;
+            this.dateTimePickerNgayThanhToan.DateTime = data.NgayTra;
             this.dateTimePickerNgayThanhToan.Enabled = false;
             this.textEditMaKhachHang.Visible = true;
             this.textEditMaKhachHang.Enabled = false;
