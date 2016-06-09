@@ -17,7 +17,6 @@ namespace DAL
         public DAL_PhieuNhapHang()
         {
             this.databaseContext = new DBQLCuaHangVangBacDaQuyEntities();
-            this.databaseContext.PHIEUNHAPHANGs.Load();
         }
 
 
@@ -39,13 +38,17 @@ namespace DAL
         }
 
 
-        //<summary>
-        // add new record into table PHIEUNHAPHANG
-        //</summary>
-        public void add(PHIEUNHAPHANG newImportReceipt)
+        /// <summary>
+        ///  add new record into table PHIEUNHAPHANG
+        /// </summary>
+        /// <param name="newImportReceipt"> record to be saved</param>
+        /// <returns> PHIEUBANHANG has been saved</returns>
+        public PHIEUNHAPHANG add(PHIEUNHAPHANG newImportReceipt)
         {
-            this.databaseContext.PHIEUNHAPHANGs.Add(newImportReceipt);
+            // this.databaseContext.PHIEUNHAPHANGs.Load();
+            PHIEUNHAPHANG currentSaved = this.databaseContext.PHIEUNHAPHANGs.Add(newImportReceipt);
             this.databaseContext.SaveChanges();
+            return currentSaved;
         }
 
         /// <summary>
@@ -60,7 +63,7 @@ namespace DAL
             return this.databaseContext.PHIEUNHAPHANGs.Local.ToBindingList();
         }
 
-      
+
 
 
 

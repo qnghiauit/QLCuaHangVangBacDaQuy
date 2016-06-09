@@ -40,11 +40,12 @@ namespace DAL
 
         }
 
-        public void add(DTO.PHIEUBANHANG newReceipt)
+        public PHIEUBANHANG add(DTO.PHIEUBANHANG newReceipt)
         {
             // chu kt thu
-            this.databaseContext.PHIEUBANHANGs.Add(newReceipt);
+            PHIEUBANHANG currentSaved = this.databaseContext.PHIEUBANHANGs.Add(newReceipt);
             this.databaseContext.SaveChanges();
+            return currentSaved;
 
         }
 
