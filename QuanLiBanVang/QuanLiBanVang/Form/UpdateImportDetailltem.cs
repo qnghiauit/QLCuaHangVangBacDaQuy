@@ -116,7 +116,7 @@ namespace QuanLiBanVang.Form
 
                 return false;
             }
-            else if (!string.IsNullOrEmpty(this.textEditSoLuong.Text) && int.Parse(this.textEditSoLuong.Text) > PhieuNhapHang.LIMIT_NUMBER_OF_IMPORT_PROFUCTS)
+            else if (!string.IsNullOrEmpty(this.textEditSoLuong.Text) && int.Parse(this.textEditSoLuong.Text) > PhieuNhapHang_Form.LIMIT_NUMBER_OF_IMPORT_PROFUCTS)
             {
                 MessageBox.Show(ErrorMessage.OVER_LIMITATION_FOR_IMPORTING, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false; // exit method
