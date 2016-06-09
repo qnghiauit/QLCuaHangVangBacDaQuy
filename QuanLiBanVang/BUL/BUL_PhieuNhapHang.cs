@@ -19,9 +19,9 @@ namespace BUL
             this.dalImportReceipt = new DAL_PhieuNhapHang();
         }
 
-       /// <summary>
-       /// get the receipt number of the last record int table
-       /// </summary>
+        /// <summary>
+        /// get the receipt number of the last record int table
+        /// </summary>
         /// <returns> the receipt number </returns>
         public int lastNumberOfReceipt()
         {
@@ -32,9 +32,9 @@ namespace BUL
         //<summary>
         // add new record into table PHIEUNHAPHANG
         //</summary>
-        public void add(PHIEUNHAPHANG newImportReceipt)
+        public PHIEUNHAPHANG add(PHIEUNHAPHANG newImportReceipt)
         {
-            this.dalImportReceipt.add(newImportReceipt);
+            return this.dalImportReceipt.add(newImportReceipt);
         }
 
         /// <summary>

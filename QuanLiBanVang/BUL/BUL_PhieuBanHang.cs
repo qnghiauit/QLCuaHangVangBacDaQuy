@@ -30,9 +30,9 @@ namespace BUL
         {
             return this.dalPhieuBanHang.numberOfLastRecepit();
         }
-        public void add(PHIEUBANHANG newReceipt)
+        public PHIEUBANHANG add(PHIEUBANHANG newReceipt)
         {
-            this.dalPhieuBanHang.add(newReceipt);
+            return this.dalPhieuBanHang.add(newReceipt);
         }
 
 
