@@ -52,6 +52,8 @@ namespace QuanLiBanVang
                 this.Show();
                 InitInventoryReport();
                 SetAccessControl();
+                TongQuan tongQuan_frm = new TongQuan();
+                OpenChildForm(tongQuan_frm);
             }
             else
                 this.Close();
@@ -289,7 +291,7 @@ namespace QuanLiBanVang
 
         private void barButtonItemThemPhieuNhapHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            PhieuNhapHang_Form phieuNhapHang = new PhieuNhapHang_Form();
+            PhieuNhapHang_Form phieuNhapHang = new PhieuNhapHang_Form(ActionType.ACTION_CREATE_NEW, null);
             OpenChildForm(phieuNhapHang);
         }
 

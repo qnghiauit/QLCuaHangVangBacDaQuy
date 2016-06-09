@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachNhaCungCap_Form));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControlDanhSachNhaCungCap = new DevExpress.XtraGrid.GridControl();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.chiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +66,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlDanhSachNhaCungCap.ContextMenuStrip = this.contextMenuStrip1;
-            this.gridControlDanhSachNhaCungCap.Location = new System.Drawing.Point(2, 20);
+            this.gridControlDanhSachNhaCungCap.Location = new System.Drawing.Point(4, 22);
             this.gridControlDanhSachNhaCungCap.MainView = this.gridView1;
             this.gridControlDanhSachNhaCungCap.Name = "gridControlDanhSachNhaCungCap";
             this.gridControlDanhSachNhaCungCap.Size = new System.Drawing.Size(492, 303);
@@ -83,33 +82,33 @@
             this.sửaToolStripMenuItem,
             this.sửaToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(114, 92);
             // 
             // chiTiếtToolStripMenuItem
             // 
             this.chiTiếtToolStripMenuItem.Name = "chiTiếtToolStripMenuItem";
-            this.chiTiếtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.chiTiếtToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.chiTiếtToolStripMenuItem.Text = "Chi tiết";
             this.chiTiếtToolStripMenuItem.Click += new System.EventHandler(this.chiTiếtToolStripMenuItem_Click);
             // 
             // xóaToolStripMenuItem
             // 
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.xóaToolStripMenuItem.Text = "Xóa";
             this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
             // 
             // sửaToolStripMenuItem
             // 
             this.sửaToolStripMenuItem.Name = "sửaToolStripMenuItem";
-            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.sửaToolStripMenuItem.Text = "Refresh";
             this.sửaToolStripMenuItem.Click += new System.EventHandler(this.sửaToolStripMenuItem_Click);
             // 
             // sửaToolStripMenuItem1
             // 
             this.sửaToolStripMenuItem1.Name = "sửaToolStripMenuItem1";
-            this.sửaToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.sửaToolStripMenuItem1.Size = new System.Drawing.Size(113, 22);
             this.sửaToolStripMenuItem1.Text = "Sửa";
             this.sửaToolStripMenuItem1.Click += new System.EventHandler(this.sửaToolStripMenuItem1_Click);
             // 
@@ -155,7 +154,7 @@
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Danh sách nhà cung cấp";
             // 
-            // DanhSachNhaCungCap
+            // DanhSachNhaCungCap_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,7 +162,7 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.simpleButtonThoat);
             this.Controls.Add(this.groupControl1);
-            this.Name = "DanhSachNhaCungCap";
+            this.Name = "DanhSachNhaCungCap_Form";
             this.Text = "Danh sách nhà cung cấp";
             this.Load += new System.EventHandler(this.DanhSachNhaCungCap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

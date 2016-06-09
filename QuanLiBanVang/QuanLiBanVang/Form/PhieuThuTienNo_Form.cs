@@ -109,8 +109,8 @@ namespace QuanLiBanVang.Form
                     PHIEUTHUTIENNO newDeptReceipt = new PHIEUTHUTIENNO
                     {
                         SoPhieuBH = this.receipt.SoPhieuBH,
-                        NgayLap = this.dateTimePickerNgayLap.Value,
-                        NgayTra = this.dateTimePickerNgayTra.Value,
+                        NgayLap = this.dateTimePickerNgayLap.DateTime,
+                        NgayTra = this.dateTimePickerNgayTra.DateTime,
                         // MaNV = UserAccess.Instance.GetUserId,
                         MaNV = 4, // to test
                         SoTienNo = deptAmount,
@@ -121,7 +121,7 @@ namespace QuanLiBanVang.Form
                     // start to save into database
                     this.bulDeptReceipt.add(newDeptReceipt);
                     // PhieuThuTienNo recentSavedDeptReceipt = this.bulDeptReceipt
-                    if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.Value.ToShortDateString(), ErrorMessage.ERROR_MESSARE_TITLE,
+                    if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.DateTime.ToShortDateString(), ErrorMessage.ERROR_MESSARE_TITLE,
                           MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {
                         this.Close();
@@ -133,8 +133,8 @@ namespace QuanLiBanVang.Form
                 PHIEUTHUTIENNO newDeptReceipt = new PHIEUTHUTIENNO
                 {
                     SoPhieuBH = this.previousDeptRecepit.SoPhieuBH,
-                    NgayLap = this.dateTimePickerNgayLap.Value,
-                    NgayTra = this.dateTimePickerNgayTra.Value,
+                    NgayLap = this.dateTimePickerNgayLap.DateTime,
+                    NgayTra = this.dateTimePickerNgayTra.DateTime,
                     // MaNV = UserAccess.Instance.GetUserId,
                     MaNV = 4,
                     SoTienNo = deptAmount,
@@ -143,7 +143,7 @@ namespace QuanLiBanVang.Form
                 };
                 // start to save into database
                 this.bulDeptReceipt.add(newDeptReceipt);
-                if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.Value.ToShortDateString(), ErrorMessage.ERROR_MESSARE_TITLE,
+                if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.DateTime.ToShortDateString(), ErrorMessage.ERROR_MESSARE_TITLE,
                           MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.Close();
@@ -160,10 +160,10 @@ namespace QuanLiBanVang.Form
         {
             // make sure that the pay date is later than the date that create the 
             // dept receipt
-            if (DateTime.Compare(this.dateTimePickerNgayTra.Value, this.dateTimePickerNgayLap.Value) < 0)
+            if (DateTime.Compare(this.dateTimePickerNgayTra.DateTime, this.dateTimePickerNgayLap.DateTime) < 0)
             {
                 MessageBox.Show(PAYMENT_DATE_NOT_VALID_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.dateTimePickerNgayTra.Value = DateTime.Now; // set to the current date time
+                this.dateTimePickerNgayTra.DateTime = DateTime.Now; // set to the current date time
                 return;
             }
         }
@@ -177,6 +177,13 @@ namespace QuanLiBanVang.Form
             decimal deptAmount = decimal.Parse(this.textEditSoTienNo.Text.Trim());
             decimal rest = decimal.Subtract(deptAmount, frequenterPrepay);
             this.textEditConLai.Text = rest.ToString();
+        }
+
+        private void PhieuThuTienNo_Form_SizeChanged(object sender, EventArgs e)
+        {
+            groupControl1.Left = (ClientSize.Width - groupControl1.Width) / 2;
+            simpleButtonThoat.Left = groupControl1.Right - simpleButtonLuu.Width;
+            simpleButtonLuu.Left = simpleButtonThoat.Left - simpleButtonLuu.Width - 10;
         }
     }
 }

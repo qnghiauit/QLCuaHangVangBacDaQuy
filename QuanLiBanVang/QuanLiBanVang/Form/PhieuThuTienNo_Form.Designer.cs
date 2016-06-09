@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuThuTienNo_Form));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.dateTimePickerNgayTra = new DevExpress.XtraEditors.DateEdit();
+            this.dateTimePickerNgayLap = new DevExpress.XtraEditors.DateEdit();
             this.textEditConLai = new DevExpress.XtraEditors.TextEdit();
             this.textEditSoTienTra = new DevExpress.XtraEditors.TextEdit();
             this.textEditSoTienNo = new DevExpress.XtraEditors.TextEdit();
-            this.dateTimePickerNgayTra = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerNgayLap = new System.Windows.Forms.DateTimePicker();
             this.textEditMaPhieuBanHang = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.textEditMaKhachHang = new DevExpress.XtraEditors.TextEdit();
@@ -53,6 +53,10 @@
             this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayTra.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayTra.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayLap.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayLap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditConLai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoTienTra.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoTienNo.Properties)).BeginInit();
@@ -64,11 +68,11 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.dateTimePickerNgayTra);
+            this.groupControl1.Controls.Add(this.dateTimePickerNgayLap);
             this.groupControl1.Controls.Add(this.textEditConLai);
             this.groupControl1.Controls.Add(this.textEditSoTienTra);
             this.groupControl1.Controls.Add(this.textEditSoTienNo);
-            this.groupControl1.Controls.Add(this.dateTimePickerNgayTra);
-            this.groupControl1.Controls.Add(this.dateTimePickerNgayLap);
             this.groupControl1.Controls.Add(this.textEditMaPhieuBanHang);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.textEditMaKhachHang);
@@ -88,6 +92,30 @@
             this.groupControl1.Size = new System.Drawing.Size(592, 229);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
+            // 
+            // dateTimePickerNgayTra
+            // 
+            this.dateTimePickerNgayTra.EditValue = null;
+            this.dateTimePickerNgayTra.Location = new System.Drawing.Point(135, 119);
+            this.dateTimePickerNgayTra.Name = "dateTimePickerNgayTra";
+            this.dateTimePickerNgayTra.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerNgayTra.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerNgayTra.Size = new System.Drawing.Size(304, 20);
+            this.dateTimePickerNgayTra.TabIndex = 9;
+            // 
+            // dateTimePickerNgayLap
+            // 
+            this.dateTimePickerNgayLap.EditValue = null;
+            this.dateTimePickerNgayLap.Location = new System.Drawing.Point(135, 92);
+            this.dateTimePickerNgayLap.Name = "dateTimePickerNgayLap";
+            this.dateTimePickerNgayLap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerNgayLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerNgayLap.Size = new System.Drawing.Size(304, 20);
+            this.dateTimePickerNgayLap.TabIndex = 8;
             // 
             // textEditConLai
             // 
@@ -111,21 +139,6 @@
             this.textEditSoTienNo.Name = "textEditSoTienNo";
             this.textEditSoTienNo.Size = new System.Drawing.Size(304, 20);
             this.textEditSoTienNo.TabIndex = 7;
-            // 
-            // dateTimePickerNgayTra
-            // 
-            this.dateTimePickerNgayTra.Location = new System.Drawing.Point(135, 116);
-            this.dateTimePickerNgayTra.Name = "dateTimePickerNgayTra";
-            this.dateTimePickerNgayTra.Size = new System.Drawing.Size(304, 21);
-            this.dateTimePickerNgayTra.TabIndex = 6;
-            this.dateTimePickerNgayTra.ValueChanged += new System.EventHandler(this.dateTimePickerNgayTra_ValueChanged);
-            // 
-            // dateTimePickerNgayLap
-            // 
-            this.dateTimePickerNgayLap.Location = new System.Drawing.Point(135, 89);
-            this.dateTimePickerNgayLap.Name = "dateTimePickerNgayLap";
-            this.dateTimePickerNgayLap.Size = new System.Drawing.Size(304, 21);
-            this.dateTimePickerNgayLap.TabIndex = 6;
             // 
             // textEditMaPhieuBanHang
             // 
@@ -261,7 +274,7 @@
             this.simpleButtonThoat.TabIndex = 3;
             this.simpleButtonThoat.Text = "Thoát";
             // 
-            // PhieuThuTienNo
+            // PhieuThuTienNo_Form
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
@@ -273,12 +286,17 @@
             this.Controls.Add(this.groupControl1);
             this.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.Margin = new System.Windows.Forms.Padding(7);
-            this.Name = "PhieuThuTienNo";
+            this.Name = "PhieuThuTienNo_Form";
             this.Text = "Phiếu nợ";
             this.Load += new System.EventHandler(this.PhieuThuTienNo_Load);
+            this.SizeChanged += new System.EventHandler(this.PhieuThuTienNo_Form_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayTra.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayTra.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayLap.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayLap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditConLai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoTienTra.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoTienNo.Properties)).EndInit();
@@ -299,8 +317,6 @@
         private DevExpress.XtraEditors.TextEdit textEditConLai;
         private DevExpress.XtraEditors.TextEdit textEditSoTienTra;
         private DevExpress.XtraEditors.TextEdit textEditSoTienNo;
-        private System.Windows.Forms.DateTimePicker dateTimePickerNgayTra;
-        private System.Windows.Forms.DateTimePicker dateTimePickerNgayLap;
         private DevExpress.XtraEditors.TextEdit textEditMaPhieuBanHang;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit textEditMaKhachHang;
@@ -314,5 +330,7 @@
         private DevExpress.XtraEditors.LabelControl labelControlTenKhachHang;
         private DevExpress.XtraEditors.TextEdit textEditMaPhieuNo;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.DateEdit dateTimePickerNgayTra;
+        private DevExpress.XtraEditors.DateEdit dateTimePickerNgayLap;
     }
 }

@@ -25,7 +25,7 @@ namespace QuanLiBanVang.Report
             _keyField.ReadOnly = true;
             _keyField.AutoIncrement = true;
             _productTypeTable.Columns.Add("Loại sản phẩm", typeof(string));
-            _productTypeTable.Columns.Add("Phần trăm lợi nhuận", typeof(float));
+            _productTypeTable.Columns.Add("Phần trăm lợi nhuận(%)", typeof(float));
         }
         private void addNewRowToDataTable(DTO.LOAISANPHAM producttype)
         {

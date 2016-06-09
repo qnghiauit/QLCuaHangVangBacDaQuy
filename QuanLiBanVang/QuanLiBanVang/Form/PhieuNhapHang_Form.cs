@@ -120,7 +120,7 @@ namespace QuanLiBanVang.Form
                 PHIEUNHAPHANG newImportReceipt = new PHIEUNHAPHANG
                 {
                     MaNCC = provider.MaNCC,
-                    NgayNhap = this.dateTimePicker1.Value,
+                    NgayNhap = this.dateTimePicker1.DateTime,
                     MaNV = 4,//UserAccess.Instance.GetUserId, // test
                     TongTien = this.total,
                     //NHACUNGCAP = provider,
@@ -246,7 +246,7 @@ namespace QuanLiBanVang.Form
             this.textEditTongTien.Text = data.TongTien.ToString();
             this.textEditMaNhanVien.Enabled = false;
             // date time
-            this.dateTimePicker1.Value = data.NgayNhap;
+            this.dateTimePicker1.DateTime = data.NgayNhap;
             this.dateTimePicker1.Enabled = false;
             // provider
             this.comboBoxEditNhaCungCap.Text = data.NHACUNGCAP.TenNCC;

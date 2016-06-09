@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuBanHang));
-            this.contextMenuStripUpdateGridData = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStripUpdateGridData = new System.Windows.Forms.ContextMenuStrip();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseSavingBackgrounWorker = new System.ComponentModel.BackgroundWorker();
@@ -58,14 +57,14 @@
             this.textEditSoPhieuBH = new DevExpress.XtraEditors.TextEdit();
             this.textEditDiaChiKhachHang = new DevExpress.XtraEditors.TextEdit();
             this.textEditTenKhachHang = new DevExpress.XtraEditors.TextEdit();
-            this.dateTimePickerNgayThanhToan = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerNgayBan = new System.Windows.Forms.DateTimePicker();
             this.checkEditKhachQuen = new DevExpress.XtraEditors.CheckEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePickerNgayBan = new DevExpress.XtraEditors.DateEdit();
+            this.dateTimePickerNgayThanhToan = new DevExpress.XtraEditors.DateEdit();
             this.contextMenuStripUpdateGridData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
@@ -83,6 +82,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditDiaChiKhachHang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenKhachHang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditKhachQuen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayBan.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayBan.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayThanhToan.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayThanhToan.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStripUpdateGridData
@@ -196,6 +199,7 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsSelection.MultiSelect = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // textEditTongTien
             // 
@@ -208,7 +212,7 @@
             // 
             // textEditSoLuong
             // 
-            this.textEditSoLuong.Location = new System.Drawing.Point(420, 28);
+            this.textEditSoLuong.Location = new System.Drawing.Point(435, 28);
             this.textEditSoLuong.Name = "textEditSoLuong";
             this.textEditSoLuong.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.textEditSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -247,23 +251,23 @@
             // 
             // comboBoxEditMaSp
             // 
-            this.comboBoxEditMaSp.Location = new System.Drawing.Point(240, 27);
+            this.comboBoxEditMaSp.Location = new System.Drawing.Point(235, 27);
             this.comboBoxEditMaSp.Name = "comboBoxEditMaSp";
             this.comboBoxEditMaSp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEditMaSp.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEditMaSp.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxEditMaSp.Size = new System.Drawing.Size(132, 20);
             this.comboBoxEditMaSp.TabIndex = 6;
             this.comboBoxEditMaSp.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditMaSp_SelectedIndexChanged_1);
             // 
             // comboBoxEditMaLoaiSp
             // 
-            this.comboBoxEditMaLoaiSp.Location = new System.Drawing.Point(81, 27);
+            this.comboBoxEditMaLoaiSp.Location = new System.Drawing.Point(64, 28);
             this.comboBoxEditMaLoaiSp.Name = "comboBoxEditMaLoaiSp";
             this.comboBoxEditMaLoaiSp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEditMaLoaiSp.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEditMaLoaiSp.Size = new System.Drawing.Size(76, 20);
+            this.comboBoxEditMaLoaiSp.Size = new System.Drawing.Size(107, 20);
             this.comboBoxEditMaLoaiSp.TabIndex = 6;
             this.comboBoxEditMaLoaiSp.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditMaLoaiSp_SelectedIndexChanged_1);
             // 
@@ -279,7 +283,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(358, 30);
+            this.label11.Location = new System.Drawing.Point(373, 30);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 5;
@@ -307,14 +311,14 @@
             // 
             this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl2.Controls.Add(this.dateTimePickerNgayThanhToan);
+            this.groupControl2.Controls.Add(this.dateTimePickerNgayBan);
             this.groupControl2.Controls.Add(this.textEditMaKhachHang);
             this.groupControl2.Controls.Add(this.labelControl1);
             this.groupControl2.Controls.Add(this.simpleButtonTimKhachQuen);
             this.groupControl2.Controls.Add(this.textEditSoPhieuBH);
             this.groupControl2.Controls.Add(this.textEditDiaChiKhachHang);
             this.groupControl2.Controls.Add(this.textEditTenKhachHang);
-            this.groupControl2.Controls.Add(this.dateTimePickerNgayThanhToan);
-            this.groupControl2.Controls.Add(this.dateTimePickerNgayBan);
             this.groupControl2.Controls.Add(this.checkEditKhachQuen);
             this.groupControl2.Controls.Add(this.label4);
             this.groupControl2.Controls.Add(this.label6);
@@ -331,12 +335,12 @@
             // 
             this.textEditMaKhachHang.Location = new System.Drawing.Point(71, 86);
             this.textEditMaKhachHang.Name = "textEditMaKhachHang";
-            this.textEditMaKhachHang.Size = new System.Drawing.Size(100, 20);
+            this.textEditMaKhachHang.Size = new System.Drawing.Size(109, 20);
             this.textEditMaKhachHang.TabIndex = 16;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(8, 94);
+            this.labelControl1.Location = new System.Drawing.Point(8, 89);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(40, 13);
             this.labelControl1.TabIndex = 15;
@@ -345,7 +349,7 @@
             // simpleButtonTimKhachQuen
             // 
             this.simpleButtonTimKhachQuen.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonTimKhachQuen.Image")));
-            this.simpleButtonTimKhachQuen.Location = new System.Drawing.Point(651, 87);
+            this.simpleButtonTimKhachQuen.Location = new System.Drawing.Point(651, 82);
             this.simpleButtonTimKhachQuen.Name = "simpleButtonTimKhachQuen";
             this.simpleButtonTimKhachQuen.Size = new System.Drawing.Size(109, 27);
             this.simpleButtonTimKhachQuen.TabIndex = 14;
@@ -369,28 +373,14 @@
             // 
             // textEditTenKhachHang
             // 
-            this.textEditTenKhachHang.Location = new System.Drawing.Point(291, 91);
+            this.textEditTenKhachHang.Location = new System.Drawing.Point(282, 86);
             this.textEditTenKhachHang.Name = "textEditTenKhachHang";
-            this.textEditTenKhachHang.Size = new System.Drawing.Size(265, 20);
+            this.textEditTenKhachHang.Size = new System.Drawing.Size(274, 20);
             this.textEditTenKhachHang.TabIndex = 11;
-            // 
-            // dateTimePickerNgayThanhToan
-            // 
-            this.dateTimePickerNgayThanhToan.Location = new System.Drawing.Point(438, 59);
-            this.dateTimePickerNgayThanhToan.Name = "dateTimePickerNgayThanhToan";
-            this.dateTimePickerNgayThanhToan.Size = new System.Drawing.Size(205, 21);
-            this.dateTimePickerNgayThanhToan.TabIndex = 10;
-            // 
-            // dateTimePickerNgayBan
-            // 
-            this.dateTimePickerNgayBan.Location = new System.Drawing.Point(71, 59);
-            this.dateTimePickerNgayBan.Name = "dateTimePickerNgayBan";
-            this.dateTimePickerNgayBan.Size = new System.Drawing.Size(205, 21);
-            this.dateTimePickerNgayBan.TabIndex = 10;
             // 
             // checkEditKhachQuen
             // 
-            this.checkEditKhachQuen.Location = new System.Drawing.Point(562, 91);
+            this.checkEditKhachQuen.Location = new System.Drawing.Point(562, 86);
             this.checkEditKhachQuen.Name = "checkEditKhachQuen";
             this.checkEditKhachQuen.Properties.Caption = "Khách quen";
             this.checkEditKhachQuen.Size = new System.Drawing.Size(95, 19);
@@ -400,7 +390,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(337, 63);
+            this.label4.Location = new System.Drawing.Point(264, 65);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 13);
             this.label4.TabIndex = 3;
@@ -409,7 +399,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(186, 94);
+            this.label6.Location = new System.Drawing.Point(186, 89);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 13);
             this.label6.TabIndex = 4;
@@ -441,6 +431,30 @@
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Số phiếu :";
+            // 
+            // dateTimePickerNgayBan
+            // 
+            this.dateTimePickerNgayBan.EditValue = null;
+            this.dateTimePickerNgayBan.Location = new System.Drawing.Point(71, 62);
+            this.dateTimePickerNgayBan.Name = "dateTimePickerNgayBan";
+            this.dateTimePickerNgayBan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerNgayBan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerNgayBan.Size = new System.Drawing.Size(175, 20);
+            this.dateTimePickerNgayBan.TabIndex = 17;
+            // 
+            // dateTimePickerNgayThanhToan
+            // 
+            this.dateTimePickerNgayThanhToan.EditValue = null;
+            this.dateTimePickerNgayThanhToan.Location = new System.Drawing.Point(361, 62);
+            this.dateTimePickerNgayThanhToan.Name = "dateTimePickerNgayThanhToan";
+            this.dateTimePickerNgayThanhToan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerNgayThanhToan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerNgayThanhToan.Size = new System.Drawing.Size(195, 20);
+            this.dateTimePickerNgayThanhToan.TabIndex = 18;
             // 
             // PhieuBanHang
             // 
@@ -476,6 +490,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditDiaChiKhachHang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenKhachHang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditKhachQuen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayBan.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayBan.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayThanhToan.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayThanhToan.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -510,13 +528,13 @@
         private DevExpress.XtraEditors.TextEdit textEditSoPhieuBH;
         private DevExpress.XtraEditors.TextEdit textEditDiaChiKhachHang;
         private DevExpress.XtraEditors.TextEdit textEditTenKhachHang;
-        private System.Windows.Forms.DateTimePicker dateTimePickerNgayThanhToan;
-        private System.Windows.Forms.DateTimePicker dateTimePickerNgayBan;
         private DevExpress.XtraEditors.CheckEdit checkEditKhachQuen;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.DateEdit dateTimePickerNgayThanhToan;
+        private DevExpress.XtraEditors.DateEdit dateTimePickerNgayBan;
     }
 }

@@ -160,7 +160,7 @@
             this.simpleButtonLuu.Text = "Lưu";
             this.simpleButtonLuu.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
-            // NhaCungCap
+            // NhaCungCap_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -170,9 +170,10 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.groupControl1);
             this.LookAndFeel.SkinName = "Office 2007 Blue";
-            this.Name = "NhaCungCap";
+            this.Name = "NhaCungCap_Form";
             this.Text = "Thêm nhà cung cấp";
             this.Load += new System.EventHandler(this.NhaCungCap_Load);
+            this.SizeChanged += new System.EventHandler(this.NhaCungCap_Form_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();

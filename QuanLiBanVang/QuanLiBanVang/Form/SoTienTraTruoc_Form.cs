@@ -54,7 +54,7 @@ namespace QuanLiBanVang.Form
             {
                 // close and show new form
                 this.Close();
-                PhieuThuTienNo phieuNo = new PhieuThuTienNo();
+                PhieuThuTienNo_Form phieuNo = new PhieuThuTienNo_Form();
                 phieuNo.ShowDialog();
             }
         }

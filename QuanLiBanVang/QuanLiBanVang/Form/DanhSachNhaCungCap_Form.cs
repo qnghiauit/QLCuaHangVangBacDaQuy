@@ -24,6 +24,7 @@ namespace QuanLiBanVang.Form
             this.bulProvider = new BUL_NhaCungCap();
             // start to get all providers from database and binding into the view list
             this.gridControlDanhSachNhaCungCap.DataSource = this.bulProvider.getAll();
+            gridView1.Columns[4].Visible = false;
         }
 
         private void DanhSachNhaCungCap_Load(object sender, EventArgs e)

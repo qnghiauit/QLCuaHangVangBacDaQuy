@@ -169,5 +169,12 @@ namespace QuanLiBanVang.Form
             // update button text
             this.simpleButtonLuu.Text = "Sủa";
         }
+
+        private void NhaCungCap_Form_SizeChanged(object sender, EventArgs e)
+        {
+            groupControl1.Left = (ClientSize.Width - groupControl1.Width) / 2;
+            simpleButtonThoat.Left = groupControl1.Right - simpleButtonLuu.Width;
+            simpleButtonLuu.Left = simpleButtonThoat.Left - simpleButtonLuu.Width - 10; 
+        }
     }
 }
