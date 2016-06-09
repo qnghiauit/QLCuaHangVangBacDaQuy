@@ -201,7 +201,7 @@ namespace QuanLiBanVang.Report
                 this.cboClientName.Enabled = false;
                 this.btnAdd.Enabled = false;
             }
-            this.lbTotal.Text = _buyBill.TongTien.ToString();
+            this.lbTotal.Text = ((int)_buyBill.TongTien).ToString();
             this.dgvBuy.Columns[0].Visible = false;
             
             //}
