@@ -137,6 +137,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thay đổi quy định";
             this.Load += new System.EventHandler(this.ThayDoiQuyDinh_Form_Load);
+            this.SizeChanged += new System.EventHandler(this.ThayDoiQuyDinh_Form_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();

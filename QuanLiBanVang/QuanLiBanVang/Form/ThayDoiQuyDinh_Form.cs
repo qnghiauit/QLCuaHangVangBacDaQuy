@@ -58,5 +58,12 @@ namespace QuanLiBanVang.Form
         {
             this.Close();
         }
+
+        private void ThayDoiQuyDinh_Form_SizeChanged(object sender, EventArgs e)
+        {
+            groupControl1.Left = (ClientSize.Width - groupControl1.Width) / 2;
+            btnExit.Left = groupControl1.Right - btnSave.Width;
+            btnSave.Left = btnExit.Left - btnSave.Width - 10; 
+        }
     }
 }
