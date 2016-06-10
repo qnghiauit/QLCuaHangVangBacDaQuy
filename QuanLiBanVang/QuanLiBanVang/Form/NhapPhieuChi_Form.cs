@@ -41,7 +41,7 @@ namespace QuanLiBanVang.Report
             this.dtpkCreateDate.EditValue = DateTime.Now;
             this.dtpkCreateDate.Properties.MaxValue = DateTime.Now;
             this.dtpkCreateDate.Properties.MinValue = DateTime.Now;
-            this.dtpkCreateDate.Enabled = false;
+            this.dtpkCreateDate.ReadOnly = true;
            
         }
         private bool CheckControlValidation()

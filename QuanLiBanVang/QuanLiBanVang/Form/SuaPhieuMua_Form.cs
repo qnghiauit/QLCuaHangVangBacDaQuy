@@ -125,6 +125,7 @@ namespace QuanLiBanVang.Report
         {
             //if (_buyBill != null)
             //{
+            this.dtpkCreateDate.Properties.ReadOnly = true;
             List<DTO.KHACHHANG> listClient = _bulClient.GetAllKhachhangs();
             List<DTO.SANPHAM> listProduct = _bulProduct.getAllProduct();
             List<DTO.LOAISANPHAM> listProductType = _bulProductType.getAllProductType();
@@ -272,8 +273,8 @@ namespace QuanLiBanVang.Report
             detail.SoPhieuMua = _buyBill.SoPhieuMua;
             detail.TrongLuong = float.Parse(txtWeight.Text);
             detail.SoLuong = int.Parse(txtQuantity.Text);
-            detail.GiaMua = int.Parse(txtPrice.Text);
-            detail.Thanhtien = (int)(detail.SoLuong * detail.GiaMua);
+            detail.GiaMua = decimal.Parse(txtPrice.Text);
+            detail.Thanhtien = (decimal)(detail.SoLuong * detail.GiaMua);
             
             decimal total = decimal.Parse(lbTotal.Text);
             total += (decimal)detail.Thanhtien;

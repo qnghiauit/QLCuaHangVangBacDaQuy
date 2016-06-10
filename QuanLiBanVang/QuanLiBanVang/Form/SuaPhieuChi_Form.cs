@@ -41,7 +41,7 @@ namespace QuanLiBanVang.Report
         {
             this.dtpkCreateDate.Properties.MinValue = DateTime.Now;
             this.dtpkCreateDate.Properties.MaxValue = DateTime.Now;
-            this.dtpkCreateDate.Enabled = false;
+            this.dtpkCreateDate.ReadOnly = true;
 
             this.dtpkCreateDate.EditValue = _paymentBill.NgayLap;
             this.txtContent.Text = _paymentBill.NoiDungChi;
