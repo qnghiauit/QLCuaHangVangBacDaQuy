@@ -52,7 +52,8 @@ namespace QuanLiBanVang.Report
             }
                 this.radioGroupState.EditValue = (bool)this._product.TinhTrang;
             this.txtName.Text = _product.TenSP;
-            this.txtWeight.Text = _product.TrongLuong.ToString();
+            
+            this.txtWeight.Text = Math.Round(_product.TrongLuong).ToString();
         }
         public bool CheckControlValidation()
         {

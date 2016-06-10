@@ -23,6 +23,7 @@ namespace QuanLiBanVang.Report
             _bulLoaiSanPham = new BUL.BUL_LoaiSanPham();
             _bulInventory = new BUL.BUL_BaoCaoTonKho();
         }
+
         public bool CheckControlValidation()
         {
             if (this.txtName.Text == "")
@@ -32,6 +33,13 @@ namespace QuanLiBanVang.Report
             if (this.cboProductType.SelectedIndex == -1)
                 return false;
             return true;
+        }
+        private void Clear()
+        {
+            this.txtName.Text = "";
+            this.txtWeight.Text = "";
+            this.cboProductType.SelectedIndex = -1;
+            this.radioGroupState.SelectedIndex = 0;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -60,6 +68,7 @@ namespace QuanLiBanVang.Report
                 _bulInventory.addNewInventoryReport(_newReport);
                 MessageBox.Show("Nhập sản phẩm thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Clear();
             }
         }
 

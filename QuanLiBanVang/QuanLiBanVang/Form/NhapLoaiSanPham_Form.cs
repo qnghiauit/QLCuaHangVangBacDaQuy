@@ -29,6 +29,11 @@ namespace QuanLiBanVang.Report
                 return false;
             return true;
         }
+        private void Clear()
+        {
+            this.txtName.Text = "";
+            this.txtPercent.Text = "";
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (this.CheckControlValidation())
@@ -38,7 +43,7 @@ namespace QuanLiBanVang.Report
                 _bulProductType.addNewProductType(_newProductType);
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 MessageBox.Show("Thêm loại sản phẩm thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-      
+                this.Clear();
             }
             else
             {

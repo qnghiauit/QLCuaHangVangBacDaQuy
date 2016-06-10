@@ -85,6 +85,9 @@
             // 
             this.txtPercent.Location = new System.Drawing.Point(110, 53);
             this.txtPercent.Name = "txtPercent";
+            this.txtPercent.Properties.Mask.EditMask = "[0-9]+(\\R.\\d{0,2})?";
+            this.txtPercent.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtPercent.Properties.MaxLength = 5;
             this.txtPercent.Size = new System.Drawing.Size(100, 20);
             this.txtPercent.TabIndex = 3;
             // 

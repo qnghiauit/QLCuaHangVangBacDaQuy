@@ -111,8 +111,9 @@
             // 
             this.txtWeight.Location = new System.Drawing.Point(100, 74);
             this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Properties.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
+            this.txtWeight.Properties.Mask.EditMask = "[0-9]+(\\R.\\d{0,2})?";
             this.txtWeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtWeight.Properties.MaxLength = 5;
             this.txtWeight.Size = new System.Drawing.Size(141, 20);
             this.txtWeight.TabIndex = 3;
             // 

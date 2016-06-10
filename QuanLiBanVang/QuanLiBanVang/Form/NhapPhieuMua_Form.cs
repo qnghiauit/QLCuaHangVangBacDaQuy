@@ -273,6 +273,7 @@ namespace QuanLiBanVang.Report
                 }
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 MessageBox.Show("Nhập phiếu mua hàng thành công!", "Info", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {
