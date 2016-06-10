@@ -112,9 +112,9 @@ namespace QuanLiBanVang.Form
                         NgayLap = this.dateTimePickerNgayLap.DateTime.Date,
                         NgayTra = this.dateTimePickerNgayTra.DateTime.Date,
                         MaNV = UserAccess.Instance.GetUserId,
-                        SoTienNo = deptAmount,
-                        SoTienTra = frequenterPrepay,
-                        SoTienConLai = deptAmount - frequenterPrepay
+                        SoTienNo = Math.Round(deptAmount),
+                        SoTienTra = Math.Round(frequenterPrepay),
+                        SoTienConLai = Math.Round(deptAmount - frequenterPrepay)
                     };
 
                     // start to save into database
@@ -135,9 +135,9 @@ namespace QuanLiBanVang.Form
                     NgayLap = this.dateTimePickerNgayLap.DateTime.Date,
                     NgayTra = this.dateTimePickerNgayTra.DateTime.Date,
                     MaNV = UserAccess.Instance.GetUserId,
-                    SoTienNo = deptAmount,
-                    SoTienTra = frequenterPrepay,
-                    SoTienConLai = deptAmount - frequenterPrepay
+                    SoTienNo = Math.Round(deptAmount),
+                    SoTienTra = Math.Round(frequenterPrepay),
+                    SoTienConLai = Math.Round(deptAmount - frequenterPrepay)
                 };
                 // start to save into database
                 this.bulDeptReceipt.add(newDeptReceipt);

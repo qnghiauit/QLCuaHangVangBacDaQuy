@@ -322,7 +322,7 @@ namespace QuanLiBanVang.Form
                     MaSp = selectedProduct.MaSP,
                     TenSp = selectedProduct.TenSP,
                     SoLuong = Int32.Parse(this.textEditSoLuong.Text.Trim()),
-                    GiaMua = decimal.Parse(this.textEditGiaMua.Text.Trim())
+                    GiaMua = Math.Round(decimal.Parse(this.textEditGiaMua.Text.Trim()))
                 };
                 // update cost
                 newElement.ThanhTien = newElement.SoLuong * newElement.GiaMua;
