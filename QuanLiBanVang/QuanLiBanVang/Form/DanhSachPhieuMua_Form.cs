@@ -210,5 +210,15 @@ namespace QuanLiBanVang.Report
             this.Close();
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            List<DTO.PHIEUMUAHANG> listbuybill = _bulBuyBill.getAllBuyBill();
+            List<DTO.NHANVIEN> liststaff = _bulStaff.getAllStaff();
+            List<DTO.KHACHHANG> listclient = _bulClient.GetAllKhachhangs();
+            this._buyTable.Rows.Clear();
+            this.initTableData(listbuybill, liststaff, listclient);
+            this.dgvListBuyBill.DataSource = _buyTable;
+        }
+
     }
 }

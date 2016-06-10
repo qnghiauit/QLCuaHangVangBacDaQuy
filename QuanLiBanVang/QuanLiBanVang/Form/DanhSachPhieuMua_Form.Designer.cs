@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPhieuMua_Form));
             this.groupControlListBuyBill = new DevExpress.XtraEditors.GroupControl();
+            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
             this.dgvListBuyBill = new DevExpress.XtraGrid.GridControl();
             this.dgvBuyBill = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -47,6 +48,7 @@
             this.groupControlListBuyBill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControlListBuyBill.Controls.Add(this.btnRefresh);
             this.groupControlListBuyBill.Controls.Add(this.btnUpdate);
             this.groupControlListBuyBill.Controls.Add(this.dgvListBuyBill);
             this.groupControlListBuyBill.Controls.Add(this.btnAdd);
@@ -55,6 +57,17 @@
             this.groupControlListBuyBill.Size = new System.Drawing.Size(530, 244);
             this.groupControlListBuyBill.TabIndex = 0;
             this.groupControlListBuyBill.Text = "Thông tin";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(438, 212);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(87, 27);
+            this.btnRefresh.TabIndex = 7;
+            this.btnRefresh.Text = "Làm mới";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnUpdate
             // 
@@ -157,5 +170,6 @@
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.SimpleButton btnUpdate;
+        private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }
