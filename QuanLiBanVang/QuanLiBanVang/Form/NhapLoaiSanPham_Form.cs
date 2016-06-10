@@ -37,7 +37,8 @@ namespace QuanLiBanVang.Report
                 _newProductType.TenLoaiSP = this.txtName.Text;
                 _bulProductType.addNewProductType(_newProductType);
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.Close();
+                MessageBox.Show("Thêm loại sản phẩm thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+      
             }
             else
             {
