@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachNhaCungCap_Form));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControlDanhSachNhaCungCap = new DevExpress.XtraGrid.GridControl();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.chiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sửaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewDanhSachNhaCungCap = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.simpleButtonThem = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -44,7 +45,7 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDanhSachNhaCungCap)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDanhSachNhaCungCap)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -67,12 +68,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlDanhSachNhaCungCap.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControlDanhSachNhaCungCap.Location = new System.Drawing.Point(4, 22);
-            this.gridControlDanhSachNhaCungCap.MainView = this.gridView1;
+            this.gridControlDanhSachNhaCungCap.MainView = this.gridViewDanhSachNhaCungCap;
             this.gridControlDanhSachNhaCungCap.Name = "gridControlDanhSachNhaCungCap";
             this.gridControlDanhSachNhaCungCap.Size = new System.Drawing.Size(492, 303);
             this.gridControlDanhSachNhaCungCap.TabIndex = 0;
             this.gridControlDanhSachNhaCungCap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridViewDanhSachNhaCungCap});
             // 
             // contextMenuStrip1
             // 
@@ -112,11 +113,12 @@
             this.sửaToolStripMenuItem1.Text = "Sửa";
             this.sửaToolStripMenuItem1.Click += new System.EventHandler(this.sửaToolStripMenuItem1_Click);
             // 
-            // gridView1
+            // gridViewDanhSachNhaCungCap
             // 
-            this.gridView1.GridControl = this.gridControlDanhSachNhaCungCap;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridViewDanhSachNhaCungCap.GridControl = this.gridControlDanhSachNhaCungCap;
+            this.gridViewDanhSachNhaCungCap.Name = "gridViewDanhSachNhaCungCap";
+            this.gridViewDanhSachNhaCungCap.OptionsView.ShowGroupPanel = false;
+            this.gridViewDanhSachNhaCungCap.OptionsBehavior.Editable = false;
             // 
             // simpleButtonThem
             // 
@@ -169,7 +171,7 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDanhSachNhaCungCap)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDanhSachNhaCungCap)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,7 +180,7 @@
 
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraGrid.GridControl gridControlDanhSachNhaCungCap;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewDanhSachNhaCungCap;
         private DevExpress.XtraEditors.SimpleButton simpleButtonThoat;
         private DevExpress.XtraEditors.SimpleButton simpleButtonThem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;

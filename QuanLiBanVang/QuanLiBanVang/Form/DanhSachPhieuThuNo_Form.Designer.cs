@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPhieuThuNo_Form));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -37,12 +38,12 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.gridControlDanhSachPhieuNo = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewDanhSachPhieuNo = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridControlPhieuBanHang = new DevExpress.XtraGrid.GridControl();
-            this.contextMenuStripGridPhieuBanHang = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStripGridPhieuBanHang = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xemPhiếuNợToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuNợToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewDanhSachPhieuBanHang = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -51,10 +52,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDanhSachPhieuNo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDanhSachPhieuNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhieuBanHang)).BeginInit();
             this.contextMenuStripGridPhieuBanHang.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDanhSachPhieuBanHang)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -137,18 +138,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlDanhSachPhieuNo.Location = new System.Drawing.Point(9, 256);
-            this.gridControlDanhSachPhieuNo.MainView = this.gridView2;
+            this.gridControlDanhSachPhieuNo.MainView = this.gridViewDanhSachPhieuNo;
             this.gridControlDanhSachPhieuNo.Name = "gridControlDanhSachPhieuNo";
             this.gridControlDanhSachPhieuNo.Size = new System.Drawing.Size(552, 179);
             this.gridControlDanhSachPhieuNo.TabIndex = 0;
             this.gridControlDanhSachPhieuNo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.gridViewDanhSachPhieuNo});
             // 
-            // gridView2
+            // gridViewDanhSachPhieuNo
             // 
-            this.gridView2.GridControl = this.gridControlDanhSachPhieuNo;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridViewDanhSachPhieuNo.GridControl = this.gridControlDanhSachPhieuNo;
+            this.gridViewDanhSachPhieuNo.Name = "gridViewDanhSachPhieuNo";
+            this.gridViewDanhSachPhieuNo.OptionsView.ShowGroupPanel = false;
             // 
             // gridControlPhieuBanHang
             // 
@@ -157,12 +158,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlPhieuBanHang.ContextMenuStrip = this.contextMenuStripGridPhieuBanHang;
             this.gridControlPhieuBanHang.Location = new System.Drawing.Point(9, 52);
-            this.gridControlPhieuBanHang.MainView = this.gridView1;
+            this.gridControlPhieuBanHang.MainView = this.gridViewDanhSachPhieuBanHang;
             this.gridControlPhieuBanHang.Name = "gridControlPhieuBanHang";
             this.gridControlPhieuBanHang.Size = new System.Drawing.Size(552, 179);
             this.gridControlPhieuBanHang.TabIndex = 0;
             this.gridControlPhieuBanHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridViewDanhSachPhieuBanHang});
             // 
             // contextMenuStripGridPhieuBanHang
             // 
@@ -186,11 +187,11 @@
             this.lậpPhiếuNợToolStripMenuItem.Text = "Lập phiếu nợ";
             this.lậpPhiếuNợToolStripMenuItem.Click += new System.EventHandler(this.lậpPhiếuNợToolStripMenuItem_Click);
             // 
-            // gridView1
+            // gridViewDanhSachPhieuBanHang
             // 
-            this.gridView1.GridControl = this.gridControlPhieuBanHang;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridViewDanhSachPhieuBanHang.GridControl = this.gridControlPhieuBanHang;
+            this.gridViewDanhSachPhieuBanHang.Name = "gridViewDanhSachPhieuBanHang";
+            this.gridViewDanhSachPhieuBanHang.OptionsView.ShowGroupPanel = false;
             // 
             // simpleButtonThoat
             // 
@@ -236,10 +237,10 @@
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDanhSachPhieuNo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDanhSachPhieuNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhieuBanHang)).EndInit();
             this.contextMenuStripGridPhieuBanHang.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDanhSachPhieuBanHang)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -252,7 +253,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraGrid.GridControl gridControlDanhSachPhieuNo;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewDanhSachPhieuNo;
         private DevExpress.XtraEditors.SimpleButton simpleButtonThoat;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripGridPhieuBanHang;
         private System.Windows.Forms.ToolStripMenuItem xemPhiếuNợToolStripMenuItem;
@@ -260,7 +261,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraGrid.GridControl gridControlPhieuBanHang;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewDanhSachPhieuBanHang;
         private DevExpress.XtraEditors.LabelControl labelControl2;
     }
 }

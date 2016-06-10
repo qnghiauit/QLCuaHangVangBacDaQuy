@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuBanHang));
-            this.contextMenuStripUpdateGridData = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStripUpdateGridData = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseSavingBackgrounWorker = new System.ComponentModel.BackgroundWorker();
@@ -37,7 +38,7 @@
             this.simpleButton_Luu = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridControlDanhSachSanPham = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.textEditTongTien = new DevExpress.XtraEditors.TextEdit();
             this.textEditSoLuong = new DevExpress.XtraEditors.TextEdit();
@@ -68,7 +69,7 @@
             this.contextMenuStripUpdateGridData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlDanhSachSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTongTien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoLuong.Properties)).BeginInit();
@@ -156,7 +157,7 @@
             this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl3.Controls.Add(this.gridControl1);
+            this.groupControl3.Controls.Add(this.gridControlDanhSachSanPham);
             this.groupControl3.Controls.Add(this.textEditTongTien);
             this.groupControl3.Controls.Add(this.textEditSoLuong);
             this.groupControl3.Controls.Add(this.simpleButtonThem);
@@ -174,25 +175,25 @@
             this.groupControl3.TabIndex = 8;
             this.groupControl3.Text = "Chi tiết";
             // 
-            // gridControl1
+            // gridControlDanhSachSanPham
             // 
-            this.gridControl1.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gridControlDanhSachSanPham.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.False;
+            this.gridControlDanhSachSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.ContextMenuStrip = this.contextMenuStripUpdateGridData;
-            this.gridControl1.Location = new System.Drawing.Point(5, 58);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(798, 264);
-            this.gridControl1.TabIndex = 12;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControlDanhSachSanPham.ContextMenuStrip = this.contextMenuStripUpdateGridData;
+            this.gridControlDanhSachSanPham.Location = new System.Drawing.Point(5, 58);
+            this.gridControlDanhSachSanPham.MainView = this.gridView1;
+            this.gridControlDanhSachSanPham.Name = "gridControlDanhSachSanPham";
+            this.gridControlDanhSachSanPham.Size = new System.Drawing.Size(798, 264);
+            this.gridControlDanhSachSanPham.TabIndex = 12;
+            this.gridControlDanhSachSanPham.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.gridControlDanhSachSanPham;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
@@ -207,6 +208,9 @@
             this.textEditTongTien.Enabled = false;
             this.textEditTongTien.Location = new System.Drawing.Point(620, 328);
             this.textEditTongTien.Name = "textEditTongTien";
+            this.textEditTongTien.ReadOnly = true;
+            this.textEditTongTien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.textEditTongTien.Properties.Appearance.Options.UseFont = true;
             this.textEditTongTien.Size = new System.Drawing.Size(186, 20);
             this.textEditTongTien.TabIndex = 11;
             // 
@@ -215,7 +219,8 @@
             this.textEditSoLuong.Location = new System.Drawing.Point(435, 28);
             this.textEditSoLuong.Name = "textEditSoLuong";
             this.textEditSoLuong.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.textEditSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.textEditSoLuong.Properties.Mask.EditMask = "[0-9]{1,3}";
+            this.textEditSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.textEditSoLuong.Size = new System.Drawing.Size(65, 20);
             this.textEditSoLuong.TabIndex = 10;
             // 
@@ -343,6 +348,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateTimePickerNgayThanhToan.Size = new System.Drawing.Size(195, 20);
             this.dateTimePickerNgayThanhToan.TabIndex = 18;
+            this.dateTimePickerNgayThanhToan.EditValueChanged += new System.EventHandler(this.dateTimePickerNgayThanhToan_EditValueChanged);
             // 
             // dateTimePickerNgayBan
             // 
@@ -355,6 +361,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateTimePickerNgayBan.Size = new System.Drawing.Size(175, 20);
             this.dateTimePickerNgayBan.TabIndex = 17;
+            this.dateTimePickerNgayBan.EditValueChanged += new System.EventHandler(this.dateTimePickerNgayBan_EditValueChanged);
             // 
             // textEditMaKhachHang
             // 
@@ -477,7 +484,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             this.groupControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlDanhSachSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTongTien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoLuong.Properties)).EndInit();
@@ -510,7 +517,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton_Luu;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.GroupControl groupControl3;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl gridControlDanhSachSanPham;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.TextEdit textEditTongTien;
         private DevExpress.XtraEditors.TextEdit textEditSoLuong;

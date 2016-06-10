@@ -37,6 +37,7 @@ namespace QuanLiBanVang.Form
                     Value = item
                 });
             }
+
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -50,29 +51,37 @@ namespace QuanLiBanVang.Form
             this.bulPhieuBanHang = new BUL_PhieuBanHang();
             this.gridControlPhieuBanHang.RefreshDataSource();
             this.gridControlPhieuBanHang.DataSource = this.bulPhieuBanHang.findReceiptsByFrequenterId(selectedFrequenter.MaKH);
+            // all uninformative columns will be invisible
+            this.gridViewDanhSachPhieuBanHang.Columns[6].Visible = false;
+            this.gridViewDanhSachPhieuBanHang.Columns[7].Visible = false;
+            this.gridViewDanhSachPhieuBanHang.Columns[8].Visible = false;
+            this.gridViewDanhSachPhieuBanHang.Columns[9].Visible = false;
         }
 
         private void xemPhiếuNợToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.gridView1.DataRowCount == 0)
+            if (this.gridViewDanhSachPhieuBanHang.DataRowCount == 0)
             {
                 return;
             }
-            PHIEUBANHANG selectedReceipt = (PHIEUBANHANG)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
+            PHIEUBANHANG selectedReceipt = (PHIEUBANHANG)this.gridViewDanhSachPhieuBanHang.GetRow(this.gridViewDanhSachPhieuBanHang.FocusedRowHandle);
             // start to look up all dept receipts
             this.bulPhieuBanHang = new BUL_PhieuBanHang();
             this.gridControlDanhSachPhieuNo.RefreshDataSource();
             this.gridControlDanhSachPhieuNo.DataSource = this.bulPhieuBanHang.findDeptReceiptsByReceiptId(selectedReceipt.SoPhieuBH);
+            // all uninformative columns will be invisible
+            this.gridViewDanhSachPhieuNo.Columns[8].Visible = false;
+            this.gridViewDanhSachPhieuNo.Columns[9].Visible = false;
         }
 
         private void lậpPhiếuNợToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // get the focused row
-            if (this.gridView1.DataRowCount == 0)
+            if (this.gridViewDanhSachPhieuBanHang.DataRowCount == 0)
             {
                 return;
             }
-            PHIEUBANHANG selectedReceipt = (PHIEUBANHANG)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
+            PHIEUBANHANG selectedReceipt = (PHIEUBANHANG)this.gridViewDanhSachPhieuBanHang.GetRow(this.gridViewDanhSachPhieuBanHang.FocusedRowHandle);
             // check if this recept has dept recepit or not ?
             if (this.bulPhieuBanHang.hasDebtReceipts(selectedReceipt.SoPhieuBH) == false)
             {
@@ -80,7 +89,7 @@ namespace QuanLiBanVang.Form
                 PhieuThuTienNo_Form firstDeptReceiptForm = new PhieuThuTienNo_Form(selectedReceipt);
                 firstDeptReceiptForm.ShowDialog();
             }
-            else
+            else // otherwise
             {
                 // get the last dept recpeit
                 PHIEUTHUTIENNO lastDeptReceip = this.bulPhieuBanHang.findTheLastDeiptReceiptFromReceiptId(selectedReceipt.SoPhieuBH);

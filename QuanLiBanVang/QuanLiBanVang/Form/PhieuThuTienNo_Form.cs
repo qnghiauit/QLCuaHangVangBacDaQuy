@@ -109,10 +109,9 @@ namespace QuanLiBanVang.Form
                     PHIEUTHUTIENNO newDeptReceipt = new PHIEUTHUTIENNO
                     {
                         SoPhieuBH = this.receipt.SoPhieuBH,
-                        NgayLap = this.dateTimePickerNgayLap.DateTime,
-                        NgayTra = this.dateTimePickerNgayTra.DateTime,
-                        // MaNV = UserAccess.Instance.GetUserId,
-                        MaNV = 4, // to test
+                        NgayLap = this.dateTimePickerNgayLap.DateTime.Date,
+                        NgayTra = this.dateTimePickerNgayTra.DateTime.Date,
+                        MaNV = UserAccess.Instance.GetUserId,
                         SoTienNo = deptAmount,
                         SoTienTra = frequenterPrepay,
                         SoTienConLai = deptAmount - frequenterPrepay
@@ -133,10 +132,9 @@ namespace QuanLiBanVang.Form
                 PHIEUTHUTIENNO newDeptReceipt = new PHIEUTHUTIENNO
                 {
                     SoPhieuBH = this.previousDeptRecepit.SoPhieuBH,
-                    NgayLap = this.dateTimePickerNgayLap.DateTime,
-                    NgayTra = this.dateTimePickerNgayTra.DateTime,
-                    // MaNV = UserAccess.Instance.GetUserId,
-                    MaNV = 4,
+                    NgayLap = this.dateTimePickerNgayLap.DateTime.Date,
+                    NgayTra = this.dateTimePickerNgayTra.DateTime.Date,
+                    MaNV = UserAccess.Instance.GetUserId,
                     SoTienNo = deptAmount,
                     SoTienTra = frequenterPrepay,
                     SoTienConLai = deptAmount - frequenterPrepay

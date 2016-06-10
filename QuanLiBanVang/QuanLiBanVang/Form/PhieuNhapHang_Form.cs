@@ -120,8 +120,8 @@ namespace QuanLiBanVang.Form
                 PHIEUNHAPHANG newImportReceipt = new PHIEUNHAPHANG
                 {
                     MaNCC = provider.MaNCC,
-                    NgayNhap = this.dateTimePicker1.DateTime,
-                    MaNV = 4,//UserAccess.Instance.GetUserId, // test
+                    NgayNhap = this.dateTimePickerNgayNhap.DateTime.Date,
+                    MaNV = UserAccess.Instance.GetUserId,
                     TongTien = this.total,
                     //NHACUNGCAP = provider,
                     // ignore some fields
@@ -129,7 +129,7 @@ namespace QuanLiBanVang.Form
 
                 };
                 newImportReceipt = this.bulImportDetail.add(newImportReceipt); // save the receipt
-             
+
                 foreach (ImportItemGridViewDataSource item in this.bindingListDataSource)
                 {
                     this.savingList.Add(new CTPNH
@@ -143,7 +143,9 @@ namespace QuanLiBanVang.Form
                 }
                 new BUL_CTPNH().addRange(this.savingList); // save the list of detail
                 // notify user that the work is done
-                DialogResult dialogResult = MessageBox.Show(NotificationMessage.MESSAGE_SAVING_JOB_DONE, NotificationMessage.MESSAGE_SAVING_JOB_DONE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult dialogResult = MessageBox.Show(NotificationMessage.MESSAGE_SAVING_JOB_DONE,
+                    NotificationMessage.MESSAGE_SAVING_JOB_DONE,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (dialogResult == System.Windows.Forms.DialogResult.OK)
                 {
                     this.Close();
@@ -155,13 +157,13 @@ namespace QuanLiBanVang.Form
         {
             if (this.bindingListDataSource.Count == 0) { return; }// exit method if the binding datasource list is empty
             // delete the focused row of gridview
-            this.bindingListDataSource.RemoveAt(this.gridView1.FocusedRowHandle);
+            this.bindingListDataSource.RemoveAt(this.gridViewDanhSachSanPham.FocusedRowHandle);
             // update stt
             for (int i = 0; i < this.bindingListDataSource.Count; ++i)
             {
                 this.bindingListDataSource[i].STT = i;
             }
-            this.gridView1.RefreshData();
+            this.gridViewDanhSachSanPham.RefreshData();
             // update total
             this.updateTotal();
         }
@@ -242,12 +244,16 @@ namespace QuanLiBanVang.Form
             //this.textEditSoPhieuNhap.Text = data.SoPhieuNhap.ToString();
             // this.textEditSoPhieuNhap.Enabled = false;
             this.textEditMaNhanVien.Text = data.MaNV.ToString();
-            this.textEditMaNhanVien.Enabled = false;
+            this.textEditMaNhanVien.Enabled = true;
+            this.textEditMaNhanVien.ReadOnly = true;
+
             this.textEditTongTien.Text = data.TongTien.ToString();
-            this.textEditMaNhanVien.Enabled = false;
+            this.textEditTongTien.Enabled = true;
+            this.textEditTongTien.ReadOnly = true;
             // date time
-            this.dateTimePicker1.DateTime = data.NgayNhap;
-            this.dateTimePicker1.Enabled = false;
+            this.dateTimePickerNgayNhap.DateTime = data.NgayNhap;
+            this.dateTimePickerNgayNhap.Enabled = true;
+            this.dateTimePickerNgayNhap.ReadOnly = true;
             // provider
             this.comboBoxEditNhaCungCap.Text = data.NHACUNGCAP.TenNCC;
             this.comboBoxEditNhaCungCap.Enabled = false;
@@ -257,8 +263,11 @@ namespace QuanLiBanVang.Form
             // binding data 
             this.gridControl1.DataSource = new BUL_CTPNH().get(data);
             // all unimformative columns will be invisible
-            this.gridView1.Columns[5].Visible = false;
-            this.gridView1.Columns[6].Visible = false;         
+            this.gridViewDanhSachSanPham.Columns[5].Visible = false;
+            this.gridViewDanhSachSanPham.Columns[6].Visible = false;
+
+            this.simpleButtonThem.Enabled = false;
+
             // disable save button
             this.simpleButtonSave.Enabled = false;
             this.simpleButtonSave.Visible = false;
@@ -269,9 +278,9 @@ namespace QuanLiBanVang.Form
         private void sửaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.bindingListDataSource.Count == 0) { return; }// exit if the binding datasource list is empty
-            ImportItemGridViewDataSource focusedItem = (ImportItemGridViewDataSource)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
+            ImportItemGridViewDataSource focusedItem = (ImportItemGridViewDataSource)this.gridViewDanhSachSanPham.GetRow(this.gridViewDanhSachSanPham.FocusedRowHandle);
 
-            UpdateImportDetailltem updateImportDetailItemForm = new UpdateImportDetailltem(focusedItem, this.gridView1.FocusedRowHandle);
+            UpdateImportDetailltem updateImportDetailItemForm = new UpdateImportDetailltem(focusedItem, this.gridViewDanhSachSanPham.FocusedRowHandle);
             updateImportDetailItemForm.sendBack = new UpdateImportDetailltem.SendBackDataDelegate(this.updateItemFromDelegate);
             updateImportDetailItemForm.ShowDialog();
 
@@ -321,6 +330,16 @@ namespace QuanLiBanVang.Form
                 // this.gridControl1.RefreshDataSource();
                 // update total
                 this.updateTotal();
+            }
+        }
+
+        private void dateTimePicker1_EditValueChanged(object sender, EventArgs e)
+        {
+            if (DateTime.Compare(this.dateTimePickerNgayNhap.DateTime.Date, DateTime.Now.Date) < 0)
+            {
+                MessageBox.Show(ErrorMessage.TODAY_ONLY_FOR_SELLING_DATE, ErrorMessage.ERROR_MESSARE_TITLE,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.dateTimePickerNgayNhap.DateTime = DateTime.Now;
             }
         }
 

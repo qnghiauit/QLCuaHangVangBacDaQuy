@@ -26,7 +26,7 @@ namespace QuanLiBanVang
 
         private List<CTPBH> receiptDetail = new List<CTPBH>(); // to save all products that client choose to save to database
         decimal tongTien = Decimal.Zero;
-        int soPhieu;
+
         private ObservableCollection<DetailGridViewDataSource> gridViewDataSource = new ObservableCollection<DetailGridViewDataSource>(); // bind data to data gridview
         ActionType actionType; // identify what is form's action
         private KHACHHANG frequenter;
@@ -69,7 +69,7 @@ namespace QuanLiBanVang
                 // auto index SoPhieuBanHang
                 //this.textEditSoPhieuBH.Text = this.soPhieu.ToString();
                 // datasource will reference to ObservableCollection : gridViewDataSource
-                this.gridControl1.DataSource = this.gridViewDataSource;
+                this.gridControlDanhSachSanPham.DataSource = this.gridViewDataSource;
             }
             else if (this.actionType == ActionType.ACTION_VIEW) // incase user only want to show existed receipt from database
             {
@@ -99,57 +99,6 @@ namespace QuanLiBanVang
             this.textEditDiaChiKhachHang.Text = this.frequenter.DiaChi;
         }
 
-        /// <summary>
-        /// Add new record into gridview when user click add button
-        /// </summary>
-        /// 
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void simpleButtonThem_Click(object sender, EventArgs e)
-        //{
-        //    if (this.checkValidItem())
-        //    {
-        //        // first , add this item into list first
-        //        ContainerItem productTypeItem = (ContainerItem)this.comboBoxEditMaLoaiSp.SelectedItem;
-        //        LOAISANPHAM selectedProdcuctType = (LOAISANPHAM)productTypeItem.Value;
-        //        ContainerItem productItem = (ContainerItem)this.comboBoxEditMaSp.SelectedItem;
-        //        SANPHAM selectedProduct = (SANPHAM)productItem.Value;
-        //        // check number of products in stock
-        //        int numberOfProducts = Int32.Parse(this.textEditSoLuong.Text);
-        //        if (numberOfProducts > selectedProduct.SoLuongTon)
-        //        {
-        //            MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            return;
-        //        }
-
-        //        // make sure san pham did not exist before in list
-        //        if (!this.gridViewDataSource.Any(x => x.MaSP == selectedProduct.MaSP))
-        //        {
-
-        //            // new record data for gridview
-        //            DetailGridViewDataSource newRow = new DetailGridViewDataSource
-        //            {
-        //                MaLoaiSp = selectedProdcuctType.MaLoaiSP,
-        //                Stt = this.gridViewDataSource.Count,
-        //                LoaiSP = selectedProdcuctType.TenLoaiSP,
-        //                MaSP = selectedProduct.MaSP,
-        //                SoLuong = int.Parse(this.textEditSoLuong.Text),
-        //                TenSp = selectedProduct.TenSP,
-        //                GiaBan = decimal.Multiply(Convert.ToDecimal(selectedProduct.GiaMua),
-        //                                            Convert.ToDecimal(selectedProdcuctType.PhanTramLoiNhuan + 1)),
-        //            };
-        //            newRow.ThanhTien = decimal.Multiply(newRow.GiaBan, newRow.SoLuong);
-        //            // add valid element to two lists
-        //            this.gridViewDataSource.Add(newRow);
-        //            this.updateTotal(); // update the total
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show(ErrorMessage.EXISTED_PRODUCT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-
-        //    }
-        //}
         /*
          * before adding new record into grid control , data must be check to be valid
          * 
@@ -203,34 +152,12 @@ namespace QuanLiBanVang
             return false;
         }
 
-        //private void simpleButton1_Click(object sender, EventArgs e)
-        //{
-        //    // close the form
-        //    this.Close();
-        //}
 
-        //private void comboBoxEditMaLoaiSp_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    // first , clear the items in comboboxSanPham
-        //    this.comboBoxEditMaSp.Properties.Items.Clear();
-        //    // load all product coresponding to the selected product type
-        //    ContainerItem selectedItem = (ContainerItem)this.comboBoxEditMaLoaiSp.SelectedItem;
-        //    LOAISANPHAM selectedProductType = (LOAISANPHAM)selectedItem.Value; // hold value of the selected item
-        //    foreach (SANPHAM item in (new BUL_LoaiSanPham()).getProductsByTypeId(selectedProductType.MaLoaiSP))
-        //    {
-        //        // make sure that product is available to be sold
-        //        if (item.TinhTrang == true)
-        //        {
-        //            this.comboBoxEditMaSp.Properties.Items.Add(new ContainerItem
-        //            {
-        //                Text = item.TenSP,
-        //                Value = item
-        //            });
-        //        }
-        //    }
-        //}
-
-        // update DonGia editext
+        /// <summary>
+        /// Update value of DonGia texfield corresponding to product
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxEditMaSp_SelectedIndexChanged(object sender, EventArgs e)
         {
             ContainerItem selectedItem = (ContainerItem)this.comboBoxEditMaSp.SelectedItem;
@@ -260,9 +187,9 @@ namespace QuanLiBanVang
         {
             PHIEUBANHANG newReceipt = new PHIEUBANHANG()
             {
-                NgayBan = this.dateTimePickerNgayBan.DateTime,
-                NgayTra = this.dateTimePickerNgayThanhToan.DateTime,
-                MaNV = 4,//UserAccess.Instance.GetUserId, // to be update code
+                NgayBan = this.dateTimePickerNgayBan.DateTime.Date,
+                NgayTra = this.dateTimePickerNgayThanhToan.DateTime.Date,
+                MaNV = UserAccess.Instance.GetUserId, // to be update code
                 // MaKH = 1, // to be update code
                 TongTien = this.tongTien
             };
@@ -319,6 +246,13 @@ namespace QuanLiBanVang
                 // start to delete this row
                 this.gridViewDataSource.RemoveAt(item.Stt); // Stt corresponds to index of element to be deleted
             }
+            for (int i = 0; i < this.gridViewDataSource.Count; ++i)
+            {
+                // cast to GridViewDataSource at row[i]
+                // start to delete this row
+                this.gridViewDataSource[i].Stt = i; // Stt corresponds to index of element to be deleted
+            }
+
             // update total
             this.updateTotal();
         }
@@ -386,25 +320,39 @@ namespace QuanLiBanVang
 
             // general information
             this.textEditSoPhieuBH.Text = data.SoPhieuBH.ToString();
-            this.textEditSoPhieuBH.Enabled = false;
+            this.textEditSoPhieuBH.Enabled = true;
+
             // this.textEditNhanVien.Text = data.NHANVIEN.HoTen;
             // this.textEditNhanVien.Enabled = false;
             this.dateTimePickerNgayBan.DateTime = data.NgayBan;
-            this.dateTimePickerNgayBan.Enabled = false;
+            this.dateTimePickerNgayBan.Enabled = true;
+            this.dateTimePickerNgayBan.ReadOnly = true;
+
             this.dateTimePickerNgayThanhToan.DateTime = data.NgayTra;
-            this.dateTimePickerNgayThanhToan.Enabled = false;
+            this.dateTimePickerNgayThanhToan.Enabled = true;
+            this.dateTimePickerNgayThanhToan.ReadOnly = true;
+
             this.textEditMaKhachHang.Visible = true;
-            this.textEditMaKhachHang.Enabled = false;
+            this.textEditMaKhachHang.Enabled = true;
+            this.textEditMaKhachHang.ReadOnly = true;
+
             this.textEditMaKhachHang.Text = data.MaKH.ToString();
-            this.textEditTenKhachHang.Enabled = false;
-            this.textEditDiaChiKhachHang.Enabled = false;
+            this.textEditTenKhachHang.Enabled = true;
+            this.textEditTenKhachHang.ReadOnly = true;
+
+            this.textEditDiaChiKhachHang.Enabled = true;
+            this.textEditDiaChiKhachHang.ReadOnly = true;
+
+
             this.textEditTongTien.Text = data.TongTien.ToString();
             this.simpleButtonTimKhachQuen.Enabled = false;
+
+            this.checkEditKhachQuen.Enabled = false; // disable checkbox
 
             // show customer's information if the customer is frequent
             if (data.MaKH != null)
             {
-                // this.textEditMaKhachHang.Text = data.KHACHHANG.MaKH.ToString();
+
                 this.textEditTenKhachHang.Text = data.KHACHHANG.TenKH;
                 this.textEditDiaChiKhachHang.Text = data.KHACHHANG.DiaChi;
             }
@@ -428,73 +376,15 @@ namespace QuanLiBanVang
             // get bindinglist
 
             BindingList<CTPBH> listOfDetails = new BUL_CTPBH().toBindingList(data);
-            this.gridControl1.DataSource = listOfDetails;
+            this.gridControlDanhSachSanPham.DataSource = listOfDetails;
+
+
+            // hide some columns
+            this.gridView1.Columns[5].Visible = false;
+            this.gridView1.Columns[6].Visible = false;
         }
 
 
-        //private void viewAndUpdateExistedDetail(PHIEUBANHANG data)
-        //{
-
-        //    // general information
-        //    this.textEditSoPhieuBH.Text = data.SoPhieuBH.ToString();
-        //    this.textEditSoPhieuBH.Enabled = false;
-        //    this.textEditNhanVien.Text = data.NHANVIEN.HoTen;
-        //    this.textEditNhanVien.Enabled = false;
-        //    this.dateTimePickerNgayBan.Value = data.NgayBan;
-        //    this.dateTimePickerNgayBan.Enabled = false;
-        //    this.dateTimePickerNgayThanhToan.Value = data.NgayTra;
-        //    this.dateTimePickerNgayThanhToan.Enabled = false;
-        //    this.textEditMaKhachHang.Visible = true;
-        //    this.textEditMaKhachHang.Enabled = false;
-        //    this.textEditMaKhachHang.Text = data.MaKH.ToString();
-        //    this.textEditTenKhachHang.Enabled = false;
-        //    this.textEditDiaChiKhachHang.Enabled = false;
-
-
-        //    // show customer's information if the customer is frequent
-        //    if (data.MaKH != null)
-        //    {
-        //        // this.textEditMaKhachHang.Text = data.KHACHHANG.MaKH.ToString();
-        //        this.textEditTenKhachHang.Text = data.KHACHHANG.TenKH;
-        //        this.textEditDiaChiKhachHang.Text = data.KHACHHANG.DiaChi;
-        //    }
-        //    //
-        //    // disable and visiable some view components
-        //    this.simpleButtonThem.Enabled = false;
-        //    this.simpleButtonThem.Visible = false;
-
-        //    this.simpleButtonUpdate.Visible = true;
-        //    this.simpleButtonUpdate.Enabled = true;
-
-        //    this.simpleButtonLuu.Enabled = false;
-        //    this.simpleButtonLuu.Visible = false;
-        //    this.comboBoxEditMaLoaiSp.Visible = false;
-        //    this.comboBoxEditMaSp.Visible = false;
-        //    this.textEditSoLuong.Visible = false;
-        //    this.textEditDonGia.Visible = false;
-        //    // disable context menustrip
-        //    this.contextMenuStripUpdateGridData.Enabled = true;
-        //    // get bindinglist
-
-        //    BindingList<CTPBH> listOfDetails = new BUL_CTPBH().toBindingList(data);
-        //    ObservableCollection<DetailGridViewDataSource> itemsGrid = new ObservableCollection<DetailGridViewDataSource>();
-        //    int index = 0;
-        //    foreach (CTPBH item in listOfDetails)
-        //    {
-        //        itemsGrid.Add(new DetailGridViewDataSource
-        //        {
-        //            Stt = index,
-        //            MaSP = item.MaSP,
-        //            MaLoaiSp = item.SANPHAM.MaLoaiSP,
-        //            LoaiSP = item.SANPHAM.LOAISANPHAM.TenLoaiSP,
-        //            SoLuong = item.SoLuong,
-        //            ThanhTien = item.ThanhTien,
-        //            GiaBan = item.GiaBan,
-        //        });
-        //        index++;
-        //    }
-        //    this.gridControl1.DataSource = itemsGrid;
-        //}
 
         private void groupControl2_Paint(object sender, PaintEventArgs e)
         {
@@ -516,6 +406,11 @@ namespace QuanLiBanVang
             }
         }
 
+        /// <summary>
+        /// Show form containing list of frequenters
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void simpleButtonTimKhachQuen_Click(object sender, EventArgs e)
         {
             DanhSachKhachQuen frequenterListForm = new DanhSachKhachQuen();
@@ -667,6 +562,34 @@ namespace QuanLiBanVang
             ContainerItem productTypeItem = (ContainerItem)this.comboBoxEditMaLoaiSp.SelectedItem;
             LOAISANPHAM prodcuctType = (LOAISANPHAM)productTypeItem.Value;
             this.textEditDonGia.Text = Decimal.Multiply(Convert.ToDecimal(sanPham.GiaMua), Convert.ToDecimal(1 + prodcuctType.PhanTramLoiNhuan)).ToString();
+        }
+
+        /// <summary>
+        /// Make sure that the selling date has to be today
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dateTimePickerNgayBan_EditValueChanged(object sender, EventArgs e)
+        {
+            if (DateTime.Compare(this.dateTimePickerNgayBan.DateTime.Date, DateTime.Now.Date) != 0)
+            {
+                MessageBox.Show(ErrorMessage.TODAY_ONLY_FOR_SELLING_DATE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.dateTimePickerNgayBan.DateTime = DateTime.Now;
+            }
+        }
+
+        /// <summary>
+        /// Make sure that the payment date has to be greater than the selling date
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dateTimePickerNgayThanhToan_EditValueChanged(object sender, EventArgs e)
+        {
+            if (DateTime.Compare(this.dateTimePickerNgayThanhToan.DateTime.Date, this.dateTimePickerNgayBan.DateTime.Date) < 0)
+            {
+                MessageBox.Show(ErrorMessage.INVALID_PAYMENT_DATE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.dateTimePickerNgayBan.DateTime = DateTime.Now;
+            }
         }
 
     }

@@ -24,7 +24,7 @@ namespace QuanLiBanVang.Form
             this.bulProvider = new BUL_NhaCungCap();
             // start to get all providers from database and binding into the view list
             this.gridControlDanhSachNhaCungCap.DataSource = this.bulProvider.getAll();
-            gridView1.Columns[4].Visible = false;
+            gridViewDanhSachNhaCungCap.Columns[4].Visible = false;
         }
 
         private void DanhSachNhaCungCap_Load(object sender, EventArgs e)
@@ -35,9 +35,9 @@ namespace QuanLiBanVang.Form
         private void chiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // doing nothing if no rows selected or number of selected rows is greater than 1 
-            if (this.gridView1.GetSelectedRows().Count() == 0 || this.gridView1.GetSelectedRows().Count() > 1) { return; }
+            if (this.gridViewDanhSachNhaCungCap.GetSelectedRows().Count() == 0 || this.gridViewDanhSachNhaCungCap.GetSelectedRows().Count() > 1) { return; }
             // otherwise , show detail form for the selected row
-            NHACUNGCAP selectedProvider = (NHACUNGCAP)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
+            NHACUNGCAP selectedProvider = (NHACUNGCAP)this.gridViewDanhSachNhaCungCap.GetRow(this.gridViewDanhSachNhaCungCap.FocusedRowHandle);
             NhaCungCap_Form viewExistedProviderForm = new NhaCungCap_Form(ActionType.ACTION_VIEW, selectedProvider);
             viewExistedProviderForm.ShowDialog();
 
@@ -64,9 +64,9 @@ namespace QuanLiBanVang.Form
         private void sửaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // doing nothing if no rows selected or number of selected rows is greater than 1 
-            if (this.gridView1.GetSelectedRows().Count() == 0 || this.gridView1.GetSelectedRows().Count() > 1) { return; }
+            if (this.gridViewDanhSachNhaCungCap.GetSelectedRows().Count() == 0 || this.gridViewDanhSachNhaCungCap.GetSelectedRows().Count() > 1) { return; }
             // otherwise , show detail form for the selected row
-            NHACUNGCAP selectedProvider = (NHACUNGCAP)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
+            NHACUNGCAP selectedProvider = (NHACUNGCAP)this.gridViewDanhSachNhaCungCap.GetRow(this.gridViewDanhSachNhaCungCap.FocusedRowHandle);
             NhaCungCap_Form updateExistedProviderForm = new NhaCungCap_Form(ActionType.ACTION_UPDATE, selectedProvider);
             updateExistedProviderForm.ShowDialog();
         }
@@ -74,9 +74,9 @@ namespace QuanLiBanVang.Form
         private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // doing nothing if no rows selected or number of selected rows is greater than 1 
-            if (this.gridView1.GetSelectedRows().Count() == 0 || this.gridView1.GetSelectedRows().Count() > 1) { return; }
+            if (this.gridViewDanhSachNhaCungCap.GetSelectedRows().Count() == 0 || this.gridViewDanhSachNhaCungCap.GetSelectedRows().Count() > 1) { return; }
             // otherwise , show detail form for the selected row
-            NHACUNGCAP selectedProvider = (NHACUNGCAP)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
+            NHACUNGCAP selectedProvider = (NHACUNGCAP)this.gridViewDanhSachNhaCungCap.GetRow(this.gridViewDanhSachNhaCungCap.FocusedRowHandle);
             this.bulProvider.deleteProvider(selectedProvider.MaNCC);
         }
     }

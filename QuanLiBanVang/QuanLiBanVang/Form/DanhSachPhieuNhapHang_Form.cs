@@ -21,11 +21,11 @@ namespace QuanLiBanVang.Form
         {
             InitializeComponent();
             this.bulImportReceipt = new BUL_PhieuNhapHang();
-            this.gridControl1.DataSource = this.bulImportReceipt.getAll(); // binding data for gridview
+            this.gridControlDanhSachPhieuNhap.DataSource = this.bulImportReceipt.getAll(); // binding data for gridview
             // some columns that is not informative will be invisible 
-            this.gridView1.Columns[5].Visible = false;
-            this.gridView1.Columns[6].Visible = false;
-            this.gridView1.Columns[7].Visible = false;
+            this.gridViewDanhSachPhieuNhapHang.Columns[5].Visible = false;
+            this.gridViewDanhSachPhieuNhapHang.Columns[6].Visible = false;
+            this.gridViewDanhSachPhieuNhapHang.Columns[7].Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,8 +36,8 @@ namespace QuanLiBanVang.Form
         private void chiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // check the gridview is valid 
-            if (this.gridView1.SelectedRowsCount < 0 || this.gridView1.SelectedRowsCount > 1 || this.gridView1.DataRowCount == 0) { return; }
-            PHIEUNHAPHANG selectedImportReceipt = (PHIEUNHAPHANG)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
+            if (this.gridViewDanhSachPhieuNhapHang.SelectedRowsCount < 0 || this.gridViewDanhSachPhieuNhapHang.SelectedRowsCount > 1 || this.gridViewDanhSachPhieuNhapHang.DataRowCount == 0) { return; }
+            PHIEUNHAPHANG selectedImportReceipt = (PHIEUNHAPHANG)this.gridViewDanhSachPhieuNhapHang.GetRow(this.gridViewDanhSachPhieuNhapHang.FocusedRowHandle);
             // start the form
             PhieuNhapHang_Form viewImportDetailForm = new PhieuNhapHang_Form(ActionType.ACTION_VIEW, selectedImportReceipt);
             // show form 
@@ -63,7 +63,7 @@ namespace QuanLiBanVang.Form
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.bulImportReceipt = new BUL_PhieuNhapHang();
-            this.gridControl1.DataSource = this.bulImportReceipt.getAll();
+            this.gridControlDanhSachPhieuNhap.DataSource = this.bulImportReceipt.getAll();
         }
 
 
