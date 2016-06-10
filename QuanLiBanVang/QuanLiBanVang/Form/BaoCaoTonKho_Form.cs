@@ -29,7 +29,7 @@ namespace QuanLiBanVang.Report
         private void btnDisplay_Click(object sender, EventArgs e)
         {
             _templateReport = null;
-            _templateReport = new BaoCaoTonKho();
+            _templateReport = new BaoCaoTonKho((DateTime)this.dtpkDisplayDate.EditValue);
             string value = ((DateTime)(this.dtpkDisplayDate.EditValue)).ToShortDateString();
             _templateReport.FilterString = "[NgayBC] like '%" + value + "%'";
             this.dcmvReport.DocumentSource = null;
@@ -43,7 +43,7 @@ namespace QuanLiBanVang.Report
             this.dtpkDisplayDate.Properties.MaxValue = DateTime.Now;
             this.dtpkDisplayDate.EditValue = DateTime.Now;
 
-            _templateReport = new Report.BaoCaoTonKho();
+            _templateReport = new Report.BaoCaoTonKho(DateTime.Now);
             string value = ((DateTime)(this.dtpkDisplayDate.EditValue)).ToShortDateString();
             _templateReport.FilterString = "[NgayBC] like '%" + value + "%'";
             this.dcmvReport.DocumentSource = _templateReport;
@@ -72,7 +72,7 @@ namespace QuanLiBanVang.Report
                     pdfOption.DocumentOptions.Subject = "Bao cao ton kho";
                     pdfOption.DocumentOptions.Title = "Báo cáo tồn kho";
                     fileName += "\\" + pdfOption.DocumentOptions.Title + ".pdf";
-                    pdfOption.PageRange = "1";
+                    //pdfOption.PageRange = "1";
                     _templateReport.ExportToPdf(fileName);
                     MessageBox.Show("Xuất file thành công!","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.StartProcess(fileName);

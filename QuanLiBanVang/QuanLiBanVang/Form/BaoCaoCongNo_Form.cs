@@ -62,7 +62,7 @@ namespace QuanLiBanVang.Form
                     pdfOption.DocumentOptions.Subject = "Bao cao cong no";
                     pdfOption.DocumentOptions.Title = "Báo cáo công nợ";
                     fileName += "\\" + pdfOption.DocumentOptions.Title + ".pdf";
-                    pdfOption.PageRange = "1";
+                    //pdfOption.PageRange = "1";
                     _templateReport.ExportToPdf(fileName);
                     MessageBox.Show("Xuất file thành công!","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     this.StartProcess(fileName);

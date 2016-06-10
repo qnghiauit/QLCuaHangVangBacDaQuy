@@ -276,7 +276,7 @@ namespace QuanLiBanVang.Report
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin quy định");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin quy định","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
         }

@@ -317,7 +317,7 @@ namespace QuanLiBanVang.Report
                 }
                // _buyBill.TongTien = decimal.Parse(this.lbTotal.Text);
                 this._bulBuyBill.updateBuyBill(_buyBill);
-                MessageBox.Show("Cập nhật thành công!");
+                MessageBox.Show("Cập nhật phiếu mua thành công!","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
             //}

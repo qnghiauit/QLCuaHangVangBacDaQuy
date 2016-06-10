@@ -164,8 +164,16 @@ namespace QuanLiBanVang.Report
                     DialogResult dresult = MessageBox.Show("Bạn có chắc muốn xóa tài khoản này?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     if (dresult == System.Windows.Forms.DialogResult.OK)
                     {
-                        this._bulStaff.deleteStaff((int)row[0]);
-                        this.dgvStaff.DeleteRow(pos);
+                        bool isSucess =this._bulStaff.deleteStaff((int)row[0]);
+                        if (isSucess)
+                        {
+                            this.dgvStaff.DeleteRow(pos);
+                            MessageBox.Show("Xóa tài khoản nhân viên thành công", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không thể xóa tài khoản nhân viên đã sử dụng!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

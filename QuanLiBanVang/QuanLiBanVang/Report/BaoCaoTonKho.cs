@@ -14,7 +14,8 @@ namespace QuanLiBanVang.Report
         }
         public BaoCaoTonKho(DateTime date)
         {
- 
+            
+            this.xrlblDate.Text = (date.Day + "/" + date.Month + "/" + date.Year).ToString();
         }
     }
 }
