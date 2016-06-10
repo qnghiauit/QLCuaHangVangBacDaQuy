@@ -193,6 +193,17 @@ namespace QuanLiBanVang.Report
             this.Close();
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            List<DTO.SANPHAM> _listProduct = new List<DTO.SANPHAM>();
+            _listProduct = _bulProduct.getAllProduct();
+            List<DTO.LOAISANPHAM> _listProductType = new List<DTO.LOAISANPHAM>();
+            _listProductType = _bulProductType.getAllProductType();
+            this._productTable.Rows.Clear();
+            this.initTableData(_listProduct, _listProductType);
+            this.dgvListProduct.DataSource = this._productTable;
+        }
+
   
     }
 }

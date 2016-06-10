@@ -171,6 +171,18 @@ namespace QuanLiBanVang.Report
             this.dgvListPayment.DataSource = _paymentTable;
             this.dgvPaymentBill.Columns[0].Visible = false;
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            List<DTO.PHIEUCHI> listPaymentBill = _bulPaymentBill.getAllPaymentBill();
+
+            List<DTO.NHANVIEN> listStaff = _bulStaff.getAllStaff();
+            this._paymentTable.Rows.Clear();
+            
+            this.initTableData(listPaymentBill, listStaff);
+            this.dgvListPayment.DataSource = _paymentTable;
+            this.dgvPaymentBill.Columns[0].Visible = false;
+        }
         
 
     }

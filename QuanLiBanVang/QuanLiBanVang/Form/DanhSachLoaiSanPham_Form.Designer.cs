@@ -38,6 +38,7 @@
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListProductType)).BeginInit();
@@ -64,6 +65,7 @@
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.btnRefresh);
             this.groupControl1.Controls.Add(this.dgvListProductType);
             this.groupControl1.Controls.Add(this.btnUpdate);
             this.groupControl1.Controls.Add(this.btnDelete);
@@ -153,6 +155,18 @@
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(456, 312);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(87, 27);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Làm mới";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // DanhSachLoaiSanPham_Form
             // 
             this.Appearance.Options.UseFont = true;
@@ -185,5 +199,6 @@
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnUpdate;
         private DevExpress.XtraEditors.SimpleButton btnExit;
+        private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }

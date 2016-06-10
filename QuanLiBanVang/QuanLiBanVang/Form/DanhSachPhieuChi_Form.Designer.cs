@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPhieuChi_Form));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControlBillList = new DevExpress.XtraEditors.GroupControl();
+            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.dgvListPayment = new DevExpress.XtraGrid.GridControl();
             this.dgvPaymentBill = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
@@ -62,6 +63,7 @@
             this.groupControlBillList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControlBillList.Controls.Add(this.btnRefresh);
             this.groupControlBillList.Controls.Add(this.dgvListPayment);
             this.groupControlBillList.Controls.Add(this.btnUpdate);
             this.groupControlBillList.Controls.Add(this.btnAdd);
@@ -71,6 +73,19 @@
             this.groupControlBillList.Size = new System.Drawing.Size(423, 255);
             this.groupControlBillList.TabIndex = 1;
             this.groupControlBillList.Text = "Thông tin";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Appearance.Options.UseFont = true;
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(329, 223);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(87, 27);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Làm mới";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // dgvListPayment
             // 
@@ -179,5 +194,6 @@
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnUpdate;
         private DevExpress.XtraEditors.SimpleButton btnExit;
+        private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }

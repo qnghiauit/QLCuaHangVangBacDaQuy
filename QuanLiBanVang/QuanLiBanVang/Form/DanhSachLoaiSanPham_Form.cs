@@ -144,5 +144,13 @@ namespace QuanLiBanVang.Report
                 }
             }
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            List<DTO.LOAISANPHAM> _listProductType = _bulProductType.getAllProductType();
+            this._productTypeTable.Rows.Clear();
+            this.initTableData(_listProductType);
+            this.dgvListProductType.DataSource = this._productTypeTable;
+        }
     }
 }

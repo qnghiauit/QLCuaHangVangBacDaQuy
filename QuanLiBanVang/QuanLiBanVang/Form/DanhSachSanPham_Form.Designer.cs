@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachSanPham_Form));
             this.groupControlListProduct = new DevExpress.XtraEditors.GroupControl();
+            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.dgvListProduct = new DevExpress.XtraGrid.GridControl();
             this.dgvProduct = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
@@ -48,6 +49,7 @@
             this.groupControlListProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControlListProduct.Controls.Add(this.btnRefresh);
             this.groupControlListProduct.Controls.Add(this.dgvListProduct);
             this.groupControlListProduct.Controls.Add(this.btnAdd);
             this.groupControlListProduct.Controls.Add(this.btnDelete);
@@ -57,6 +59,17 @@
             this.groupControlListProduct.Size = new System.Drawing.Size(624, 317);
             this.groupControlListProduct.TabIndex = 0;
             this.groupControlListProduct.Text = "Thông tin";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(526, 285);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(87, 27);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Làm mới";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // dgvListProduct
             // 
@@ -172,5 +185,6 @@
         private DevExpress.XtraEditors.SimpleButton btnUpdate;
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }
