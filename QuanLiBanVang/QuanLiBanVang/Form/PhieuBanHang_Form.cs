@@ -164,7 +164,7 @@ namespace QuanLiBanVang
             SANPHAM sanPham = (SANPHAM)selectedItem.Value;
             ContainerItem productTypeItem = (ContainerItem)this.comboBoxEditMaLoaiSp.SelectedItem;
             LOAISANPHAM prodcuctType = (LOAISANPHAM)productTypeItem.Value;
-            this.textEditDonGia.Text = Decimal.Multiply(Convert.ToDecimal(sanPham.GiaMua), Convert.ToDecimal(1 + prodcuctType.PhanTramLoiNhuan)).ToString();
+            this.textEditDonGia.Text = Math.Round(Decimal.Multiply(Convert.ToDecimal(sanPham.GiaMua), Convert.ToDecimal(1 + prodcuctType.PhanTramLoiNhuan))).ToString();
         }
 
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
@@ -227,7 +227,7 @@ namespace QuanLiBanVang
         {
             this.tongTien = this.gridViewDataSource.Sum(x => x.ThanhTien);
             // update text
-            this.textEditTongTien.Text = this.tongTien.ToString();
+            this.textEditTongTien.Text = Math.Round(tongTien).ToString();
         }
 
         private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -344,7 +344,7 @@ namespace QuanLiBanVang
             this.textEditDiaChiKhachHang.ReadOnly = true;
 
 
-            this.textEditTongTien.Text = data.TongTien.ToString();
+            this.textEditTongTien.Text = Math.Round(data.TongTien).ToString();
             this.simpleButtonTimKhachQuen.Enabled = false;
 
             this.checkEditKhachQuen.Enabled = false; // disable checkbox
@@ -516,7 +516,7 @@ namespace QuanLiBanVang
                         GiaBan = decimal.Multiply(Convert.ToDecimal(selectedProduct.GiaMua),
                                                     Convert.ToDecimal(selectedProdcuctType.PhanTramLoiNhuan + 1)),
                     };
-                    newRow.ThanhTien = decimal.Multiply(newRow.GiaBan, newRow.SoLuong);
+                    newRow.ThanhTien = Math.Round(decimal.Multiply(newRow.GiaBan, newRow.SoLuong));
                     // add valid element to two lists
                     this.gridViewDataSource.Add(newRow);
                     this.updateTotal(); // update the total
@@ -561,7 +561,7 @@ namespace QuanLiBanVang
             SANPHAM sanPham = (SANPHAM)selectedItem.Value;
             ContainerItem productTypeItem = (ContainerItem)this.comboBoxEditMaLoaiSp.SelectedItem;
             LOAISANPHAM prodcuctType = (LOAISANPHAM)productTypeItem.Value;
-            this.textEditDonGia.Text = Decimal.Multiply(Convert.ToDecimal(sanPham.GiaMua), Convert.ToDecimal(1 + prodcuctType.PhanTramLoiNhuan)).ToString();
+            this.textEditDonGia.Text = Math.Round(Decimal.Multiply(Convert.ToDecimal(sanPham.GiaMua), Convert.ToDecimal(1 + prodcuctType.PhanTramLoiNhuan))).ToString();
         }
 
         /// <summary>
