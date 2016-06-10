@@ -84,6 +84,7 @@
             this.comboBoxEditKhachHang.Name = "comboBoxEditKhachHang";
             this.comboBoxEditKhachHang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEditKhachHang.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEditKhachHang.Size = new System.Drawing.Size(197, 20);
             this.comboBoxEditKhachHang.TabIndex = 1;
             // 

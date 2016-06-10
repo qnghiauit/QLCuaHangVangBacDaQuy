@@ -183,6 +183,7 @@
             this.Controls.Add(this.labelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SuaSanPham_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chỉnh sửa sản phẩm";
             this.Load += new System.EventHandler(this.SuaSanPham_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();

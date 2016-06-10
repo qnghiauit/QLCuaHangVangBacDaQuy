@@ -287,6 +287,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.Margin = new System.Windows.Forms.Padding(7);
             this.Name = "PhieuThuTienNo_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phiếu nợ";
             this.Load += new System.EventHandler(this.PhieuThuTienNo_Load);
             this.SizeChanged += new System.EventHandler(this.PhieuThuTienNo_Form_SizeChanged);

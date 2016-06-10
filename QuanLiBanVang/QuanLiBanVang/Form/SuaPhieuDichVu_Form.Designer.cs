@@ -466,6 +466,7 @@
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);
             this.Name = "SuaPhieuDichVu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa phiếu dịch vụ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NhapPhieuDichVu_FormClosing);
             this.Load += new System.EventHandler(this.PhieuDichVu_Load);

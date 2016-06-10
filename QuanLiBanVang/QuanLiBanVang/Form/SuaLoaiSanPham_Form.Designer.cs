@@ -145,6 +145,7 @@
             this.Controls.Add(this.groupControlInfo);
             this.Controls.Add(this.labelControl1);
             this.Name = "SuaLoaiSanPham_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa loại sản phẩm";
             this.Load += new System.EventHandler(this.SuaLoaiSanPham_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();

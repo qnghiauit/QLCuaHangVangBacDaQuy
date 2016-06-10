@@ -153,6 +153,7 @@
             this.Controls.Add(this.simpleButtonHuy);
             this.Controls.Add(this.simpleButtonOK);
             this.Name = "SuaTho";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa thợ";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);

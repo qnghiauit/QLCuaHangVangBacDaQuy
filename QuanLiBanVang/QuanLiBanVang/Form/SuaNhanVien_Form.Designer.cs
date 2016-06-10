@@ -329,6 +329,7 @@
             this.Controls.Add(this.groupControlInfo);
             this.Controls.Add(this.labelControl1);
             this.Name = "SuaNhanVien_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa tài khoản";
             this.Load += new System.EventHandler(this.SuaNhanVien_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cboPosition.Properties)).EndInit();

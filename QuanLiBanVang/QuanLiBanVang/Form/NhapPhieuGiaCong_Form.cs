@@ -21,10 +21,10 @@ namespace QuanLiBanVang
         private bool _isResultOk;
         private ComboBoxItemCollection _comboboxItemsTho;
         private double _phanTramTienGcThoNhan;
-        public NhapPhieuGiaCong_Form(int maNv = 4)
+        public NhapPhieuGiaCong_Form()
         {
             InitializeComponent();
-            _maNV = maNv;
+            _maNV = _maNV = ExtendClass.UserAccess.Instance.GetUserId;;
             _isResultOk = false;
             
         }

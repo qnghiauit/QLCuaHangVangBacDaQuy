@@ -134,6 +134,7 @@
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);
             this.Name = "ThayDoiQuyDinh_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thay đổi quy định";
             this.Load += new System.EventHandler(this.ThayDoiQuyDinh_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

@@ -480,6 +480,7 @@
             this.Controls.Add(this.labelControl1);
             this.LookAndFeel.SkinName = "VS2010";
             this.Name = "NhapPhieuDichVu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập phiếu dịch vụ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NhapPhieuDichVu_FormClosing);
             this.Load += new System.EventHandler(this.PhieuDichVu_Load);

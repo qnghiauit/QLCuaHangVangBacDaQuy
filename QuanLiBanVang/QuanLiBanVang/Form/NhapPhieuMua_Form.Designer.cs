@@ -422,6 +422,7 @@
             this.Controls.Add(this.groupControlGeneralInfo);
             this.Controls.Add(this.labelControl1);
             this.Name = "NhapPhieuMua_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập phiếu mua";
             this.Load += new System.EventHandler(this.NhapPhieuMua_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlGeneralInfo)).EndInit();

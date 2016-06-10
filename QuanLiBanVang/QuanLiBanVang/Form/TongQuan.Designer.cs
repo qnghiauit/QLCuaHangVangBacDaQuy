@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TongQuan));
             DevExpress.XtraCharts.SimpleDiagram3D simpleDiagram3D2 = new DevExpress.XtraCharts.SimpleDiagram3D();
             DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
@@ -75,7 +74,7 @@
             this.chartControlProduct = new DevExpress.XtraCharts.ChartControl();
             this.sANPHAMTableAdapter = new QuanLiBanVang.DBQLCuaHangVangBacDaQuyDataSetTableAdapters.SANPHAMTableAdapter();
             this.dBQLCuaHangVangBacDaQuyDataSet = new QuanLiBanVang.DBQLCuaHangVangBacDaQuyDataSet();
-            this.sANPHAMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sANPHAMBindingSource = new System.Windows.Forms.BindingSource();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
             this.labelControlSlKH = new DevExpress.XtraEditors.LabelControl();
@@ -576,6 +575,7 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.simpleButton1);
             this.Name = "TongQuan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tổng quan";
             this.Load += new System.EventHandler(this.TongQuan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

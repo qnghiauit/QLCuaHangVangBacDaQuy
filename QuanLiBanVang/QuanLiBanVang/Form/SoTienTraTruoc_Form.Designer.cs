@@ -72,7 +72,7 @@
             this.simpleButton2.TabIndex = 5;
             this.simpleButton2.Text = "Thoát";
             // 
-            // SoTienTraTruoc
+            // SoTienTraTruoc_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -81,7 +81,8 @@
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.textEditSoTienTraTruoc);
-            this.Name = "SoTienTraTruoc";
+            this.Name = "SoTienTraTruoc_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trả trước";
             this.Load += new System.EventHandler(this.SoTienTraTruoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoTienTraTruoc.Properties)).EndInit();

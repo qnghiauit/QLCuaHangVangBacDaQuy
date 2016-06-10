@@ -19,10 +19,10 @@ namespace QuanLiBanVang
         private MyCache _cache = new MyCache("IDcache");
         private int _maNV;
         private bool _isResultOk;
-        public NhapPhieuDichVu(int maNv = 4)
+        public NhapPhieuDichVu()
         {
             InitializeComponent();
-            _maNV = maNv;
+            _maNV = ExtendClass.UserAccess.Instance.GetUserId;
             _isResultOk = false;      
         }
         private void PhieuDichVu_Load(object sender, EventArgs e)

@@ -151,6 +151,7 @@
             this.Controls.Add(this.groupControlInfo);
             this.Controls.Add(this.labelControl1);
             this.Name = "NhapLoaiSanPham_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập loại sản phẩm";
             this.SizeChanged += new System.EventHandler(this.NhapLoaiSanPham_Form_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();

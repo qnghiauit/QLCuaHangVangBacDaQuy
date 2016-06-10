@@ -316,6 +316,7 @@
             this.Controls.Add(this.groupControlInfo);
             this.Controls.Add(this.labelControl1);
             this.Name = "NhapNhanVien_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tạo tài khoản";
             this.Load += new System.EventHandler(this.NhapNhanVien_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();

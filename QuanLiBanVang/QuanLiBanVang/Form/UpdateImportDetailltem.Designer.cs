@@ -163,6 +163,7 @@
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.groupControl1);
             this.Name = "UpdateImportDetailltem";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cập nhật";
             this.Load += new System.EventHandler(this.UpdateImportDetailltem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

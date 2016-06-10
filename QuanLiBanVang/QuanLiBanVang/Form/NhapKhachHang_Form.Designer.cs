@@ -155,7 +155,7 @@
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);
             this.Name = "NhapKhachHang";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập khách hàng";
             this.SizeChanged += new System.EventHandler(this.NhapKhachHang_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

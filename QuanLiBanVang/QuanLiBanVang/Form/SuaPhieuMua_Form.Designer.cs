@@ -407,6 +407,7 @@
             this.Controls.Add(this.groupControlGeneralInfo);
             this.Controls.Add(this.labelControl1);
             this.Name = "SuaPhieuMua_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa phiếu mua hàng";
             this.Load += new System.EventHandler(this.SuaPhieuMua_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuy)).EndInit();

@@ -499,6 +499,7 @@
             this.Controls.Add(this.simpleButtonLuu);
             this.Controls.Add(this.simpleButtonExit);
             this.Name = "NhapPhieuGiaCong_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lập phiếu gia công";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PhieuGiaCong_FormClosing);
             this.Load += new System.EventHandler(this.PhieuGiaCong_Load);

@@ -179,6 +179,7 @@
             this.Controls.Add(this.groupControlInfo);
             this.Controls.Add(this.labelControl1);
             this.Name = "NhapPhieuChi_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập phiếu chi";
             this.Load += new System.EventHandler(this.NhapPhieuChi_Form_Load);
             this.SizeChanged += new System.EventHandler(this.NhapPhieuChi_Form_SizeChanged);

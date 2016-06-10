@@ -40,6 +40,7 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControlChuThichTienCong = new DevExpress.XtraEditors.LabelControl();
             this.simpleButtonSua = new DevExpress.XtraEditors.SimpleButton();
             this.textEditTienCong = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonXoa = new DevExpress.XtraEditors.SimpleButton();
@@ -68,7 +69,6 @@
             this.gridColumnthanhTien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnTienCong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControlChuThichTienCong = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenNhanVien.Properties)).BeginInit();
@@ -226,6 +226,15 @@
             this.groupControl2.Size = new System.Drawing.Size(1252, 362);
             this.groupControl2.TabIndex = 12;
             this.groupControl2.Text = "Chi tiết phiếu";
+            // 
+            // labelControlChuThichTienCong
+            // 
+            this.labelControlChuThichTienCong.Location = new System.Drawing.Point(1028, 55);
+            this.labelControlChuThichTienCong.Name = "labelControlChuThichTienCong";
+            this.labelControlChuThichTienCong.Size = new System.Drawing.Size(39, 13);
+            this.labelControlChuThichTienCong.TabIndex = 41;
+            this.labelControlChuThichTienCong.Text = "(=70%)";
+            this.labelControlChuThichTienCong.ToolTip = "Phần trăm tiền công nhận được từ giá trị trên phiếu dịch vụ";
             // 
             // simpleButtonSua
             // 
@@ -507,15 +516,6 @@
             this.labelControl10.TabIndex = 18;
             this.labelControl10.Text = "SỬA PHIẾU GIA CÔNG";
             // 
-            // labelControlChuThichTienCong
-            // 
-            this.labelControlChuThichTienCong.Location = new System.Drawing.Point(1028, 55);
-            this.labelControlChuThichTienCong.Name = "labelControlChuThichTienCong";
-            this.labelControlChuThichTienCong.Size = new System.Drawing.Size(39, 13);
-            this.labelControlChuThichTienCong.TabIndex = 41;
-            this.labelControlChuThichTienCong.Text = "(=70%)";
-            this.labelControlChuThichTienCong.ToolTip = "Phần trăm tiền công nhận được từ giá trị trên phiếu dịch vụ";
-            // 
             // SuaPhieuGiaCong_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -528,6 +528,7 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.simpleButtonExit);
             this.Name = "SuaPhieuGiaCong_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa phiếu gia công";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PhieuGiaCong_FormClosing);
             this.Load += new System.EventHandler(this.PhieuGiaCong_Load);
