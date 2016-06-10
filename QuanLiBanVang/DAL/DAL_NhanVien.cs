@@ -68,6 +68,7 @@ namespace DAL
             _context.NHANVIENs.Remove(target);
             _context.SaveChanges();
         }
+
         public DTO.NHANVIEN getStaffByUsername(string username)
         {
             return _context.NHANVIENs.Single(s => s.TenDangNhap == username);
