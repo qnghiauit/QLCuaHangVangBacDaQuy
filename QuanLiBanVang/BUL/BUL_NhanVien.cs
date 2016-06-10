@@ -33,10 +33,21 @@ namespace BUL
         {
             return _dalStaff.getLastStaff();
         }
-        public void deleteStaff(int id)
+        public bool deleteStaff(int id)
         {
-            _dalStaff.deleteStaff(id);
+            try
+            {
+                _dalStaff.deleteStaff(id);
+                return true;
+            }
+            catch (Exception e)
+            {
+                _dalStaff = null;
+                _dalStaff = new DAL.DAL_NhanVien();
+                return false;
+            }
         }
+        
         public List<DTO.NHANVIEN> getAllStaff()
         {
             return _dalStaff.getAllStaff();
