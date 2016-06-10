@@ -27,9 +27,9 @@ namespace DTO
         public decimal TongTien { get; set; }
         public int MaNV { get; set; }
     
-        public virtual NHANVIEN NHANVIEN { get; set; }
-        public virtual THO THO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTPGC> CTPGCs { get; set; }
+        public virtual NHANVIEN NHANVIEN { get; set; }
+        public virtual THO THO { get; set; }
     }
 }

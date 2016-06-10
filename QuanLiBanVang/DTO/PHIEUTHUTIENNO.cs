@@ -23,7 +23,7 @@ namespace DTO
         public decimal SoTienTra { get; set; }
         public decimal SoTienConLai { get; set; }
     
-        public virtual NHANVIEN NHANVIEN { get; set; }
         public virtual PHIEUBANHANG PHIEUBANHANG { get; set; }
+        public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

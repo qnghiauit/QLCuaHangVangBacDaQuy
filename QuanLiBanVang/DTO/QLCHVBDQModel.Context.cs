@@ -37,8 +37,6 @@ namespace DTO
         public virtual DbSet<DICHVU> DICHVUs { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
         public virtual DbSet<LOAISANPHAM> LOAISANPHAMs { get; set; }
-        public virtual DbSet<NHACUNGCAP> NHACUNGCAPs { get; set; }
-        public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<NHOMNGUOIDUNG> NHOMNGUOIDUNGs { get; set; }
         public virtual DbSet<PHIEUBANHANG> PHIEUBANHANGs { get; set; }
         public virtual DbSet<PHIEUDICHVU> PHIEUDICHVUs { get; set; }
@@ -46,13 +44,15 @@ namespace DTO
         public virtual DbSet<PHIEUNHAPHANG> PHIEUNHAPHANGs { get; set; }
         public virtual DbSet<PHIEUTHUTIENNO> PHIEUTHUTIENNOes { get; set; }
         public virtual DbSet<QUYENHAN> QUYENHANs { get; set; }
-        public virtual DbSet<THO> THOes { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
         public virtual DbSet<Baocao> Baocaos { get; set; }
         public virtual DbSet<PHIEUGIACONG> PHIEUGIACONGs { get; set; }
         public virtual DbSet<CTPGC> CTPGCs { get; set; }
         public virtual DbSet<PHIEUCHI> PHIEUCHIs { get; set; }
         public virtual DbSet<BANGTHAMSO> BANGTHAMSOes { get; set; }
+        public virtual DbSet<NHACUNGCAP> NHACUNGCAPs { get; set; }
+        public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
+        public virtual DbSet<THO> THOes { get; set; }
     
         public virtual int DEL_IN_CTPN(Nullable<int> masp, Nullable<int> sophieunhap)
         {

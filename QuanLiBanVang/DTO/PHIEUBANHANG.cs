@@ -31,8 +31,8 @@ namespace DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTPBH> CTPBHs { get; set; }
         public virtual KHACHHANG KHACHHANG { get; set; }
-        public virtual NHANVIEN NHANVIEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUTHUTIENNO> PHIEUTHUTIENNOes { get; set; }
+        public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

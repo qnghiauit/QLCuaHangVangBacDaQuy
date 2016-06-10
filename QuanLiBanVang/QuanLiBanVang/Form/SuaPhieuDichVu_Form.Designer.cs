@@ -352,7 +352,7 @@
             this.textEditSoLuong.Name = "textEditSoLuong";
             this.textEditSoLuong.Properties.Mask.EditMask = "\\d+";
             this.textEditSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textEditSoLuong.Properties.MaxLength = 4;
+            this.textEditSoLuong.Properties.MaxLength = 3;
             this.textEditSoLuong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textEditSoLuong.Size = new System.Drawing.Size(48, 20);
             this.textEditSoLuong.TabIndex = 17;

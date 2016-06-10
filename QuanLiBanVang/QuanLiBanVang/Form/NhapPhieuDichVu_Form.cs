@@ -130,7 +130,8 @@ namespace QuanLiBanVang
             else
             {
                 comboBoxEditTenKhach.Properties.TextEditStyle = TextEditStyles.Standard;
-                ClearAllItemInComboboxKh();           
+                ClearAllItemInComboboxKh();
+                textEditDiaChi.Text = null;
             }
         }
         private void gridViewCT_PDV_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
@@ -260,7 +261,7 @@ namespace QuanLiBanVang
         }
         private void CalculateTongTien()
         {
-            int tongtien = 0;
+            decimal tongtien = 0;
             for (int i = 0; i < _dataTable.Rows.Count;i++ )
             {
                 tongtien += (int)_dataTable.Rows[i][9];
@@ -325,7 +326,7 @@ namespace QuanLiBanVang
             phieudichvu.MaNV = _maNV;
             phieudichvu.NgayDangKy = dateEditNgayDK.DateTime;
             phieudichvu.NgayGiao = dateEditNgayGiao.DateTime;
-            phieudichvu.TongTien = Int32.Parse(textEditTongTien.Text);
+            phieudichvu.TongTien = Convert.ToDecimal(textEditTongTien.Text);
             int sophieudv = bulPhieuDichVu.AddNewPhieuDichVu(phieudichvu);
 
             //Create CTPDV

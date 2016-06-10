@@ -20,8 +20,7 @@ namespace QuanLiBanVang
         private int _maNv;
         private int _soPGC;
         private bool _isResultOk;
-        private ComboBoxItemCollection _comboboxItemsTho;
-        private double _phanTramTienGcThoNhan;
+        private ComboBoxItemCollection _comboboxItemsTho;private double _phanTramTienGcThoNhan;
         public SuaPhieuGiaCong_Form(int soPgc)
         {
             InitializeComponent();
@@ -32,6 +31,8 @@ namespace QuanLiBanVang
         private void PhieuGiaCong_Load(object sender, EventArgs e)
         {
             dateEditNgayNhanHang.DateTime = DateTime.Today;
+            comboBoxEditTenTho.ReadOnly = true;
+            dateEditNgayNhanHang.ReadOnly = true;
             LoadThongTinPgc();
             CreateDataTableCtpdvCanGiaCong();
             LoadCtpdvCanGiaCong();
@@ -302,7 +303,7 @@ namespace QuanLiBanVang
         }
         private void CalculateTongTien()
         {
-            int tongtien = 0;
+            decimal tongtien = 0;
             for (int i = 0; i < _dataTableCtpgcReview.Rows.Count; i++)
             {
                 tongtien += (int)_dataTableCtpgcReview.Rows[i][8];
@@ -371,7 +372,7 @@ namespace QuanLiBanVang
             phieugiacong.NgayNhanHang = dateEditNgayNhanHang.DateTime;
             phieugiacong.NgayThanhToan = dateEditNgayThanhToan.DateTime;
             phieugiacong.MaTho = ((THO) ((ContainerItem) comboBoxEditTenTho.SelectedItem).Value).MaTho;
-            phieugiacong.TongTien = Int32.Parse(textEditTongTien.Text);
+            phieugiacong.TongTien = Convert.ToDecimal(textEditTongTien.Text);
             phieugiacong.MaNV = _maNv;
             bulPhieuGiaCong.UpdatePhieuGiaCong(phieugiacong);
             //Neu ok het
@@ -413,7 +414,7 @@ namespace QuanLiBanVang
             ctpgc.TrongLuong = 0.1;
             ctpgc.SoLuong = Convert.ToInt32(soluong);
             ctpgc.TienCong = Convert.ToInt32(textEditTienCong.Text);
-            ctpgc.ThanhTien = Convert.ToInt32(textEditTongTien.Text);
+            ctpgc.ThanhTien = Convert.ToDecimal(textEditTongTien.Text);
             bulCtpgc.UpdateCTPGC(ctpgc);
             MessageBox.Show(Resources.SuaPhieuGiaCong_SuaCTPGCThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadCtpgc_review();

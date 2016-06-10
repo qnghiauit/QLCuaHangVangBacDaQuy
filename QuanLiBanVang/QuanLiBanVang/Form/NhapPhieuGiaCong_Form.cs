@@ -190,7 +190,7 @@ namespace QuanLiBanVang
             string tiencong = textEditTienCong.Text;
             if(soluong.Equals("") || tiencong.Equals(""))
                 return;
-            textEditThanhTien.Text = (Int32.Parse(soluong)*Int32.Parse(tiencong)).ToString();
+            textEditThanhTien.Text = (Convert.ToDecimal(soluong)*Convert.ToDecimal(tiencong)).ToString();
         }
 
         private void simpleButtonThem_Click(object sender, EventArgs e)
@@ -228,7 +228,7 @@ namespace QuanLiBanVang
             {
                 drReview["SoLuong"] = Int32.Parse(drReview["SoLuong"].ToString()) + Int32.Parse(soLuong);
                 drReview["TienCong"] = tienCong;
-                drReview["ThanhTien"] = ((int) drReview["SoLuong"])*Int32.Parse(tienCong);
+                drReview["ThanhTien"] = ((decimal) drReview["SoLuong"])*Convert.ToDecimal(tienCong);
             }
             else
             {
@@ -241,8 +241,8 @@ namespace QuanLiBanVang
                     /*TenLoaiSP*/currentRow["TenLoaiSP"],
                     /*HTGC*/currentRow["HTGC"],
                     /*Soluong*/Int32.Parse(soLuong),
-                    /*TienCong*/Int32.Parse(tienCong),
-                    /*ThanhTien*/Int32.Parse(thanhTien)
+                    /*TienCong*/Convert.ToDecimal(tienCong),
+                    /*ThanhTien*/Convert.ToDecimal(thanhTien)
                 });
             }gridControlCTPGC_review.DataSource = _dataTableCtpgcReview;
             gridViewCTPGC_review.Columns["SoPhieuDV"].GroupIndex = 0;
@@ -255,7 +255,7 @@ namespace QuanLiBanVang
         }
         private void CalculateTongTien()
         {
-            int tongtien = 0;
+            decimal tongtien = 0;
             for (int i = 0; i < _dataTableCtpgcReview.Rows.Count; i++)
             {
                 tongtien += (int)_dataTableCtpgcReview.Rows[i][8];
@@ -320,7 +320,7 @@ namespace QuanLiBanVang
             phieugiacong.NgayNhanHang = dateEditNgayNhanHang.DateTime;
             phieugiacong.NgayThanhToan = dateEditNgayThanhToan.DateTime;
             phieugiacong.MaTho = ((THO) ((ContainerItem) comboBoxEditTenTho.SelectedItem).Value).MaTho;
-            phieugiacong.TongTien = Int32.Parse(textEditTongTien.Text);
+            phieugiacong.TongTien = Convert.ToDecimal(textEditTongTien.Text);
             phieugiacong.MaNV = _maNV;
             int sophieuGc = bulPhieuGiaCong.AddNewPhieuGiaCong(phieugiacong);
 
@@ -332,8 +332,8 @@ namespace QuanLiBanVang
                 ctpgc.SoPhieuGC = sophieuGc;
                 ctpgc.Id = Convert.ToInt32(dtRow["Id"]);
                 ctpgc.SoLuong = Convert.ToInt32(dtRow["SoLuong"]);
-                ctpgc.TienCong = Convert.ToInt32(dtRow["TienCong"]);
-                ctpgc.ThanhTien = Convert.ToInt32(dtRow["ThanhTien"]);
+                ctpgc.TienCong = Convert.ToDecimal(dtRow["TienCong"]);
+                ctpgc.ThanhTien = Convert.ToDecimal(dtRow["ThanhTien"]);
                 ctpgc.TrongLuong = 0.1;
                 bulCtpgc.AddNewCTPGC(ctpgc);
             }

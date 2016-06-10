@@ -213,6 +213,7 @@
             // 
             // labelControlChuThichTienCong
             // 
+            this.labelControlChuThichTienCong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControlChuThichTienCong.Location = new System.Drawing.Point(1021, 57);
             this.labelControlChuThichTienCong.Name = "labelControlChuThichTienCong";
             this.labelControlChuThichTienCong.Size = new System.Drawing.Size(39, 13);
@@ -299,7 +300,7 @@
             this.textEditSoLuong.Name = "textEditSoLuong";
             this.textEditSoLuong.Properties.Mask.EditMask = "\\d+";
             this.textEditSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textEditSoLuong.Properties.MaxLength = 4;
+            this.textEditSoLuong.Properties.MaxLength = 3;
             this.textEditSoLuong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textEditSoLuong.Size = new System.Drawing.Size(42, 20);
             this.textEditSoLuong.TabIndex = 31;

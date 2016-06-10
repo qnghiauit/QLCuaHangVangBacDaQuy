@@ -264,8 +264,8 @@ namespace QuanLiBanVang
         }
         private void CalculateThanhTien()
         {
-            int tiencong = Int32.Parse(textEditTienCong.Text == "" ? "0" : textEditTienCong.Text);
-            int soluong = Int32.Parse(textEditSoLuong.Text == "" ? "0" : textEditSoLuong.Text);
+            decimal tiencong = Int32.Parse(textEditTienCong.Text == "" ? "0" : textEditTienCong.Text);
+            decimal soluong = Int32.Parse(textEditSoLuong.Text == "" ? "0" : textEditSoLuong.Text);
             textEditThanhTien.Text = (tiencong * soluong).ToString();
         }
         private bool CheckLogicError()
@@ -353,7 +353,7 @@ namespace QuanLiBanVang
         }
         private void CalculateTongTien()
         {
-            int tongtien = 0;
+            decimal tongtien = 0;
             for (int i = 0; i < _dataTable.Rows.Count;i++ )
             {
                 tongtien += (int)_dataTable.Rows[i][9];
@@ -390,7 +390,7 @@ namespace QuanLiBanVang
 
             //Update PDV
             _pdv.NgayGiao = dateEditNgayGiao.DateTime;
-            _pdv.TongTien = Convert.ToInt32(textEditTongTien.Text);
+            _pdv.TongTien = Convert.ToDecimal(textEditTongTien.Text);
             _bulPhieuDichVu.UpdatePhieuDichVu(_pdv);//Neu ok het
             MessageBox.Show(Resources.SuaPhieuDichVu_SuaPDVThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK, MessageBoxIcon.Information);
             _isResultOk = true;

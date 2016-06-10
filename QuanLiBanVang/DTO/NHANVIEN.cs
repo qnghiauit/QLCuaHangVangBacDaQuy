@@ -19,11 +19,11 @@ namespace DTO
         {
             this.PHIEUBANHANGs = new HashSet<PHIEUBANHANG>();
             this.PHIEUDICHVUs = new HashSet<PHIEUDICHVU>();
+            this.PHIEUGIACONGs = new HashSet<PHIEUGIACONG>();
+            this.PHIEUCHIs = new HashSet<PHIEUCHI>();
             this.PHIEUMUAHANGs = new HashSet<PHIEUMUAHANG>();
             this.PHIEUNHAPHANGs = new HashSet<PHIEUNHAPHANG>();
             this.PHIEUTHUTIENNOes = new HashSet<PHIEUTHUTIENNO>();
-            this.PHIEUGIACONGs = new HashSet<PHIEUGIACONG>();
-            this.PHIEUCHIs = new HashSet<PHIEUCHI>();
         }
     
         public int MaNV { get; set; }
@@ -44,14 +44,14 @@ namespace DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUDICHVU> PHIEUDICHVUs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHIEUGIACONG> PHIEUGIACONGs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHIEUCHI> PHIEUCHIs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUMUAHANG> PHIEUMUAHANGs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUNHAPHANG> PHIEUNHAPHANGs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUTHUTIENNO> PHIEUTHUTIENNOes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHIEUGIACONG> PHIEUGIACONGs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHIEUCHI> PHIEUCHIs { get; set; }
     }
 }

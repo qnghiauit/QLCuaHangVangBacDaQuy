@@ -40,7 +40,7 @@ namespace QuanLiBanVang
             _dataTable.Columns.Add("TenNV", typeof(string));
             _dataTable.Columns.Add("NgayDangKy", typeof(DateTime));
             _dataTable.Columns.Add("NgayGiao", typeof(DateTime));
-            _dataTable.Columns.Add("TongTien", typeof(int));
+            _dataTable.Columns.Add("TongTien", typeof(decimal));
             gridControlDSPDV.DataSource = _dataTable;
             gridViewDSPDV.Columns[0].Visible = 
             gridViewDSPDV.Columns[1].Visible = false;
@@ -82,7 +82,7 @@ namespace QuanLiBanVang
                     GetTenNv(t.MaNV),
                     t.NgayDangKy,
                     t.NgayGiao,
-                    t.TongTien});
+                    Math.Round(t.TongTien)});
             }
             gridControlDSPDV.DataSource = _dataTable;
         }
