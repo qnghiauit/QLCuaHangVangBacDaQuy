@@ -43,7 +43,10 @@ namespace QuanLiBanVang.Report
                 _bulProductType.addNewProductType(_newProductType);
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 MessageBox.Show("Thêm loại sản phẩm thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Clear();
+                if (!this.IsMdiChild)
+                    this.Close();
+                else
+                    this.Clear();
             }
             else
             {

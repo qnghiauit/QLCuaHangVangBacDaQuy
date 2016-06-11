@@ -208,6 +208,16 @@ namespace QuanLiBanVang.Report
             this.Close();
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            List<DTO.NHANVIEN> listStaff = _bulStaff.getAllStaff();
+            List<DTO.CHUCVU> listPosition = _bulPosition.getAllPosition();
+            List<DTO.NHOMNGUOIDUNG> listGroupUser = _bulGroupUser.getAllGroupUser();
+            this._staffTable.Rows.Clear();
+            this.initTableData(listStaff, listPosition, listGroupUser);
+            this.dgvListStaff.DataSource = _staffTable;
+        }
+
 
     }
 }

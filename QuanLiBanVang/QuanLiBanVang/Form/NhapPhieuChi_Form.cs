@@ -74,7 +74,10 @@ namespace QuanLiBanVang.Report
             this._bulPaymentBill.addNewPaymentBill(newBill);
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             MessageBox.Show("Nhập phiếu chi thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Clear();
+            if (!this.IsMdiChild)
+                this.Close();
+            else
+                this.Clear();
         }
 
         private void NhapPhieuChi_Form_SizeChanged(object sender, EventArgs e)
