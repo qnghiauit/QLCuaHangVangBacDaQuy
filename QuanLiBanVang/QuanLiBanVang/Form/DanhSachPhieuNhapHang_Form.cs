@@ -52,6 +52,8 @@ namespace QuanLiBanVang.Form
         private void button2_Click(object sender, EventArgs e)
         {
             PhieuNhapHang_Form newImportReceipt = new PhieuNhapHang_Form(ActionType.ACTION_CREATE_NEW, null);
+            newImportReceipt.IsFormParentForm = true; // indicate that newImportReceipt is created from parent form
+            newImportReceipt.refreshDelegateCallback = new PhieuNhapHang_Form.RefreshDelegate(this.refresh);
             newImportReceipt.ShowDialog();
         }
 
@@ -62,10 +64,32 @@ namespace QuanLiBanVang.Form
         /// <param name="e"></param>
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.refresh();
+        }
+
+        private void simpleButtonChiTiet_Click(object sender, EventArgs e)
+        {
+            // check the gridview is valid 
+            if (this.gridViewDanhSachPhieuNhapHang.SelectedRowsCount < 0 || this.gridViewDanhSachPhieuNhapHang.SelectedRowsCount > 1 || this.gridViewDanhSachPhieuNhapHang.DataRowCount == 0) { return; }
+            PHIEUNHAPHANG selectedImportReceipt = (PHIEUNHAPHANG)this.gridViewDanhSachPhieuNhapHang.GetRow(this.gridViewDanhSachPhieuNhapHang.FocusedRowHandle);
+            // start the form
+            PhieuNhapHang_Form viewImportDetailForm = new PhieuNhapHang_Form(ActionType.ACTION_VIEW, selectedImportReceipt);
+            // show form 
+            viewImportDetailForm.ShowDialog();
+        }
+
+        private void simpleButtonRefresh_Click(object sender, EventArgs e)
+        {
+            this.refresh();
+        }
+
+
+        // refresh grid control datasource
+        private void refresh()
+        {
             this.bulImportReceipt = new BUL_PhieuNhapHang();
             this.gridControlDanhSachPhieuNhap.DataSource = this.bulImportReceipt.getAll();
         }
-
 
     }
 }

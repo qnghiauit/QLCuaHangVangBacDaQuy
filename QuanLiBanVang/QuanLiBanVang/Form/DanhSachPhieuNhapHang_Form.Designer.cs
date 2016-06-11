@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPhieuNhapHang_Form));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButtonRefresh = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonChiTiet = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlDanhSachPhieuNhap = new DevExpress.XtraGrid.GridControl();
             this.gridviewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.chiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridViewDanhSachPhieuNhapHang = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -53,6 +53,8 @@
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.simpleButtonRefresh);
+            this.groupControl1.Controls.Add(this.simpleButtonChiTiet);
             this.groupControl1.Controls.Add(this.gridControlDanhSachPhieuNhap);
             this.groupControl1.Controls.Add(this.simpleButton1);
             this.groupControl1.Location = new System.Drawing.Point(12, 42);
@@ -60,6 +62,28 @@
             this.groupControl1.Size = new System.Drawing.Size(600, 346);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thông tin";
+            // 
+            // simpleButtonRefresh
+            // 
+            this.simpleButtonRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonRefresh.Image")));
+            this.simpleButtonRefresh.Location = new System.Drawing.Point(506, 89);
+            this.simpleButtonRefresh.Name = "simpleButtonRefresh";
+            this.simpleButtonRefresh.Size = new System.Drawing.Size(87, 27);
+            this.simpleButtonRefresh.TabIndex = 5;
+            this.simpleButtonRefresh.Text = "Refresh";
+            this.simpleButtonRefresh.Click += new System.EventHandler(this.simpleButtonRefresh_Click);
+            // 
+            // simpleButtonChiTiet
+            // 
+            this.simpleButtonChiTiet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonChiTiet.Image")));
+            this.simpleButtonChiTiet.Location = new System.Drawing.Point(506, 56);
+            this.simpleButtonChiTiet.Name = "simpleButtonChiTiet";
+            this.simpleButtonChiTiet.Size = new System.Drawing.Size(87, 27);
+            this.simpleButtonChiTiet.TabIndex = 4;
+            this.simpleButtonChiTiet.Text = "Chi tiết";
+            this.simpleButtonChiTiet.Click += new System.EventHandler(this.simpleButtonChiTiet_Click);
             // 
             // gridControlDanhSachPhieuNhap
             // 
@@ -79,11 +103,9 @@
             // 
             this.gridviewContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chiTiếtToolStripMenuItem,
-            this.xóaToolStripMenuItem,
-            this.sửaToolStripMenuItem,
             this.refreshToolStripMenuItem});
             this.gridviewContextMenuStrip.Name = "gridviewContextMenuStrip";
-            this.gridviewContextMenuStrip.Size = new System.Drawing.Size(114, 92);
+            this.gridviewContextMenuStrip.Size = new System.Drawing.Size(114, 48);
             // 
             // chiTiếtToolStripMenuItem
             // 
@@ -91,18 +113,6 @@
             this.chiTiếtToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.chiTiếtToolStripMenuItem.Text = "Chi tiết";
             this.chiTiếtToolStripMenuItem.Click += new System.EventHandler(this.chiTiếtToolStripMenuItem_Click);
-            // 
-            // xóaToolStripMenuItem
-            // 
-            this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.xóaToolStripMenuItem.Text = "Xóa";
-            // 
-            // sửaToolStripMenuItem
-            // 
-            this.sửaToolStripMenuItem.Name = "sửaToolStripMenuItem";
-            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.sửaToolStripMenuItem.Text = "Sửa";
             // 
             // refreshToolStripMenuItem
             // 
@@ -183,10 +193,10 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewDanhSachPhieuNhapHang;
         private System.Windows.Forms.ContextMenuStrip gridviewContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem chiTiếtToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sửaToolStripMenuItem;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonRefresh;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonChiTiet;
     }
 }

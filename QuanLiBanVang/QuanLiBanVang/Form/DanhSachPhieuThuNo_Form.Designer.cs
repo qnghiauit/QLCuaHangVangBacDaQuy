@@ -31,10 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPhieuThuNo_Form));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.dateEditLocTheoNgayTra = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButtonXemTheoNgay = new DevExpress.XtraEditors.SimpleButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.comboBoxEditKhachHang = new DevExpress.XtraEditors.ComboBoxEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButtonLapPhieuNo = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonXemPhieuNo = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.gridControlDanhSachPhieuNo = new DevExpress.XtraGrid.GridControl();
@@ -48,6 +54,8 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditLocTheoNgayTra.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditLocTheoNgayTra.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditKhachHang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
@@ -62,14 +70,59 @@
             // 
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.dateEditLocTheoNgayTra);
+            this.groupControl1.Controls.Add(this.labelControl5);
+            this.groupControl1.Controls.Add(this.simpleButtonXemTheoNgay);
+            this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.comboBoxEditKhachHang);
             this.groupControl1.Controls.Add(this.simpleButton1);
             this.groupControl1.Location = new System.Drawing.Point(12, 42);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(566, 73);
+            this.groupControl1.Size = new System.Drawing.Size(727, 73);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Điều kiện lọc";
+            // 
+            // dateEditLocTheoNgayTra
+            // 
+            this.dateEditLocTheoNgayTra.EditValue = null;
+            this.dateEditLocTheoNgayTra.Location = new System.Drawing.Point(437, 37);
+            this.dateEditLocTheoNgayTra.Name = "dateEditLocTheoNgayTra";
+            this.dateEditLocTheoNgayTra.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditLocTheoNgayTra.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditLocTheoNgayTra.Size = new System.Drawing.Size(199, 20);
+            this.dateEditLocTheoNgayTra.TabIndex = 6;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(353, 40);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(78, 13);
+            this.labelControl5.TabIndex = 5;
+            this.labelControl5.Text = "Theo ngày trả : ";
+            // 
+            // simpleButtonXemTheoNgay
+            // 
+            this.simpleButtonXemTheoNgay.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonXemTheoNgay.Image")));
+            this.simpleButtonXemTheoNgay.Location = new System.Drawing.Point(643, 33);
+            this.simpleButtonXemTheoNgay.Name = "simpleButtonXemTheoNgay";
+            this.simpleButtonXemTheoNgay.Size = new System.Drawing.Size(73, 27);
+            this.simpleButtonXemTheoNgay.TabIndex = 4;
+            this.simpleButtonXemTheoNgay.Text = "Lọc";
+            this.simpleButtonXemTheoNgay.ToolTip = "Lọc phiếu nợ theo ngày trả";
+            this.simpleButtonXemTheoNgay.Click += new System.EventHandler(this.simpleButtonXemTheoNgay_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label1.Location = new System.Drawing.Point(334, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "|";
             // 
             // labelControl1
             // 
@@ -86,17 +139,18 @@
             this.comboBoxEditKhachHang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEditKhachHang.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEditKhachHang.Size = new System.Drawing.Size(197, 20);
+            this.comboBoxEditKhachHang.Size = new System.Drawing.Size(171, 20);
             this.comboBoxEditKhachHang.TabIndex = 1;
             // 
             // simpleButton1
             // 
             this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(281, 33);
+            this.simpleButton1.Location = new System.Drawing.Point(255, 33);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(73, 27);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "Xem";
+            this.simpleButton1.ToolTip = "Xem danh sách phiếu bán hàng theo khách hàng quen";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // groupControl2
@@ -104,15 +158,41 @@
             this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl2.Controls.Add(this.simpleButtonLapPhieuNo);
+            this.groupControl2.Controls.Add(this.simpleButtonXemPhieuNo);
             this.groupControl2.Controls.Add(this.labelControl4);
             this.groupControl2.Controls.Add(this.labelControl3);
             this.groupControl2.Controls.Add(this.gridControlDanhSachPhieuNo);
             this.groupControl2.Controls.Add(this.gridControlPhieuBanHang);
             this.groupControl2.Location = new System.Drawing.Point(12, 121);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(566, 446);
+            this.groupControl2.Size = new System.Drawing.Size(727, 446);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "Chi tiết";
+            // 
+            // simpleButtonLapPhieuNo
+            // 
+            this.simpleButtonLapPhieuNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonLapPhieuNo.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonLapPhieuNo.Image")));
+            this.simpleButtonLapPhieuNo.Location = new System.Drawing.Point(625, 85);
+            this.simpleButtonLapPhieuNo.Name = "simpleButtonLapPhieuNo";
+            this.simpleButtonLapPhieuNo.Size = new System.Drawing.Size(97, 27);
+            this.simpleButtonLapPhieuNo.TabIndex = 4;
+            this.simpleButtonLapPhieuNo.Text = "Lập phiếu nợ";
+            this.simpleButtonLapPhieuNo.Click += new System.EventHandler(this.simpleButtonLapPhieuNo_Click);
+            // 
+            // simpleButtonXemPhieuNo
+            // 
+            this.simpleButtonXemPhieuNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonXemPhieuNo.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonXemPhieuNo.Image")));
+            this.simpleButtonXemPhieuNo.Location = new System.Drawing.Point(625, 52);
+            this.simpleButtonXemPhieuNo.Name = "simpleButtonXemPhieuNo";
+            this.simpleButtonXemPhieuNo.Size = new System.Drawing.Size(97, 27);
+            this.simpleButtonXemPhieuNo.TabIndex = 3;
+            this.simpleButtonXemPhieuNo.Text = "Xem phiếu nợ";
+            this.simpleButtonXemPhieuNo.Click += new System.EventHandler(this.simpleButtonXemPhieuNo_Click);
             // 
             // labelControl4
             // 
@@ -140,7 +220,7 @@
             this.gridControlDanhSachPhieuNo.Location = new System.Drawing.Point(9, 256);
             this.gridControlDanhSachPhieuNo.MainView = this.gridViewDanhSachPhieuNo;
             this.gridControlDanhSachPhieuNo.Name = "gridControlDanhSachPhieuNo";
-            this.gridControlDanhSachPhieuNo.Size = new System.Drawing.Size(552, 179);
+            this.gridControlDanhSachPhieuNo.Size = new System.Drawing.Size(713, 179);
             this.gridControlDanhSachPhieuNo.TabIndex = 0;
             this.gridControlDanhSachPhieuNo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewDanhSachPhieuNo});
@@ -149,6 +229,8 @@
             // 
             this.gridViewDanhSachPhieuNo.GridControl = this.gridControlDanhSachPhieuNo;
             this.gridViewDanhSachPhieuNo.Name = "gridViewDanhSachPhieuNo";
+            this.gridViewDanhSachPhieuNo.OptionsBehavior.Editable = false;
+            this.gridViewDanhSachPhieuNo.OptionsBehavior.ReadOnly = true;
             this.gridViewDanhSachPhieuNo.OptionsView.ShowGroupPanel = false;
             // 
             // gridControlPhieuBanHang
@@ -160,7 +242,7 @@
             this.gridControlPhieuBanHang.Location = new System.Drawing.Point(9, 52);
             this.gridControlPhieuBanHang.MainView = this.gridViewDanhSachPhieuBanHang;
             this.gridControlPhieuBanHang.Name = "gridControlPhieuBanHang";
-            this.gridControlPhieuBanHang.Size = new System.Drawing.Size(552, 179);
+            this.gridControlPhieuBanHang.Size = new System.Drawing.Size(610, 179);
             this.gridControlPhieuBanHang.TabIndex = 0;
             this.gridControlPhieuBanHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewDanhSachPhieuBanHang});
@@ -191,13 +273,23 @@
             // 
             this.gridViewDanhSachPhieuBanHang.GridControl = this.gridControlPhieuBanHang;
             this.gridViewDanhSachPhieuBanHang.Name = "gridViewDanhSachPhieuBanHang";
+            this.gridViewDanhSachPhieuBanHang.OptionsBehavior.Editable = false;
+            this.gridViewDanhSachPhieuBanHang.OptionsBehavior.ReadOnly = true;
             this.gridViewDanhSachPhieuBanHang.OptionsView.ShowGroupPanel = false;
+            this.gridViewDanhSachPhieuBanHang.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewDanhSachPhieuBanHang_RowClick);
             // 
             // simpleButtonThoat
             // 
             this.simpleButtonThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+<<<<<<< .mine
+            this.simpleButtonThoat.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonThoat.Image")));
+            this.simpleButtonThoat.Location = new System.Drawing.Point(655, 573);
+||||||| .r154
+            this.simpleButtonThoat.Location = new System.Drawing.Point(494, 573);
+=======
             this.simpleButtonThoat.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonThoat.Image")));
             this.simpleButtonThoat.Location = new System.Drawing.Point(494, 573);
+>>>>>>> .r161
             this.simpleButtonThoat.Name = "simpleButtonThoat";
             this.simpleButtonThoat.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonThoat.TabIndex = 1;
@@ -214,7 +306,7 @@
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl2.Location = new System.Drawing.Point(12, 12);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(569, 24);
+            this.labelControl2.Size = new System.Drawing.Size(730, 24);
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "Danh sách phiếu nợ";
             // 
@@ -222,7 +314,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 608);
+            this.ClientSize = new System.Drawing.Size(754, 608);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.simpleButtonThoat);
             this.Controls.Add(this.groupControl2);
@@ -233,6 +325,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditLocTheoNgayTra.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditLocTheoNgayTra.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditKhachHang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
@@ -264,5 +358,11 @@
         private DevExpress.XtraGrid.GridControl gridControlPhieuBanHang;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewDanhSachPhieuBanHang;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonLapPhieuNo;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonXemPhieuNo;
+        private DevExpress.XtraEditors.DateEdit dateEditLocTheoNgayTra;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonXemTheoNgay;
+        private System.Windows.Forms.Label label1;
     }
 }
