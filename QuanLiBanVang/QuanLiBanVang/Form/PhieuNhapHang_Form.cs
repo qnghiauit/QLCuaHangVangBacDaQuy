@@ -16,7 +16,7 @@ using System.Collections.ObjectModel;
 
 namespace QuanLiBanVang.Form
 {
-    // da load duoc danh sach san pham len combobox r nhe.
+
     public partial class PhieuNhapHang_Form : DevExpress.XtraEditors.XtraForm
     {
         public static readonly int LIMIT_NUMBER_OF_IMPORT_PROFUCTS = 500;
@@ -26,6 +26,11 @@ namespace QuanLiBanVang.Form
         List<CTPNH> savingList = new List<CTPNH>(); // list to be saved into database
         private decimal total = decimal.Zero;
         BUL_PhieuNhapHang bulImportDetail = new BUL_PhieuNhapHang();
+        public bool IsFormParentForm { get; set; }
+
+        public delegate void RefreshDelegate();
+        public RefreshDelegate refreshDelegateCallback;
+
         public PhieuNhapHang_Form()
         {
             InitializeComponent();
@@ -47,7 +52,13 @@ namespace QuanLiBanVang.Form
                     break;
                 // create new PHIEUNHAPHANG
                 case ActionType.ACTION_CREATE_NEW:
-                    this.gridControl1.DataSource = this.bindingListDataSource; // binding datasource for gridview
+                    this.gridControlDanhSachSanPham.DataSource = this.bindingListDataSource; // binding datasource for gridview
+                    // load staff information    
+                    this.textEditNhanVien.Text = UserAccess.Instance.GetStaffName;
+
+                    // today only
+                    this.dateTimePickerNgayNhap.DateTime = DateTime.Now.Date;
+
                     ContainerItem item; // temporary value holder
                     /* [START- set up content for combobox] */
                     foreach (NHACUNGCAP provider in new BUL_NhaCungCap().getAll())
@@ -148,6 +159,10 @@ namespace QuanLiBanVang.Form
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (dialogResult == System.Windows.Forms.DialogResult.OK)
                 {
+                    if (this.IsFormParentForm)
+                    {
+                        this.refreshDelegateCallback();
+                    }
                     this.Close();
                 }
             }
@@ -243,9 +258,9 @@ namespace QuanLiBanVang.Form
             // general information
             //this.textEditSoPhieuNhap.Text = data.SoPhieuNhap.ToString();
             // this.textEditSoPhieuNhap.Enabled = false;
-            this.textEditMaNhanVien.Text = data.MaNV.ToString();
-            this.textEditMaNhanVien.Enabled = true;
-            this.textEditMaNhanVien.ReadOnly = true;
+            this.textEditNhanVien.Text = data.MaNV.ToString();
+            this.textEditNhanVien.Enabled = true;
+            this.textEditNhanVien.ReadOnly = true;
 
             this.textEditTongTien.Text = data.TongTien.ToString();
             this.textEditTongTien.Enabled = true;
@@ -256,21 +271,30 @@ namespace QuanLiBanVang.Form
             this.dateTimePickerNgayNhap.ReadOnly = true;
             // provider
             this.comboBoxEditNhaCungCap.Text = data.NHACUNGCAP.TenNCC;
-            this.comboBoxEditNhaCungCap.Enabled = false;
+            this.comboBoxEditNhaCungCap.ReadOnly = true;
 
             // disable conext strip menu to prevent user from modifying data
             this.gridViewContextMenuStrip.Enabled = false;
             // binding data 
-            this.gridControl1.DataSource = new BUL_CTPNH().get(data);
+            this.gridControlDanhSachSanPham.DataSource = new BUL_CTPNH().get(data);
             // all unimformative columns will be invisible
             this.gridViewDanhSachSanPham.Columns[5].Visible = false;
             this.gridViewDanhSachSanPham.Columns[6].Visible = false;
 
             this.simpleButtonThem.Enabled = false;
 
-            // disable save button
+            // disable save , update , delete buttons
             this.simpleButtonSave.Enabled = false;
             this.simpleButtonSave.Visible = false;
+            this.simpleButtonSua.Enabled = false;
+            this.simpleButtonXoa.Enabled = false;
+
+
+            // disable combobox
+            this.comboBoxEditLoaiSp.Enabled = false;
+            this.comboBoxEditSP.Enabled = false;
+            this.textEditSoLuong.Enabled = false;
+            this.textEditGiaMua.Enabled = false;
 
         }
         #endregion
@@ -341,6 +365,31 @@ namespace QuanLiBanVang.Form
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.dateTimePickerNgayNhap.DateTime = DateTime.Now;
             }
+        }
+
+        private void simpleButtonSua_Click(object sender, EventArgs e)
+        {
+            if (this.bindingListDataSource.Count == 0) { return; }// exit if the binding datasource list is empty
+            ImportItemGridViewDataSource focusedItem = (ImportItemGridViewDataSource)this.gridViewDanhSachSanPham.GetRow(this.gridViewDanhSachSanPham.FocusedRowHandle);
+
+            UpdateImportDetailltem updateImportDetailItemForm = new UpdateImportDetailltem(focusedItem, this.gridViewDanhSachSanPham.FocusedRowHandle);
+            updateImportDetailItemForm.sendBack = new UpdateImportDetailltem.SendBackDataDelegate(this.updateItemFromDelegate);
+            updateImportDetailItemForm.ShowDialog();
+        }
+
+        private void simpleButtonXoa_Click(object sender, EventArgs e)
+        {
+            if (this.bindingListDataSource.Count == 0) { return; }// exit method if the binding datasource list is empty
+            // delete the focused row of gridview
+            this.bindingListDataSource.RemoveAt(this.gridViewDanhSachSanPham.FocusedRowHandle);
+            // update stt
+            for (int i = 0; i < this.bindingListDataSource.Count; ++i)
+            {
+                this.bindingListDataSource[i].STT = i;
+            }
+            this.gridViewDanhSachSanPham.RefreshData();
+            // update total
+            this.updateTotal();
         }
 
 

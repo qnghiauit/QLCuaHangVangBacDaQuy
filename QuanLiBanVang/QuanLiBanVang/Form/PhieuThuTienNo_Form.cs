@@ -17,17 +17,20 @@ namespace QuanLiBanVang.Form
 {
     public partial class PhieuThuTienNo_Form : DevExpress.XtraEditors.XtraForm
     {
-        private static readonly decimal ACCEPTABLE_FIRST_PREPAID_PERCENTAGE = 0.6M;
+        // private static readonly decimal ACCEPTABLE_FIRST_PREPAID_PERCENTAGE = 0.6M;
         private static readonly string NOT_ACCEPTABLE_PREPAY_VALUE_MESSAGE = "Số tiền trả trước không được nhỏ hơn 60% tổng tiền phiếu bán.";
         private static readonly string PAYMENT_DATE_NOT_VALID_MESSAGE = "Ngày trả không được sớm hơn ngày lập phiếu nợ";
+
         BUL_PhieuThuTienNo bulDeptReceipt; // to handle the operation with database
         BUL_KhachHang bulKhachHang;
+        BUL_BangThamSo bulBangThamSo;
         PHIEUBANHANG receipt; // save the receipt if this is the first dept receipt
         PHIEUTHUTIENNO previousDeptRecepit; // if this is NOT the first dept receipt
         bool isTheFirstDept;
         public PhieuThuTienNo_Form()
         {
             InitializeComponent();
+            
         }
 
         /// <summary>
@@ -39,7 +42,13 @@ namespace QuanLiBanVang.Form
             InitializeComponent();
             this.bulKhachHang = new BUL_KhachHang();
             this.bulDeptReceipt = new BUL_PhieuThuTienNo();
+            this.bulBangThamSo = new BUL_BangThamSo();
             this.receipt = receipt;
+
+            // set defaul value for date time picker : system current date
+            this.dateTimePickerNgayLap.DateTime = DateTime.Now.Date;
+            this.dateTimePickerNgayLap.ReadOnly = true;
+            this.dateTimePickerNgayTra.DateTime = DateTime.Now.Date;
             this.previousDeptRecepit = null;
             // indicate that, this is the first dept
             this.isTheFirstDept = true;
@@ -85,7 +94,10 @@ namespace QuanLiBanVang.Form
         private void simpleButtonLuu_Click(object sender, EventArgs e)
         {
             // make sure that all input is valid
-            if (string.IsNullOrEmpty(this.textEditSoTienTra.Text) || string.IsNullOrEmpty(this.textEditConLai.Text))
+            if (string.IsNullOrEmpty(this.textEditSoTienTra.Text)
+                || string.IsNullOrEmpty(this.textEditConLai.Text) ||
+                this.dateTimePickerNgayLap.DateTime == null
+                || this.dateTimePickerNgayTra.DateTime == null)
             {
                 MessageBox.Show(ErrorMessage.CLIENT_INVALID_INPUT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK
                     , MessageBoxIcon.Error);
@@ -99,6 +111,8 @@ namespace QuanLiBanVang.Form
             decimal deptAmount = decimal.Parse(this.textEditSoTienNo.Text.Trim());
             if (this.isTheFirstDept) // is the first dept recepit
             {
+                // get minimun percentage for the first repayment
+                decimal ACCEPTABLE_FIRST_PREPAID_PERCENTAGE = Convert.ToDecimal(this.bulBangThamSo.getValueByArgument("TienTraToiThieu"));
                 if (decimal.Compare(frequenterPrepay, decimal.Multiply(deptAmount, ACCEPTABLE_FIRST_PREPAID_PERCENTAGE)) < 0)
                 {
                     MessageBox.Show(NOT_ACCEPTABLE_PREPAY_VALUE_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -182,6 +196,17 @@ namespace QuanLiBanVang.Form
             groupControl1.Left = (ClientSize.Width - groupControl1.Width) / 2;
             simpleButtonThoat.Left = groupControl1.Right - simpleButtonLuu.Width;
             simpleButtonLuu.Left = simpleButtonThoat.Left - simpleButtonLuu.Width - 10;
+        }
+
+        private void dateTimePickerNgayTra_EditValueChanged(object sender, EventArgs e)
+        {
+            if (DateTime.Compare(this.dateTimePickerNgayTra.DateTime.Date, this.dateTimePickerNgayLap.DateTime.Date) < 0)
+            {
+                MessageBox.Show("Ngày trả nợ phải lớn hơn hoặc bằng ngày lập phiếu nơ", "Lỗi", MessageBoxButtons.OK
+                     , MessageBoxIcon.Error);
+                this.dateTimePickerNgayLap.DateTime = DateTime.Now.Date;
+                this.dateTimePickerNgayTra.DateTime = DateTime.Now.Date;
+            }
         }
     }
 }

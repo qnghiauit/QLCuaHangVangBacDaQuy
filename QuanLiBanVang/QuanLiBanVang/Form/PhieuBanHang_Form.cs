@@ -30,6 +30,11 @@ namespace QuanLiBanVang
         private ObservableCollection<DetailGridViewDataSource> gridViewDataSource = new ObservableCollection<DetailGridViewDataSource>(); // bind data to data gridview
         ActionType actionType; // identify what is form's action
         private KHACHHANG frequenter;
+        BUL_PhieuBanHang bulPhieuBanHang = new BUL_PhieuBanHang();
+        public delegate void RefreshDelegate();
+        public RefreshDelegate refreshDelegateCallback;
+
+        public bool IsFromParentForm { get; set; }
 
         public PhieuBanHang()
         {
@@ -47,12 +52,17 @@ namespace QuanLiBanVang
             this.actionType = actionType;
             if (this.actionType == ActionType.ACTION_CREATE_NEW) // incase user want to create new receipt 
             {
+                // load current staff information
+                this.textEditNhanVienLapPhieu.Text = UserAccess.Instance.GetStaffName;
+                this.textEditNhanVienLapPhieu.Visible = true;
+                this.textEditNhanVienLapPhieu.ReadOnly = true;
+
+                // today only 
+                this.dateTimePickerNgayBan.DateTime = DateTime.Now.Date;
+                this.dateTimePickerNgayThanhToan.DateTime = DateTime.Now.Date;
+
                 this.checkEditKhachQuen.Checked = false;
-                //   this.simpleButtonUpdate.Enabled = false;
-                //  this.simpleButtonUpdate.Visible = false;
-                this.dateTimePickerNgayBan.DateTime = DateTime.Today;
-                this.textEditMaKhachHang.Visible = false;
-                this.textEditSoPhieuBH.Visible = false;
+                
                 this.simpleButtonTimKhachQuen.Visible = false;
                 this.comboBoxEditMaLoaiSp.Properties.Items.Clear();
                 this.comboBoxEditMaSp.Properties.Items.Clear();
@@ -66,9 +76,6 @@ namespace QuanLiBanVang
                         Value = item
                     });
                 }
-                //this.soPhieu = new BUL_PhieuBanHang().numberOfLastRecept() + 1;
-                // auto index SoPhieuBanHang
-                //this.textEditSoPhieuBH.Text = this.soPhieu.ToString();
                 // datasource will reference to ObservableCollection : gridViewDataSource
                 this.gridControlDanhSachSanPham.DataSource = this.gridViewDataSource;
             }
@@ -77,11 +84,7 @@ namespace QuanLiBanVang
                 // start to load data
                 this.viewExistedDetail(data);
             }
-            //else if (this.actionType == ActionType.ACTION_UPDATE) // incase user only want to show existed receipt from database
-            //{
-            //    // start to load data
-            //    this.viewAndUpdateExistedDetail(data);
-            //}
+
 
 
         }
@@ -95,7 +98,6 @@ namespace QuanLiBanVang
         {
             this.frequenter = frequenter;
             // set value for view
-            this.textEditMaKhachHang.Text = this.frequenter.MaKH.ToString();
             this.textEditTenKhachHang.Text = this.frequenter.TenKH;
             this.textEditDiaChiKhachHang.Text = this.frequenter.DiaChi;
         }
@@ -137,8 +139,8 @@ namespace QuanLiBanVang
             && !string.IsNullOrEmpty(this.textEditTenKhachHang.Text))
             {
                 // check valid date
-                DateTime receiptDate = this.dateTimePickerNgayBan.DateTime;
-                DateTime paymentDate = this.dateTimePickerNgayBan.DateTime;
+                DateTime receiptDate = this.dateTimePickerNgayBan.DateTime.Date;
+                DateTime paymentDate = this.dateTimePickerNgayBan.DateTime.Date;
 
                 if (paymentDate.CompareTo(receiptDate) < 0)
                 {
@@ -191,17 +193,15 @@ namespace QuanLiBanVang
                 NgayBan = this.dateTimePickerNgayBan.DateTime.Date,
                 NgayTra = this.dateTimePickerNgayThanhToan.DateTime.Date,
                 MaNV = UserAccess.Instance.GetUserId, // to be update code
-                // MaKH = 1, // to be update code
                 TongTien = this.tongTien
             };
             // if the buyer is frequenter
             if (this.frequenter != null)
             {
                 newReceipt.MaKH = this.frequenter.MaKH;
-                // newReceipt.KHACHHANG = this.frequenter;
             }
+
             // save general information of receipt first
-            BUL_PhieuBanHang bulPhieuBanHang = new BUL_PhieuBanHang();
             newReceipt = bulPhieuBanHang.add(newReceipt);
             // add elements into list
             foreach (DetailGridViewDataSource item in this.gridViewDataSource)
@@ -308,6 +308,10 @@ namespace QuanLiBanVang
             // notify user when the job was done
             MessageBox.Show(NotificationMessage.MESSAGE_SAVING_JOB_DONE, NotificationMessage.MESSAGE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
             // close the form
+            if (this.IsFromParentForm)
+            {
+                this.refreshDelegateCallback(); // refresh in main form
+            }
             this.Close();
         }
 
@@ -320,11 +324,10 @@ namespace QuanLiBanVang
         {
 
             // general information
-            this.textEditSoPhieuBH.Text = data.SoPhieuBH.ToString();
-            this.textEditSoPhieuBH.Enabled = true;
+            this.textEditNhanVienLapPhieu.Text = data.SoPhieuBH.ToString();
+            this.textEditNhanVienLapPhieu.Enabled = true;
 
-            // this.textEditNhanVien.Text = data.NHANVIEN.HoTen;
-            // this.textEditNhanVien.Enabled = false;
+
             this.dateTimePickerNgayBan.DateTime = data.NgayBan;
             this.dateTimePickerNgayBan.Enabled = true;
             this.dateTimePickerNgayBan.ReadOnly = true;
@@ -333,11 +336,7 @@ namespace QuanLiBanVang
             this.dateTimePickerNgayThanhToan.Enabled = true;
             this.dateTimePickerNgayThanhToan.ReadOnly = true;
 
-            this.textEditMaKhachHang.Visible = true;
-            this.textEditMaKhachHang.Enabled = true;
-            this.textEditMaKhachHang.ReadOnly = true;
 
-            this.textEditMaKhachHang.Text = data.MaKH.ToString();
             this.textEditTenKhachHang.Enabled = true;
             this.textEditTenKhachHang.ReadOnly = true;
 
@@ -354,13 +353,20 @@ namespace QuanLiBanVang
             if (data.MaKH != null)
             {
 
-                this.textEditTenKhachHang.Text = data.KHACHHANG.TenKH;
+                this.textEditTenKhachHang.Text = data.KHACHHANG.TenKH + " (Khách quen)";
                 this.textEditDiaChiKhachHang.Text = data.KHACHHANG.DiaChi;
+                this.checkEditKhachQuen.Checked = true;
+            }
+            else // not frequenter
+            {
+                this.textEditTenKhachHang.Text = "Khách vãng lai";
+                this.checkEditKhachQuen.Checked = false;
             }
             //
             // disable and visiable some view components
             this.simpleButtonThem.Enabled = false;
-            this.simpleButtonThem.Visible = false;
+
+            this.simpleButtonTimKhachQuen.Visible = false;
 
             this.simpleButton_Luu.Enabled = false;
 
@@ -368,10 +374,10 @@ namespace QuanLiBanVang
             // this.simpleButtonUpdate.Visible = false;
 
             this.simpleButton_Luu.Visible = false;
-            this.comboBoxEditMaLoaiSp.Visible = false;
-            this.comboBoxEditMaSp.Visible = false;
-            this.textEditSoLuong.Visible = false;
-            this.textEditDonGia.Visible = false;
+            this.comboBoxEditMaLoaiSp.Enabled = false;
+            this.comboBoxEditMaSp.Enabled = false;
+            this.textEditSoLuong.Enabled = false;
+            this.textEditDonGia.Enabled = false;
             // disable context menustrip
             this.contextMenuStripUpdateGridData.Enabled = false;
             // get bindinglist
@@ -383,6 +389,10 @@ namespace QuanLiBanVang
             // hide some columns
             this.gridView1.Columns[5].Visible = false;
             this.gridView1.Columns[6].Visible = false;
+
+            // disable 2 update and delete buttons
+            this.simpleButtonSua.Enabled = false;
+            this.simpleButtonXoa.Enabled = false;
         }
 
 
@@ -471,7 +481,7 @@ namespace QuanLiBanVang
             {
                 this.simpleButtonTimKhachQuen.Enabled = false;
                 this.simpleButtonTimKhachQuen.Visible = false;
-                this.frequenter = null;
+                this.frequenter = null; // mark that this is not frequenter
             }
         }
 
@@ -589,8 +599,46 @@ namespace QuanLiBanVang
             if (DateTime.Compare(this.dateTimePickerNgayThanhToan.DateTime.Date, this.dateTimePickerNgayBan.DateTime.Date) < 0)
             {
                 MessageBox.Show(ErrorMessage.INVALID_PAYMENT_DATE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.dateTimePickerNgayBan.DateTime = DateTime.Now;
+                this.dateTimePickerNgayThanhToan.DateTime = DateTime.Now.Date;
             }
+        }
+
+        private void simpleButtonSua_Click(object sender, EventArgs e)
+        {
+            // get value from selected row
+            DetailGridViewDataSource item = (DetailGridViewDataSource)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
+
+            // start to show the update form
+            UpdateDetaiItem updateDetailItemForm = new UpdateDetaiItem(item);
+            updateDetailItemForm.sendBackDelegate = new UpdateDetaiItem.onDataSendBack(this.updateDetailItemDelegate); // instance a delegate for form
+            updateDetailItemForm.ShowDialog();
+        }
+
+        private void simpleButtonXoa_Click(object sender, EventArgs e)
+        {
+            // get focus rown data of gridview
+            // make sure that focus rows greater than 0
+            if (this.gridView1.GetSelectedRows().Count() == 0)
+            {
+                return;
+            }
+
+            for (int i = 0; i < this.gridView1.GetSelectedRows().Count(); ++i)
+            {
+                // cast to GridViewDataSource at row[i]
+                DetailGridViewDataSource item = (DetailGridViewDataSource)this.gridView1.GetRow(i);
+                // start to delete this row
+                this.gridViewDataSource.RemoveAt(item.Stt); // Stt corresponds to index of element to be deleted
+            }
+            for (int i = 0; i < this.gridViewDataSource.Count; ++i)
+            {
+                // cast to GridViewDataSource at row[i]
+                // start to delete this row
+                this.gridViewDataSource[i].Stt = i; // Stt corresponds to index of element to be deleted
+            }
+
+            // update total
+            this.updateTotal();
         }
 
     }

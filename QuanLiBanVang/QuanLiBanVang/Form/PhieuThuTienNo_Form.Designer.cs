@@ -104,6 +104,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateTimePickerNgayTra.Size = new System.Drawing.Size(304, 20);
             this.dateTimePickerNgayTra.TabIndex = 9;
+            this.dateTimePickerNgayTra.EditValueChanged += new System.EventHandler(this.dateTimePickerNgayTra_EditValueChanged);
             // 
             // dateTimePickerNgayLap
             // 
@@ -121,6 +122,7 @@
             // 
             this.textEditConLai.Location = new System.Drawing.Point(135, 195);
             this.textEditConLai.Name = "textEditConLai";
+            this.textEditConLai.Properties.ReadOnly = true;
             this.textEditConLai.Size = new System.Drawing.Size(304, 20);
             this.textEditConLai.TabIndex = 7;
             // 
@@ -137,6 +139,7 @@
             this.textEditSoTienNo.Enabled = false;
             this.textEditSoTienNo.Location = new System.Drawing.Point(135, 143);
             this.textEditSoTienNo.Name = "textEditSoTienNo";
+            this.textEditSoTienNo.Properties.ReadOnly = true;
             this.textEditSoTienNo.Size = new System.Drawing.Size(304, 20);
             this.textEditSoTienNo.TabIndex = 7;
             // 
@@ -144,6 +147,7 @@
             // 
             this.textEditMaPhieuBanHang.Location = new System.Drawing.Point(355, 27);
             this.textEditMaPhieuBanHang.Name = "textEditMaPhieuBanHang";
+            this.textEditMaPhieuBanHang.Properties.ReadOnly = true;
             this.textEditMaPhieuBanHang.Size = new System.Drawing.Size(84, 20);
             this.textEditMaPhieuBanHang.TabIndex = 5;
             // 
@@ -159,6 +163,7 @@
             // 
             this.textEditMaKhachHang.Location = new System.Drawing.Point(104, 53);
             this.textEditMaKhachHang.Name = "textEditMaKhachHang";
+            this.textEditMaKhachHang.Properties.ReadOnly = true;
             this.textEditMaKhachHang.Size = new System.Drawing.Size(100, 20);
             this.textEditMaKhachHang.TabIndex = 3;
             // 
@@ -166,6 +171,7 @@
             // 
             this.textEditMaPhieuNo.Location = new System.Drawing.Point(104, 27);
             this.textEditMaPhieuNo.Name = "textEditMaPhieuNo";
+            this.textEditMaPhieuNo.Properties.ReadOnly = true;
             this.textEditMaPhieuNo.Size = new System.Drawing.Size(100, 20);
             this.textEditMaPhieuNo.TabIndex = 3;
             // 
@@ -229,6 +235,7 @@
             // 
             this.textEditTenKhachHang.Location = new System.Drawing.Point(355, 53);
             this.textEditTenKhachHang.Name = "textEditTenKhachHang";
+            this.textEditTenKhachHang.Properties.ReadOnly = true;
             this.textEditTenKhachHang.Size = new System.Drawing.Size(188, 20);
             this.textEditTenKhachHang.TabIndex = 1;
             // 
