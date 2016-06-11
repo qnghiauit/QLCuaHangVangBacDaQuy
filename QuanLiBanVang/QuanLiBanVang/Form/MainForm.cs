@@ -268,6 +268,7 @@ namespace QuanLiBanVang
         private void barButtonItemLapPBH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             PhieuBanHang phieuBanHang = new PhieuBanHang(ActionType.ACTION_CREATE_NEW, null);
+            phieuBanHang.IsFromParentForm = false;
             OpenChildForm(phieuBanHang);
         }
 
@@ -292,6 +293,7 @@ namespace QuanLiBanVang
         private void barButtonItemThemPhieuNhapHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             PhieuNhapHang_Form phieuNhapHang = new PhieuNhapHang_Form(ActionType.ACTION_CREATE_NEW, null);
+            phieuNhapHang.IsFormParentForm = false; // indicate that phieuNhapHang from is not created from parent form
             OpenChildForm(phieuNhapHang);
         }
 
