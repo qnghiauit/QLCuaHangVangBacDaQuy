@@ -53,11 +53,38 @@ namespace QuanLiBanVang.Form
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             PhieuBanHang newReceipt = new PhieuBanHang(ActionType.ACTION_CREATE_NEW, null);
+            newReceipt.IsFromParentForm = true;
+            newReceipt.refreshDelegateCallback = new PhieuBanHang.RefreshDelegate(this.refresh); // refresh list when close child form
             newReceipt.ShowDialog();
         }
 
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.refresh();
+        }
+
+        private void simpleButtonChiTiet_Click(object sender, EventArgs e)
+        {
+            // update new data state
+            // this.bulPhieuBanHang = new BUL_PhieuBanHang();
+            // this.gridControlListReceipts.DataSource = this.bulPhieuBanHang.toBindingList();
+
+            if (this.gridView1.SelectedRowsCount < 0 || this.gridView1.SelectedRowsCount > 1 || this.gridView1.DataRowCount == 0) return;
+            // get item from focused row of gridview
+            PHIEUBANHANG focusedRow = (PHIEUBANHANG)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
+            // open new form
+            PhieuBanHang detailForm = new PhieuBanHang(ActionType.ACTION_VIEW, focusedRow);
+            detailForm.ShowDialog();
+        }
+
+        private void simpleButtonRefresh_Click(object sender, EventArgs e)
+        {
+            this.refresh();
+        }
+
+
+        private void refresh()
         {
             // update new data state
             this.bulPhieuBanHang = new BUL_PhieuBanHang();

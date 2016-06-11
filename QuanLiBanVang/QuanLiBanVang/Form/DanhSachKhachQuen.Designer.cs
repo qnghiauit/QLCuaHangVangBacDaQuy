@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachKhachQuen));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.contextMenuStripGridControl = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStripGridControl = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.chọnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
@@ -84,6 +85,7 @@
             this.simpleButtonThoat.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonThoat.TabIndex = 1;
             this.simpleButtonThoat.Text = "Thoát";
+            this.simpleButtonThoat.Click += new System.EventHandler(this.simpleButtonThoat_Click);
             // 
             // labelControl1
             // 
