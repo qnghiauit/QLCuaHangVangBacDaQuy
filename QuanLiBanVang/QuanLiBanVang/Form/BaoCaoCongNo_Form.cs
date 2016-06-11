@@ -26,7 +26,7 @@ namespace QuanLiBanVang.Form
             _templateReport = null;
             if (rdoGroupSelection.SelectedIndex == 0)
             {
-                _templateReport = new Report.BaoCaoCongNo();
+                _templateReport = new Report.BaoCaoCongNo(0);
             }
             else if (rdoGroupSelection.SelectedIndex == 1)
             {
