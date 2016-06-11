@@ -42,6 +42,8 @@ namespace QuanLiBanVang
             _tho.SDT = textEditSDT.Text;
             _bulTho.UpdateWorker(_tho);
             DialogResult = DialogResult.OK;
+            MessageBox.Show(Resources.UpdateSuccess, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
             Close();
         }
 

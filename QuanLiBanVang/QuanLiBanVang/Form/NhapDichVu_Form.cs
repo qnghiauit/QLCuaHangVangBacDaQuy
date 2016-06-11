@@ -16,24 +16,28 @@ namespace QuanLiBanVang
         }
 
         private void simpleButtonOK_Click(object sender, EventArgs e)
-        {           
+        {
             if (string.IsNullOrEmpty(textEditTenDV.Text))
             {
-                MessageBox.Show(Resources.NhapDichVu_TenDVEmpty,Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.NhapDichVu_TenDVEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
                 return;
             }
             if (string.IsNullOrEmpty(textEditTienCong.Text))
             {
-                MessageBox.Show(Resources.NhapDichVu_TienCongEmpty, Resources.TitleMessageBox_Error, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.NhapDichVu_TienCongEmpty, Resources.TitleMessageBox_Error,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             DICHVU newDichvu = new DICHVU();
             newDichvu.TenDV = textEditTenDV.Text;
             newDichvu.TienCong = Int32.Parse(textEditTienCong.Text);
             _bulDichVu.AddNewDichVu(newDichvu);
-            MessageBox.Show(Resources.ThemThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(Resources.ThemThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
-            Close();
+            if (!IsMdiChild)
+                Close();
         }
 
         private void simpleButtonHuy_Click(object sender, EventArgs e)

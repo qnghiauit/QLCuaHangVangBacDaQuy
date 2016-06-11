@@ -64,6 +64,14 @@ namespace QuanLiBanVang
 
         private void simpleButtonEdit_Click(object sender, EventArgs e)
         {
+            DataRow currentRow = gridViewDSDV.GetDataRow(gridViewDSDV.FocusedRowHandle);
+            int id = Int32.Parse(currentRow[1].ToString());
+            if (id == 2)
+            {
+                MessageBox.Show(Resources.Cant_edit_DVGC, Resources.TitleMessageBox_Error, MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
             OpenEditDialog();
         }
 

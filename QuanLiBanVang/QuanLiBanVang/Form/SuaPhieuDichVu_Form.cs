@@ -310,7 +310,7 @@ namespace QuanLiBanVang
             if (dv != null) ctpdv.MaDV = dv.MaDV;
             ctpdv.SoLuong = Int32.Parse(textEditSoLuong.Text);
             ctpdv.TienCong = Int32.Parse(textEditTienCong.Text);
-            ctpdv.ThanhTien = Int32.Parse(textEditThanhTien.Text);
+            ctpdv.ThanhTien = Convert.ToDecimal(textEditThanhTien.Text);
             ctpdv.GhiChu = textEditHTGC.Text;
             _bulCtpdv.AddNewCTPDV(ctpdv);
             //Neu ok het

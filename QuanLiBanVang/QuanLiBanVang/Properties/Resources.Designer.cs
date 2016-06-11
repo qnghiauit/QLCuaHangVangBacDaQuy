@@ -61,6 +61,15 @@ namespace QuanLiBanVang.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Không thể sửa dịch vụ gia công.
+        /// </summary>
+        internal static string Cant_edit_DVGC {
+            get {
+                return ResourceManager.GetString("Cant_edit_DVGC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Đây là dịch vụ mặc định, không xoá được!.
         /// </summary>
         internal static string DanhSachDichVu_DelError {
@@ -645,6 +654,15 @@ namespace QuanLiBanVang.Properties {
         internal static string TongTien {
             get {
                 return ResourceManager.GetString("TongTien", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cập nhật thành công!.
+        /// </summary>
+        internal static string UpdateSuccess {
+            get {
+                return ResourceManager.GetString("UpdateSuccess", resourceCulture);
             }
         }
     }

@@ -548,6 +548,7 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItemDSLoaiDV);
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItemThemLoaiDV);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Quản lí loại dịch vụ";
             // 
             // ribbonPage2
@@ -572,7 +573,6 @@
             // 
             this.ribbonPageGroup11.AllowTextClipping = false;
             this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItemDSPhieuNo);
-            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItemNhapPhieuNo);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             this.ribbonPageGroup11.ShowCaptionButton = false;
             this.ribbonPageGroup11.Text = "Hoạt động thu nợ";

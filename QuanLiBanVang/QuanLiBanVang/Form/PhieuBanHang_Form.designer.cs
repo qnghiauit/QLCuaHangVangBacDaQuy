@@ -208,9 +208,9 @@
             this.textEditTongTien.Enabled = false;
             this.textEditTongTien.Location = new System.Drawing.Point(620, 328);
             this.textEditTongTien.Name = "textEditTongTien";
-            this.textEditTongTien.ReadOnly = true;
             this.textEditTongTien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.textEditTongTien.Properties.Appearance.Options.UseFont = true;
+            this.textEditTongTien.Properties.ReadOnly = true;
             this.textEditTongTien.Size = new System.Drawing.Size(186, 20);
             this.textEditTongTien.TabIndex = 11;
             // 
@@ -359,6 +359,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateTimePickerNgayBan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerNgayBan.Properties.ReadOnly = true;
             this.dateTimePickerNgayBan.Size = new System.Drawing.Size(175, 20);
             this.dateTimePickerNgayBan.TabIndex = 17;
             this.dateTimePickerNgayBan.EditValueChanged += new System.EventHandler(this.dateTimePickerNgayBan_EditValueChanged);

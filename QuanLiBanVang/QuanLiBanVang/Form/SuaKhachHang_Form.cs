@@ -42,6 +42,8 @@ namespace QuanLiBanVang
             khachhang.SDT = textEditSDT.Text;
             _bulKhachHang.UpdateKhachHang(khachhang);
             DialogResult = DialogResult.OK;
+            MessageBox.Show(Resources.UpdateSuccess, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
             Close();
         }
 

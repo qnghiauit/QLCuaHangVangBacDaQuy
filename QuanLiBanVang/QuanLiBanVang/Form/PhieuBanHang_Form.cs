@@ -50,6 +50,7 @@ namespace QuanLiBanVang
                 this.checkEditKhachQuen.Checked = false;
                 //   this.simpleButtonUpdate.Enabled = false;
                 //  this.simpleButtonUpdate.Visible = false;
+                this.dateTimePickerNgayBan.DateTime = DateTime.Today;
                 this.textEditMaKhachHang.Visible = false;
                 this.textEditSoPhieuBH.Visible = false;
                 this.simpleButtonTimKhachQuen.Visible = false;

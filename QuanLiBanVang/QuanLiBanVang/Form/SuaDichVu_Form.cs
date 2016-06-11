@@ -35,6 +35,8 @@ namespace QuanLiBanVang
             _dichvu.TienCong = Int32.Parse(textEditTienCong.Text);
             _bulDichVu.UpdateDichVu(_dichvu);
             DialogResult = DialogResult.OK;
+            MessageBox.Show(Resources.UpdateSuccess, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
             Close();
         }
 
