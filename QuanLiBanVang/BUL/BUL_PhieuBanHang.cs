@@ -99,5 +99,15 @@ namespace BUL
         {
             return this.dalPhieuBanHang.findReceiptById(id);
         }
+
+        /// <summary>
+        /// Find all receipt of frequenter with payment date
+        /// </summary>
+        /// <param name="criteriaDate"> criteria date to filter</param>
+        /// <returns> List of satisfied results in BindingList</returns>
+        public BindingList<PHIEUBANHANG> findReceiptByPaymentDate(DateTime criteriaDate)
+        {
+            return this.dalPhieuBanHang.findReceiptByPaymentDate(criteriaDate);
+        }
     }
 }
