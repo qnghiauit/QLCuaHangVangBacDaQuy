@@ -23,6 +23,7 @@ namespace QuanLiBanVang.Report
         public BaoCaoCongNo(int selection)
         {
             InitializeComponent();
+            this.xrLabelDate.Text = (DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year).ToString();
             _selection = selection;
             if(_selection == 1)
             {
