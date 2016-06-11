@@ -172,8 +172,7 @@
             // 
             // simpleButtonLapPhieuNo
             // 
-            this.simpleButtonLapPhieuNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonLapPhieuNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButtonLapPhieuNo.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonLapPhieuNo.Image")));
             this.simpleButtonLapPhieuNo.Location = new System.Drawing.Point(625, 85);
             this.simpleButtonLapPhieuNo.Name = "simpleButtonLapPhieuNo";
@@ -184,8 +183,7 @@
             // 
             // simpleButtonXemPhieuNo
             // 
-            this.simpleButtonXemPhieuNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonXemPhieuNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButtonXemPhieuNo.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonXemPhieuNo.Image")));
             this.simpleButtonXemPhieuNo.Location = new System.Drawing.Point(625, 52);
             this.simpleButtonXemPhieuNo.Name = "simpleButtonXemPhieuNo";
@@ -196,6 +194,7 @@
             // 
             // labelControl4
             // 
+            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Underline);
             this.labelControl4.Location = new System.Drawing.Point(9, 237);
             this.labelControl4.Name = "labelControl4";
@@ -214,8 +213,7 @@
             // 
             // gridControlDanhSachPhieuNo
             // 
-            this.gridControlDanhSachPhieuNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gridControlDanhSachPhieuNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlDanhSachPhieuNo.Location = new System.Drawing.Point(9, 256);
             this.gridControlDanhSachPhieuNo.MainView = this.gridViewDanhSachPhieuNo;
@@ -281,15 +279,8 @@
             // simpleButtonThoat
             // 
             this.simpleButtonThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-<<<<<<< .mine
             this.simpleButtonThoat.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonThoat.Image")));
             this.simpleButtonThoat.Location = new System.Drawing.Point(655, 573);
-||||||| .r154
-            this.simpleButtonThoat.Location = new System.Drawing.Point(494, 573);
-=======
-            this.simpleButtonThoat.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonThoat.Image")));
-            this.simpleButtonThoat.Location = new System.Drawing.Point(494, 573);
->>>>>>> .r161
             this.simpleButtonThoat.Name = "simpleButtonThoat";
             this.simpleButtonThoat.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonThoat.TabIndex = 1;
