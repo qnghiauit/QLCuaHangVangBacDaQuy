@@ -235,6 +235,7 @@
             this.cboProduct.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboProduct.Size = new System.Drawing.Size(116, 20);
             this.cboProduct.TabIndex = 4;
+            this.cboProduct.SelectedIndexChanged += new System.EventHandler(this.cboProduct_SelectedIndexChanged);
             // 
             // txtQuantity
             // 

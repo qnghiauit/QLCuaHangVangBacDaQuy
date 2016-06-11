@@ -363,5 +363,19 @@ namespace QuanLiBanVang.Report
                 this.cboProduct.Enabled = true;
             }
         }
+
+        private void cboProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cboProduct.SelectedIndex == 0)
+            {
+                this.txtWeight.Enabled = true;
+                this.txtWeight.Text = "";
+            }
+            else
+            {
+                this.txtWeight.Text = ((this.cboProduct.SelectedItem as ExtendClass.ContainerItem).Value as DTO.SANPHAM).TrongLuong.ToString();
+                this.txtWeight.Enabled = false;
+            }
+        }
     }
 }
