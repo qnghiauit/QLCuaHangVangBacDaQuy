@@ -40,7 +40,7 @@
             this.gridViewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonSave = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -170,16 +170,16 @@
             this.sửaToolStripMenuItem.Text = "Sửa";
             this.sửaToolStripMenuItem.Click += new System.EventHandler(this.sửaToolStripMenuItem_Click);
             // 
-            // simpleButton1
+            // simpleButtonThoat
             // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(835, 639);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(87, 27);
-            this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "Thoát";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.simpleButtonThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonThoat.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonThoat.Image")));
+            this.simpleButtonThoat.Location = new System.Drawing.Point(835, 639);
+            this.simpleButtonThoat.Name = "simpleButtonThoat";
+            this.simpleButtonThoat.Size = new System.Drawing.Size(87, 27);
+            this.simpleButtonThoat.TabIndex = 1;
+            this.simpleButtonThoat.Text = "Thoát";
+            this.simpleButtonThoat.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButtonSave
             // 
@@ -391,7 +391,7 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.simpleButtonSave);
-            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.simpleButtonThoat);
             this.Controls.Add(this.groupControl1);
             this.Name = "PhieuNhapHang_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -425,7 +425,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonThoat;
         private DevExpress.XtraEditors.SimpleButton simpleButtonSave;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditNhaCungCap;

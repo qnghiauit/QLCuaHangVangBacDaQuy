@@ -20,7 +20,9 @@ namespace QuanLiBanVang.Form
         // datbase context
         private BUL_NhaCungCap bulProvider = new BUL_NhaCungCap();
         private ActionType formActionType; // mark user's intention when opening the form
-
+        public delegate void RefreshDelegate();
+        public RefreshDelegate refreshDelegateCallback;
+        public bool IsFromParentForm { get; set; }
         public NhaCungCap_Form()
         {
             InitializeComponent();
@@ -110,6 +112,10 @@ namespace QuanLiBanVang.Form
                         NotificationMessage.MESSAGE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (notification == DialogResult.OK)
                     {
+                        if (this.IsFromParentForm)
+                        {
+                            this.refreshDelegateCallback();
+                        }
                         this.Close();
                     }
                 }
@@ -126,6 +132,15 @@ namespace QuanLiBanVang.Form
                 // show notification to user
                 DialogResult notification = MessageBox.Show(NotificationMessage.MESSAGE_UPDATE_JOB_DONE,
                     NotificationMessage.MESSAGE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (notification == System.Windows.Forms.DialogResult.OK)
+                {
+                    if (this.IsFromParentForm)
+                    {
+                        this.refreshDelegateCallback();
+                    }
+                    this.Close();
+                }
+
             }
         }
         /// <summary>
@@ -136,13 +151,13 @@ namespace QuanLiBanVang.Form
         private void viewActionType(NHACUNGCAP data)
         {
             this.textEditMaNCC.Text = data.MaNCC.ToString();
-            this.textEditMaNCC.Enabled = false;
+            this.textEditMaNCC.ReadOnly = true;
             this.textEditTenNhaCungCap.Text = data.TenNCC;
-            this.textEditTenNhaCungCap.Enabled = false;
+            this.textEditTenNhaCungCap.ReadOnly = true;
             this.textEditSoDienThoai.Text = data.SDT;
-            this.textEditSoDienThoai.Enabled = false;
+            this.textEditSoDienThoai.ReadOnly = true;
             this.richTextBoxDiaChi.Text = data.DiaChi;
-            this.richTextBoxDiaChi.Enabled = false;
+            this.richTextBoxDiaChi.ReadOnly = true;
 
             // invisible button
             this.simpleButtonLuu.Enabled = false;
@@ -174,7 +189,7 @@ namespace QuanLiBanVang.Form
         {
             groupControl1.Left = (ClientSize.Width - groupControl1.Width) / 2;
             simpleButtonThoat.Left = groupControl1.Right - simpleButtonLuu.Width;
-            simpleButtonLuu.Left = simpleButtonThoat.Left - simpleButtonLuu.Width - 10; 
+            simpleButtonLuu.Left = simpleButtonThoat.Left - simpleButtonLuu.Width - 10;
         }
     }
 }

@@ -33,11 +33,11 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.dateEditLocTheoNgayTra = new DevExpress.XtraEditors.DateEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButtonXemTheoNgay = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonXemTheoNgayTra = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.comboBoxEditKhachHang = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonXemTheoKhachHang = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.simpleButtonLapPhieuNo = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonXemPhieuNo = new DevExpress.XtraEditors.SimpleButton();
@@ -72,11 +72,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.Controls.Add(this.dateEditLocTheoNgayTra);
             this.groupControl1.Controls.Add(this.labelControl5);
-            this.groupControl1.Controls.Add(this.simpleButtonXemTheoNgay);
+            this.groupControl1.Controls.Add(this.simpleButtonXemTheoNgayTra);
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.comboBoxEditKhachHang);
-            this.groupControl1.Controls.Add(this.simpleButton1);
+            this.groupControl1.Controls.Add(this.simpleButtonXemTheoKhachHang);
             this.groupControl1.Location = new System.Drawing.Point(12, 42);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(727, 73);
@@ -103,16 +103,16 @@
             this.labelControl5.TabIndex = 5;
             this.labelControl5.Text = "Theo ngày trả : ";
             // 
-            // simpleButtonXemTheoNgay
+            // simpleButtonXemTheoNgayTra
             // 
-            this.simpleButtonXemTheoNgay.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonXemTheoNgay.Image")));
-            this.simpleButtonXemTheoNgay.Location = new System.Drawing.Point(643, 33);
-            this.simpleButtonXemTheoNgay.Name = "simpleButtonXemTheoNgay";
-            this.simpleButtonXemTheoNgay.Size = new System.Drawing.Size(73, 27);
-            this.simpleButtonXemTheoNgay.TabIndex = 4;
-            this.simpleButtonXemTheoNgay.Text = "Lọc";
-            this.simpleButtonXemTheoNgay.ToolTip = "Lọc phiếu nợ theo ngày trả";
-            this.simpleButtonXemTheoNgay.Click += new System.EventHandler(this.simpleButtonXemTheoNgay_Click);
+            this.simpleButtonXemTheoNgayTra.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonXemTheoNgayTra.Image")));
+            this.simpleButtonXemTheoNgayTra.Location = new System.Drawing.Point(643, 33);
+            this.simpleButtonXemTheoNgayTra.Name = "simpleButtonXemTheoNgayTra";
+            this.simpleButtonXemTheoNgayTra.Size = new System.Drawing.Size(73, 27);
+            this.simpleButtonXemTheoNgayTra.TabIndex = 4;
+            this.simpleButtonXemTheoNgayTra.Text = "Lọc";
+            this.simpleButtonXemTheoNgayTra.ToolTip = "Lọc phiếu nợ theo ngày trả";
+            this.simpleButtonXemTheoNgayTra.Click += new System.EventHandler(this.simpleButtonXemTheoNgay_Click);
             // 
             // label1
             // 
@@ -142,16 +142,16 @@
             this.comboBoxEditKhachHang.Size = new System.Drawing.Size(171, 20);
             this.comboBoxEditKhachHang.TabIndex = 1;
             // 
-            // simpleButton1
+            // simpleButtonXemTheoKhachHang
             // 
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(255, 33);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(73, 27);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Xem";
-            this.simpleButton1.ToolTip = "Xem danh sách phiếu bán hàng theo khách hàng quen";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.simpleButtonXemTheoKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonXemTheoKhachHang.Image")));
+            this.simpleButtonXemTheoKhachHang.Location = new System.Drawing.Point(255, 33);
+            this.simpleButtonXemTheoKhachHang.Name = "simpleButtonXemTheoKhachHang";
+            this.simpleButtonXemTheoKhachHang.Size = new System.Drawing.Size(73, 27);
+            this.simpleButtonXemTheoKhachHang.TabIndex = 0;
+            this.simpleButtonXemTheoKhachHang.Text = "Xem";
+            this.simpleButtonXemTheoKhachHang.ToolTip = "Xem danh sách phiếu bán hàng theo khách hàng quen";
+            this.simpleButtonXemTheoKhachHang.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // groupControl2
             // 
@@ -336,7 +336,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditKhachHang;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonXemTheoKhachHang;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraGrid.GridControl gridControlDanhSachPhieuNo;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewDanhSachPhieuNo;
@@ -353,7 +353,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButtonXemPhieuNo;
         private DevExpress.XtraEditors.DateEdit dateEditLocTheoNgayTra;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonXemTheoNgay;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonXemTheoNgayTra;
         private System.Windows.Forms.Label label1;
     }
 }

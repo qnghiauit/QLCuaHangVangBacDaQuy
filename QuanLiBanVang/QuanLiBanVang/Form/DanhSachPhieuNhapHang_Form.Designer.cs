@@ -38,9 +38,9 @@
             this.chiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridViewDanhSachPhieuNhapHang = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonThem = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDanhSachPhieuNhap)).BeginInit();
@@ -56,7 +56,7 @@
             this.groupControl1.Controls.Add(this.simpleButtonRefresh);
             this.groupControl1.Controls.Add(this.simpleButtonChiTiet);
             this.groupControl1.Controls.Add(this.gridControlDanhSachPhieuNhap);
-            this.groupControl1.Controls.Add(this.simpleButton1);
+            this.groupControl1.Controls.Add(this.simpleButtonThem);
             this.groupControl1.Location = new System.Drawing.Point(12, 42);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(600, 346);
@@ -129,16 +129,16 @@
             this.gridViewDanhSachPhieuNhapHang.OptionsBehavior.ReadOnly = true;
             this.gridViewDanhSachPhieuNhapHang.OptionsView.ShowGroupPanel = false;
             // 
-            // simpleButton1
+            // simpleButtonThem
             // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(506, 23);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(87, 27);
-            this.simpleButton1.TabIndex = 3;
-            this.simpleButton1.Text = "Thêm";
-            this.simpleButton1.Click += new System.EventHandler(this.button2_Click);
+            this.simpleButtonThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonThem.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonThem.Image")));
+            this.simpleButtonThem.Location = new System.Drawing.Point(506, 23);
+            this.simpleButtonThem.Name = "simpleButtonThem";
+            this.simpleButtonThem.Size = new System.Drawing.Size(87, 27);
+            this.simpleButtonThem.TabIndex = 3;
+            this.simpleButtonThem.Text = "Thêm";
+            this.simpleButtonThem.Click += new System.EventHandler(this.button2_Click);
             // 
             // labelControl1
             // 
@@ -154,23 +154,23 @@
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "Danh sách phiếu nhập hàng";
             // 
-            // simpleButton2
+            // simpleButtonThoat
             // 
-            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(525, 394);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(87, 27);
-            this.simpleButton2.TabIndex = 4;
-            this.simpleButton2.Text = "Thoát";
-            this.simpleButton2.Click += new System.EventHandler(this.button1_Click);
+            this.simpleButtonThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonThoat.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonThoat.Image")));
+            this.simpleButtonThoat.Location = new System.Drawing.Point(525, 394);
+            this.simpleButtonThoat.Name = "simpleButtonThoat";
+            this.simpleButtonThoat.Size = new System.Drawing.Size(87, 27);
+            this.simpleButtonThoat.TabIndex = 4;
+            this.simpleButtonThoat.Text = "Thoát";
+            this.simpleButtonThoat.Click += new System.EventHandler(this.button1_Click);
             // 
             // DanhSachPhieuNhapHang_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 430);
-            this.Controls.Add(this.simpleButton2);
+            this.Controls.Add(this.simpleButtonThoat);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.groupControl1);
             this.Name = "DanhSachPhieuNhapHang_Form";
@@ -193,8 +193,8 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewDanhSachPhieuNhapHang;
         private System.Windows.Forms.ContextMenuStrip gridviewContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem chiTiếtToolStripMenuItem;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonThem;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonThoat;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private DevExpress.XtraEditors.SimpleButton simpleButtonRefresh;
         private DevExpress.XtraEditors.SimpleButton simpleButtonChiTiet;
