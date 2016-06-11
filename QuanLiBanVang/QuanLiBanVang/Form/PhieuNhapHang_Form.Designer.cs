@@ -289,6 +289,7 @@
             this.textEditGiaMua.Location = new System.Drawing.Point(481, 32);
             this.textEditGiaMua.Name = "textEditGiaMua";
             this.textEditGiaMua.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.textEditGiaMua.Properties.MaxLength = 10;
             this.textEditGiaMua.Size = new System.Drawing.Size(153, 20);
             this.textEditGiaMua.TabIndex = 4;
             // 

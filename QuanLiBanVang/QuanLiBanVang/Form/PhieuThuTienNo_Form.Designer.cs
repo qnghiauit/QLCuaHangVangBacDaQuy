@@ -130,6 +130,7 @@
             // 
             this.textEditSoTienTra.Location = new System.Drawing.Point(135, 169);
             this.textEditSoTienTra.Name = "textEditSoTienTra";
+            this.textEditSoTienTra.Properties.MaxLength = 10;
             this.textEditSoTienTra.Size = new System.Drawing.Size(304, 20);
             this.textEditSoTienTra.TabIndex = 7;
             this.textEditSoTienTra.EditValueChanged += new System.EventHandler(this.textEditSoTienTra_EditValueChanged);
