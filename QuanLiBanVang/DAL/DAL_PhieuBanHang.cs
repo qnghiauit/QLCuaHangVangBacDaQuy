@@ -132,5 +132,16 @@ namespace DAL
         {
             return this.databaseContext.PHIEUBANHANGs.Where(x => x.SoPhieuBH == id).FirstOrDefault();
         }
+
+        /// <summary>
+        /// Find all receipt of frequenter with payment date
+        /// </summary>
+        /// <param name="criteriaDate"> criteria date to filter</param>
+        /// <returns> List of satisfied results in BindingList</returns>
+        public BindingList<PHIEUBANHANG> findReceiptByPaymentDate(DateTime criteriaDate)
+        {
+            return new BindingList<PHIEUBANHANG>(this.databaseContext.PHIEUBANHANGs.Where(x => DateTime.Compare(x.NgayTra.Date, criteriaDate.Date)
+                == 0 && x.MaKH != null).ToList());
+        }
     }
 }

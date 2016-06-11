@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using System.ComponentModel;
 using DTO;
 
 namespace DAL
@@ -31,5 +33,14 @@ namespace DAL
             this.databaseContext.SaveChanges();
         }
 
+        /// <summary>
+        /// Find all dept receipt of frequenter with payment date
+        /// </summary>
+        /// <param name="criteriaDate"> criteria date to filter</param>
+        /// <returns> List of satisfied results in BindingList</returns>
+        public BindingList<PHIEUTHUTIENNO> findDeptReceiptByPaymentDate(DateTime criteriaDate)
+        {
+            return new BindingList<PHIEUTHUTIENNO>(this.databaseContext.PHIEUTHUTIENNOes.Where(x => x.NgayTra.Month == criteriaDate.Month && x.NgayTra.Year == criteriaDate.Year && x.NgayTra.Day == criteriaDate.Day).ToList());
+        }
     }
 }
