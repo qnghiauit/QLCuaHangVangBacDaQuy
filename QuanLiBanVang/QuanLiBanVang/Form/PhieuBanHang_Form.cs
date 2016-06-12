@@ -474,11 +474,13 @@ namespace QuanLiBanVang
         {
             if (this.checkEditKhachQuen.Checked)
             {
+                textEditTenKhachHang.ReadOnly = true;
                 this.simpleButtonTimKhachQuen.Visible = true;
                 this.simpleButtonTimKhachQuen.Enabled = true;
             }
             else
             {
+                this.textEditTenKhachHang.ReadOnly = false;
                 this.simpleButtonTimKhachQuen.Enabled = false;
                 this.simpleButtonTimKhachQuen.Visible = false;
                 this.frequenter = null; // mark that this is not frequenter
