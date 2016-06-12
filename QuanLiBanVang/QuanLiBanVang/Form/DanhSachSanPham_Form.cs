@@ -195,6 +195,10 @@ namespace QuanLiBanVang.Report
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            _bulProduct = null;
+            _bulProduct = new BUL.BUL_SanPham();
+            _bulProductType = null;
+            _bulProductType = new BUL.BUL_LoaiSanPham();
             List<DTO.SANPHAM> _listProduct = new List<DTO.SANPHAM>();
             _listProduct = _bulProduct.getAllProduct();
             List<DTO.LOAISANPHAM> _listProductType = new List<DTO.LOAISANPHAM>();

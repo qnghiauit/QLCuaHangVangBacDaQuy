@@ -174,6 +174,10 @@ namespace QuanLiBanVang.Report
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            _bulPaymentBill = null;
+            _bulPaymentBill = new BUL.BUL_PhieuChi();
+            _bulStaff = null;
+            _bulStaff = new BUL.BUL_NhanVien();
             List<DTO.PHIEUCHI> listPaymentBill = _bulPaymentBill.getAllPaymentBill();
 
             List<DTO.NHANVIEN> listStaff = _bulStaff.getAllStaff();

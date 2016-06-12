@@ -147,6 +147,8 @@ namespace QuanLiBanVang.Report
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            _bulProductType = null;
+            _bulProductType = new BUL.BUL_LoaiSanPham();
             List<DTO.LOAISANPHAM> _listProductType = _bulProductType.getAllProductType();
             this._productTypeTable.Rows.Clear();
             this.initTableData(_listProductType);

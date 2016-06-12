@@ -212,6 +212,12 @@ namespace QuanLiBanVang.Report
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            _bulBuyBill = null;
+            _bulStaff = null;
+            _bulClient = null;
+            _bulBuyBill = new BUL.BUL_PhieuMua();
+            _bulClient = new BUL.BUL_KhachHang();
+            _bulStaff = new BUL.BUL_NhanVien();
             List<DTO.PHIEUMUAHANG> listbuybill = _bulBuyBill.getAllBuyBill();
             List<DTO.NHANVIEN> liststaff = _bulStaff.getAllStaff();
             List<DTO.KHACHHANG> listclient = _bulClient.GetAllKhachhangs();
