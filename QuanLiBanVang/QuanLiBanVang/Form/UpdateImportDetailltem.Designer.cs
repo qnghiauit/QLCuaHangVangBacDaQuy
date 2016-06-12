@@ -68,6 +68,7 @@
             // 
             this.textEditGiaMua.Location = new System.Drawing.Point(86, 108);
             this.textEditGiaMua.Name = "textEditGiaMua";
+            this.textEditGiaMua.Properties.MaxLength = 9;
             this.textEditGiaMua.Size = new System.Drawing.Size(100, 20);
             this.textEditGiaMua.TabIndex = 11;
             // 
@@ -76,7 +77,8 @@
             this.textEditSoLuong.Location = new System.Drawing.Point(86, 82);
             this.textEditSoLuong.Name = "textEditSoLuong";
             this.textEditSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEditSoLuong.Size = new System.Drawing.Size(100, 20);
+            this.textEditSoLuong.Properties.MaxLength = 4;
+            this.textEditSoLuong.Size = new System.Drawing.Size(43, 20);
             this.textEditSoLuong.TabIndex = 12;
             // 
             // comboBoxEditSP
@@ -85,6 +87,7 @@
             this.comboBoxEditSP.Name = "comboBoxEditSP";
             this.comboBoxEditSP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEditSP.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEditSP.Size = new System.Drawing.Size(100, 20);
             this.comboBoxEditSP.TabIndex = 9;
             // 
@@ -94,6 +97,7 @@
             this.comboBoxEditLoaiSP.Name = "comboBoxEditLoaiSP";
             this.comboBoxEditLoaiSP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEditLoaiSP.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEditLoaiSP.Size = new System.Drawing.Size(100, 20);
             this.comboBoxEditLoaiSP.TabIndex = 10;
             this.comboBoxEditLoaiSP.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditLoaiSP_SelectedIndexChanged);

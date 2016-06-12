@@ -196,12 +196,12 @@ namespace QuanLiBanVang.Form
                     LoaiSP = selectedProductType.TenLoaiSP,
                     MaSP = sanPham.MaSP,
                     SoLuong = Int32.Parse(this.textEditSoLuong.Text.Trim()),
-                    GiaBan = Decimal.Parse(this.textEditGiaBan.Text),
+                    GiaBan = Math.Round(Decimal.Parse(this.textEditGiaBan.Text)),
                     TenSp = sanPham.TenSP,
                     Stt = this.STT
 
                 };
-                sendBackData.ThanhTien = Decimal.Multiply(sendBackData.SoLuong, sendBackData.GiaBan);
+                sendBackData.ThanhTien = Math.Round(Decimal.Multiply(sendBackData.SoLuong, sendBackData.GiaBan));
                 this.sendBackDelegate(sendBackData); // delegate here
                 this.Close();
             }

@@ -176,7 +176,7 @@ namespace QuanLiBanVang.Form
                 MaSp = sanPham.MaSP,
                 TenSp = sanPham.TenSP,
                 SoLuong = int.Parse(this.textEditSoLuong.Text.Trim()),
-                GiaMua = decimal.Parse(this.textEditGiaMua.Text.Trim())
+                GiaMua = Math.Round(decimal.Parse(this.textEditGiaMua.Text.Trim()))
             };
             data.ThanhTien = decimal.Multiply(data.SoLuong, data.GiaMua);
             // send back data to main form
