@@ -141,39 +141,12 @@ namespace QuanLiBanVang.Form
             SANPHAM selectedProduct = (SANPHAM)selectedItem.Value;
             if (numberOfProducts > selectedProduct.SoLuongTon)
             {
-                MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE + "Số lượng tồn hiện tại : " + selectedProduct.SoLuongTon.ToString(),
+                    ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
         }
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    ContainerItem selectedItem = (ContainerItem)this.comboBoxEditLoaiSP.SelectedItem;
-        //    LOAISANPHAM selectedProductType = (LOAISANPHAM)selectedItem.Value; // hold value of the selected item
-        //    selectedItem = (ContainerItem)this.comboBoxEditSP.SelectedItem;
-        //    SANPHAM sanPham = (SANPHAM)selectedItem.Value;
-        //    // start to send back data backto main form
-        //    if (this.isValidItem())
-        //    {
-        //        // create new GridViewDataSource instance
-        //        DetailGridViewDataSource sendBackData = new DetailGridViewDataSource
-        //        {
-        //            MaLoaiSp = sanPham.MaLoaiSP,
-        //            LoaiSP = selectedProductType.TenLoaiSP,
-        //            MaSP = sanPham.MaSP,
-        //            SoLuong = Int32.Parse(this.textEditSoLuong.Text.Trim()),
-        //            GiaBan = Decimal.Parse(this.textEditGiaBan.Text),
-        //            TenSp = sanPham.TenSP,
-        //            Stt = this.STT
-
-        //        };
-        //        sendBackData.ThanhTien = Decimal.Multiply(sendBackData.SoLuong, sendBackData.GiaBan);
-        //        this.sendBackDelegate(sendBackData); // delegate here
-        //        this.Close();
-        //    }
-
-        //}
 
         private void simpleButton_Huy_Click(object sender, EventArgs e)
         {

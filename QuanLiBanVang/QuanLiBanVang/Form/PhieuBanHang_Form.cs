@@ -113,13 +113,30 @@ namespace QuanLiBanVang
             try
             {
                 // make sure the all component is not empty
-                if (string.IsNullOrEmpty(this.comboBoxEditMaLoaiSp.Text)
-                    || string.IsNullOrEmpty(this.comboBoxEditMaSp.Text)
-                    || string.IsNullOrEmpty(this.textEditSoLuong.Text))
+                if (!string.IsNullOrEmpty(this.comboBoxEditMaLoaiSp.Text)
+                    && !string.IsNullOrEmpty(this.comboBoxEditMaSp.Text)
+                    && !string.IsNullOrEmpty(this.textEditSoLuong.Text))
                 {
-                    MessageBox.Show(ErrorMessage.CLIENT_INVALID_INPUT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+                    //  MessageBox.Show(ErrorMessage.CLIENT_INVALID_INPUT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return true;
                 }
+                string listOfErrors = string.Empty;
+
+                if (string.IsNullOrEmpty(this.comboBoxEditMaLoaiSp.Text))
+                {
+                    listOfErrors += "Mã loại SP còn trống \n";
+                }
+                if (string.IsNullOrEmpty(this.comboBoxEditMaSp.Text))
+                {
+                    listOfErrors += "Sản phẩm còn trống \n";
+                }
+                if (string.IsNullOrEmpty(this.textEditSoLuong.Text))
+                {
+                    listOfErrors += "Số lượng trống \n";
+                }
+                MessageBox.Show(listOfErrors, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+
             }
             catch (ArgumentException exception)
             {
@@ -129,43 +146,28 @@ namespace QuanLiBanVang
                 return false;
 
             }
-            return true;
         }
 
 
         private bool checkGerneralInformation()
         {
             // no empty field
-            if (
-                 !string.IsNullOrEmpty(this.textEditDiaChiKhachHang.Text)
-            && !string.IsNullOrEmpty(this.textEditTenKhachHang.Text) && this.dateTimePickerNgayBan.DateTime.Date != null
-            && this.dateTimePickerNgayThanhToan.DateTime.Date != null)
+            if (!string.IsNullOrEmpty(this.textEditTenKhachHang.Text))
             {
-                // check valid date
-                DateTime receiptDate = this.dateTimePickerNgayBan.DateTime.Date;
-                DateTime paymentDate = this.dateTimePickerNgayBan.DateTime.Date;
-
-                if (DateTime.Compare(paymentDate.Date, receiptDate.Date) < 0)
+                if (string.IsNullOrEmpty(this.textEditDiaChiKhachHang.Text) && this.checkEditKhachQuen.Checked)
                 {
-                    // show message box
-                    MessageBox.Show(ErrorMessage.INVALID_INPUT_RECEIPT_DATE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK
-                        , MessageBoxIcon.Error);
+                    MessageBox.Show("Địa chỉ khách hàng còn trống.", ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK
+                       , MessageBoxIcon.Error);
                     return false;
                 }
                 return true;
             }
-            String listOfErrors = String.Empty;
-            if (string.IsNullOrEmpty(this.textEditDiaChiKhachHang.Text))
+            else
             {
-                listOfErrors += "Địa chỉ khách hàng còn trống. \n";
+                MessageBox.Show("Tên khách hàng còn trống.", ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK
+                      , MessageBoxIcon.Error);
+                return false;
             }
-            if (string.IsNullOrEmpty(this.textEditTenKhachHang.Text))
-            {
-                listOfErrors += "Tên khách hàng còn trống. \n";
-            }
-            MessageBox.Show(ErrorMessage.INVALID_INPUT_RECEIPT_DATE + listOfErrors, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK
-                     , MessageBoxIcon.Error);
-            return false;
         }
 
 
@@ -285,6 +287,7 @@ namespace QuanLiBanVang
 
         private void sửaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (this.gridViewDanhSachSanPham.SelectedRowsCount == 0 || this.gridViewDanhSachSanPham.SelectedRowsCount > 1) { return; }
             // get value from selected row
             DetailGridViewDataSource item = (DetailGridViewDataSource)this.gridViewDanhSachSanPham.GetRow(this.gridViewDanhSachSanPham.FocusedRowHandle);
 
@@ -437,8 +440,8 @@ namespace QuanLiBanVang
         /// <param name="e"></param>
         private void simpleButtonTimKhachQuen_Click(object sender, EventArgs e)
         {
-            DanhSachKhachQuen frequenterListForm = new DanhSachKhachQuen();
-            frequenterListForm.frequenterSender = new DanhSachKhachQuen.FrequenterInformationSendBack(this.onReceiveFrequenter);
+            DanhSachKhachQuen_Form frequenterListForm = new DanhSachKhachQuen_Form();
+            frequenterListForm.frequenterSender = new DanhSachKhachQuen_Form.FrequenterInformationSendBack(this.onReceiveFrequenter);
             frequenterListForm.ShowDialog();
         }
 
@@ -474,7 +477,8 @@ namespace QuanLiBanVang
                 }
                 else
                 {
-                    MessageBox.Show(ErrorMessage.EMPTY_DETAILS_ERR_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrorMessage.EMPTY_DETAILS_ERR_MESSAGE, 
+                        ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -502,8 +506,8 @@ namespace QuanLiBanVang
         // show form containing list of frequenters for staff to choose 
         private void simpleButtonTimKhachQuen_Click_1(object sender, EventArgs e)
         {
-            DanhSachKhachQuen frequenterListForm = new DanhSachKhachQuen();
-            frequenterListForm.frequenterSender = new DanhSachKhachQuen.FrequenterInformationSendBack(this.onReceiveFrequenter);
+            DanhSachKhachQuen_Form frequenterListForm = new DanhSachKhachQuen_Form();
+            frequenterListForm.frequenterSender = new DanhSachKhachQuen_Form.FrequenterInformationSendBack(this.onReceiveFrequenter);
             frequenterListForm.ShowDialog();
         }
 
@@ -521,7 +525,8 @@ namespace QuanLiBanVang
                 int numberOfProducts = Int32.Parse(this.textEditSoLuong.Text);
                 if (numberOfProducts > selectedProduct.SoLuongTon)
                 {
-                    MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE + ". Số lượng tồn khô hiện tại : " + selectedProduct.SoLuongTon.ToString(),
+                        ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -620,6 +625,7 @@ namespace QuanLiBanVang
 
         private void simpleButtonSua_Click(object sender, EventArgs e)
         {
+            if (this.gridViewDanhSachSanPham.SelectedRowsCount == 0 || this.gridViewDanhSachSanPham.SelectedRowsCount > 1) { return; }
             // get value from selected row
             DetailGridViewDataSource item = (DetailGridViewDataSource)this.gridViewDanhSachSanPham.GetRow(this.gridViewDanhSachSanPham.FocusedRowHandle);
 

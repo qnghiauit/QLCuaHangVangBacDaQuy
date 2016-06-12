@@ -290,7 +290,7 @@
             this.textEditGiaMua.Location = new System.Drawing.Point(481, 32);
             this.textEditGiaMua.Name = "textEditGiaMua";
             this.textEditGiaMua.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEditGiaMua.Properties.MaxLength = 10;
+            this.textEditGiaMua.Properties.MaxLength = 9;
             this.textEditGiaMua.Size = new System.Drawing.Size(153, 20);
             this.textEditGiaMua.TabIndex = 4;
             // 
@@ -301,6 +301,7 @@
             this.textEditTongTien.Name = "textEditTongTien";
             this.textEditTongTien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.textEditTongTien.Properties.Appearance.Options.UseFont = true;
+            this.textEditTongTien.Properties.ReadOnly = true;
             this.textEditTongTien.Size = new System.Drawing.Size(161, 20);
             this.textEditTongTien.TabIndex = 3;
             // 

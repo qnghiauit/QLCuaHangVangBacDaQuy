@@ -17,16 +17,17 @@ namespace QuanLiBanVang.Form
 {
     public partial class UpdateImportDetailltem : DevExpress.XtraEditors.XtraForm
     {
-      // updated
+        // updated
         public delegate void SendBackDataDelegate(ImportItemGridViewDataSource data); // delegate to transfer data back to parent form
         public SendBackDataDelegate sendBack;
         private int Stt;
+        private int LIMIT_NUMBER_OF_IMPORT_PROFUCTS;
         public UpdateImportDetailltem()
         {
             InitializeComponent();
         }
 
-        public UpdateImportDetailltem(ImportItemGridViewDataSource argument , int indexOfRow)
+        public UpdateImportDetailltem(ImportItemGridViewDataSource argument, int indexOfRow)
         {
             this.InitializeComponent();
             this.Stt = indexOfRow;
@@ -81,7 +82,7 @@ namespace QuanLiBanVang.Form
         /// <param name="e"></param>
         private void UpdateImportDetailltem_Load(object sender, EventArgs e)
         {
-
+            this.LIMIT_NUMBER_OF_IMPORT_PROFUCTS = Convert.ToInt32(new BUL_BangThamSo().getValueByArgument("SoLuongNhapToiDa"));
         }
 
         private void comboBoxEditLoaiSP_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,18 +118,17 @@ namespace QuanLiBanVang.Form
             || string.IsNullOrEmpty(this.textEditGiaMua.Text))
             {
                 MessageBox.Show(ErrorMessage.CLIENT_INVALID_INPUT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 return false;
             }
-            else if (!string.IsNullOrEmpty(this.textEditSoLuong.Text) && int.Parse(this.textEditSoLuong.Text) > PhieuNhapHang_Form.LIMIT_NUMBER_OF_IMPORT_PROFUCTS)
+            else if (!string.IsNullOrEmpty(this.textEditSoLuong.Text) && int.Parse(this.textEditSoLuong.Text) > this.LIMIT_NUMBER_OF_IMPORT_PROFUCTS)
             {
-                MessageBox.Show(ErrorMessage.OVER_LIMITATION_FOR_IMPORTING, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ErrorMessage.OVER_LIMITATION_FOR_IMPORTING + "\n. Tối đa số lượng cho mỗi sản phẩm là " + LIMIT_NUMBER_OF_IMPORT_PROFUCTS, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false; // exit method
             }
             return true;
         }
 
-      
+
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {

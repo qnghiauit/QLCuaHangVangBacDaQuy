@@ -19,14 +19,14 @@ namespace QuanLiBanVang.Form
 
     public partial class PhieuNhapHang_Form : DevExpress.XtraEditors.XtraForm
     {
-        public static readonly int LIMIT_NUMBER_OF_IMPORT_PROFUCTS = 500;
-
-
         ObservableCollection<ImportItemGridViewDataSource> bindingListDataSource = new ObservableCollection<ImportItemGridViewDataSource>(); // bindlist for gridview
         List<CTPNH> savingList = new List<CTPNH>(); // list to be saved into database
         private decimal total = decimal.Zero;
+        private ActionType actionType;
         BUL_PhieuNhapHang bulImportDetail = new BUL_PhieuNhapHang();
         public bool IsFormParentForm { get; set; }
+
+        public int LIMIT_NUMBER_OF_IMPORT_PROFUCTS { get; set; }
 
         public delegate void RefreshDelegate();
         public RefreshDelegate refreshDelegateCallback;
@@ -44,6 +44,7 @@ namespace QuanLiBanVang.Form
         public PhieuNhapHang_Form(ActionType type, PHIEUNHAPHANG data)
         {
             this.InitializeComponent();
+            this.actionType = type;
             switch (type)
             {
                 // see detail from existed PHIEUNHAPHANG
@@ -59,6 +60,8 @@ namespace QuanLiBanVang.Form
                     // today only
                     this.dateTimePickerNgayNhap.DateTime = DateTime.Now.Date;
 
+                    // set value for LIMIT_NUMBER_OF_IMPORT_PROFUCTS
+                    this.LIMIT_NUMBER_OF_IMPORT_PROFUCTS = Convert.ToInt32(new BUL_BangThamSo().getValueByArgument("SoLuongNhapToiDa"));
                     ContainerItem item; // temporary value holder
                     /* [START- set up content for combobox] */
                     foreach (NHACUNGCAP provider in new BUL_NhaCungCap().getAll())
@@ -95,7 +98,7 @@ namespace QuanLiBanVang.Form
         /// <param name="e"></param>
         private void PhieuNhapHang_Load(object sender, EventArgs e)
         {
-
+            this.renameColumnsOfGridControl(this.actionType);
         }
 
         private void comboBoxEditLoaiSp_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,6 +116,8 @@ namespace QuanLiBanVang.Form
                     Value = item
                 });
             }
+
+            this.comboBoxEditSP.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -155,7 +160,7 @@ namespace QuanLiBanVang.Form
                 new BUL_CTPNH().addRange(this.savingList); // save the list of detail
                 // notify user that the work is done
                 DialogResult dialogResult = MessageBox.Show(NotificationMessage.MESSAGE_SAVING_JOB_DONE,
-                    NotificationMessage.MESSAGE_SAVING_JOB_DONE,
+                    NotificationMessage.MESSAGE_TITLE,
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (dialogResult == System.Windows.Forms.DialogResult.OK)
                 {
@@ -192,21 +197,39 @@ namespace QuanLiBanVang.Form
         /// </returns>
         private bool isValidImportViewData()
         {
-            if (string.IsNullOrEmpty(this.comboBoxEditLoaiSp.Text)
-                || string.IsNullOrEmpty(this.comboBoxEditSP.Text)
-            || string.IsNullOrEmpty(this.textEditSoLuong.Text)
-            || string.IsNullOrEmpty(this.textEditGiaMua.Text))
+            if (!string.IsNullOrEmpty(this.comboBoxEditLoaiSp.Text)
+                && !string.IsNullOrEmpty(this.comboBoxEditSP.Text)
+            && !string.IsNullOrEmpty(this.textEditSoLuong.Text)
+            && !string.IsNullOrEmpty(this.textEditGiaMua.Text))
             {
-                MessageBox.Show(ErrorMessage.CLIENT_INVALID_INPUT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // MessageBox.Show(ErrorMessage.CLIENT_INVALID_INPUT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!string.IsNullOrEmpty(this.textEditSoLuong.Text) && int.Parse(this.textEditSoLuong.Text) > LIMIT_NUMBER_OF_IMPORT_PROFUCTS)
+                {
+                    MessageBox.Show(ErrorMessage.OVER_LIMITATION_FOR_IMPORTING + "\n. Tối đa số lượng cho mỗi sản phẩm là " + LIMIT_NUMBER_OF_IMPORT_PROFUCTS, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false; // exit method
+                }
+                return true;
+            }
 
-                return false;
-            }
-            else if (!string.IsNullOrEmpty(this.textEditSoLuong.Text) && int.Parse(this.textEditSoLuong.Text) > LIMIT_NUMBER_OF_IMPORT_PROFUCTS)
+            string listOfErrors = string.Empty;
+            if (string.IsNullOrEmpty(this.comboBoxEditLoaiSp.Text))
             {
-                MessageBox.Show(ErrorMessage.OVER_LIMITATION_FOR_IMPORTING, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; // exit method
+                listOfErrors += "Loại SP còn trống \n";
             }
-            return true;
+            if (string.IsNullOrEmpty(this.comboBoxEditSP.Text))
+            {
+                listOfErrors += "SP còn trống \n";
+            }
+            if (string.IsNullOrEmpty(this.textEditSoLuong.Text))
+            {
+                listOfErrors += "Số lượng còn trống \n";
+            }
+            if (string.IsNullOrEmpty(this.textEditGiaMua.Text))
+            {
+                listOfErrors += "Giá mua còn trống \n";
+            }
+            MessageBox.Show(listOfErrors, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
         }
 
         /// <summary>
@@ -246,8 +269,16 @@ namespace QuanLiBanVang.Form
 
         private void updateItemFromDelegate(ImportItemGridViewDataSource item)
         {
-            this.bindingListDataSource[item.STT] = item;
-            this.updateTotal();
+            // check existence
+            if (this.bindingListDataSource.Any(x => x.MaSp == item.MaSp && x.STT != item.STT))
+            {
+                MessageBox.Show(ErrorMessage.EXISTED_PRODUCT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE + ". Vui lòng kiểm tra lại.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                this.bindingListDataSource[item.STT] = item;
+                this.updateTotal();
+            }
         }
         /// <summary>
         /// show detail of an existed PHIEUNHAPHANG
@@ -258,7 +289,7 @@ namespace QuanLiBanVang.Form
             // general information
             //this.textEditSoPhieuNhap.Text = data.SoPhieuNhap.ToString();
             // this.textEditSoPhieuNhap.Enabled = false;
-            this.textEditNhanVien.Text = data.MaNV.ToString();
+            this.textEditNhanVien.Text = data.NHANVIEN.HoTen.ToString();
             this.textEditNhanVien.Enabled = true;
             this.textEditNhanVien.ReadOnly = true;
 
@@ -393,5 +424,26 @@ namespace QuanLiBanVang.Form
         }
 
 
+        private void renameColumnsOfGridControl(ActionType actionType)
+        {
+            if (actionType == ActionType.ACTION_CREATE_NEW)
+            {
+                this.gridViewDanhSachSanPham.Columns[0].Caption = "Số TT";
+                this.gridViewDanhSachSanPham.Columns[1].Caption = "Loại sản phẩm";
+                this.gridViewDanhSachSanPham.Columns[2].Caption = "Mã sản phẩm";
+                this.gridViewDanhSachSanPham.Columns[3].Caption = "Tên sản phẩm";
+                this.gridViewDanhSachSanPham.Columns[4].Caption = "Số lượng";
+                this.gridViewDanhSachSanPham.Columns[5].Caption = "Giá mua";
+                this.gridViewDanhSachSanPham.Columns[6].Caption = "Thành tiền";
+            }
+            else
+            {
+                this.gridViewDanhSachSanPham.Columns[0].Caption = "Số phiếu nhập";
+                this.gridViewDanhSachSanPham.Columns[1].Caption = "Mã sản phẩm";
+                this.gridViewDanhSachSanPham.Columns[2].Caption = "Số lượng";
+                this.gridViewDanhSachSanPham.Columns[3].Caption = "Giá mua";
+                this.gridViewDanhSachSanPham.Columns[4].Caption = "Thành tiền";
+            }
+        }
     }
 }
