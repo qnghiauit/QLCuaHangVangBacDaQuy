@@ -210,6 +210,12 @@ namespace QuanLiBanVang.Report
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            _bulStaff = null;
+            _bulStaff = new BUL_NhanVien();
+            _bulPosition = null;
+            _bulPosition = new BUL_ChucVu();
+            _bulGroupUser = null;
+            _bulGroupUser = new BUL_NhomNguoiDung();
             List<DTO.NHANVIEN> listStaff = _bulStaff.getAllStaff();
             List<DTO.CHUCVU> listPosition = _bulPosition.getAllPosition();
             List<DTO.NHOMNGUOIDUNG> listGroupUser = _bulGroupUser.getAllGroupUser();
