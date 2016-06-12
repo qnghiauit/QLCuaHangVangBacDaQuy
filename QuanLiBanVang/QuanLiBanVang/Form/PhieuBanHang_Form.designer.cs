@@ -38,6 +38,11 @@
             this.simpleButton_Luu = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButtonXoa = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonSua = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlDanhSachSanPham = new DevExpress.XtraGrid.GridControl();
@@ -49,6 +54,11 @@
             this.comboBoxEditMaSp = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEditMaLoaiSp = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.dateTimePickerNgayThanhToan = new DevExpress.XtraEditors.DateEdit();
             this.dateTimePickerNgayBan = new DevExpress.XtraEditors.DateEdit();
             this.simpleButtonTimKhachQuen = new DevExpress.XtraEditors.SimpleButton();
@@ -56,16 +66,6 @@
             this.textEditDiaChiKhachHang = new DevExpress.XtraEditors.TextEdit();
             this.textEditTenKhachHang = new DevExpress.XtraEditors.TextEdit();
             this.checkEditKhachQuen = new DevExpress.XtraEditors.CheckEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.contextMenuStripUpdateGridData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
@@ -119,7 +119,7 @@
             // 
             this.simpleButton_Huy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_Huy.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Huy.Image")));
-            this.simpleButton_Huy.Location = new System.Drawing.Point(749, 550);
+            this.simpleButton_Huy.Location = new System.Drawing.Point(891, 550);
             this.simpleButton_Huy.Name = "simpleButton_Huy";
             this.simpleButton_Huy.Size = new System.Drawing.Size(87, 27);
             this.simpleButton_Huy.TabIndex = 4;
@@ -130,7 +130,7 @@
             // 
             this.simpleButton_Luu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_Luu.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Luu.Image")));
-            this.simpleButton_Luu.Location = new System.Drawing.Point(656, 550);
+            this.simpleButton_Luu.Location = new System.Drawing.Point(798, 550);
             this.simpleButton_Luu.Name = "simpleButton_Luu";
             this.simpleButton_Luu.Size = new System.Drawing.Size(87, 27);
             this.simpleButton_Luu.TabIndex = 5;
@@ -147,7 +147,7 @@
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl2.Location = new System.Drawing.Point(12, 13);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(824, 24);
+            this.labelControl2.Size = new System.Drawing.Size(966, 24);
             this.labelControl2.TabIndex = 6;
             this.labelControl2.Text = "Phiếu bán hàng";
             // 
@@ -172,15 +172,58 @@
             this.groupControl3.Controls.Add(this.comboBoxEditMaLoaiSp);
             this.groupControl3.Location = new System.Drawing.Point(17, 218);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(814, 326);
+            this.groupControl3.Size = new System.Drawing.Size(956, 326);
             this.groupControl3.TabIndex = 8;
             this.groupControl3.Text = "Chi tiết";
+            this.groupControl3.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl3_Paint);
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(24, 31);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(34, 13);
+            this.labelControl8.TabIndex = 24;
+            this.labelControl8.Text = "Loại SP";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(182, 30);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(47, 13);
+            this.labelControl9.TabIndex = 25;
+            this.labelControl9.Text = "Sản phẩm";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(492, 30);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(42, 13);
+            this.labelControl10.TabIndex = 26;
+            this.labelControl10.Text = "Số lượng";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(617, 31);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(37, 13);
+            this.labelControl11.TabIndex = 27;
+            this.labelControl11.Text = "Đơn giá";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl1.Location = new System.Drawing.Point(644, 302);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(60, 16);
+            this.labelControl1.TabIndex = 15;
+            this.labelControl1.Text = "Tổng tiền";
             // 
             // simpleButtonXoa
             // 
             this.simpleButtonXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButtonXoa.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonXoa.Image")));
-            this.simpleButtonXoa.Location = new System.Drawing.Point(680, 91);
+            this.simpleButtonXoa.Location = new System.Drawing.Point(861, 91);
             this.simpleButtonXoa.Name = "simpleButtonXoa";
             this.simpleButtonXoa.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonXoa.TabIndex = 14;
@@ -191,7 +234,7 @@
             // 
             this.simpleButtonSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButtonSua.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonSua.Image")));
-            this.simpleButtonSua.Location = new System.Drawing.Point(680, 58);
+            this.simpleButtonSua.Location = new System.Drawing.Point(861, 58);
             this.simpleButtonSua.Name = "simpleButtonSua";
             this.simpleButtonSua.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonSua.TabIndex = 13;
@@ -208,7 +251,7 @@
             this.gridControlDanhSachSanPham.Location = new System.Drawing.Point(5, 58);
             this.gridControlDanhSachSanPham.MainView = this.gridView1;
             this.gridControlDanhSachSanPham.Name = "gridControlDanhSachSanPham";
-            this.gridControlDanhSachSanPham.Size = new System.Drawing.Size(669, 237);
+            this.gridControlDanhSachSanPham.Size = new System.Drawing.Size(850, 237);
             this.gridControlDanhSachSanPham.TabIndex = 12;
             this.gridControlDanhSachSanPham.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -229,17 +272,19 @@
             // 
             this.textEditTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.textEditTongTien.Enabled = false;
-            this.textEditTongTien.Location = new System.Drawing.Point(620, 301);
+            this.textEditTongTien.Location = new System.Drawing.Point(709, 301);
             this.textEditTongTien.Name = "textEditTongTien";
             this.textEditTongTien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.textEditTongTien.Properties.Appearance.Options.UseFont = true;
+            this.textEditTongTien.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEditTongTien.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditTongTien.Properties.ReadOnly = true;
-            this.textEditTongTien.Size = new System.Drawing.Size(186, 20);
+            this.textEditTongTien.Size = new System.Drawing.Size(146, 20);
             this.textEditTongTien.TabIndex = 11;
             // 
             // textEditSoLuong
             // 
-            this.textEditSoLuong.Location = new System.Drawing.Point(435, 28);
+            this.textEditSoLuong.Location = new System.Drawing.Point(540, 28);
             this.textEditSoLuong.Name = "textEditSoLuong";
             this.textEditSoLuong.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.textEditSoLuong.Properties.Mask.EditMask = "[0-9]{1,3}";
@@ -251,7 +296,7 @@
             // 
             this.simpleButtonThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButtonThem.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonThem.Image")));
-            this.simpleButtonThem.Location = new System.Drawing.Point(680, 24);
+            this.simpleButtonThem.Location = new System.Drawing.Point(861, 24);
             this.simpleButtonThem.Name = "simpleButtonThem";
             this.simpleButtonThem.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonThem.TabIndex = 8;
@@ -261,7 +306,7 @@
             // textEditDonGia
             // 
             this.textEditDonGia.Enabled = false;
-            this.textEditDonGia.Location = new System.Drawing.Point(555, 27);
+            this.textEditDonGia.Location = new System.Drawing.Point(660, 28);
             this.textEditDonGia.Name = "textEditDonGia";
             this.textEditDonGia.Properties.ReadOnly = true;
             this.textEditDonGia.Size = new System.Drawing.Size(119, 20);
@@ -274,7 +319,7 @@
             this.comboBoxEditMaSp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEditMaSp.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEditMaSp.Size = new System.Drawing.Size(132, 20);
+            this.comboBoxEditMaSp.Size = new System.Drawing.Size(243, 20);
             this.comboBoxEditMaSp.TabIndex = 6;
             this.comboBoxEditMaSp.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditMaSp_SelectedIndexChanged_1);
             // 
@@ -307,9 +352,49 @@
             this.groupControl2.Controls.Add(this.checkEditKhachQuen);
             this.groupControl2.Location = new System.Drawing.Point(17, 43);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(814, 169);
+            this.groupControl2.Size = new System.Drawing.Size(956, 169);
             this.groupControl2.TabIndex = 7;
             this.groupControl2.Text = "Thông tin";
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(8, 137);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(32, 13);
+            this.labelControl7.TabIndex = 23;
+            this.labelControl7.Text = "Địa chỉ";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(8, 110);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(76, 13);
+            this.labelControl6.TabIndex = 22;
+            this.labelControl6.Text = "Tên khách hàng";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(8, 84);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(81, 13);
+            this.labelControl5.TabIndex = 21;
+            this.labelControl5.Text = "Ngày thanh toán";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(8, 58);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(46, 13);
+            this.labelControl4.TabIndex = 20;
+            this.labelControl4.Text = "Ngày bán";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(8, 32);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(68, 13);
+            this.labelControl3.TabIndex = 19;
+            this.labelControl3.Text = "Tên nhân viên";
             // 
             // dateTimePickerNgayThanhToan
             // 
@@ -379,94 +464,13 @@
             this.checkEditKhachQuen.TabIndex = 9;
             this.checkEditKhachQuen.CheckedChanged += new System.EventHandler(this.checkEditKhachQuen_CheckedChanged);
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl1.Location = new System.Drawing.Point(555, 302);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(60, 16);
-            this.labelControl1.TabIndex = 15;
-            this.labelControl1.Text = "Tổng tiền";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(8, 32);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(68, 13);
-            this.labelControl3.TabIndex = 19;
-            this.labelControl3.Text = "Tên nhân viên";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(8, 58);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(46, 13);
-            this.labelControl4.TabIndex = 20;
-            this.labelControl4.Text = "Ngày bán";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(8, 84);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(81, 13);
-            this.labelControl5.TabIndex = 21;
-            this.labelControl5.Text = "Ngày thanh toán";
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(8, 110);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(76, 13);
-            this.labelControl6.TabIndex = 22;
-            this.labelControl6.Text = "Tên khách hàng";
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Location = new System.Drawing.Point(8, 137);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(32, 13);
-            this.labelControl7.TabIndex = 23;
-            this.labelControl7.Text = "Địa chỉ";
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Location = new System.Drawing.Point(24, 31);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(34, 13);
-            this.labelControl8.TabIndex = 24;
-            this.labelControl8.Text = "Loại SP";
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Location = new System.Drawing.Point(182, 30);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(47, 13);
-            this.labelControl9.TabIndex = 25;
-            this.labelControl9.Text = "Sản phẩm";
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Location = new System.Drawing.Point(387, 30);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(42, 13);
-            this.labelControl10.TabIndex = 26;
-            this.labelControl10.Text = "Số lượng";
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Location = new System.Drawing.Point(512, 31);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(37, 13);
-            this.labelControl11.TabIndex = 27;
-            this.labelControl11.Text = "Đơn giá";
-            // 
             // PhieuBanHang
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 586);
+            this.ClientSize = new System.Drawing.Size(990, 586);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.labelControl2);

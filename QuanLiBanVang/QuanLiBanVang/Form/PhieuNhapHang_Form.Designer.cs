@@ -113,6 +113,7 @@
             this.comboBoxEditNhaCungCap.Name = "comboBoxEditNhaCungCap";
             this.comboBoxEditNhaCungCap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEditNhaCungCap.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEditNhaCungCap.Size = new System.Drawing.Size(242, 20);
             this.comboBoxEditNhaCungCap.TabIndex = 4;
             // 

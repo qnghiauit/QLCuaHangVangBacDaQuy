@@ -424,8 +424,8 @@ namespace QuanLiBanVang
         /// <param name="e"></param>
         private void simpleButtonTimKhachQuen_Click(object sender, EventArgs e)
         {
-            DanhSachKhachQuen frequenterListForm = new DanhSachKhachQuen();
-            frequenterListForm.frequenterSender = new DanhSachKhachQuen.FrequenterInformationSendBack(this.onReceiveFrequenter);
+            DanhSachKhachQuen_Form frequenterListForm = new DanhSachKhachQuen_Form();
+            frequenterListForm.frequenterSender = new DanhSachKhachQuen_Form.FrequenterInformationSendBack(this.onReceiveFrequenter);
             frequenterListForm.ShowDialog();
         }
 
@@ -481,6 +481,7 @@ namespace QuanLiBanVang
             else
             {
                 this.textEditTenKhachHang.ReadOnly = false;
+                this.textEditTenKhachHang.Text = this.textEditDiaChiKhachHang.Text = null;
                 this.simpleButtonTimKhachQuen.Enabled = false;
                 this.simpleButtonTimKhachQuen.Visible = false;
                 this.frequenter = null; // mark that this is not frequenter
@@ -490,8 +491,8 @@ namespace QuanLiBanVang
         // show form containing list of frequenters for staff to choose 
         private void simpleButtonTimKhachQuen_Click_1(object sender, EventArgs e)
         {
-            DanhSachKhachQuen frequenterListForm = new DanhSachKhachQuen();
-            frequenterListForm.frequenterSender = new DanhSachKhachQuen.FrequenterInformationSendBack(this.onReceiveFrequenter);
+            DanhSachKhachQuen_Form frequenterListForm = new DanhSachKhachQuen_Form();
+            frequenterListForm.frequenterSender = new DanhSachKhachQuen_Form.FrequenterInformationSendBack(this.onReceiveFrequenter);
             frequenterListForm.ShowDialog();
         }
 
@@ -509,7 +510,7 @@ namespace QuanLiBanVang
                 int numberOfProducts = Int32.Parse(this.textEditSoLuong.Text);
                 if (numberOfProducts > selectedProduct.SoLuongTon)
                 {
-                    MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE + "\nSố lượng tồn hiện tại: " + selectedProduct.SoLuongTon, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -641,6 +642,16 @@ namespace QuanLiBanVang
 
             // update total
             this.updateTotal();
+        }
+
+        private void groupControl3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void RenameColumnGridview()
+        {
+            
         }
 
     }
