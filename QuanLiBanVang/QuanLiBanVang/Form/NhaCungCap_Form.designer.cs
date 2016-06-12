@@ -38,7 +38,7 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControlMaNCC = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlCaption = new DevExpress.XtraEditors.LabelControl();
             this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonLuu = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -126,19 +126,19 @@
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "Tên :";
             // 
-            // labelControl1
+            // labelControlCaption
             // 
-            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.labelControlCaption.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(12, 12);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(312, 29);
-            this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "Thêm nhà cung cấp";
+            this.labelControlCaption.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
+            this.labelControlCaption.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.labelControlCaption.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControlCaption.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControlCaption.Location = new System.Drawing.Point(12, 12);
+            this.labelControlCaption.Name = "labelControlCaption";
+            this.labelControlCaption.Size = new System.Drawing.Size(312, 29);
+            this.labelControlCaption.TabIndex = 1;
+            this.labelControlCaption.Text = "Thêm nhà cung cấp";
             // 
             // simpleButtonThoat
             // 
@@ -167,7 +167,7 @@
             this.ClientSize = new System.Drawing.Size(336, 260);
             this.Controls.Add(this.simpleButtonLuu);
             this.Controls.Add(this.simpleButtonThoat);
-            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.labelControlCaption);
             this.Controls.Add(this.groupControl1);
             this.LookAndFeel.SkinName = "Office 2007 Blue";
             this.Name = "NhaCungCap_Form";
@@ -187,7 +187,7 @@
         #endregion
 
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControlCaption;
         private DevExpress.XtraEditors.TextEdit textEditSoDienThoai;
         private DevExpress.XtraEditors.TextEdit textEditTenNhaCungCap;
         private DevExpress.XtraEditors.LabelControl labelControl4;

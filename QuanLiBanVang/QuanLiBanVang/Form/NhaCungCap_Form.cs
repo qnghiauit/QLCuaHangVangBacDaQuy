@@ -150,6 +150,8 @@ namespace QuanLiBanVang.Form
         /// <param name="data"> data to be filled in the view</param>
         private void viewActionType(NHACUNGCAP data)
         {
+            this.Text = "Thông tin nhà cung cấp";
+            this.labelControlCaption.Text = "Thông tin nhà cung cấp";
             this.textEditMaNCC.Text = data.MaNCC.ToString();
             this.textEditMaNCC.ReadOnly = true;
             this.textEditTenNhaCungCap.Text = data.TenNCC;
