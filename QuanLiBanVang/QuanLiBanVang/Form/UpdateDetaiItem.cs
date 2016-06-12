@@ -118,7 +118,7 @@ namespace QuanLiBanVang.Form
                     });
                 }
             }
-
+            this.comboBoxEditSP.SelectedIndex = 0;
         }
 
 

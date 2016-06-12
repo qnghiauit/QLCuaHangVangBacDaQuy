@@ -39,7 +39,6 @@ namespace QuanLiBanVang.Form
                     Value = item
                 });
             }
-
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -53,6 +52,7 @@ namespace QuanLiBanVang.Form
             this.bulPhieuBanHang = new BUL_PhieuBanHang();
             this.gridControlPhieuBanHang.RefreshDataSource();
             this.gridControlPhieuBanHang.DataSource = this.bulPhieuBanHang.findReceiptsByFrequenterId(selectedFrequenter.MaKH);
+            this.renameColumnsOfReceiptsGridView();
             // all uninformative columns will be invisible
             this.gridViewDanhSachPhieuBanHang.Columns[6].Visible = false;
             this.gridViewDanhSachPhieuBanHang.Columns[7].Visible = false;
@@ -71,6 +71,7 @@ namespace QuanLiBanVang.Form
             this.bulPhieuBanHang = new BUL_PhieuBanHang();
             this.gridControlDanhSachPhieuNo.RefreshDataSource();
             this.gridControlDanhSachPhieuNo.DataSource = this.bulPhieuBanHang.findDeptReceiptsByReceiptId(selectedReceipt.SoPhieuBH);
+            this.renameColumnsOfDebReceiptsGridView();
             // all uninformative columns will be invisible
             this.gridViewDanhSachPhieuNo.Columns[8].Visible = false;
             this.gridViewDanhSachPhieuNo.Columns[9].Visible = false;
@@ -181,9 +182,36 @@ namespace QuanLiBanVang.Form
             this.bulPhieuBanHang = new BUL_PhieuBanHang();
             this.gridControlDanhSachPhieuNo.RefreshDataSource();
             this.gridControlDanhSachPhieuNo.DataSource = this.bulPhieuBanHang.findDeptReceiptsByReceiptId(selectedReceipt.SoPhieuBH);
+            this.renameColumnsOfDebReceiptsGridView();
             // all uninformative columns will be invisible
             this.gridViewDanhSachPhieuNo.Columns[8].Visible = false;
             this.gridViewDanhSachPhieuNo.Columns[9].Visible = false;
+        }
+
+
+        private void renameColumnsOfReceiptsGridView()
+        {
+            // for grid view : danh sach phieu ban hang
+            this.gridViewDanhSachPhieuBanHang.Columns[0].Caption = "Số phiếu bán";
+            this.gridViewDanhSachPhieuBanHang.Columns[1].Caption = "Mã nhân viên";
+            this.gridViewDanhSachPhieuBanHang.Columns[2].Caption = "Mã khách hàng";
+            this.gridViewDanhSachPhieuBanHang.Columns[3].Caption = "Ngày bán";
+            this.gridViewDanhSachPhieuBanHang.Columns[4].Caption = "Ngày trả";
+            this.gridViewDanhSachPhieuBanHang.Columns[5].Caption = "Tổng tiền";
+        }
+
+
+        private void renameColumnsOfDebReceiptsGridView()
+        {
+            // for grid view : danh sach phieu no
+            this.gridViewDanhSachPhieuNo.Columns[0].Caption = "Số phiếu nợ";
+            this.gridViewDanhSachPhieuNo.Columns[1].Caption = "Số phiếu bán";
+            this.gridViewDanhSachPhieuNo.Columns[2].Caption = "Mã nhân viên";
+            this.gridViewDanhSachPhieuNo.Columns[3].Caption = "Ngày lập";
+            this.gridViewDanhSachPhieuNo.Columns[4].Caption = "Ngày trả";
+            this.gridViewDanhSachPhieuNo.Columns[5].Caption = "Số tiền nợ";
+            this.gridViewDanhSachPhieuNo.Columns[6].Caption = "Số tiền trả";
+            this.gridViewDanhSachPhieuNo.Columns[7].Caption = "Số tiền còn lại";
         }
 
     }

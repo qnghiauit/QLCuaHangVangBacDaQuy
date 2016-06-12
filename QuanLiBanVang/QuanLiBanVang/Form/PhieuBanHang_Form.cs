@@ -62,7 +62,7 @@ namespace QuanLiBanVang
                 this.dateTimePickerNgayThanhToan.DateTime = DateTime.Now.Date;
 
                 this.checkEditKhachQuen.Checked = false;
-                
+
                 this.simpleButtonTimKhachQuen.Visible = false;
                 this.comboBoxEditMaLoaiSp.Properties.Items.Clear();
                 this.comboBoxEditMaSp.Properties.Items.Clear();
@@ -78,11 +78,13 @@ namespace QuanLiBanVang
                 }
                 // datasource will reference to ObservableCollection : gridViewDataSource
                 this.gridControlDanhSachSanPham.DataSource = this.gridViewDataSource;
+                this.renameColumnsOfGridControl(); // rename gridview columns
             }
             else if (this.actionType == ActionType.ACTION_VIEW) // incase user only want to show existed receipt from database
             {
                 // start to load data
                 this.viewExistedDetail(data);
+                this.renameColumnsOfGridControl(); // rename gridview columns
             }
 
 
@@ -134,15 +136,16 @@ namespace QuanLiBanVang
         private bool checkGerneralInformation()
         {
             // no empty field
-            if (//!string.IsNullOrEmpty(this.textEditMaKhachHang.Text)&&
+            if (
                  !string.IsNullOrEmpty(this.textEditDiaChiKhachHang.Text)
-            && !string.IsNullOrEmpty(this.textEditTenKhachHang.Text))
+            && !string.IsNullOrEmpty(this.textEditTenKhachHang.Text) && this.dateTimePickerNgayBan.DateTime.Date != null
+            && this.dateTimePickerNgayThanhToan.DateTime.Date != null)
             {
                 // check valid date
                 DateTime receiptDate = this.dateTimePickerNgayBan.DateTime.Date;
                 DateTime paymentDate = this.dateTimePickerNgayBan.DateTime.Date;
 
-                if (paymentDate.CompareTo(receiptDate) < 0)
+                if (DateTime.Compare(paymentDate.Date, receiptDate.Date) < 0)
                 {
                     // show message box
                     MessageBox.Show(ErrorMessage.INVALID_INPUT_RECEIPT_DATE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK
@@ -151,7 +154,17 @@ namespace QuanLiBanVang
                 }
                 return true;
             }
-            // everything is valid to be saved
+            String listOfErrors = String.Empty;
+            if (string.IsNullOrEmpty(this.textEditDiaChiKhachHang.Text))
+            {
+                listOfErrors += "Địa chỉ khách hàng còn trống. \n";
+            }
+            if (string.IsNullOrEmpty(this.textEditTenKhachHang.Text))
+            {
+                listOfErrors += "Tên khách hàng còn trống. \n";
+            }
+            MessageBox.Show(ErrorMessage.INVALID_INPUT_RECEIPT_DATE + listOfErrors, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK
+                     , MessageBoxIcon.Error);
             return false;
         }
 
@@ -235,15 +248,15 @@ namespace QuanLiBanVang
         {
             // get focus rown data of gridview
             // make sure that focus rows greater than 0
-            if (this.gridView1.GetSelectedRows().Count() == 0)
+            if (this.gridViewDanhSachSanPham.GetSelectedRows().Count() == 0)
             {
                 return;
             }
 
-            for (int i = 0; i < this.gridView1.GetSelectedRows().Count(); ++i)
+            for (int i = 0; i < this.gridViewDanhSachSanPham.GetSelectedRows().Count(); ++i)
             {
                 // cast to GridViewDataSource at row[i]
-                DetailGridViewDataSource item = (DetailGridViewDataSource)this.gridView1.GetRow(i);
+                DetailGridViewDataSource item = (DetailGridViewDataSource)this.gridViewDanhSachSanPham.GetRow(i);
                 // start to delete this row
                 this.gridViewDataSource.RemoveAt(item.Stt); // Stt corresponds to index of element to be deleted
             }
@@ -273,7 +286,7 @@ namespace QuanLiBanVang
         private void sửaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // get value from selected row
-            DetailGridViewDataSource item = (DetailGridViewDataSource)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
+            DetailGridViewDataSource item = (DetailGridViewDataSource)this.gridViewDanhSachSanPham.GetRow(this.gridViewDanhSachSanPham.FocusedRowHandle);
 
             // start to show the update form
             UpdateDetaiItem updateDetailItemForm = new UpdateDetaiItem(item);
@@ -324,7 +337,7 @@ namespace QuanLiBanVang
         {
 
             // general information
-            this.textEditNhanVienLapPhieu.Text = data.SoPhieuBH.ToString();
+            this.textEditNhanVienLapPhieu.Text = data.NHANVIEN.HoTen;
             this.textEditNhanVienLapPhieu.Enabled = true;
 
 
@@ -387,8 +400,8 @@ namespace QuanLiBanVang
 
 
             // hide some columns
-            this.gridView1.Columns[5].Visible = false;
-            this.gridView1.Columns[6].Visible = false;
+            this.gridViewDanhSachSanPham.Columns[5].Visible = false;
+            this.gridViewDanhSachSanPham.Columns[6].Visible = false;
 
             // disable 2 update and delete buttons
             this.simpleButtonSua.Enabled = false;
@@ -424,8 +437,8 @@ namespace QuanLiBanVang
         /// <param name="e"></param>
         private void simpleButtonTimKhachQuen_Click(object sender, EventArgs e)
         {
-            DanhSachKhachQuen_Form frequenterListForm = new DanhSachKhachQuen_Form();
-            frequenterListForm.frequenterSender = new DanhSachKhachQuen_Form.FrequenterInformationSendBack(this.onReceiveFrequenter);
+            DanhSachKhachQuen frequenterListForm = new DanhSachKhachQuen();
+            frequenterListForm.frequenterSender = new DanhSachKhachQuen.FrequenterInformationSendBack(this.onReceiveFrequenter);
             frequenterListForm.ShowDialog();
         }
 
@@ -464,24 +477,22 @@ namespace QuanLiBanVang
                     MessageBox.Show(ErrorMessage.EMPTY_DETAILS_ERR_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
-            {
-                MessageBox.Show(ErrorMessage.CLIENT_INVALID_INPUT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
         }
 
         private void checkEditKhachQuen_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkEditKhachQuen.Checked)
             {
-                textEditTenKhachHang.ReadOnly = true;
+                this.textEditTenKhachHang.ReadOnly = true;
+                this.textEditDiaChiKhachHang.ReadOnly = true;
                 this.simpleButtonTimKhachQuen.Visible = true;
                 this.simpleButtonTimKhachQuen.Enabled = true;
             }
             else
             {
                 this.textEditTenKhachHang.ReadOnly = false;
-                this.textEditTenKhachHang.Text = this.textEditDiaChiKhachHang.Text = null;
+                this.textEditDiaChiKhachHang.ReadOnly = false;
                 this.simpleButtonTimKhachQuen.Enabled = false;
                 this.simpleButtonTimKhachQuen.Visible = false;
                 this.frequenter = null; // mark that this is not frequenter
@@ -491,8 +502,8 @@ namespace QuanLiBanVang
         // show form containing list of frequenters for staff to choose 
         private void simpleButtonTimKhachQuen_Click_1(object sender, EventArgs e)
         {
-            DanhSachKhachQuen_Form frequenterListForm = new DanhSachKhachQuen_Form();
-            frequenterListForm.frequenterSender = new DanhSachKhachQuen_Form.FrequenterInformationSendBack(this.onReceiveFrequenter);
+            DanhSachKhachQuen frequenterListForm = new DanhSachKhachQuen();
+            frequenterListForm.frequenterSender = new DanhSachKhachQuen.FrequenterInformationSendBack(this.onReceiveFrequenter);
             frequenterListForm.ShowDialog();
         }
 
@@ -510,7 +521,7 @@ namespace QuanLiBanVang
                 int numberOfProducts = Int32.Parse(this.textEditSoLuong.Text);
                 if (numberOfProducts > selectedProduct.SoLuongTon)
                 {
-                    MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE + "\nSố lượng tồn hiện tại: " + selectedProduct.SoLuongTon, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -567,6 +578,7 @@ namespace QuanLiBanVang
                     });
                 }
             }
+            this.comboBoxEditMaSp.SelectedIndex = 0;
         }
 
         private void comboBoxEditMaSp_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -609,7 +621,7 @@ namespace QuanLiBanVang
         private void simpleButtonSua_Click(object sender, EventArgs e)
         {
             // get value from selected row
-            DetailGridViewDataSource item = (DetailGridViewDataSource)this.gridView1.GetRow(this.gridView1.FocusedRowHandle);
+            DetailGridViewDataSource item = (DetailGridViewDataSource)this.gridViewDanhSachSanPham.GetRow(this.gridViewDanhSachSanPham.FocusedRowHandle);
 
             // start to show the update form
             UpdateDetaiItem updateDetailItemForm = new UpdateDetaiItem(item);
@@ -621,15 +633,15 @@ namespace QuanLiBanVang
         {
             // get focus rown data of gridview
             // make sure that focus rows greater than 0
-            if (this.gridView1.GetSelectedRows().Count() == 0)
+            if (this.gridViewDanhSachSanPham.GetSelectedRows().Count() == 0)
             {
                 return;
             }
 
-            for (int i = 0; i < this.gridView1.GetSelectedRows().Count(); ++i)
+            for (int i = 0; i < this.gridViewDanhSachSanPham.GetSelectedRows().Count(); ++i)
             {
                 // cast to GridViewDataSource at row[i]
-                DetailGridViewDataSource item = (DetailGridViewDataSource)this.gridView1.GetRow(i);
+                DetailGridViewDataSource item = (DetailGridViewDataSource)this.gridViewDanhSachSanPham.GetRow(i);
                 // start to delete this row
                 this.gridViewDataSource.RemoveAt(item.Stt); // Stt corresponds to index of element to be deleted
             }
@@ -644,14 +656,32 @@ namespace QuanLiBanVang
             this.updateTotal();
         }
 
-        private void groupControl3_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void RenameColumnGridview()
+        /// <summary>
+        /// Rename griview column's captions to be semantic
+        /// </summary>
+        private void renameColumnsOfGridControl()
         {
-            
+            if (this.actionType == ActionType.ACTION_CREATE_NEW)
+            {
+                this.gridViewDanhSachSanPham.Columns[0].Caption = "STT";
+                this.gridViewDanhSachSanPham.Columns[1].Caption = "Mã loại sản phẩm";
+                this.gridViewDanhSachSanPham.Columns[2].Caption = "Loại sản phẩm";
+                this.gridViewDanhSachSanPham.Columns[3].Caption = "Mã sản phẩm";
+                this.gridViewDanhSachSanPham.Columns[4].Caption = "Tên sản phẩm";
+                this.gridViewDanhSachSanPham.Columns[5].Caption = "Số lượng";
+                this.gridViewDanhSachSanPham.Columns[6].Caption = "Giá bán";
+                this.gridViewDanhSachSanPham.Columns[7].Caption = "Thành tiền";
+            }
+            else if (this.actionType == ActionType.ACTION_VIEW)
+            {
+                this.gridViewDanhSachSanPham.Columns[0].Caption = "Số phiếu bán hàng";
+                this.gridViewDanhSachSanPham.Columns[1].Caption = "Mã sản phẩm";
+                this.gridViewDanhSachSanPham.Columns[2].Caption = "Loại sản phẩm";
+                this.gridViewDanhSachSanPham.Columns[3].Caption = "Số lượng";
+                this.gridViewDanhSachSanPham.Columns[4].Caption = "Giá bán";
+                this.gridViewDanhSachSanPham.Columns[5].Caption = "Thành tiền";
+            }
         }
 
     }

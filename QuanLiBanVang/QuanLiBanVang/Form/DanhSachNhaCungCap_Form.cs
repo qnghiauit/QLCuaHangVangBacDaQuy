@@ -29,7 +29,7 @@ namespace QuanLiBanVang.Form
 
         private void DanhSachNhaCungCap_Load(object sender, EventArgs e)
         {
-
+            this.renameColumnsOfGridView();
         }
 
         private void chiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace QuanLiBanVang.Form
 
         private void simpleButtonThem_Click(object sender, EventArgs e)
         {
-            NhaCungCap_Form newProviderForm = new NhaCungCap_Form(ActionType.ACTION_CREATE_NEW , null);
+            NhaCungCap_Form newProviderForm = new NhaCungCap_Form(ActionType.ACTION_CREATE_NEW, null);
             newProviderForm.refreshDelegateCallback = new NhaCungCap_Form.RefreshDelegate(this.refresh);
             newProviderForm.IsFromParentForm = true;
             newProviderForm.ShowDialog();
@@ -115,6 +115,15 @@ namespace QuanLiBanVang.Form
             updateExistedProviderForm.refreshDelegateCallback = new NhaCungCap_Form.RefreshDelegate(this.refresh);
             updateExistedProviderForm.IsFromParentForm = true;
             updateExistedProviderForm.ShowDialog();
+        }
+
+
+        private void renameColumnsOfGridView()
+        {
+            this.gridViewDanhSachNhaCungCap.Columns[0].Caption = "Mã nhà cung cấp";
+            this.gridViewDanhSachNhaCungCap.Columns[1].Caption = "Tên nhà cung cấp";
+            this.gridViewDanhSachNhaCungCap.Columns[2].Caption = "Địa chỉ";
+            this.gridViewDanhSachNhaCungCap.Columns[3].Caption = "Số điện thoại";
         }
     }
 }

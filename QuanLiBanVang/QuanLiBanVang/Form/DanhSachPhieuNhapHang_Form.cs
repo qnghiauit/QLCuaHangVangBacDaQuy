@@ -46,7 +46,7 @@ namespace QuanLiBanVang.Form
 
         private void DanhSachPhieuNhapHang_Load(object sender, EventArgs e)
         {
-
+            this.renameColumnsOfGridView();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -91,5 +91,14 @@ namespace QuanLiBanVang.Form
             this.gridControlDanhSachPhieuNhap.DataSource = this.bulImportReceipt.getAll();
         }
 
+
+        private void renameColumnsOfGridView()
+        {
+            this.gridViewDanhSachPhieuNhapHang.Columns[0].Caption = "Mã phiếu nhập";
+            this.gridViewDanhSachPhieuNhapHang.Columns[1].Caption = "Mã nhà cung cấp";
+            this.gridViewDanhSachPhieuNhapHang.Columns[2].Caption = "Mã nhân viên";
+            this.gridViewDanhSachPhieuNhapHang.Columns[3].Caption = "Ngày nhập";
+            this.gridViewDanhSachPhieuNhapHang.Columns[4].Caption = "Tổng tiền";
+        }
     }
 }

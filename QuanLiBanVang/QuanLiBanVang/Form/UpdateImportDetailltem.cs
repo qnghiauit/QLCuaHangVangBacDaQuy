@@ -51,6 +51,8 @@ namespace QuanLiBanVang.Form
                     this.comboBoxEditLoaiSP.SelectedItem = temporaryItem;
                 }
             }
+            this.textEditSoLuong.Text = argument.SoLuong.ToString();
+            this.textEditGiaMua.Text = argument.GiaMua.ToString();
             temporaryItem = (ContainerItem)this.comboBoxEditLoaiSP.SelectedItem;
             LOAISANPHAM type = (LOAISANPHAM)temporaryItem.Value;
             // set value for view components
@@ -97,6 +99,8 @@ namespace QuanLiBanVang.Form
                     Value = item
                 });
             }
+
+            this.comboBoxEditSP.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -124,35 +128,7 @@ namespace QuanLiBanVang.Form
             return true;
         }
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    // if content is not valid, exit method
-        //    if (!this.isValidImportViewData())
-        //    {
-        //        return;
-        //    }
-        //    ContainerItem selectedItem = (ContainerItem)this.comboBoxEditSP.SelectedItem;
-        //     SANPHAM sanPham = (SANPHAM)selectedItem.Value;
-        //    // otherwise, send back data
-        //    ImportItemGridViewDataSource data = new ImportItemGridViewDataSource
-        //    {
-        //        STT = this.Stt,
-        //        LoaiSanPham = this.comboBoxEditLoaiSP.Text,
-        //        MaSp = sanPham.MaSP,
-        //        TenSp = sanPham.TenSP,
-        //        SoLuong = int.Parse(this.textEditSoLuong.Text.Trim()),
-        //        GiaMua = decimal.Parse(this.textEditGiaMua.Text.Trim())
-        //    };
-        //    data.ThanhTien = decimal.Multiply(data.SoLuong , data.GiaMua);
-        //    // send back data to main form
-        //   this.sendBack(data);
-        //    this.Close();// close the form
-        //}
-
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //}
+      
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {

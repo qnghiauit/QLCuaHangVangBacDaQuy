@@ -30,7 +30,7 @@ namespace QuanLiBanVang.Form
         public PhieuThuTienNo_Form()
         {
             InitializeComponent();
-            
+
         }
 
         /// <summary>
@@ -79,6 +79,11 @@ namespace QuanLiBanVang.Form
 
             // the first dept
             this.textEditSoTienNo.Text = this.previousDeptRecepit.SoTienConLai.ToString();
+
+            // set defaul value for date time picker : system current date
+            this.dateTimePickerNgayLap.DateTime = DateTime.Now.Date;
+            this.dateTimePickerNgayLap.ReadOnly = true;
+            this.dateTimePickerNgayTra.DateTime = DateTime.Now.Date;
         }
         private void PhieuThuTienNo_Load(object sender, EventArgs e)
         {
@@ -134,7 +139,7 @@ namespace QuanLiBanVang.Form
                     // start to save into database
                     this.bulDeptReceipt.add(newDeptReceipt);
                     // PhieuThuTienNo recentSavedDeptReceipt = this.bulDeptReceipt
-                    if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.DateTime.ToShortDateString(), ErrorMessage.ERROR_MESSARE_TITLE,
+                    if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.DateTime.ToShortDateString(), NotificationMessage.MESSAGE_TITLE,
                           MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {
                         this.Close();
@@ -155,7 +160,7 @@ namespace QuanLiBanVang.Form
                 };
                 // start to save into database
                 this.bulDeptReceipt.add(newDeptReceipt);
-                if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.DateTime.ToShortDateString(), ErrorMessage.ERROR_MESSARE_TITLE,
+                if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.DateTime.ToShortDateString(), NotificationMessage.MESSAGE_TITLE,
                           MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.Close();
@@ -204,6 +209,7 @@ namespace QuanLiBanVang.Form
             {
                 MessageBox.Show("Ngày trả nợ phải lớn hơn hoặc bằng ngày lập phiếu nơ", "Lỗi", MessageBoxButtons.OK
                      , MessageBoxIcon.Error);
+                // update date value
                 this.dateTimePickerNgayLap.DateTime = DateTime.Now.Date;
                 this.dateTimePickerNgayTra.DateTime = DateTime.Now.Date;
             }

@@ -46,7 +46,7 @@
             this.simpleButtonXoa = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonSua = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlDanhSachSanPham = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewDanhSachSanPham = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.textEditTongTien = new DevExpress.XtraEditors.TextEdit();
             this.textEditSoLuong = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonThem = new DevExpress.XtraEditors.SimpleButton();
@@ -70,7 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDanhSachSanPham)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDanhSachSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTongTien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditDonGia.Properties)).BeginInit();
@@ -175,8 +175,52 @@
             this.groupControl3.Size = new System.Drawing.Size(956, 326);
             this.groupControl3.TabIndex = 8;
             this.groupControl3.Text = "Chi tiết";
-            this.groupControl3.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl3_Paint);
+           // this.groupControl3.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl3_Paint);
             // 
+
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(24, 31);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(34, 13);
+            this.labelControl8.TabIndex = 24;
+            this.labelControl8.Text = "Loại SP";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(182, 30);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(47, 13);
+            this.labelControl9.TabIndex = 25;
+            this.labelControl9.Text = "Sản phẩm";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(387, 30);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(42, 13);
+            this.labelControl10.TabIndex = 26;
+            this.labelControl10.Text = "Số lượng";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(512, 31);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(37, 13);
+            this.labelControl11.TabIndex = 27;
+            this.labelControl11.Text = "Đơn giá";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl1.Location = new System.Drawing.Point(555, 302);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(60, 16);
+            this.labelControl1.TabIndex = 15;
+            this.labelControl1.Text = "Tổng tiền";
+            // 
+
             // labelControl8
             // 
             this.labelControl8.Location = new System.Drawing.Point(24, 31);
@@ -219,6 +263,7 @@
             this.labelControl1.TabIndex = 15;
             this.labelControl1.Text = "Tổng tiền";
             // 
+
             // simpleButtonXoa
             // 
             this.simpleButtonXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -249,24 +294,24 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlDanhSachSanPham.ContextMenuStrip = this.contextMenuStripUpdateGridData;
             this.gridControlDanhSachSanPham.Location = new System.Drawing.Point(5, 58);
-            this.gridControlDanhSachSanPham.MainView = this.gridView1;
+            this.gridControlDanhSachSanPham.MainView = this.gridViewDanhSachSanPham;
             this.gridControlDanhSachSanPham.Name = "gridControlDanhSachSanPham";
             this.gridControlDanhSachSanPham.Size = new System.Drawing.Size(850, 237);
             this.gridControlDanhSachSanPham.TabIndex = 12;
             this.gridControlDanhSachSanPham.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridViewDanhSachSanPham});
             // 
-            // gridView1
+            // gridViewDanhSachSanPham
             // 
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.GridControl = this.gridControlDanhSachSanPham;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsSelection.MultiSelect = true;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridViewDanhSachSanPham.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridViewDanhSachSanPham.GridControl = this.gridControlDanhSachSanPham;
+            this.gridViewDanhSachSanPham.Name = "gridViewDanhSachSanPham";
+            this.gridViewDanhSachSanPham.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gridViewDanhSachSanPham.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gridViewDanhSachSanPham.OptionsBehavior.Editable = false;
+            this.gridViewDanhSachSanPham.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewDanhSachSanPham.OptionsSelection.MultiSelect = true;
+            this.gridViewDanhSachSanPham.OptionsView.ShowGroupPanel = false;
             // 
             // textEditTongTien
             // 
@@ -485,7 +530,7 @@
             this.groupControl3.ResumeLayout(false);
             this.groupControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDanhSachSanPham)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDanhSachSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTongTien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSoLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditDonGia.Properties)).EndInit();
@@ -517,7 +562,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraGrid.GridControl gridControlDanhSachSanPham;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewDanhSachSanPham;
         private DevExpress.XtraEditors.TextEdit textEditTongTien;
         private DevExpress.XtraEditors.TextEdit textEditSoLuong;
         private DevExpress.XtraEditors.SimpleButton simpleButtonThem;
