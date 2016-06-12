@@ -96,7 +96,7 @@
             // dateTimePickerNgayTra
             // 
             this.dateTimePickerNgayTra.EditValue = null;
-            this.dateTimePickerNgayTra.Location = new System.Drawing.Point(135, 119);
+            this.dateTimePickerNgayTra.Location = new System.Drawing.Point(139, 119);
             this.dateTimePickerNgayTra.Name = "dateTimePickerNgayTra";
             this.dateTimePickerNgayTra.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -109,7 +109,7 @@
             // dateTimePickerNgayLap
             // 
             this.dateTimePickerNgayLap.EditValue = null;
-            this.dateTimePickerNgayLap.Location = new System.Drawing.Point(135, 92);
+            this.dateTimePickerNgayLap.Location = new System.Drawing.Point(139, 92);
             this.dateTimePickerNgayLap.Name = "dateTimePickerNgayLap";
             this.dateTimePickerNgayLap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -120,7 +120,7 @@
             // 
             // textEditConLai
             // 
-            this.textEditConLai.Location = new System.Drawing.Point(135, 195);
+            this.textEditConLai.Location = new System.Drawing.Point(139, 195);
             this.textEditConLai.Name = "textEditConLai";
             this.textEditConLai.Properties.ReadOnly = true;
             this.textEditConLai.Size = new System.Drawing.Size(304, 20);
@@ -128,7 +128,7 @@
             // 
             // textEditSoTienTra
             // 
-            this.textEditSoTienTra.Location = new System.Drawing.Point(135, 169);
+            this.textEditSoTienTra.Location = new System.Drawing.Point(139, 169);
             this.textEditSoTienTra.Name = "textEditSoTienTra";
             this.textEditSoTienTra.Properties.MaxLength = 10;
             this.textEditSoTienTra.Size = new System.Drawing.Size(304, 20);
@@ -138,7 +138,7 @@
             // textEditSoTienNo
             // 
             this.textEditSoTienNo.Enabled = false;
-            this.textEditSoTienNo.Location = new System.Drawing.Point(135, 143);
+            this.textEditSoTienNo.Location = new System.Drawing.Point(139, 143);
             this.textEditSoTienNo.Name = "textEditSoTienNo";
             this.textEditSoTienNo.Properties.ReadOnly = true;
             this.textEditSoTienNo.Size = new System.Drawing.Size(304, 20);
@@ -204,9 +204,9 @@
             // 
             this.labelControl6.Location = new System.Drawing.Point(69, 122);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(49, 13);
+            this.labelControl6.Size = new System.Drawing.Size(67, 13);
             this.labelControl6.TabIndex = 2;
-            this.labelControl6.Text = "Ngày trả :";
+            this.labelControl6.Text = "Ngày hẹn trả:";
             // 
             // labelControl5
             // 

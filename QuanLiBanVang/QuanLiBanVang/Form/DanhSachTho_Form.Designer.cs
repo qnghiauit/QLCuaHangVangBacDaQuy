@@ -46,6 +46,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.simpleButtonLamMoi = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDSTho)).BeginInit();
@@ -73,6 +74,7 @@
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.simpleButtonLamMoi);
             this.groupControl1.Controls.Add(this.simpleButtonXoa);
             this.groupControl1.Controls.Add(this.simpleButtonSua);
             this.groupControl1.Controls.Add(this.simpleButtonThem);
@@ -213,6 +215,17 @@
             this.barDockControlRight.Location = new System.Drawing.Point(705, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 464);
             // 
+            // simpleButtonLamMoi
+            // 
+            this.simpleButtonLamMoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonLamMoi.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonLamMoi.Image")));
+            this.simpleButtonLamMoi.Location = new System.Drawing.Point(580, 336);
+            this.simpleButtonLamMoi.Name = "simpleButtonLamMoi";
+            this.simpleButtonLamMoi.Size = new System.Drawing.Size(87, 27);
+            this.simpleButtonLamMoi.TabIndex = 9;
+            this.simpleButtonLamMoi.Text = "Làm mới";
+            this.simpleButtonLamMoi.Click += new System.EventHandler(this.simpleButtonLamMoi_Click);
+            // 
             // DanhSachTho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,5 +269,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonLamMoi;
     }
 }

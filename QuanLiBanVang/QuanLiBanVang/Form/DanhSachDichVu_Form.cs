@@ -147,5 +147,10 @@ namespace QuanLiBanVang
         {
             simpleButtonDel_Click(sender,e);
         }
+
+        private void simpleButtonLamMoi_Click(object sender, EventArgs e)
+        {
+            FillGridView();
+        }
     }
 }

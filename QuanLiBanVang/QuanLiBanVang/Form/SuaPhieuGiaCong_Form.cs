@@ -20,7 +20,8 @@ namespace QuanLiBanVang
         private int _maNv;
         private int _soPGC;
         private bool _isResultOk;
-        private ComboBoxItemCollection _comboboxItemsTho;private double _phanTramTienGcThoNhan;
+        private ComboBoxItemCollection _comboboxItemsTho;
+        private double _phanTramTienGcThoNhan;
         public SuaPhieuGiaCong_Form(int soPgc)
         {
             InitializeComponent();
@@ -369,11 +370,9 @@ namespace QuanLiBanVang
             //Create PGC
             BUL_PhieuGiaCong bulPhieuGiaCong = new BUL_PhieuGiaCong();
             PHIEUGIACONG phieugiacong = new PHIEUGIACONG();
-            phieugiacong.NgayNhanHang = dateEditNgayNhanHang.DateTime;
+            phieugiacong.SoPhieuGC = _soPGC;
             phieugiacong.NgayThanhToan = dateEditNgayThanhToan.DateTime;
-            phieugiacong.MaTho = ((THO) ((ContainerItem) comboBoxEditTenTho.SelectedItem).Value).MaTho;
             phieugiacong.TongTien = Convert.ToDecimal(textEditTongTien.Text);
-            phieugiacong.MaNV = _maNv;
             bulPhieuGiaCong.UpdatePhieuGiaCong(phieugiacong);
             //Neu ok het
             MessageBox.Show(Resources.SuaPhieuGiaCong_SuaPGCThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK, MessageBoxIcon.Information);

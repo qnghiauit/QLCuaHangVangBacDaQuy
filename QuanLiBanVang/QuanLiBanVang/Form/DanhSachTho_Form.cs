@@ -152,5 +152,10 @@ namespace QuanLiBanVang
             if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
                 popupMenu1.ShowPopup(MousePosition);
         }
+
+        private void simpleButtonLamMoi_Click(object sender, EventArgs e)
+        {
+            FillGridView();
+        }
     }
 }

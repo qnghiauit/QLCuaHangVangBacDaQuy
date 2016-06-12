@@ -40,7 +40,14 @@ namespace QuanLiBanVang
             };
             _bulTho.AddNewWorker(newTho);
             DialogResult = DialogResult.OK;
-            Close();
+            ClearForm();
+            if (!IsMdiChild)
+                Close();
+        }
+
+        private void ClearForm()
+        {
+            textEditTenTho.Text = textEditSDT.Text = textEditDiaChi.Text = null;
         }
 
         private void simpleButtonHuy_Click(object sender, EventArgs e)

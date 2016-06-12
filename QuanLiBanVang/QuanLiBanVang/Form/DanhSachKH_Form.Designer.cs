@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachKH));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.simpleButtonXoa = new DevExpress.XtraEditors.SimpleButton();
@@ -37,14 +38,15 @@
             this.gridViewDSKH = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.simpleButtonLamMoi = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDSKH)).BeginInit();
@@ -58,6 +60,7 @@
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.simpleButtonLamMoi);
             this.groupControl1.Controls.Add(this.simpleButtonXoa);
             this.groupControl1.Controls.Add(this.simpleButtonSua);
             this.groupControl1.Controls.Add(this.simpleButtonThem);
@@ -212,6 +215,17 @@
             this.barDockControlRight.Location = new System.Drawing.Point(701, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 491);
             // 
+            // simpleButtonLamMoi
+            // 
+            this.simpleButtonLamMoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonLamMoi.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonLamMoi.Image")));
+            this.simpleButtonLamMoi.Location = new System.Drawing.Point(576, 375);
+            this.simpleButtonLamMoi.Name = "simpleButtonLamMoi";
+            this.simpleButtonLamMoi.Size = new System.Drawing.Size(87, 27);
+            this.simpleButtonLamMoi.TabIndex = 7;
+            this.simpleButtonLamMoi.Text = "Làm mới";
+            this.simpleButtonLamMoi.Click += new System.EventHandler(this.simpleButtonLamMoi_Click);
+            // 
             // DanhSachKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,5 +269,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonLamMoi;
     }
 }

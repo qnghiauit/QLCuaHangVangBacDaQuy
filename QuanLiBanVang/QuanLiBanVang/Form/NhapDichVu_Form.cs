@@ -36,10 +36,15 @@ namespace QuanLiBanVang
             MessageBox.Show(Resources.ThemThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
+            ClearForm();
             if (!IsMdiChild)
                 Close();
         }
 
+        private void ClearForm()
+        {
+            textEditTenDV.Text = textEditTienCong.Text = null;
+        }
         private void simpleButtonHuy_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;

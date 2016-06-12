@@ -33,9 +33,8 @@ namespace DAL
             var currentPgc = _context.PHIEUGIACONGs.Find(phieugiacong.SoPhieuGC);
             if (currentPgc != null)
             {
-                currentPgc.NgayNhanHang = phieugiacong.NgayNhanHang;
                 currentPgc.NgayThanhToan = phieugiacong.NgayThanhToan;
-                currentPgc.MaTho = phieugiacong.MaTho;
+                currentPgc.TongTien = phieugiacong.TongTien;
                 _context.SaveChanges();
             }
         }

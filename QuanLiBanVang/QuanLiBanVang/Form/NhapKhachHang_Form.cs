@@ -40,7 +40,14 @@ namespace QuanLiBanVang
             };
             _bulKhachHang.AddNewClient(khachhang);
             DialogResult = DialogResult.OK;
-            Close();
+            ClearForm();
+            if (!IsMdiChild)
+                Close();
+        }
+
+        private void ClearForm()
+        {
+            textEditTenKH.Text = textEditSDT.Text = textEditDiaChi.Text = null;
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
