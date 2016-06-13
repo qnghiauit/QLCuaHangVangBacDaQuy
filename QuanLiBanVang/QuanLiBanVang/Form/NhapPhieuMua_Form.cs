@@ -55,8 +55,8 @@ namespace QuanLiBanVang.Report
             _detailTable.Columns.Add("Loại sản phẩm", typeof(string));
             _detailTable.Columns.Add("Số lượng", typeof(int));
             _detailTable.Columns.Add("Trọng lượng", typeof(float));
-            _detailTable.Columns.Add("Giá mua", typeof(int));
-            _detailTable.Columns.Add("Thành tiền", typeof(int));
+            _detailTable.Columns.Add("Giá mua", typeof(decimal));
+            _detailTable.Columns.Add("Thành tiền", typeof(decimal));
         }
         public void addNewRowToDataTable(DTO.CTPMH buydetail, string product, string producttype)
         {
@@ -73,8 +73,8 @@ namespace QuanLiBanVang.Report
             datarow[3] = producttype;
             datarow[4] = buydetail.SoLuong;
             datarow[5] = buydetail.TrongLuong;
-            datarow[6] = (int)buydetail.GiaMua;
-            datarow[7] = (int)buydetail.Thanhtien;
+            datarow[6] = Math.Round(buydetail.GiaMua).ToString();
+            datarow[7] = Math.Round(buydetail.Thanhtien).ToString();
             _detailTable.Rows.Add(datarow);
         }
         private void dgvBuy_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
@@ -143,8 +143,8 @@ namespace QuanLiBanVang.Report
             detail.Thanhtien = (decimal)(detail.SoLuong * detail.GiaMua);
             this.addNewRowToDataTable(detail, product, producttype);
             
-            int total = int.Parse(lbTotal.Text);
-            total += (int)detail.Thanhtien;
+            decimal total = decimal.Parse(lbTotal.Text);
+            total += Math.Round((decimal)detail.Thanhtien);
             this.lbTotal.Text = total.ToString();
         }
 
@@ -269,8 +269,8 @@ namespace QuanLiBanVang.Report
                     detail.SoPhieuMua = newBuyBill.SoPhieuMua;
                     detail.SoLuong = (int)i[4];
                     detail.TrongLuong = (float)i[5];
-                    detail.GiaMua = (int)i[6];
-                    detail.Thanhtien = (int)i[7];
+                    detail.GiaMua = (decimal)i[6];
+                    detail.Thanhtien = (decimal)i[7];
                     this._bulBuyDetail.addNewBuyDetail(detail);
                 }
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;

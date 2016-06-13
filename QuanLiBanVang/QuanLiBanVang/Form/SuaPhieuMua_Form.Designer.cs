@@ -43,10 +43,10 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.cboProductType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cboProduct = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtQuantity = new DevExpress.XtraEditors.TextEdit();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.groupControlGeneralInfo = new DevExpress.XtraEditors.GroupControl();
             this.lblPhoneNumber = new DevExpress.XtraEditors.LabelControl();
@@ -205,7 +205,7 @@
             // 
             this.txtPrice.Location = new System.Drawing.Point(292, 57);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Properties.Mask.EditMask = "[0-9]{1,10}";
+            this.txtPrice.Properties.Mask.EditMask = "[0-9]{1,8}";
             this.txtPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtPrice.Size = new System.Drawing.Size(108, 20);
             this.txtPrice.TabIndex = 7;
@@ -240,11 +240,19 @@
             this.cboProduct.TabIndex = 4;
             this.cboProduct.SelectedIndexChanged += new System.EventHandler(this.cboProduct_SelectedIndexChanged);
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(16, 34);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(68, 13);
+            this.labelControl6.TabIndex = 2;
+            this.labelControl6.Text = "Loại sản phẩm";
+            // 
             // txtQuantity
             // 
             this.txtQuantity.Location = new System.Drawing.Point(292, 31);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Properties.Mask.EditMask = "[0-9]{1,3}";
+            this.txtQuantity.Properties.Mask.EditMask = "[0-9]{1,2}";
             this.txtQuantity.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtQuantity.Size = new System.Drawing.Size(108, 20);
             this.txtQuantity.TabIndex = 6;
@@ -269,14 +277,6 @@
             this.labelControl7.Size = new System.Drawing.Size(42, 13);
             this.labelControl7.TabIndex = 3;
             this.labelControl7.Text = "Số lượng";
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(16, 34);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(68, 13);
-            this.labelControl6.TabIndex = 2;
-            this.labelControl6.Text = "Loại sản phẩm";
             // 
             // labelControl5
             // 

@@ -269,7 +269,7 @@
             // 
             this.txtPrice.Location = new System.Drawing.Point(315, 57);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Properties.Mask.EditMask = "[0-9]{1,10}";
+            this.txtPrice.Properties.Mask.EditMask = "[0-9]{1,8}";
             this.txtPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtPrice.Size = new System.Drawing.Size(108, 20);
             this.txtPrice.TabIndex = 7;
@@ -308,7 +308,7 @@
             // 
             this.txtQuantity.Location = new System.Drawing.Point(315, 31);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Properties.Mask.EditMask = "[0-9]{1,3}";
+            this.txtQuantity.Properties.Mask.EditMask = "[0-9]{1,2}";
             this.txtQuantity.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtQuantity.Size = new System.Drawing.Size(108, 20);
             this.txtQuantity.TabIndex = 6;

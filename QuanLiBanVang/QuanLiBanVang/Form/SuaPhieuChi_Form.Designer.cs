@@ -114,7 +114,7 @@
             // 
             this.txtPrice.Location = new System.Drawing.Point(106, 76);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Properties.Mask.EditMask = "\\d{3,10}";
+            this.txtPrice.Properties.Mask.EditMask = "[0-9]{1,8}";
             this.txtPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtPrice.Size = new System.Drawing.Size(116, 20);
             this.txtPrice.TabIndex = 3;

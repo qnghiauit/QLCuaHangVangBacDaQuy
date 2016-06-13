@@ -98,7 +98,7 @@
             // 
             this.txtCost.Location = new System.Drawing.Point(107, 81);
             this.txtCost.Name = "txtCost";
-            this.txtCost.Properties.Mask.EditMask = "\\d{3,10}";
+            this.txtCost.Properties.Mask.EditMask = "[0-9]{1,8}";
             this.txtCost.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtCost.Size = new System.Drawing.Size(118, 20);
             this.txtCost.TabIndex = 3;

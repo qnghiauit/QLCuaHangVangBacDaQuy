@@ -36,7 +36,7 @@ namespace QuanLiBanVang.Report
             _paymentTable.Columns.Add("Ngày lập", typeof(DateTime));
             _paymentTable.Columns.Add("Người lập", typeof(string));
             _paymentTable.Columns.Add("Nội dung chi", typeof(string));
-            _paymentTable.Columns.Add("Số tiền", typeof(int));
+            _paymentTable.Columns.Add("Số tiền", typeof(decimal));
             
 
         }
@@ -65,7 +65,7 @@ namespace QuanLiBanVang.Report
             datarow[1] = paymentbill.NgayLap;
             datarow[2] = staffname;
             datarow[3] = paymentbill.NoiDungChi;
-            datarow[4] = paymentbill.SoTien;
+            datarow[4] = Math.Round(paymentbill.SoTien).ToString();
             _paymentTable.Rows.Add(datarow);
         }
         private void updateRowInDataTable(int index, DTO.PHIEUCHI paymentbill, string staffname)
@@ -73,7 +73,7 @@ namespace QuanLiBanVang.Report
             _paymentTable.Rows[index][1] = paymentbill.NgayLap;
             _paymentTable.Rows[index][2] = staffname;
             _paymentTable.Rows[index][3] = paymentbill.NoiDungChi;
-            _paymentTable.Rows[index][4] = paymentbill.SoTien;
+            _paymentTable.Rows[index][4] = Math.Round(paymentbill.SoTien).ToString();
             this.dgvPaymentBill.RefreshRow(index);
         }
         private void dgvPaymentBill_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)

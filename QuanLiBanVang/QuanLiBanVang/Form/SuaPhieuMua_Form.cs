@@ -59,8 +59,8 @@ namespace QuanLiBanVang.Report
             _detailTable.Columns.Add("Loại sản phẩm", typeof(string));
             _detailTable.Columns.Add("Số lượng", typeof(int));
             _detailTable.Columns.Add("Trọng lượng", typeof(float));
-            _detailTable.Columns.Add("Giá mua", typeof(int));
-            _detailTable.Columns.Add("Thành tiền", typeof(int));
+            _detailTable.Columns.Add("Giá mua", typeof(decimal));
+            _detailTable.Columns.Add("Thành tiền", typeof(decimal));
             
         }
         public void addNewRowToDataTable(DTO.CTPMH buydetail, string product, string producttype)
@@ -82,8 +82,8 @@ namespace QuanLiBanVang.Report
             datarow[5] = producttype;
             datarow[6] = buydetail.SoLuong;
             datarow[7] = buydetail.TrongLuong;
-            datarow[8] = buydetail.GiaMua;
-            datarow[9] = buydetail.Thanhtien;
+            datarow[8] = Math.Round(buydetail.GiaMua).ToString();
+            datarow[9] = Math.Round(buydetail.Thanhtien).ToString();
             _detailTable.Rows.Add(datarow);
         }
         public bool CheckControlValidation()
@@ -204,7 +204,8 @@ namespace QuanLiBanVang.Report
                 this.cboClientName.Enabled = false;
                 this.btnAdd.Enabled = false;
             }
-            this.lbTotal.Text = ((int)_buyBill.TongTien).ToString();
+
+            this.lbTotal.Text = Math.Round(this._buyBill.TongTien.Value).ToString();
             this.dgvBuy.Columns[0].Visible = false;
             this.dgvBuy.Columns[1].Visible = false;
             this.dgvBuy.Columns[2].Visible = false;
@@ -281,8 +282,8 @@ namespace QuanLiBanVang.Report
             detail.Thanhtien = (decimal)(detail.SoLuong * detail.GiaMua);
             
             decimal total = decimal.Parse(lbTotal.Text);
-            total += (decimal)detail.Thanhtien;
-            this.lbTotal.Text = ((int)total).ToString();
+            total += Math.Round((decimal)detail.Thanhtien);
+            this.lbTotal.Text = total.ToString();
 
             this._bulBuyDetail.addNewBuyDetail(detail);
             
