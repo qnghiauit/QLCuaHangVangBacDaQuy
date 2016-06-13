@@ -146,7 +146,7 @@ namespace QuanLiBanVang.Report
                 //DateTime current = DateTime.UtcNow.Date;
                 if (DateTime.Compare(((DateTime)row[1]).Date, DateTime.Now.Date) < 0)
                 {
-                    MessageBox.Show("Không thể xóa phiếu chi đã duyệt!");
+                    MessageBox.Show("Không thể sửa phiếu chi đã lập trước ngày hiện tại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 SuaPhieuChi_Form editPayment_frm = new SuaPhieuChi_Form((int)row[0]);
