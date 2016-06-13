@@ -130,6 +130,7 @@
             // 
             this.textEditSoTienTra.Location = new System.Drawing.Point(139, 169);
             this.textEditSoTienTra.Name = "textEditSoTienTra";
+            this.textEditSoTienTra.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.textEditSoTienTra.Properties.MaxLength = 10;
             this.textEditSoTienTra.Size = new System.Drawing.Size(304, 20);
             this.textEditSoTienTra.TabIndex = 7;

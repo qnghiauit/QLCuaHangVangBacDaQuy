@@ -477,7 +477,7 @@ namespace QuanLiBanVang
                 }
                 else
                 {
-                    MessageBox.Show(ErrorMessage.EMPTY_DETAILS_ERR_MESSAGE, 
+                    MessageBox.Show(ErrorMessage.EMPTY_DETAILS_ERR_MESSAGE,
                         ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -489,8 +489,11 @@ namespace QuanLiBanVang
             if (this.checkEditKhachQuen.Checked)
             {
                 // reset text all customer information textfield
-                this.textEditTenKhachHang.ResetText();
-                this.textEditDiaChiKhachHang.ResetText();
+                if (this.actionType == ActionType.ACTION_CREATE_NEW)
+                {
+                    this.textEditTenKhachHang.ResetText();
+                    this.textEditDiaChiKhachHang.ResetText();
+                }
 
                 this.textEditTenKhachHang.ReadOnly = true;
                 this.textEditDiaChiKhachHang.ReadOnly = true;

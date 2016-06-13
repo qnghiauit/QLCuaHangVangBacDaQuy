@@ -76,7 +76,8 @@
             // 
             this.textEditSoDienThoai.Location = new System.Drawing.Point(86, 79);
             this.textEditSoDienThoai.Name = "textEditSoDienThoai";
-            this.textEditSoDienThoai.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.textEditSoDienThoai.Properties.Mask.EditMask = "[0-9]";
+            this.textEditSoDienThoai.Properties.MaxLength = 11;
             this.textEditSoDienThoai.Size = new System.Drawing.Size(207, 20);
             this.textEditSoDienThoai.TabIndex = 1;
             // 

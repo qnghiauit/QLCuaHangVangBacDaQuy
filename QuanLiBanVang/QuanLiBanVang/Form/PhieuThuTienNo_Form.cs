@@ -27,6 +27,10 @@ namespace QuanLiBanVang.Form
         PHIEUBANHANG receipt; // save the receipt if this is the first dept receipt
         PHIEUTHUTIENNO previousDeptRecepit; // if this is NOT the first dept receipt
         bool isTheFirstDept;
+
+        public delegate void RefreshDebtReceiptData();
+        public RefreshDebtReceiptData refreshDebtReceiptDataCallback;
+
         public PhieuThuTienNo_Form()
         {
             InitializeComponent();
@@ -138,6 +142,7 @@ namespace QuanLiBanVang.Form
 
                     // start to save into database
                     this.bulDeptReceipt.add(newDeptReceipt);
+                    this.refreshDebtReceiptDataCallback(); // delegate to main form to refresh data
                     // PhieuThuTienNo recentSavedDeptReceipt = this.bulDeptReceipt
                     if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.DateTime.ToShortDateString(), NotificationMessage.MESSAGE_TITLE,
                           MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
@@ -160,7 +165,16 @@ namespace QuanLiBanVang.Form
                 };
                 // start to save into database
                 this.bulDeptReceipt.add(newDeptReceipt);
-                if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.DateTime.ToShortDateString(), NotificationMessage.MESSAGE_TITLE,
+                this.refreshDebtReceiptDataCallback(); // delegate to main form to refresh data
+                if (decimal.Compare(newDeptReceipt.SoTienConLai, decimal.Zero) == 0)
+                {
+                    if (MessageBox.Show("Đã lưu phiếu thu nợ . Phiếu nợ đã được trả đủ !", NotificationMessage.MESSAGE_TITLE,
+                           MessageBoxButtons.OK, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        this.Close();
+                    }
+                }
+                else if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.DateTime.ToShortDateString(), NotificationMessage.MESSAGE_TITLE,
                           MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.Close();
@@ -193,7 +207,16 @@ namespace QuanLiBanVang.Form
             decimal frequenterPrepay = decimal.Parse(this.textEditSoTienTra.Text.Trim());
             decimal deptAmount = decimal.Parse(this.textEditSoTienNo.Text.Trim());
             decimal rest = decimal.Subtract(deptAmount, frequenterPrepay);
-            this.textEditConLai.Text = rest.ToString();
+            // make sure we do not have negative result
+            if (decimal.Compare(rest, decimal.Zero) < 0)
+            {
+                this.textEditSoTienTra.ResetText();
+                MessageBox.Show("Số tiền nhập vượt quá số tiền nợ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                this.textEditConLai.Text = rest.ToString();
+            }
         }
 
         private void PhieuThuTienNo_Form_SizeChanged(object sender, EventArgs e)

@@ -90,6 +90,7 @@ namespace QuanLiBanVang.Form
             {
                 // create the first dept receipt
                 PhieuThuTienNo_Form firstDeptReceiptForm = new PhieuThuTienNo_Form(selectedReceipt);
+                firstDeptReceiptForm.refreshDebtReceiptDataCallback = new PhieuThuTienNo_Form.RefreshDebtReceiptData(this.refreshDebtReceiptData);
                 firstDeptReceiptForm.ShowDialog();
             }
             else // otherwise
@@ -104,6 +105,7 @@ namespace QuanLiBanVang.Form
                 }
                 // start to show the form
                 PhieuThuTienNo_Form deptReceiptForm = new PhieuThuTienNo_Form(lastDeptReceip);
+                deptReceiptForm.refreshDebtReceiptDataCallback = new PhieuThuTienNo_Form.RefreshDebtReceiptData(this.refreshDebtReceiptData);
                 deptReceiptForm.ShowDialog();
 
             }
@@ -133,6 +135,7 @@ namespace QuanLiBanVang.Form
             {
                 // create the first dept receipt
                 PhieuThuTienNo_Form firstDeptReceiptForm = new PhieuThuTienNo_Form(selectedReceipt);
+                firstDeptReceiptForm.refreshDebtReceiptDataCallback = new PhieuThuTienNo_Form.RefreshDebtReceiptData(this.refreshDebtReceiptData);
                 firstDeptReceiptForm.ShowDialog();
             }
             else // otherwise
@@ -147,6 +150,7 @@ namespace QuanLiBanVang.Form
                 }
                 // start to show the form
                 PhieuThuTienNo_Form deptReceiptForm = new PhieuThuTienNo_Form(lastDeptReceip);
+                deptReceiptForm.refreshDebtReceiptDataCallback = new PhieuThuTienNo_Form.RefreshDebtReceiptData(this.refreshDebtReceiptData);
                 deptReceiptForm.ShowDialog();
 
             }
@@ -214,5 +218,13 @@ namespace QuanLiBanVang.Form
             this.gridViewDanhSachPhieuNo.Columns[7].Caption = "Số tiền còn lại";
         }
 
+
+        /// <summary>
+        /// delegate method from form : PhieuThuTienNo_Form
+        /// </summary>
+        private void refreshDebtReceiptData()
+        {
+            this.showDetail();
+        }
     }
 }
