@@ -125,6 +125,8 @@ namespace QuanLiBanVang.Report
         {
             //if (_buyBill != null)
             //{
+            this.cboClientName.ReadOnly = true;
+            this.rdoClientType.ReadOnly = true;
             this.dtpkCreateDate.Properties.ReadOnly = true;
             List<DTO.KHACHHANG> listClient = _bulClient.GetAllKhachhangs();
             List<DTO.SANPHAM> listProduct = _bulProduct.getAllProduct();
@@ -204,7 +206,9 @@ namespace QuanLiBanVang.Report
             }
             this.lbTotal.Text = ((int)_buyBill.TongTien).ToString();
             this.dgvBuy.Columns[0].Visible = false;
-            
+            this.dgvBuy.Columns[1].Visible = false;
+            this.dgvBuy.Columns[2].Visible = false;
+            this.dgvBuy.Columns[3].Visible = false;
             //}
         }
 

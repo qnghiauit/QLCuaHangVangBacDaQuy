@@ -94,7 +94,9 @@ namespace QuanLiBanVang.Report
             if (this.rdoClientType.SelectedIndex == 0)
             {
                 this.cboClientName.Enabled = false;
+                this.cboClientName.SelectedIndex = -1;
                 this.lblPhoneNumber.Text = "(Không có)";
+
             }
             else
             {
