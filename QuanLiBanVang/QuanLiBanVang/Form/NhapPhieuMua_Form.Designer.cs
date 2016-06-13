@@ -105,7 +105,7 @@
             this.groupControlGeneralInfo.Controls.Add(this.labelControl2);
             this.groupControlGeneralInfo.Location = new System.Drawing.Point(12, 42);
             this.groupControlGeneralInfo.Name = "groupControlGeneralInfo";
-            this.groupControlGeneralInfo.Size = new System.Drawing.Size(745, 117);
+            this.groupControlGeneralInfo.Size = new System.Drawing.Size(745, 165);
             this.groupControlGeneralInfo.TabIndex = 1;
             this.groupControlGeneralInfo.Text = "Thông tin chung";
             // 
@@ -204,24 +204,25 @@
             this.groupControlDetail.Controls.Add(this.labelControl8);
             this.groupControlDetail.Controls.Add(this.cboProductType);
             this.groupControlDetail.Controls.Add(this.cboProduct);
+            this.groupControlDetail.Controls.Add(this.labelControl6);
             this.groupControlDetail.Controls.Add(this.txtQuantity);
             this.groupControlDetail.Controls.Add(this.btnDelete);
             this.groupControlDetail.Controls.Add(this.btnAdd);
             this.groupControlDetail.Controls.Add(this.labelControl7);
-            this.groupControlDetail.Controls.Add(this.labelControl6);
             this.groupControlDetail.Controls.Add(this.labelControl5);
             this.groupControlDetail.Controls.Add(this.dgvBuyList);
             this.groupControlDetail.Location = new System.Drawing.Point(12, 165);
             this.groupControlDetail.Name = "groupControlDetail";
-            this.groupControlDetail.Size = new System.Drawing.Size(745, 258);
+            this.groupControlDetail.Size = new System.Drawing.Size(745, 306);
             this.groupControlDetail.TabIndex = 2;
             this.groupControlDetail.Text = "Chi tiết";
             // 
             // labelControl11
             // 
+            this.labelControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl11.Location = new System.Drawing.Point(617, 60);
+            this.labelControl11.Location = new System.Drawing.Point(713, 285);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(27, 16);
             this.labelControl11.TabIndex = 16;
@@ -229,9 +230,10 @@
             // 
             // lbTotal
             // 
+            this.lbTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbTotal.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lbTotal.Location = new System.Drawing.Point(514, 60);
+            this.lbTotal.Location = new System.Drawing.Point(610, 285);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(8, 16);
             this.lbTotal.TabIndex = 15;
@@ -239,7 +241,8 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(445, 60);
+            this.labelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl10.Location = new System.Drawing.Point(541, 285);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(50, 13);
             this.labelControl10.TabIndex = 14;
@@ -281,7 +284,7 @@
             // 
             // cboProductType
             // 
-            this.cboProductType.Location = new System.Drawing.Point(91, 57);
+            this.cboProductType.Location = new System.Drawing.Point(91, 31);
             this.cboProductType.Name = "cboProductType";
             this.cboProductType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -292,7 +295,7 @@
             // 
             // cboProduct
             // 
-            this.cboProduct.Location = new System.Drawing.Point(91, 31);
+            this.cboProduct.Location = new System.Drawing.Point(91, 57);
             this.cboProduct.Name = "cboProduct";
             this.cboProduct.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -346,7 +349,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(9, 60);
+            this.labelControl6.Location = new System.Drawing.Point(9, 34);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(68, 13);
             this.labelControl6.TabIndex = 2;
@@ -354,7 +357,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(9, 34);
+            this.labelControl5.Location = new System.Drawing.Point(9, 60);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(67, 13);
             this.labelControl5.TabIndex = 1;
@@ -368,7 +371,7 @@
             this.dgvBuyList.Location = new System.Drawing.Point(5, 86);
             this.dgvBuyList.MainView = this.dgvBuy;
             this.dgvBuyList.Name = "dgvBuyList";
-            this.dgvBuyList.Size = new System.Drawing.Size(735, 165);
+            this.dgvBuyList.Size = new System.Drawing.Size(735, 193);
             this.dgvBuyList.TabIndex = 0;
             this.dgvBuyList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvBuy});
@@ -392,7 +395,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(577, 429);
+            this.btnSave.Location = new System.Drawing.Point(577, 477);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 27);
             this.btnSave.TabIndex = 11;
@@ -405,7 +408,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(670, 429);
+            this.btnCancel.Location = new System.Drawing.Point(670, 477);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.TabIndex = 12;
@@ -416,7 +419,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 459);
+            this.ClientSize = new System.Drawing.Size(769, 507);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupControlDetail);

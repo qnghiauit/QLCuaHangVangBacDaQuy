@@ -228,7 +228,7 @@ namespace QuanLiBanVang
             {
                 drReview["SoLuong"] = Int32.Parse(drReview["SoLuong"].ToString()) + Int32.Parse(soLuong);
                 drReview["TienCong"] = tienCong;
-                drReview["ThanhTien"] = ((decimal) drReview["SoLuong"])*Convert.ToDecimal(tienCong);
+                drReview["ThanhTien"] = ((int) drReview["SoLuong"])*Convert.ToDecimal(tienCong);
             }
             else
             {

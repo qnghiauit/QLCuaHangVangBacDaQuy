@@ -248,6 +248,7 @@ namespace QuanLiBanVang
                 if (dv.MaDV == 2)
                 {
                     textEditTienCong.ReadOnly = false;
+                    textEditTienCong.Text = null;
                     textEditHTGC.ReadOnly = false;
                 }
                 else

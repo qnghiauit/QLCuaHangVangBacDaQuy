@@ -153,7 +153,7 @@
             this.comboBoxEditTenTho.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEditTenTho.Size = new System.Drawing.Size(165, 20);
-            this.comboBoxEditTenTho.TabIndex = 11;
+            this.comboBoxEditTenTho.TabIndex = 12;
             // 
             // dateEditNgayThanhToan
             // 
@@ -165,7 +165,7 @@
             this.dateEditNgayThanhToan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditNgayThanhToan.Size = new System.Drawing.Size(126, 20);
-            this.dateEditNgayThanhToan.TabIndex = 7;
+            this.dateEditNgayThanhToan.TabIndex = 14;
             // 
             // dateEditNgayNhanHang
             // 
@@ -177,7 +177,7 @@
             this.dateEditNgayNhanHang.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditNgayNhanHang.Size = new System.Drawing.Size(126, 20);
-            this.dateEditNgayNhanHang.TabIndex = 6;
+            this.dateEditNgayNhanHang.TabIndex = 13;
             // 
             // labelControl5
             // 
@@ -330,7 +330,7 @@
             this.textEditSoLuong.Properties.MaxLength = 3;
             this.textEditSoLuong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textEditSoLuong.Size = new System.Drawing.Size(42, 20);
-            this.textEditSoLuong.TabIndex = 31;
+            this.textEditSoLuong.TabIndex = 16;
             this.textEditSoLuong.EditValueChanged += new System.EventHandler(this.textEditSoLuong_EditValueChanged);
             // 
             // simpleButtonThem
@@ -340,7 +340,7 @@
             this.simpleButtonThem.Location = new System.Drawing.Point(967, 102);
             this.simpleButtonThem.Name = "simpleButtonThem";
             this.simpleButtonThem.Size = new System.Drawing.Size(87, 27);
-            this.simpleButtonThem.TabIndex = 19;
+            this.simpleButtonThem.TabIndex = 17;
             this.simpleButtonThem.Text = "Thêm";
             this.simpleButtonThem.Click += new System.EventHandler(this.simpleButtonThem_Click);
             // 
@@ -439,7 +439,7 @@
             this.gridControlCTSPGC.MainView = this.gridViewCTSPGC;
             this.gridControlCTSPGC.Name = "gridControlCTSPGC";
             this.gridControlCTSPGC.Size = new System.Drawing.Size(496, 268);
-            this.gridControlCTSPGC.TabIndex = 10;
+            this.gridControlCTSPGC.TabIndex = 15;
             this.gridControlCTSPGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCTSPGC});
             // 
@@ -469,7 +469,7 @@
             this.simpleButtonLuu.Location = new System.Drawing.Point(1103, 555);
             this.simpleButtonLuu.Name = "simpleButtonLuu";
             this.simpleButtonLuu.Size = new System.Drawing.Size(85, 27);
-            this.simpleButtonLuu.TabIndex = 16;
+            this.simpleButtonLuu.TabIndex = 18;
             this.simpleButtonLuu.Text = "Cập nhật";
             this.simpleButtonLuu.Click += new System.EventHandler(this.simpleButtonLuu_Click);
             // 

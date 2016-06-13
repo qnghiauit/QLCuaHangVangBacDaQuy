@@ -188,14 +188,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEditTenKhach.Properties.MaxLength = 70;
             this.comboBoxEditTenKhach.Size = new System.Drawing.Size(185, 20);
-            this.comboBoxEditTenKhach.TabIndex = 11;
+            this.comboBoxEditTenKhach.TabIndex = 13;
             // 
             // textEditDiaChi
             // 
             this.textEditDiaChi.Location = new System.Drawing.Point(96, 133);
             this.textEditDiaChi.Name = "textEditDiaChi";
             this.textEditDiaChi.Size = new System.Drawing.Size(327, 20);
-            this.textEditDiaChi.TabIndex = 10;
+            this.textEditDiaChi.TabIndex = 14;
             // 
             // labelControl11
             // 
@@ -215,7 +215,7 @@
             this.dateEditNgayGiao.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditNgayGiao.Size = new System.Drawing.Size(131, 20);
-            this.dateEditNgayGiao.TabIndex = 7;
+            this.dateEditNgayGiao.TabIndex = 12;
             this.dateEditNgayGiao.EditValueChanged += new System.EventHandler(this.dateEditNgayGiao_EditValueChanged);
             // 
             // dateEditNgayDK
@@ -228,7 +228,7 @@
             this.dateEditNgayDK.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditNgayDK.Size = new System.Drawing.Size(131, 20);
-            this.dateEditNgayDK.TabIndex = 6;
+            this.dateEditNgayDK.TabIndex = 11;
             // 
             // groupControl2
             // 
@@ -264,7 +264,7 @@
             this.textEditHTGC.Location = new System.Drawing.Point(332, 60);
             this.textEditHTGC.Name = "textEditHTGC";
             this.textEditHTGC.Size = new System.Drawing.Size(180, 20);
-            this.textEditHTGC.TabIndex = 29;
+            this.textEditHTGC.TabIndex = 18;
             // 
             // labelControl4
             // 
@@ -303,7 +303,7 @@
             this.simpleButtonThem.Location = new System.Drawing.Point(810, 26);
             this.simpleButtonThem.Name = "simpleButtonThem";
             this.simpleButtonThem.Size = new System.Drawing.Size(87, 27);
-            this.simpleButtonThem.TabIndex = 25;
+            this.simpleButtonThem.TabIndex = 19;
             this.simpleButtonThem.Text = "Thêm";
             this.simpleButtonThem.Click += new System.EventHandler(this.simpleButtonThem_Click);
             // 
@@ -315,7 +315,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEditTenDV.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEditTenDV.Size = new System.Drawing.Size(139, 20);
-            this.comboBoxEditTenDV.TabIndex = 23;
+            this.comboBoxEditTenDV.TabIndex = 15;
             this.comboBoxEditTenDV.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditTenDV_SelectedIndexChanged);
             // 
             // labelControl7
@@ -334,7 +334,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEditLoaiSP.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEditLoaiSP.Size = new System.Drawing.Size(139, 20);
-            this.comboBoxEditLoaiSP.TabIndex = 21;
+            this.comboBoxEditLoaiSP.TabIndex = 15;
             // 
             // textEditTongTien
             // 
@@ -355,7 +355,7 @@
             this.textEditSoLuong.Properties.MaxLength = 3;
             this.textEditSoLuong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textEditSoLuong.Size = new System.Drawing.Size(48, 20);
-            this.textEditSoLuong.TabIndex = 17;
+            this.textEditSoLuong.TabIndex = 16;
             this.textEditSoLuong.EditValueChanged += new System.EventHandler(this.textEditSoLuong_EditValueChanged);
             // 
             // textEditThanhTien
@@ -375,7 +375,7 @@
             this.textEditTienCong.Name = "textEditTienCong";
             this.textEditTienCong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textEditTienCong.Size = new System.Drawing.Size(121, 20);
-            this.textEditTienCong.TabIndex = 15;
+            this.textEditTienCong.TabIndex = 17;
             this.textEditTienCong.EditValueChanged += new System.EventHandler(this.textEditTienCong_EditValueChanged);
             // 
             // labelControl13
@@ -451,7 +451,7 @@
             this.simpleButtonOK.Location = new System.Drawing.Point(762, 537);
             this.simpleButtonOK.Name = "simpleButtonOK";
             this.simpleButtonOK.Size = new System.Drawing.Size(83, 27);
-            this.simpleButtonOK.TabIndex = 13;
+            this.simpleButtonOK.TabIndex = 20;
             this.simpleButtonOK.Text = "Cập nhật";
             this.simpleButtonOK.Click += new System.EventHandler(this.simpleButtonOK_Click);
             // 

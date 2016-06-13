@@ -207,7 +207,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEditTenKhach.Properties.MaxLength = 70;
             this.comboBoxEditTenKhach.Size = new System.Drawing.Size(185, 20);
-            this.comboBoxEditTenKhach.TabIndex = 11;
+            this.comboBoxEditTenKhach.TabIndex = 8;
             this.comboBoxEditTenKhach.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditTenKhach_SelectedIndexChanged);
             // 
             // textEditDiaChi
@@ -215,7 +215,7 @@
             this.textEditDiaChi.Location = new System.Drawing.Point(94, 133);
             this.textEditDiaChi.Name = "textEditDiaChi";
             this.textEditDiaChi.Size = new System.Drawing.Size(417, 20);
-            this.textEditDiaChi.TabIndex = 10;
+            this.textEditDiaChi.TabIndex = 9;
             // 
             // labelControl11
             // 
@@ -283,7 +283,7 @@
             this.textEditHTGC.Name = "textEditHTGC";
             this.textEditHTGC.Properties.ReadOnly = true;
             this.textEditHTGC.Size = new System.Drawing.Size(179, 20);
-            this.textEditHTGC.TabIndex = 42;
+            this.textEditHTGC.TabIndex = 14;
             // 
             // labelControl4
             // 
@@ -304,7 +304,7 @@
             this.textEditTienCong.Properties.ReadOnly = true;
             this.textEditTienCong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textEditTienCong.Size = new System.Drawing.Size(119, 20);
-            this.textEditTienCong.TabIndex = 40;
+            this.textEditTienCong.TabIndex = 13;
             this.textEditTienCong.EditValueChanged += new System.EventHandler(this.textEditTienCong_EditValueChanged_1);
             // 
             // simpleButtonXoa
@@ -325,7 +325,7 @@
             this.simpleButtonThem.Location = new System.Drawing.Point(722, 23);
             this.simpleButtonThem.Name = "simpleButtonThem";
             this.simpleButtonThem.Size = new System.Drawing.Size(87, 27);
-            this.simpleButtonThem.TabIndex = 25;
+            this.simpleButtonThem.TabIndex = 15;
             this.simpleButtonThem.Text = "Thêm";
             this.simpleButtonThem.Click += new System.EventHandler(this.simpleButtonThem_Click);
             // 
@@ -337,7 +337,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEditTenDV.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEditTenDV.Size = new System.Drawing.Size(139, 20);
-            this.comboBoxEditTenDV.TabIndex = 23;
+            this.comboBoxEditTenDV.TabIndex = 11;
             this.comboBoxEditTenDV.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditTenDV_SelectedIndexChanged);
             // 
             // labelControl7
@@ -356,7 +356,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEditLoaiSP.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEditLoaiSP.Size = new System.Drawing.Size(139, 20);
-            this.comboBoxEditLoaiSP.TabIndex = 21;
+            this.comboBoxEditLoaiSP.TabIndex = 10;
             // 
             // textEditTongTien
             // 
@@ -379,7 +379,7 @@
             this.textEditSoLuong.Properties.MaxLength = 3;
             this.textEditSoLuong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textEditSoLuong.Size = new System.Drawing.Size(49, 20);
-            this.textEditSoLuong.TabIndex = 17;
+            this.textEditSoLuong.TabIndex = 12;
             this.textEditSoLuong.EditValueChanged += new System.EventHandler(this.textEditSoLuong_EditValueChanged);
             // 
             // textEditThanhTien
@@ -433,7 +433,7 @@
             this.gridControlCTPDV.MainView = this.gridViewCT_PDV;
             this.gridControlCTPDV.Name = "gridControlCTPDV";
             this.gridControlCTPDV.Size = new System.Drawing.Size(791, 192);
-            this.gridControlCTPDV.TabIndex = 10;
+            this.gridControlCTPDV.TabIndex = 16;
             this.gridControlCTPDV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCT_PDV});
             // 
@@ -464,7 +464,7 @@
             this.simpleButtonOK.Location = new System.Drawing.Point(693, 534);
             this.simpleButtonOK.Name = "simpleButtonOK";
             this.simpleButtonOK.Size = new System.Drawing.Size(70, 27);
-            this.simpleButtonOK.TabIndex = 13;
+            this.simpleButtonOK.TabIndex = 17;
             this.simpleButtonOK.Text = "Lưu";
             this.simpleButtonOK.Click += new System.EventHandler(this.simpleButtonOK_Click);
             // 

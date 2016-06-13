@@ -139,7 +139,6 @@ namespace QuanLiBanVang.Report
                 row = this.dgvPaymentBill.GetDataRow(i);
                 pos = i;
                 break;
-
             }
             if (row != null)
             {

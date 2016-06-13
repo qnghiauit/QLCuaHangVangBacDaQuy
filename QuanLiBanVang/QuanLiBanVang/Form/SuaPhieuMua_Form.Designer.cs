@@ -81,7 +81,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(681, 428);
+            this.btnCancel.Location = new System.Drawing.Point(681, 490);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.TabIndex = 11;
@@ -109,7 +109,7 @@
             this.dgvBuyList.Location = new System.Drawing.Point(5, 86);
             this.dgvBuyList.MainView = this.dgvBuy;
             this.dgvBuyList.Name = "dgvBuyList";
-            this.dgvBuyList.Size = new System.Drawing.Size(747, 165);
+            this.dgvBuyList.Size = new System.Drawing.Size(747, 205);
             this.dgvBuyList.TabIndex = 0;
             this.dgvBuyList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvBuy});
@@ -120,7 +120,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(588, 428);
+            this.btnSave.Location = new System.Drawing.Point(588, 490);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 27);
             this.btnSave.TabIndex = 10;
@@ -129,9 +129,10 @@
             // 
             // labelControl11
             // 
+            this.labelControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl11.Location = new System.Drawing.Point(615, 57);
+            this.labelControl11.Location = new System.Drawing.Point(725, 300);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(27, 16);
             this.labelControl11.TabIndex = 16;
@@ -139,9 +140,10 @@
             // 
             // lbTotal
             // 
+            this.lbTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbTotal.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.lbTotal.Location = new System.Drawing.Point(514, 60);
+            this.lbTotal.Location = new System.Drawing.Point(619, 300);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(8, 16);
             this.lbTotal.TabIndex = 15;
@@ -149,7 +151,8 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(445, 60);
+            this.labelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl10.Location = new System.Drawing.Point(550, 300);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(50, 13);
             this.labelControl10.TabIndex = 14;
@@ -157,7 +160,7 @@
             // 
             // txtWeight
             // 
-            this.txtWeight.Location = new System.Drawing.Point(514, 31);
+            this.txtWeight.Location = new System.Drawing.Point(482, 31);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Properties.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
             this.txtWeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -178,21 +181,21 @@
             this.groupControlDetail.Controls.Add(this.labelControl8);
             this.groupControlDetail.Controls.Add(this.cboProductType);
             this.groupControlDetail.Controls.Add(this.cboProduct);
+            this.groupControlDetail.Controls.Add(this.labelControl6);
             this.groupControlDetail.Controls.Add(this.txtQuantity);
             this.groupControlDetail.Controls.Add(this.btnAdd);
             this.groupControlDetail.Controls.Add(this.labelControl7);
-            this.groupControlDetail.Controls.Add(this.labelControl6);
             this.groupControlDetail.Controls.Add(this.labelControl5);
             this.groupControlDetail.Controls.Add(this.dgvBuyList);
             this.groupControlDetail.Location = new System.Drawing.Point(11, 164);
             this.groupControlDetail.Name = "groupControlDetail";
-            this.groupControlDetail.Size = new System.Drawing.Size(757, 258);
+            this.groupControlDetail.Size = new System.Drawing.Size(757, 320);
             this.groupControlDetail.TabIndex = 7;
             this.groupControlDetail.Text = "Chi tiết phiếu mua";
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(445, 34);
+            this.labelControl9.Location = new System.Drawing.Point(413, 34);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(58, 13);
             this.labelControl9.TabIndex = 12;
@@ -200,7 +203,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(315, 57);
+            this.txtPrice.Location = new System.Drawing.Point(292, 57);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Properties.Mask.EditMask = "[0-9]{1,10}";
             this.txtPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -217,7 +220,7 @@
             // 
             // cboProductType
             // 
-            this.cboProductType.Location = new System.Drawing.Point(91, 57);
+            this.cboProductType.Location = new System.Drawing.Point(98, 31);
             this.cboProductType.Name = "cboProductType";
             this.cboProductType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -228,7 +231,7 @@
             // 
             // cboProduct
             // 
-            this.cboProduct.Location = new System.Drawing.Point(91, 31);
+            this.cboProduct.Location = new System.Drawing.Point(98, 57);
             this.cboProduct.Name = "cboProduct";
             this.cboProduct.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -239,7 +242,7 @@
             // 
             // txtQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(315, 31);
+            this.txtQuantity.Location = new System.Drawing.Point(292, 31);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Properties.Mask.EditMask = "[0-9]{1,3}";
             this.txtQuantity.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -269,7 +272,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(9, 60);
+            this.labelControl6.Location = new System.Drawing.Point(16, 34);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(68, 13);
             this.labelControl6.TabIndex = 2;
@@ -277,7 +280,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(9, 34);
+            this.labelControl5.Location = new System.Drawing.Point(16, 60);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(67, 13);
             this.labelControl5.TabIndex = 1;
@@ -298,7 +301,7 @@
             this.groupControlGeneralInfo.Controls.Add(this.labelControl2);
             this.groupControlGeneralInfo.Location = new System.Drawing.Point(11, 42);
             this.groupControlGeneralInfo.Name = "groupControlGeneralInfo";
-            this.groupControlGeneralInfo.Size = new System.Drawing.Size(757, 116);
+            this.groupControlGeneralInfo.Size = new System.Drawing.Size(757, 178);
             this.groupControlGeneralInfo.TabIndex = 6;
             this.groupControlGeneralInfo.Text = "Thông tin chung";
             // 
@@ -401,7 +404,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 464);
+            this.ClientSize = new System.Drawing.Size(780, 526);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupControlDetail);

@@ -75,7 +75,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl4.Location = new System.Drawing.Point(216, 53);
+            this.labelControl4.Location = new System.Drawing.Point(224, 53);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(18, 18);
             this.labelControl4.TabIndex = 4;
@@ -83,7 +83,7 @@
             // 
             // txtPercent
             // 
-            this.txtPercent.Location = new System.Drawing.Point(110, 53);
+            this.txtPercent.Location = new System.Drawing.Point(118, 53);
             this.txtPercent.Name = "txtPercent";
             this.txtPercent.Properties.Mask.EditMask = "[0-9]+(\\R.\\d{0,2})?";
             this.txtPercent.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -93,14 +93,14 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(110, 27);
+            this.txtName.Location = new System.Drawing.Point(118, 27);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(133, 20);
             this.txtName.TabIndex = 1;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(5, 56);
+            this.labelControl3.Location = new System.Drawing.Point(13, 56);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(95, 13);
             this.labelControl3.TabIndex = 1;
@@ -108,7 +108,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(5, 27);
+            this.labelControl2.Location = new System.Drawing.Point(13, 27);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(86, 13);
             this.labelControl2.TabIndex = 0;

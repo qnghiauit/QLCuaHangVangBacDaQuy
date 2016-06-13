@@ -150,7 +150,7 @@
             this.dateEditNgayThanhToan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditNgayThanhToan.Size = new System.Drawing.Size(131, 20);
-            this.dateEditNgayThanhToan.TabIndex = 7;
+            this.dateEditNgayThanhToan.TabIndex = 13;
             // 
             // dateEditNgayNhanHang
             // 
@@ -162,7 +162,7 @@
             this.dateEditNgayNhanHang.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditNgayNhanHang.Size = new System.Drawing.Size(131, 20);
-            this.dateEditNgayNhanHang.TabIndex = 6;
+            this.dateEditNgayNhanHang.TabIndex = 12;
             // 
             // labelControl5
             // 
@@ -303,7 +303,7 @@
             this.textEditSoLuong.Properties.MaxLength = 3;
             this.textEditSoLuong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textEditSoLuong.Size = new System.Drawing.Size(42, 20);
-            this.textEditSoLuong.TabIndex = 31;
+            this.textEditSoLuong.TabIndex = 15;
             this.textEditSoLuong.EditValueChanged += new System.EventHandler(this.textEditSoLuong_EditValueChanged);
             // 
             // simpleButtonThem
@@ -313,7 +313,7 @@
             this.simpleButtonThem.Location = new System.Drawing.Point(1099, 102);
             this.simpleButtonThem.Name = "simpleButtonThem";
             this.simpleButtonThem.Size = new System.Drawing.Size(87, 27);
-            this.simpleButtonThem.TabIndex = 19;
+            this.simpleButtonThem.TabIndex = 16;
             this.simpleButtonThem.Text = "Thêm";
             this.simpleButtonThem.Click += new System.EventHandler(this.simpleButtonThem_Click);
             // 
@@ -389,7 +389,7 @@
             this.gridControlCTPGC_review.MainView = this.gridViewCTPGC_review;
             this.gridControlCTPGC_review.Name = "gridControlCTPGC_review";
             this.gridControlCTPGC_review.Size = new System.Drawing.Size(751, 223);
-            this.gridControlCTPGC_review.TabIndex = 22;
+            this.gridControlCTPGC_review.TabIndex = 17;
             this.gridControlCTPGC_review.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCTPGC_review});
             // 
@@ -411,7 +411,7 @@
             this.gridControlCTSPGC.MainView = this.gridViewCTSPGC;
             this.gridControlCTSPGC.Name = "gridControlCTSPGC";
             this.gridControlCTSPGC.Size = new System.Drawing.Size(492, 301);
-            this.gridControlCTSPGC.TabIndex = 10;
+            this.gridControlCTSPGC.TabIndex = 14;
             this.gridControlCTSPGC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCTSPGC});
             // 
@@ -441,7 +441,7 @@
             this.simpleButtonLuu.Location = new System.Drawing.Point(1159, 583);
             this.simpleButtonLuu.Name = "simpleButtonLuu";
             this.simpleButtonLuu.Size = new System.Drawing.Size(70, 27);
-            this.simpleButtonLuu.TabIndex = 16;
+            this.simpleButtonLuu.TabIndex = 18;
             this.simpleButtonLuu.Text = "Lưu";
             this.simpleButtonLuu.Click += new System.EventHandler(this.simpleButtonLuu_Click);
             // 
@@ -452,7 +452,7 @@
             this.simpleButtonExit.Location = new System.Drawing.Point(1240, 583);
             this.simpleButtonExit.Name = "simpleButtonExit";
             this.simpleButtonExit.Size = new System.Drawing.Size(70, 27);
-            this.simpleButtonExit.TabIndex = 15;
+            this.simpleButtonExit.TabIndex = 19;
             this.simpleButtonExit.Text = "Huỷ";
             this.simpleButtonExit.Click += new System.EventHandler(this.simpleButtonExit_Click);
             // 

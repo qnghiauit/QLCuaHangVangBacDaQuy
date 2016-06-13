@@ -52,7 +52,7 @@
             this.simpleButtonHuy.Location = new System.Drawing.Point(219, 163);
             this.simpleButtonHuy.Name = "simpleButtonHuy";
             this.simpleButtonHuy.Size = new System.Drawing.Size(70, 27);
-            this.simpleButtonHuy.TabIndex = 11;
+            this.simpleButtonHuy.TabIndex = 15;
             this.simpleButtonHuy.Text = "Huỷ";
             this.simpleButtonHuy.Click += new System.EventHandler(this.simpleButtonHuy_Click);
             // 
@@ -62,7 +62,7 @@
             this.simpleButtonOK.Location = new System.Drawing.Point(133, 163);
             this.simpleButtonOK.Name = "simpleButtonOK";
             this.simpleButtonOK.Size = new System.Drawing.Size(80, 27);
-            this.simpleButtonOK.TabIndex = 10;
+            this.simpleButtonOK.TabIndex = 14;
             this.simpleButtonOK.Text = "Cập nhật";
             this.simpleButtonOK.Click += new System.EventHandler(this.simpleButtonOk_Click);
             // 
@@ -87,7 +87,7 @@
             this.textEditDiaChi.Properties.Mask.EditMask = "(\\p{L}|[0-9]|\\s|[,/]){1,100}";
             this.textEditDiaChi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.textEditDiaChi.Size = new System.Drawing.Size(175, 20);
-            this.textEditDiaChi.TabIndex = 11;
+            this.textEditDiaChi.TabIndex = 13;
             // 
             // textEditSDT
             // 
@@ -96,7 +96,7 @@
             this.textEditSDT.Properties.Mask.EditMask = "\\d{1,11}";
             this.textEditSDT.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.textEditSDT.Size = new System.Drawing.Size(175, 20);
-            this.textEditSDT.TabIndex = 10;
+            this.textEditSDT.TabIndex = 12;
             // 
             // textEditTenKH
             // 
@@ -105,7 +105,7 @@
             this.textEditTenKH.Properties.Mask.EditMask = "(\\p{L}|\\s){1,70}";
             this.textEditTenKH.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.textEditTenKH.Size = new System.Drawing.Size(175, 20);
-            this.textEditTenKH.TabIndex = 9;
+            this.textEditTenKH.TabIndex = 11;
             // 
             // labelControl5
             // 

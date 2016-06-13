@@ -102,6 +102,7 @@
             // 
             // ribbonControl1
             // 
+            this.ribbonControl1.AllowMinimizeRibbon = false;
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,

@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TongQuan));
-            DevExpress.XtraCharts.SimpleDiagram3D simpleDiagram3D2 = new DevExpress.XtraCharts.SimpleDiagram3D();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.Pie3DSeriesView pie3DSeriesView2 = new DevExpress.XtraCharts.Pie3DSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.SimpleDiagram3D simpleDiagram3D1 = new DevExpress.XtraCharts.SimpleDiagram3D();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.Pie3DSeriesView pie3DSeriesView1 = new DevExpress.XtraCharts.Pie3DSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblLastUpdate = new DevExpress.XtraEditors.LabelControl();
@@ -74,7 +75,7 @@
             this.chartControlProduct = new DevExpress.XtraCharts.ChartControl();
             this.sANPHAMTableAdapter = new QuanLiBanVang.DBQLCuaHangVangBacDaQuyDataSetTableAdapters.SANPHAMTableAdapter();
             this.dBQLCuaHangVangBacDaQuyDataSet = new QuanLiBanVang.DBQLCuaHangVangBacDaQuyDataSet();
-            this.sANPHAMBindingSource = new System.Windows.Forms.BindingSource();
+            this.sANPHAMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
             this.labelControlSlKH = new DevExpress.XtraEditors.LabelControl();
@@ -93,9 +94,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBQLCuaHangVangBacDaQuyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sANPHAMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
@@ -157,7 +158,7 @@
             this.lblIncome.Name = "lblIncome";
             this.lblIncome.Size = new System.Drawing.Size(91, 13);
             this.lblIncome.TabIndex = 11;
-            this.lblIncome.Text = "1.000.000";
+            this.lblIncome.Text = "0";
             // 
             // labelControl32
             // 
@@ -187,9 +188,9 @@
             // 
             this.labelControl29.Location = new System.Drawing.Point(127, 63);
             this.labelControl29.Name = "labelControl29";
-            this.labelControl29.Size = new System.Drawing.Size(85, 13);
+            this.labelControl29.Size = new System.Drawing.Size(109, 13);
             this.labelControl29.TabIndex = 7;
-            this.labelControl29.Text = "______________";
+            this.labelControl29.Text = "__________________";
             // 
             // lblTotal
             // 
@@ -199,7 +200,7 @@
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(93, 13);
             this.lblTotal.TabIndex = 6;
-            this.lblTotal.Text = "500000";
+            this.lblTotal.Text = "0";
             // 
             // labelControl27
             // 
@@ -217,7 +218,7 @@
             this.lblCost.Name = "lblCost";
             this.lblCost.Size = new System.Drawing.Size(91, 13);
             this.lblCost.TabIndex = 4;
-            this.lblCost.Text = "1.000.000";
+            this.lblCost.Text = "0";
             // 
             // labelControl23
             // 
@@ -272,7 +273,7 @@
             this.lblOweBill.Name = "lblOweBill";
             this.lblOweBill.Size = new System.Drawing.Size(6, 13);
             this.lblOweBill.TabIndex = 4;
-            this.lblOweBill.Text = "2";
+            this.lblOweBill.Text = "0";
             // 
             // lblSaleBill
             // 
@@ -280,7 +281,7 @@
             this.lblSaleBill.Name = "lblSaleBill";
             this.lblSaleBill.Size = new System.Drawing.Size(6, 13);
             this.lblSaleBill.TabIndex = 3;
-            this.lblSaleBill.Text = "1";
+            this.lblSaleBill.Text = "0";
             // 
             // labelControl5
             // 
@@ -352,7 +353,7 @@
             this.lblImportBill.Name = "lblImportBill";
             this.lblImportBill.Size = new System.Drawing.Size(6, 13);
             this.lblImportBill.TabIndex = 10;
-            this.lblImportBill.Text = "2";
+            this.lblImportBill.Text = "0";
             // 
             // lblBuyBill
             // 
@@ -360,7 +361,7 @@
             this.lblBuyBill.Name = "lblBuyBill";
             this.lblBuyBill.Size = new System.Drawing.Size(6, 13);
             this.lblBuyBill.TabIndex = 9;
-            this.lblBuyBill.Text = "1";
+            this.lblBuyBill.Text = "0";
             // 
             // labelControl12
             // 
@@ -430,7 +431,7 @@
             this.lblInStock.Name = "lblInStock";
             this.lblInStock.Size = new System.Drawing.Size(6, 13);
             this.lblInStock.TabIndex = 10;
-            this.lblInStock.Text = "2";
+            this.lblInStock.Text = "0";
             // 
             // labelControl21
             // 
@@ -455,22 +456,22 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chartControlProduct.DataAdapter = this.sANPHAMTableAdapter;
             this.chartControlProduct.DataSource = this.dBQLCuaHangVangBacDaQuyDataSet;
-            simpleDiagram3D2.RotationMatrixSerializable = "1;0;0;0;0;0.5;-0.866025403784439;0;0;0.866025403784439;0.5;0;0;0;0;1";
-            this.chartControlProduct.Diagram = simpleDiagram3D2;
+            simpleDiagram3D1.RotationMatrixSerializable = "1;0;0;0;0;0.5;-0.866025403784439;0;0;0.866025403784439;0.5;0;0;0;0;1";
+            this.chartControlProduct.Diagram = simpleDiagram3D1;
             this.chartControlProduct.Location = new System.Drawing.Point(5, 23);
             this.chartControlProduct.Name = "chartControlProduct";
-            series2.ArgumentDataMember = "SANPHAM.TenSP";
-            series2.LegendTextPattern = "{A}";
-            series2.Name = "SeriesProduct";
-            series2.ValueDataMembersSerializable = "SANPHAM.SoLuongTon";
-            series2.View = pie3DSeriesView2;
+            series1.ArgumentDataMember = "SANPHAM.TenSP";
+            series1.LegendTextPattern = "{A}";
+            series1.Name = "SeriesProduct";
+            series1.ValueDataMembersSerializable = "SANPHAM.SoLuongTon";
+            series1.View = pie3DSeriesView1;
             this.chartControlProduct.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
+        series1};
             this.chartControlProduct.Size = new System.Drawing.Size(1121, 206);
             this.chartControlProduct.TabIndex = 7;
-            chartTitle2.Text = "Tình hình kho";
+            chartTitle1.Text = "Tình hình kho";
             this.chartControlProduct.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle2});
+            chartTitle1});
             // 
             // sANPHAMTableAdapter
             // 
@@ -542,7 +543,7 @@
             this.labelControlSLTho.Name = "labelControlSLTho";
             this.labelControlSLTho.Size = new System.Drawing.Size(6, 13);
             this.labelControlSLTho.TabIndex = 10;
-            this.labelControlSLTho.Text = "2";
+            this.labelControlSLTho.Text = "0";
             // 
             // labelControl9
             // 
@@ -591,9 +592,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             this.groupControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBQLCuaHangVangBacDaQuyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sANPHAMBindingSource)).EndInit();

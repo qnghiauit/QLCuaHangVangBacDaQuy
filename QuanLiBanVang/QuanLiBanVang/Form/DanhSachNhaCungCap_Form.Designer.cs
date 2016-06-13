@@ -93,13 +93,13 @@
             // 
             // simpleButtonRefresh
             // 
-            this.simpleButtonRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButtonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonRefresh.Image")));
-            this.simpleButtonRefresh.Location = new System.Drawing.Point(507, 154);
+            this.simpleButtonRefresh.Location = new System.Drawing.Point(507, 296);
             this.simpleButtonRefresh.Name = "simpleButtonRefresh";
             this.simpleButtonRefresh.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonRefresh.TabIndex = 7;
-            this.simpleButtonRefresh.Text = "Refresh";
+            this.simpleButtonRefresh.Text = "Làm mới";
             this.simpleButtonRefresh.Click += new System.EventHandler(this.simpleButtonRefresh_Click);
             // 
             // simpleButtonChiTiet

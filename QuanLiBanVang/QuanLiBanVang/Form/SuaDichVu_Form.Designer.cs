@@ -49,7 +49,7 @@
             this.simpleButtonHuy.Location = new System.Drawing.Point(190, 138);
             this.simpleButtonHuy.Name = "simpleButtonHuy";
             this.simpleButtonHuy.Size = new System.Drawing.Size(70, 27);
-            this.simpleButtonHuy.TabIndex = 15;
+            this.simpleButtonHuy.TabIndex = 9;
             this.simpleButtonHuy.Text = "Huỷ";
             this.simpleButtonHuy.Click += new System.EventHandler(this.simpleButtonHuy_Click);
             // 
@@ -59,7 +59,7 @@
             this.simpleButtonOK.Location = new System.Drawing.Point(104, 138);
             this.simpleButtonOK.Name = "simpleButtonOK";
             this.simpleButtonOK.Size = new System.Drawing.Size(80, 27);
-            this.simpleButtonOK.TabIndex = 14;
+            this.simpleButtonOK.TabIndex = 8;
             this.simpleButtonOK.Text = "Cập nhật";
             this.simpleButtonOK.Click += new System.EventHandler(this.simpleButtonOK_Click);
             // 
@@ -82,7 +82,7 @@
             this.textEditTienCong.Properties.Mask.EditMask = "\\d{1,9}";
             this.textEditTienCong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.textEditTienCong.Size = new System.Drawing.Size(152, 20);
-            this.textEditTienCong.TabIndex = 8;
+            this.textEditTienCong.TabIndex = 7;
             // 
             // labelControl2
             // 
