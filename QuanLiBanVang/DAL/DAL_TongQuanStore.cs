@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Globalization;
 
 namespace DAL
 {
@@ -19,8 +20,8 @@ namespace DAL
         public decimal calculateIncomeInDate(DateTime t)
         {
             string date = t.Date.ToString("dd-MM-yyyy");
-            decimal? x = _context.CalculateRevenueInDate(DateTime.Parse(date)).Single();
-           
+            //decimal? x = _context.CalculateRevenueInDate(DateTime.Parse(date)).Single();
+            decimal? x = _context.CalculateRevenueInDate(DateTime.ParseExact(date, "dd-MM-yyyy", CultureInfo.InvariantCulture)).Single();
             if (x == null)
                 return 0;
             else

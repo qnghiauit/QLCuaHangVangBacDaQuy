@@ -18,6 +18,7 @@ namespace DAL
             _context.SANPHAMs.Add(product);
             _context.SaveChanges();
             
+            
         }
         public List<DTO.SANPHAM> getAllProduct()
         {
