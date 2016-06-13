@@ -101,7 +101,7 @@ namespace QuanLiBanVang.Report
                 }
                 else
                 {
-                    clientname = "";
+                    clientname = "Khách vãng lai";
                 }
                 this.addNewRowToTableData(i, staffname, clientname);
             }
@@ -132,7 +132,7 @@ namespace QuanLiBanVang.Report
                 }
                 else
                 {
-                    this.addNewRowToTableData(newBuyBill, _bulStaff.getStaffById(newBuyBill.MaNV).HoTen,"");
+                    this.addNewRowToTableData(newBuyBill, _bulStaff.getStaffById(newBuyBill.MaNV).HoTen,"Khách vãng lai");
                 }
             }
         }
