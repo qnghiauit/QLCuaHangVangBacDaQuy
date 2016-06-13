@@ -300,7 +300,8 @@ namespace QuanLiBanVang
 
         private void barButtonItemThemNCC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            NhaCungCap_Form nhaCungCap = new NhaCungCap_Form();
+            NhaCungCap_Form nhaCungCap = new NhaCungCap_Form(ActionType.ACTION_CREATE_NEW , null);
+            nhaCungCap.IsFromParentForm = false;
             OpenChildForm(nhaCungCap);
         }
 

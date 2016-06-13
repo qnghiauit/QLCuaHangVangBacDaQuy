@@ -79,11 +79,11 @@ namespace QuanLiBanVang.Form
                 return false;
             }
             // check if this new provider did not exist in database
-            if (this.bulProvider.getAll().Any(x => x.TenNCC.Equals(this.textEditTenNhaCungCap.Text.Trim())))
-            {
-                MessageBox.Show(ErrorMessage.EXISTED_PROVIDER_IN_DATABASE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            //if (this.bulProvider.getAll().Any(x => x.TenNCC.Equals(this.textEditTenNhaCungCap.Text.Trim())))
+            //{
+            //    MessageBox.Show(ErrorMessage.EXISTED_PROVIDER_IN_DATABASE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
 
             return true;
         }

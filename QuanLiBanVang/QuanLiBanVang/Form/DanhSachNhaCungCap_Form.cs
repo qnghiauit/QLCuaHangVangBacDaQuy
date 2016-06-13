@@ -73,8 +73,14 @@ namespace QuanLiBanVang.Form
             // doing nothing if no rows selected or number of selected rows is greater than 1 
             if (this.gridViewDanhSachNhaCungCap.GetSelectedRows().Count() == 0 || this.gridViewDanhSachNhaCungCap.GetSelectedRows().Count() > 1) { return; }
 
+            // dialog to ask user
+
             NHACUNGCAP selectedProvider = (NHACUNGCAP)this.gridViewDanhSachNhaCungCap.GetRow(this.gridViewDanhSachNhaCungCap.FocusedRowHandle);
-            this.bulProvider.deleteProvider(selectedProvider.MaNCC);
+            DialogResult removeProviderDialogResult = MessageBox.Show("Bạn có chắc sẽ xóa nhà cung cấp " + selectedProvider.TenNCC + " không ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (removeProviderDialogResult == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.bulProvider.deleteProvider(selectedProvider.MaNCC);
+            }
         }
 
         private void simpleButtonChiTiet_Click(object sender, EventArgs e)
@@ -124,6 +130,21 @@ namespace QuanLiBanVang.Form
             this.gridViewDanhSachNhaCungCap.Columns[1].Caption = "Tên nhà cung cấp";
             this.gridViewDanhSachNhaCungCap.Columns[2].Caption = "Địa chỉ";
             this.gridViewDanhSachNhaCungCap.Columns[3].Caption = "Số điện thoại";
+        }
+
+        private void simpleButtonXoa_Click(object sender, EventArgs e)
+        {
+            // doing nothing if no rows selected or number of selected rows is greater than 1 
+            if (this.gridViewDanhSachNhaCungCap.GetSelectedRows().Count() == 0 || this.gridViewDanhSachNhaCungCap.GetSelectedRows().Count() > 1) { return; }
+
+            // dialog to ask user
+
+            NHACUNGCAP selectedProvider = (NHACUNGCAP)this.gridViewDanhSachNhaCungCap.GetRow(this.gridViewDanhSachNhaCungCap.FocusedRowHandle);
+            DialogResult removeProviderDialogResult = MessageBox.Show("Bạn có chắc sẽ xóa nhà cung cấp " + selectedProvider.TenNCC + " không ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (removeProviderDialogResult == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.bulProvider.deleteProvider(selectedProvider.MaNCC);
+            }
         }
     }
 }
