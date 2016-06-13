@@ -141,7 +141,7 @@ namespace QuanLiBanVang.Form
             SANPHAM selectedProduct = (SANPHAM)selectedItem.Value;
             if (numberOfProducts > selectedProduct.SoLuongTon)
             {
-                MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE + "Số lượng tồn hiện tại : " + selectedProduct.SoLuongTon.ToString(),
+                MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE + "\n .Số lượng tồn hiện tại : " + selectedProduct.SoLuongTon.ToString(),
                     ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }

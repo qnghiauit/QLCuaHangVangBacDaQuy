@@ -369,7 +369,7 @@ namespace QuanLiBanVang
             if (data.MaKH != null)
             {
 
-                this.textEditTenKhachHang.Text = data.KHACHHANG.TenKH + " (Khách quen)";
+                this.textEditTenKhachHang.Text = data.KHACHHANG.TenKH;
                 this.textEditDiaChiKhachHang.Text = data.KHACHHANG.DiaChi;
                 this.checkEditKhachQuen.Checked = true;
             }
@@ -486,15 +486,14 @@ namespace QuanLiBanVang
 
         private void checkEditKhachQuen_CheckedChanged(object sender, EventArgs e)
         {
+            // reset text all customer information textfield
+            if (this.actionType == ActionType.ACTION_CREATE_NEW)
+            {
+                this.textEditTenKhachHang.ResetText();
+                this.textEditDiaChiKhachHang.ResetText();
+            }
             if (this.checkEditKhachQuen.Checked)
             {
-                // reset text all customer information textfield
-                if (this.actionType == ActionType.ACTION_CREATE_NEW)
-                {
-                    this.textEditTenKhachHang.ResetText();
-                    this.textEditDiaChiKhachHang.ResetText();
-                }
-
                 this.textEditTenKhachHang.ReadOnly = true;
                 this.textEditDiaChiKhachHang.ReadOnly = true;
                 this.simpleButtonTimKhachQuen.Visible = true;
@@ -532,7 +531,7 @@ namespace QuanLiBanVang
                 int numberOfProducts = Int32.Parse(this.textEditSoLuong.Text);
                 if (numberOfProducts > selectedProduct.SoLuongTon)
                 {
-                    MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE + ". Số lượng tồn khô hiện tại : " + selectedProduct.SoLuongTon.ToString(),
+                    MessageBox.Show(ErrorMessage.OVER_IN_STOCK_MESSAGE + "\n .Số lượng tồn khô hiện tại : " + selectedProduct.SoLuongTon.ToString(),
                         ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }

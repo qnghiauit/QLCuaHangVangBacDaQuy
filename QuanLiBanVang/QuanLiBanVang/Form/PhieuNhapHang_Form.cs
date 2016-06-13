@@ -205,7 +205,7 @@ namespace QuanLiBanVang.Form
                 // MessageBox.Show(ErrorMessage.CLIENT_INVALID_INPUT_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 if (!string.IsNullOrEmpty(this.textEditSoLuong.Text) && int.Parse(this.textEditSoLuong.Text) > LIMIT_NUMBER_OF_IMPORT_PROFUCTS)
                 {
-                    MessageBox.Show(ErrorMessage.OVER_LIMITATION_FOR_IMPORTING + "\n. Tối đa số lượng cho mỗi sản phẩm là " + LIMIT_NUMBER_OF_IMPORT_PROFUCTS, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrorMessage.OVER_LIMITATION_FOR_IMPORTING + "\n .Tối đa số lượng cho mỗi sản phẩm là " + LIMIT_NUMBER_OF_IMPORT_PROFUCTS, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false; // exit method
                 }
                 return true;

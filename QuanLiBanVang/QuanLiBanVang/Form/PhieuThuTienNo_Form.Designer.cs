@@ -51,6 +51,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButtonLuu = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControlRecommendedInput = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerNgayTra.Properties.CalendarTimeProperties)).BeginInit();
@@ -68,6 +69,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.labelControlRecommendedInput);
             this.groupControl1.Controls.Add(this.dateTimePickerNgayTra);
             this.groupControl1.Controls.Add(this.dateTimePickerNgayLap);
             this.groupControl1.Controls.Add(this.textEditConLai);
@@ -131,10 +133,11 @@
             this.textEditSoTienTra.Location = new System.Drawing.Point(139, 169);
             this.textEditSoTienTra.Name = "textEditSoTienTra";
             this.textEditSoTienTra.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEditSoTienTra.Properties.MaxLength = 10;
+            this.textEditSoTienTra.Properties.MaxLength = 20;
             this.textEditSoTienTra.Size = new System.Drawing.Size(304, 20);
             this.textEditSoTienTra.TabIndex = 7;
             this.textEditSoTienTra.EditValueChanged += new System.EventHandler(this.textEditSoTienTra_EditValueChanged);
+            this.textEditSoTienTra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditSoTienTra_KeyDown);
             // 
             // textEditSoTienNo
             // 
@@ -282,6 +285,15 @@
             this.simpleButtonThoat.Size = new System.Drawing.Size(87, 27);
             this.simpleButtonThoat.TabIndex = 3;
             this.simpleButtonThoat.Text = "Thoát";
+            this.simpleButtonThoat.Click += new System.EventHandler(this.simpleButtonThoat_Click);
+            // 
+            // labelControlRecommendedInput
+            // 
+            this.labelControlRecommendedInput.Location = new System.Drawing.Point(449, 172);
+            this.labelControlRecommendedInput.Name = "labelControlRecommendedInput";
+            this.labelControlRecommendedInput.Size = new System.Drawing.Size(8, 13);
+            this.labelControlRecommendedInput.TabIndex = 10;
+            this.labelControlRecommendedInput.Text = "()";
             // 
             // PhieuThuTienNo_Form
             // 
@@ -345,5 +357,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.DateEdit dateTimePickerNgayTra;
         private DevExpress.XtraEditors.DateEdit dateTimePickerNgayLap;
+        private DevExpress.XtraEditors.LabelControl labelControlRecommendedInput;
     }
 }

@@ -18,7 +18,7 @@ namespace QuanLiBanVang.Form
     public partial class PhieuThuTienNo_Form : DevExpress.XtraEditors.XtraForm
     {
         // private static readonly decimal ACCEPTABLE_FIRST_PREPAID_PERCENTAGE = 0.6M;
-        private static readonly string NOT_ACCEPTABLE_PREPAY_VALUE_MESSAGE = "Số tiền trả trước không được nhỏ hơn 60% tổng tiền phiếu bán.";
+        // private static readonly string NOT_ACCEPTABLE_PREPAY_VALUE_MESSAGE = ";
         private static readonly string PAYMENT_DATE_NOT_VALID_MESSAGE = "Ngày trả không được sớm hơn ngày lập phiếu nợ";
 
         BUL_PhieuThuTienNo bulDeptReceipt; // to handle the operation with database
@@ -63,7 +63,10 @@ namespace QuanLiBanVang.Form
 
             // the first dept
             this.textEditSoTienNo.Text = receipt.TongTien.ToString();
-
+            this.labelControlRecommendedInput.Visible = true;
+            decimal ACCEPTABLE_FIRST_PREPAID_PERCENTAGE = Convert.ToDecimal(this.bulBangThamSo.getValueByArgument("TienTraToiThieu"));
+            decimal minimumAmout = decimal.Multiply(ACCEPTABLE_FIRST_PREPAID_PERCENTAGE, receipt.TongTien);
+            this.labelControlRecommendedInput.Text = "(Tối thiểu: " + Math.Round(minimumAmout) + ")";
         }
 
         public PhieuThuTienNo_Form(PHIEUTHUTIENNO previousDeptReceipt)
@@ -88,6 +91,8 @@ namespace QuanLiBanVang.Form
             this.dateTimePickerNgayLap.DateTime = DateTime.Now.Date;
             this.dateTimePickerNgayLap.ReadOnly = true;
             this.dateTimePickerNgayTra.DateTime = DateTime.Now.Date;
+            this.labelControlRecommendedInput.Visible = false;
+
         }
         private void PhieuThuTienNo_Load(object sender, EventArgs e)
         {
@@ -124,7 +129,7 @@ namespace QuanLiBanVang.Form
                 decimal ACCEPTABLE_FIRST_PREPAID_PERCENTAGE = Convert.ToDecimal(this.bulBangThamSo.getValueByArgument("TienTraToiThieu"));
                 if (decimal.Compare(frequenterPrepay, decimal.Multiply(deptAmount, ACCEPTABLE_FIRST_PREPAID_PERCENTAGE)) < 0)
                 {
-                    MessageBox.Show(NOT_ACCEPTABLE_PREPAY_VALUE_MESSAGE, ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Số tiền trả trước không được nhỏ hơn" + ACCEPTABLE_FIRST_PREPAID_PERCENTAGE + "% tổng tiền phiếu bán.", ErrorMessage.ERROR_MESSARE_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else // start to save into database
@@ -135,16 +140,24 @@ namespace QuanLiBanVang.Form
                         NgayLap = this.dateTimePickerNgayLap.DateTime.Date,
                         NgayTra = this.dateTimePickerNgayTra.DateTime.Date,
                         MaNV = UserAccess.Instance.GetUserId,
-                        SoTienNo = Math.Round(deptAmount),
-                        SoTienTra = Math.Round(frequenterPrepay),
-                        SoTienConLai = Math.Round(deptAmount - frequenterPrepay)
+                        SoTienNo = deptAmount,
+                        SoTienTra = frequenterPrepay,
+                        SoTienConLai = decimal.Subtract(deptAmount, frequenterPrepay)
                     };
 
                     // start to save into database
                     this.bulDeptReceipt.add(newDeptReceipt);
                     this.refreshDebtReceiptDataCallback(); // delegate to main form to refresh data
                     // PhieuThuTienNo recentSavedDeptReceipt = this.bulDeptReceipt
-                    if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.DateTime.ToShortDateString(), NotificationMessage.MESSAGE_TITLE,
+                    if (decimal.Compare(newDeptReceipt.SoTienConLai, decimal.Zero) == 0)
+                    {
+                        if (MessageBox.Show("Đã lưu phiếu thu nợ . Phiếu nợ đã được trả đủ !", NotificationMessage.MESSAGE_TITLE,
+                               MessageBoxButtons.OK, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.OK)
+                        {
+                            this.Close();
+                        }
+                    }
+                    else if (MessageBox.Show("Đã lưu phiếu thu nợ .Ngày hẹn trả : " + this.dateTimePickerNgayTra.DateTime.ToShortDateString(), NotificationMessage.MESSAGE_TITLE,
                           MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {
                         this.Close();
@@ -159,9 +172,9 @@ namespace QuanLiBanVang.Form
                     NgayLap = this.dateTimePickerNgayLap.DateTime.Date,
                     NgayTra = this.dateTimePickerNgayTra.DateTime.Date,
                     MaNV = UserAccess.Instance.GetUserId,
-                    SoTienNo = Math.Round(deptAmount),
-                    SoTienTra = Math.Round(frequenterPrepay),
-                    SoTienConLai = Math.Round(deptAmount - frequenterPrepay)
+                    SoTienNo = deptAmount,
+                    SoTienTra = frequenterPrepay,
+                    SoTienConLai = decimal.Subtract(deptAmount, frequenterPrepay)
                 };
                 // start to save into database
                 this.bulDeptReceipt.add(newDeptReceipt);
@@ -208,10 +221,9 @@ namespace QuanLiBanVang.Form
             decimal deptAmount = decimal.Parse(this.textEditSoTienNo.Text.Trim());
             decimal rest = decimal.Subtract(deptAmount, frequenterPrepay);
             // make sure we do not have negative result
-            if (decimal.Compare(rest, decimal.Zero) < 0)
+            if (decimal.Compare(deptAmount, frequenterPrepay) < 0)
             {
                 this.textEditSoTienTra.ResetText();
-                MessageBox.Show("Số tiền nhập vượt quá số tiền nợ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -235,6 +247,41 @@ namespace QuanLiBanVang.Form
                 // update date value
                 this.dateTimePickerNgayLap.DateTime = DateTime.Now.Date;
                 this.dateTimePickerNgayTra.DateTime = DateTime.Now.Date;
+            }
+        }
+
+        private void simpleButtonThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textEditSoTienTra_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Back || e.KeyCode != Keys.Delete)
+            {
+                // if the string is empty or null , do nothing
+                if (string.IsNullOrEmpty(this.textEditSoTienTra.Text)) { return; }
+                // recompute the rest 
+                decimal frequenterPrepay = decimal.Parse(this.textEditSoTienTra.Text.Trim());
+                decimal deptAmount = decimal.Parse(this.textEditSoTienNo.Text.Trim());
+                decimal rest = decimal.Subtract(deptAmount, frequenterPrepay);
+                // make sure we do not have negative result
+                if (decimal.Compare(deptAmount, frequenterPrepay) < 0)
+                {
+
+                    if (MessageBox.Show("Số tiền nhập vượt quá số tiền nợ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error) == System.Windows.Forms.DialogResult.OK)
+                    {
+
+                        this.textEditSoTienTra.ResetText();
+                        this.textEditSoTienTra.Text = decimal.Zero.ToString();
+                        this.textEditConLai.Text = deptAmount.ToString();
+                        e.Handled = true;
+                    }
+                }
+                else
+                {
+                    this.textEditConLai.Text = rest.ToString();
+                }
             }
         }
     }
