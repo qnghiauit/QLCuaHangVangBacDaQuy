@@ -82,7 +82,7 @@
             this.txtContent.Location = new System.Drawing.Point(107, 29);
             this.txtContent.Name = "txtContent";
             this.txtContent.Properties.MaxLength = 200;
-            this.txtContent.Size = new System.Drawing.Size(118, 20);
+            this.txtContent.Size = new System.Drawing.Size(165, 20);
             this.txtContent.TabIndex = 1;
             // 
             // labelControl5
@@ -101,7 +101,7 @@
             this.txtCost.Properties.Mask.EditMask = "\\d{3,10}";
             this.txtCost.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtCost.Size = new System.Drawing.Size(118, 20);
-            this.txtCost.TabIndex = 2;
+            this.txtCost.TabIndex = 3;
             // 
             // dtpkCreateDate
             // 
@@ -152,7 +152,7 @@
             this.btnSave.Location = new System.Drawing.Point(197, 159);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 27);
-            this.btnSave.TabIndex = 3;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -165,7 +165,7 @@
             this.btnCancel.Location = new System.Drawing.Point(290, 159);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
-            this.btnCancel.TabIndex = 4;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 

@@ -84,7 +84,7 @@
             this.btnCancel.Location = new System.Drawing.Point(681, 428);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
-            this.btnCancel.TabIndex = 12;
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -123,7 +123,7 @@
             this.btnSave.Location = new System.Drawing.Point(588, 428);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 27);
-            this.btnSave.TabIndex = 11;
+            this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 

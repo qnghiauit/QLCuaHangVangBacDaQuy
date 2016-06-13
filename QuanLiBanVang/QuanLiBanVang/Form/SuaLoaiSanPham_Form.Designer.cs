@@ -89,14 +89,14 @@
             this.txtPercent.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtPercent.Properties.MaxLength = 5;
             this.txtPercent.Size = new System.Drawing.Size(100, 20);
-            this.txtPercent.TabIndex = 3;
+            this.txtPercent.TabIndex = 2;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(110, 27);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(133, 20);
-            this.txtName.TabIndex = 2;
+            this.txtName.TabIndex = 1;
             // 
             // labelControl3
             // 
@@ -122,7 +122,7 @@
             this.btnSave.Location = new System.Drawing.Point(143, 132);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 27);
-            this.btnSave.TabIndex = 2;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -134,7 +134,7 @@
             this.btnCancel.Location = new System.Drawing.Point(236, 132);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
-            this.btnCancel.TabIndex = 3;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 

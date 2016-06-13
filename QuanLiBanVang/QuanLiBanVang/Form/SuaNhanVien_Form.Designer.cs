@@ -78,7 +78,7 @@
             this.btnCancel.Location = new System.Drawing.Point(266, 366);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
-            this.btnCancel.TabIndex = 16;
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -186,7 +186,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboGroupUser.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboGroupUser.Size = new System.Drawing.Size(145, 20);
-            this.cboGroupUser.TabIndex = 9;
+            this.cboGroupUser.TabIndex = 10;
             // 
             // groupControlAccountInfo
             // 
@@ -209,7 +209,7 @@
             this.chkbChangePassword.Name = "chkbChangePassword";
             this.chkbChangePassword.Properties.Caption = "Đổi mật khẩu";
             this.chkbChangePassword.Size = new System.Drawing.Size(85, 19);
-            this.chkbChangePassword.TabIndex = 10;
+            this.chkbChangePassword.TabIndex = 9;
             this.chkbChangePassword.CheckedChanged += new System.EventHandler(this.chkbChangePassword_CheckedChanged);
             // 
             // labelControl3
@@ -280,7 +280,7 @@
             this.btnSave.Location = new System.Drawing.Point(173, 366);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 27);
-            this.btnSave.TabIndex = 15;
+            this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 

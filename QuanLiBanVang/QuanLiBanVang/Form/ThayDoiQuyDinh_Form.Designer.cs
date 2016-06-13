@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThayDoiQuyDinh_Form));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControlPhanTram = new DevExpress.XtraEditors.LabelControl();
             this.txtValue = new DevExpress.XtraEditors.TextEdit();
             this.cboAgurment = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControlPhanTram = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtValue.Properties)).BeginInit();
@@ -71,6 +71,16 @@
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Thông tin quy định";
             // 
+            // labelControlPhanTram
+            // 
+            this.labelControlPhanTram.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControlPhanTram.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControlPhanTram.Location = new System.Drawing.Point(199, 55);
+            this.labelControlPhanTram.Name = "labelControlPhanTram";
+            this.labelControlPhanTram.Size = new System.Drawing.Size(13, 13);
+            this.labelControlPhanTram.TabIndex = 4;
+            this.labelControlPhanTram.Text = "%";
+            // 
             // txtValue
             // 
             this.txtValue.Location = new System.Drawing.Point(94, 52);
@@ -78,7 +88,7 @@
             this.txtValue.Properties.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
             this.txtValue.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtValue.Size = new System.Drawing.Size(99, 20);
-            this.txtValue.TabIndex = 3;
+            this.txtValue.TabIndex = 2;
             // 
             // cboAgurment
             // 
@@ -88,7 +98,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboAgurment.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboAgurment.Size = new System.Drawing.Size(210, 20);
-            this.cboAgurment.TabIndex = 2;
+            this.cboAgurment.TabIndex = 1;
             this.cboAgurment.SelectedIndexChanged += new System.EventHandler(this.cboAgurment_SelectedIndexChanged);
             // 
             // labelControl3
@@ -113,7 +123,7 @@
             this.btnSave.Location = new System.Drawing.Point(161, 132);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 27);
-            this.btnSave.TabIndex = 2;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -123,19 +133,9 @@
             this.btnExit.Location = new System.Drawing.Point(254, 132);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(87, 27);
-            this.btnExit.TabIndex = 3;
+            this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Huỷ";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // labelControlPhanTram
-            // 
-            this.labelControlPhanTram.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControlPhanTram.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControlPhanTram.Location = new System.Drawing.Point(199, 55);
-            this.labelControlPhanTram.Name = "labelControlPhanTram";
-            this.labelControlPhanTram.Size = new System.Drawing.Size(13, 13);
-            this.labelControlPhanTram.TabIndex = 4;
-            this.labelControlPhanTram.Text = "%";
             // 
             // ThayDoiQuyDinh_Form
             // 

@@ -40,13 +40,13 @@
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barButtonItemCapNhat = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemXoa = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barButtonItemCapNhat = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemXoa = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlBillList)).BeginInit();
             this.groupControlBillList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPayment)).BeginInit();
@@ -87,7 +87,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefresh.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Appearance.Options.UseFont = true;
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
@@ -134,7 +134,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(329, 56);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(87, 27);
-            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -160,7 +160,7 @@
             this.btnDelete.Location = new System.Drawing.Point(329, 89);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(87, 27);
-            this.btnDelete.TabIndex = 2;
+            this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -173,7 +173,7 @@
             this.btnExit.Location = new System.Drawing.Point(348, 303);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(87, 27);
-            this.btnExit.TabIndex = 4;
+            this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -184,6 +184,20 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemXoa)});
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
+            // 
+            // barButtonItemCapNhat
+            // 
+            this.barButtonItemCapNhat.Caption = "Cập nhật";
+            this.barButtonItemCapNhat.Id = 0;
+            this.barButtonItemCapNhat.Name = "barButtonItemCapNhat";
+            this.barButtonItemCapNhat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemCapNhat_ItemClick);
+            // 
+            // barButtonItemXoa
+            // 
+            this.barButtonItemXoa.Caption = "Xoá";
+            this.barButtonItemXoa.Id = 1;
+            this.barButtonItemXoa.Name = "barButtonItemXoa";
+            this.barButtonItemXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemXoa_ItemClick);
             // 
             // barManager1
             // 
@@ -225,20 +239,6 @@
             this.barDockControlRight.Location = new System.Drawing.Point(447, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 336);
             // 
-            // barButtonItemCapNhat
-            // 
-            this.barButtonItemCapNhat.Caption = "Cập nhật";
-            this.barButtonItemCapNhat.Id = 0;
-            this.barButtonItemCapNhat.Name = "barButtonItemCapNhat";
-            this.barButtonItemCapNhat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemCapNhat_ItemClick);
-            // 
-            // barButtonItemXoa
-            // 
-            this.barButtonItemXoa.Caption = "Xoá";
-            this.barButtonItemXoa.Id = 1;
-            this.barButtonItemXoa.Name = "barButtonItemXoa";
-            this.barButtonItemXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemXoa_ItemClick);
-            // 
             // DanhSachPhieuChi_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,6 +247,10 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.groupControlBillList);
             this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.Name = "DanhSachPhieuChi_Form";
             this.Text = "Danh sách phiếu chi";
             this.Load += new System.EventHandler(this.DanhSachPhieuChi_Form_Load);

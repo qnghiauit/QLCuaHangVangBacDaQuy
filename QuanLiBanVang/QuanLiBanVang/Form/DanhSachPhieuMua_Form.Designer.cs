@@ -39,12 +39,12 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barButtonItemCN = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barButtonItemCN = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlListBuyBill)).BeginInit();
             this.groupControlListBuyBill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListBuyBill)).BeginInit();
@@ -70,12 +70,12 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.Location = new System.Drawing.Point(438, 212);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(87, 27);
-            this.btnRefresh.TabIndex = 7;
+            this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -86,7 +86,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(438, 56);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(87, 27);
-            this.btnUpdate.TabIndex = 6;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -124,7 +124,7 @@
             this.btnAdd.Location = new System.Drawing.Point(438, 23);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(87, 27);
-            this.btnAdd.TabIndex = 2;
+            this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Nhập";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -149,7 +149,7 @@
             this.btnExit.Location = new System.Drawing.Point(455, 292);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(87, 27);
-            this.btnExit.TabIndex = 5;
+            this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -159,6 +159,13 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemCN)});
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
+            // 
+            // barButtonItemCN
+            // 
+            this.barButtonItemCN.Caption = "Cập nhật";
+            this.barButtonItemCN.Id = 0;
+            this.barButtonItemCN.Name = "barButtonItemCN";
+            this.barButtonItemCN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemCN_ItemClick);
             // 
             // barManager1
             // 
@@ -198,13 +205,6 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(549, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 326);
-            // 
-            // barButtonItemCN
-            // 
-            this.barButtonItemCN.Caption = "Cập nhật";
-            this.barButtonItemCN.Id = 0;
-            this.barButtonItemCN.Name = "barButtonItemCN";
-            this.barButtonItemCN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemCN_ItemClick);
             // 
             // DanhSachPhieuMua_Form
             // 
