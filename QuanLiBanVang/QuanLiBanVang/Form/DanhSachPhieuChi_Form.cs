@@ -109,12 +109,12 @@ namespace QuanLiBanVang.Report
             if (row != null)
             {
                 //delete 
-                //DateTime current = DateTime.UtcNow.Date;
-                //if (DateTime.Compare(((DateTime)row[1]).Date, current) < 0)
-                //{
-                //    MessageBox.Show("Không thể xóa phiếu chi đã duyệt!");
-                //    return;
-                //}
+                DateTime current = DateTime.UtcNow.Date;
+                if (DateTime.Compare(((DateTime)row[1]).Date, current) < 0)
+                {
+                    MessageBox.Show("Không thể xóa phiếu chi đã lập trước ngày hiện tại!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
                 DialogResult dresult = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (dresult == System.Windows.Forms.DialogResult.OK)
                 {
