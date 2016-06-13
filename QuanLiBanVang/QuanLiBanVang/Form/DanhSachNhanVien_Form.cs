@@ -199,6 +199,17 @@ namespace QuanLiBanVang.Report
                     _bulStaff = new BUL.BUL_NhanVien();
                     DTO.NHANVIEN updateRow = _bulStaff.getStaffById((int)row[0]);
                     updateRowInDataTable(pos,updateRow,_bulPosition.getPositionById(updateRow.MaCV).TenCV, _bulGroupUser.getGroupUserById(updateRow.MaNhom).TenNhom);
+                    if (updateRow.MaNV == ExtendClass.UserAccess.Instance.GetUserId)
+                    {
+                        MessageBox.Show("Bạn đã thay đổi tài khoản đang đăng nhập, hệ thống sẽ tự đăng xuất để khởi động lại!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(MainForm.ThreadProcess));
+                        thread.SetApartmentState(System.Threading.ApartmentState.STA);
+                        thread.Start();
+
+                        this.MdiParent.Close();
+                        this.Close();
+                        
+                    }
                 }
             }
         }

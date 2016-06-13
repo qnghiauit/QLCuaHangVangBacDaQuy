@@ -23,6 +23,7 @@ namespace QuanLiBanVang
         {
             Application.Run(new MainForm());
         }
+  
         private void InitInventoryReport()
         {
 

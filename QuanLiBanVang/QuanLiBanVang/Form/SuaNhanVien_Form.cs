@@ -122,7 +122,8 @@ namespace QuanLiBanVang.Report
                 }
                 else
                 {
-                    _staff.MatKhau = newPass;
+                    if((bool)this.chkbChangePassword.EditValue == true)
+                        _staff.MatKhau = newPass;
                 }
                 _staff.HoTen = this.txtName.Text;
                 _staff.NgSinh = this.dtpkBirth.DateTime;
@@ -135,8 +136,12 @@ namespace QuanLiBanVang.Report
 
                 this._bulStaff.updateStaff(_staff);
                 MessageBox.Show("Cập nhật thông tin tài khoản thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.Close();
+         
+                    
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    this.Close();
+                
+    
             }
             else
             {
