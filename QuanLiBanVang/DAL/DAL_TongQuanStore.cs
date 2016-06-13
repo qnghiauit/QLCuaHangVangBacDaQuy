@@ -32,8 +32,8 @@ namespace DAL
         {
 
             string date = t.Date.ToString("dd-MM-yyyy");
-            decimal? x = _context.CalculateFeeInDate(DateTime.Parse(date)).Single();
-            //int? x = _context.CalculateCostInDate(t.Date).Single();
+            //decimal? x = _context.CalculateFeeInDate(DateTime.Parse(date)).Single();
+            decimal? x = _context.CalculateFeeInDate(DateTime.ParseExact(date, "dd-MM-yyyy", CultureInfo.InvariantCulture)).Single();
             if (x == null)
                 return 0;
             else
@@ -43,12 +43,12 @@ namespace DAL
         public DTO.CalculateNumberOfIncomeBill_Result calculateNumberOfIncomeBill(DateTime t)
         {
             string date = t.Date.ToString("dd-MM-yyyy");
-            return _context.CalculateNumberOfIncomeBill(DateTime.Parse(date)).Single();
+            return _context.CalculateNumberOfIncomeBill(DateTime.ParseExact(date, "dd-MM-yyyy", CultureInfo.InvariantCulture)).Single();
         }
         public DTO.CalculateNumberOfCostBill_Result calculateNumberOfCostBill(DateTime t)
         {
             string date = t.Date.ToString("dd-MM-yyyy");
-            return _context.CalculateNumberOfCostBill(DateTime.Parse(date)).Single();
+            return _context.CalculateNumberOfCostBill(DateTime.ParseExact(date, "dd-MM-yyyy", CultureInfo.InvariantCulture)).Single();
         }
         public DTO.CalculateStoreStatus_Result calculateStoreStatus()
         {
