@@ -168,6 +168,9 @@
             this.Controls.Add(this.simpleButton_Ok);
             this.Controls.Add(this.simpleButton_Huy);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "UpdateDetaiItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa Chi Tiết";

@@ -127,6 +127,7 @@ namespace QuanLiBanVang.Form
         private void renameColumnsOfGridView()
         {
             this.gridViewDanhSachNhaCungCap.Columns[0].Caption = "Mã nhà cung cấp";
+            this.gridViewDanhSachNhaCungCap.Columns[0].Visible = false;
             this.gridViewDanhSachNhaCungCap.Columns[1].Caption = "Tên nhà cung cấp";
             this.gridViewDanhSachNhaCungCap.Columns[2].Caption = "Địa chỉ";
             this.gridViewDanhSachNhaCungCap.Columns[3].Caption = "Số điện thoại";

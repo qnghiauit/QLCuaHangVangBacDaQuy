@@ -152,6 +152,9 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.simpleButtonHuy);
             this.Controls.Add(this.simpleButtonOK);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SuaTho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa thợ";

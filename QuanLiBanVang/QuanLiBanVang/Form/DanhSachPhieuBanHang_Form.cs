@@ -91,5 +91,15 @@ namespace QuanLiBanVang.Form
             this.gridControlListReceipts.RefreshDataSource();
             this.gridControlListReceipts.DataSource = this.bulPhieuBanHang.toBindingList();
         }
+
+        private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            simpleButtonChiTiet_Click(sender,e);
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            simpleButtonChiTiet_Click(sender,e);
+        }
     }
 }

@@ -154,5 +154,22 @@ namespace QuanLiBanVang.Report
             this.initTableData(_listProductType);
             this.dgvListProductType.DataSource = this._productTypeTable;
         }
+
+        private void barButtonItemCapNhat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            btnUpdate_Click(sender, e);
+        }
+
+        private void barButtonItemXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            btnDelete_Click(sender,e);
+        }
+
+        private void dgvProductType_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+                popupMenu1.ShowPopup(MousePosition);
+        }
+
     }
 }

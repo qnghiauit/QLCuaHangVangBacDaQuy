@@ -187,6 +187,22 @@ namespace QuanLiBanVang.Report
             this.dgvListPayment.DataSource = _paymentTable;
             this.dgvPaymentBill.Columns[0].Visible = false;
         }
+
+        private void dgvPaymentBill_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+                popupMenu1.ShowPopup(MousePosition);
+        }
+
+        private void barButtonItemCapNhat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            btnUpdate_Click(sender,e);
+        }
+
+        private void barButtonItemXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            btnDelete_Click(sender,e);
+        }
         
 
     }

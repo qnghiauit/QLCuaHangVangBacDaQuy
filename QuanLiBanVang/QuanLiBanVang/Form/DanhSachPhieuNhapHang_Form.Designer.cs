@@ -128,6 +128,7 @@
             this.gridViewDanhSachPhieuNhapHang.OptionsBehavior.Editable = false;
             this.gridViewDanhSachPhieuNhapHang.OptionsBehavior.ReadOnly = true;
             this.gridViewDanhSachPhieuNhapHang.OptionsView.ShowGroupPanel = false;
+            this.gridViewDanhSachPhieuNhapHang.DoubleClick += new System.EventHandler(this.gridViewDanhSachPhieuNhapHang_DoubleClick);
             // 
             // simpleButtonThem
             // 

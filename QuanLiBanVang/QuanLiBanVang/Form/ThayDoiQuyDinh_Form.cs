@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DTO;
 
 namespace QuanLiBanVang.Form
 {
@@ -27,7 +28,12 @@ namespace QuanLiBanVang.Form
             foreach (DTO.BANGTHAMSO item in listAgurment)
             {
                 ExtendClass.ContainerItem cboItem = new ExtendClass.ContainerItem();
-                cboItem.Text = item.TenThamSo;
+                if (item.TenThamSo.Equals("PhanTramTienGCThoNhan"))
+                    cboItem.Text = "Phần trăm tiền gia công thợ được nhận";
+                if (item.TenThamSo.Equals("TienTraToiThieu"))
+                    cboItem.Text = "Phần trăm số tiền trả trước tối thiểu";
+                if (item.TenThamSo.Equals("SoLuongNhapToiDa"))
+                    cboItem.Text = "Số lượng nhập tối đa";
                 cboItem.Value = item;
                 this.cboAgurment.Properties.Items.Add(cboItem);
             }
@@ -35,7 +41,13 @@ namespace QuanLiBanVang.Form
 
         private void cboAgurment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.txtValue.Text =((this.cboAgurment.SelectedItem as ExtendClass.ContainerItem).Value as DTO.BANGTHAMSO).GiaTri.ToString();
+            BANGTHAMSO bangthamso =
+                ((this.cboAgurment.SelectedItem as ExtendClass.ContainerItem).Value as DTO.BANGTHAMSO);
+            if (bangthamso.TenThamSo.Equals("SoLuongNhapToiDa"))
+                this.txtValue.Text = Math.Round(bangthamso.GiaTri).ToString();
+            else
+                this.txtValue.Text =(bangthamso.GiaTri*100).ToString();
+            labelControlPhanTram.Visible = !cboAgurment.Text.Equals("Số lượng nhập tối đa");
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -45,6 +57,10 @@ namespace QuanLiBanVang.Form
             if (name == "PhanTramTienGCThoNhan" || name == "TienTraToiThieu")
             {
                 value = (double.Parse(this.txtValue.Text) / 100);
+            }
+            else
+            {
+                value = (double.Parse(this.txtValue.Text));
             }
 
             this._bulAgurment.updateAgurment(name, value);

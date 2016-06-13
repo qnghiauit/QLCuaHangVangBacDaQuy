@@ -174,6 +174,9 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupControlInfo);
             this.Controls.Add(this.labelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SuaPhieuChi_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa phiếu chi";

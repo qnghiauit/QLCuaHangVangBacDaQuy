@@ -100,5 +100,10 @@ namespace QuanLiBanVang.Form
             this.gridViewDanhSachPhieuNhapHang.Columns[3].Caption = "Ngày nhập";
             this.gridViewDanhSachPhieuNhapHang.Columns[4].Caption = "Tổng tiền";
         }
+
+        private void gridViewDanhSachPhieuNhapHang_DoubleClick(object sender, EventArgs e)
+        {
+            simpleButtonChiTiet_Click(sender, e);
+        }
     }
 }

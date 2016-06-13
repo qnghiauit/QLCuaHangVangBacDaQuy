@@ -37,6 +37,7 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControlPhanTram = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtValue.Properties)).BeginInit();
@@ -59,6 +60,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.labelControlPhanTram);
             this.groupControl1.Controls.Add(this.txtValue);
             this.groupControl1.Controls.Add(this.cboAgurment);
             this.groupControl1.Controls.Add(this.labelControl3);
@@ -75,7 +77,7 @@
             this.txtValue.Name = "txtValue";
             this.txtValue.Properties.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
             this.txtValue.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtValue.Size = new System.Drawing.Size(147, 20);
+            this.txtValue.Size = new System.Drawing.Size(99, 20);
             this.txtValue.TabIndex = 3;
             // 
             // cboAgurment
@@ -84,7 +86,8 @@
             this.cboAgurment.Name = "cboAgurment";
             this.cboAgurment.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboAgurment.Size = new System.Drawing.Size(147, 20);
+            this.cboAgurment.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cboAgurment.Size = new System.Drawing.Size(210, 20);
             this.cboAgurment.TabIndex = 2;
             this.cboAgurment.SelectedIndexChanged += new System.EventHandler(this.cboAgurment_SelectedIndexChanged);
             // 
@@ -124,6 +127,16 @@
             this.btnExit.Text = "Huỷ";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // labelControlPhanTram
+            // 
+            this.labelControlPhanTram.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControlPhanTram.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControlPhanTram.Location = new System.Drawing.Point(199, 55);
+            this.labelControlPhanTram.Name = "labelControlPhanTram";
+            this.labelControlPhanTram.Size = new System.Drawing.Size(13, 13);
+            this.labelControlPhanTram.TabIndex = 4;
+            this.labelControlPhanTram.Text = "%";
+            // 
             // ThayDoiQuyDinh_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,5 +170,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnExit;
+        private DevExpress.XtraEditors.LabelControl labelControlPhanTram;
     }
 }

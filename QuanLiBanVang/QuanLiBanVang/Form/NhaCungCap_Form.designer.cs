@@ -169,6 +169,7 @@
             this.Controls.Add(this.simpleButtonThoat);
             this.Controls.Add(this.labelControlCaption);
             this.Controls.Add(this.groupControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.LookAndFeel.SkinName = "Office 2007 Blue";
             this.Name = "NhaCungCap_Form";
             this.Text = "Thêm nhà cung cấp";

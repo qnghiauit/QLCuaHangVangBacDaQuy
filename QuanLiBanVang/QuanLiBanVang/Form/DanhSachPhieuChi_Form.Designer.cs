@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPhieuChi_Form));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControlBillList = new DevExpress.XtraEditors.GroupControl();
@@ -38,10 +39,20 @@
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonItemCapNhat = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemXoa = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlBillList)).BeginInit();
             this.groupControlBillList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPayment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaymentBill)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -111,6 +122,7 @@
             this.dgvPaymentBill.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.dgvPaymentBill.OptionsSelection.MultiSelect = true;
             this.dgvPaymentBill.OptionsView.ShowGroupPanel = false;
+            this.dgvPaymentBill.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.dgvPaymentBill_PopupMenuShowing);
             this.dgvPaymentBill.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.dgvPaymentBill_CustomUnboundColumnData);
             // 
             // btnUpdate
@@ -165,6 +177,68 @@
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // popupMenu1
+            // 
+            this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemCapNhat),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemXoa)});
+            this.popupMenu1.Manager = this.barManager1;
+            this.popupMenu1.Name = "popupMenu1";
+            // 
+            // barManager1
+            // 
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barButtonItemCapNhat,
+            this.barButtonItemXoa});
+            this.barManager1.MaxItemId = 2;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(447, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 336);
+            this.barDockControlBottom.Size = new System.Drawing.Size(447, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 336);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(447, 0);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 336);
+            // 
+            // barButtonItemCapNhat
+            // 
+            this.barButtonItemCapNhat.Caption = "Cập nhật";
+            this.barButtonItemCapNhat.Id = 0;
+            this.barButtonItemCapNhat.Name = "barButtonItemCapNhat";
+            this.barButtonItemCapNhat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemCapNhat_ItemClick);
+            // 
+            // barButtonItemXoa
+            // 
+            this.barButtonItemXoa.Caption = "Xoá";
+            this.barButtonItemXoa.Id = 1;
+            this.barButtonItemXoa.Name = "barButtonItemXoa";
+            this.barButtonItemXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemXoa_ItemClick);
+            // 
             // DanhSachPhieuChi_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,7 +254,10 @@
             this.groupControlBillList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPayment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaymentBill)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -195,5 +272,13 @@
         private DevExpress.XtraEditors.SimpleButton btnUpdate;
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.SimpleButton btnRefresh;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemCapNhat;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemXoa;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
     }
 }

@@ -39,6 +39,8 @@ namespace QuanLiBanVang
                 SDT = textEditSDT.Text
             };
             _bulKhachHang.AddNewClient(khachhang);
+            MessageBox.Show(Resources.ThemThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
             ClearForm();
             if (!IsMdiChild)

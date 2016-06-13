@@ -129,7 +129,7 @@ namespace QuanLiBanVang
 
         private void gridViewDSDV_DoubleClick(object sender, EventArgs e)
         {
-            OpenEditDialog();
+            simpleButtonEdit_Click(sender,e);
         }
 
         private void gridViewDSDV_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
@@ -140,7 +140,7 @@ namespace QuanLiBanVang
 
         private void barButtonItemCapNhat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            OpenEditDialog();
+            simpleButtonEdit_Click(sender, e);
         }
 
         private void barButtonItemXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

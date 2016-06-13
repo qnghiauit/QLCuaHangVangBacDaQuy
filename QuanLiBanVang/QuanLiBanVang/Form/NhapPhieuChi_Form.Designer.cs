@@ -178,6 +178,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupControlInfo);
             this.Controls.Add(this.labelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "NhapPhieuChi_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập phiếu chi";

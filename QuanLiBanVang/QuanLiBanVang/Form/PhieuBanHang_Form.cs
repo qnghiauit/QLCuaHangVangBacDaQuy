@@ -432,7 +432,6 @@ namespace QuanLiBanVang
                 this.frequenter = null;
             }
         }
-
         /// <summary>
         /// Show form containing list of frequenters
         /// </summary>
@@ -446,8 +445,7 @@ namespace QuanLiBanVang
         }
 
         /// <summary>
-        /// 
-        /// </summary>
+        ///  </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void simpleButtonLapPhieuNo_Click(object sender, EventArgs e)
@@ -486,20 +484,25 @@ namespace QuanLiBanVang
 
         private void checkEditKhachQuen_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.checkEditKhachQuen.Checked)
+            if (this.actionType == ActionType.ACTION_CREATE_NEW)
             {
-                this.textEditTenKhachHang.ReadOnly = true;
-                this.textEditDiaChiKhachHang.ReadOnly = true;
-                this.simpleButtonTimKhachQuen.Visible = true;
-                this.simpleButtonTimKhachQuen.Enabled = true;
-            }
-            else
-            {
-                this.textEditTenKhachHang.ReadOnly = false;
-                this.textEditDiaChiKhachHang.ReadOnly = false;
-                this.simpleButtonTimKhachQuen.Enabled = false;
-                this.simpleButtonTimKhachQuen.Visible = false;
-                this.frequenter = null; // mark that this is not frequenter
+                if (this.checkEditKhachQuen.Checked)
+                {
+                    this.textEditTenKhachHang.ReadOnly = true;
+                    this.textEditDiaChiKhachHang.ReadOnly = true;
+                    this.simpleButtonTimKhachQuen.Visible = true;
+                    this.simpleButtonTimKhachQuen.Enabled = true;
+                    this.textEditTenKhachHang.Text = this.textEditDiaChiKhachHang.Text = null;
+                }
+                else
+                {
+                    this.textEditTenKhachHang.ReadOnly = false;
+                    this.textEditDiaChiKhachHang.ReadOnly = false;
+                    this.textEditTenKhachHang.Text = this.textEditDiaChiKhachHang.Text = null;
+                    this.simpleButtonTimKhachQuen.Enabled = false;
+                    this.simpleButtonTimKhachQuen.Visible = false;
+                    this.frequenter = null; // mark that this is not frequenter
+                }
             }
         }
 
@@ -543,8 +546,8 @@ namespace QuanLiBanVang
                         MaSP = selectedProduct.MaSP,
                         SoLuong = int.Parse(this.textEditSoLuong.Text),
                         TenSp = selectedProduct.TenSP,
-                        GiaBan = decimal.Multiply(Convert.ToDecimal(selectedProduct.GiaMua),
-                                                    Convert.ToDecimal(selectedProdcuctType.PhanTramLoiNhuan + 1)),
+                        GiaBan = Math.Round(decimal.Multiply(Convert.ToDecimal(selectedProduct.GiaMua),
+                                                    Convert.ToDecimal(selectedProdcuctType.PhanTramLoiNhuan + 1))),
                     };
                     newRow.ThanhTien = Math.Round(decimal.Multiply(newRow.GiaBan, newRow.SoLuong));
                     // add valid element to two lists

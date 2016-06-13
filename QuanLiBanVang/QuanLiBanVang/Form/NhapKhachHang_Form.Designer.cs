@@ -154,6 +154,7 @@
             this.Controls.Add(this.simpleButtonOK);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "NhapKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập khách hàng";

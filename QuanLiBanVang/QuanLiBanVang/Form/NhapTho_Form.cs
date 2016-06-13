@@ -39,6 +39,8 @@ namespace QuanLiBanVang
                 DiaChi = textEditDiaChi.Text
             };
             _bulTho.AddNewWorker(newTho);
+            MessageBox.Show(Resources.ThemThanhCong, Resources.TitleMessageBox_ThongBao, MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
             ClearForm();
             if (!IsMdiChild)

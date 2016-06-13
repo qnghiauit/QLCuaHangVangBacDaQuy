@@ -114,5 +114,13 @@ namespace QuanLiBanVang.Report
             this.Close();
         }
 
+        private void NhapNhanVien_Form_SizeChanged(object sender, EventArgs e)
+        {
+            groupControlInfo.Left = (ClientSize.Width - groupControlInfo.Width) / 2;
+            groupControlAccountInfo.Left = (ClientSize.Width - groupControlAccountInfo.Width) / 2;
+            btnCancel.Left = groupControlAccountInfo.Right - btnSave.Width;
+            btnSave.Left = btnCancel.Left - btnSave.Width - 10; 
+        }
+
     }
 }

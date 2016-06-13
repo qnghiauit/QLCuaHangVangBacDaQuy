@@ -226,5 +226,18 @@ namespace QuanLiBanVang.Report
             this.dgvListBuyBill.DataSource = _buyTable;
         }
 
+        private void barButtonItemCN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            btnUpdate_Click(sender,e);
+        }
+
+
+        private void dgvBuyBill_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+                popupMenu1.ShowPopup(MousePosition);
+        }
+
+
     }
 }

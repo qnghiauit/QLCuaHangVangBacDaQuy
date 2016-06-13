@@ -166,6 +166,9 @@
             this.Controls.Add(this.simpleButton_OK);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.groupControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "UpdateImportDetailltem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cập nhật";

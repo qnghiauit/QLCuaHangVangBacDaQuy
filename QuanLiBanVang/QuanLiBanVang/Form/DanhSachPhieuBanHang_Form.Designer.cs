@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPhieuBanHang_Form));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButtonRefresh = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonChiTiet = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlListReceipts = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.chiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,8 +52,6 @@
             this.simpleButtonThem = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButtonThoat = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonChiTiet = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonRefresh = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlListReceipts)).BeginInit();
@@ -74,6 +74,28 @@
             this.groupControl1.Size = new System.Drawing.Size(640, 328);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Danh sách";
+            // 
+            // simpleButtonRefresh
+            // 
+            this.simpleButtonRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonRefresh.Image")));
+            this.simpleButtonRefresh.Location = new System.Drawing.Point(548, 89);
+            this.simpleButtonRefresh.Name = "simpleButtonRefresh";
+            this.simpleButtonRefresh.Size = new System.Drawing.Size(87, 27);
+            this.simpleButtonRefresh.TabIndex = 5;
+            this.simpleButtonRefresh.Text = "Refresh";
+            this.simpleButtonRefresh.Click += new System.EventHandler(this.simpleButtonRefresh_Click);
+            // 
+            // simpleButtonChiTiet
+            // 
+            this.simpleButtonChiTiet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonChiTiet.Image")));
+            this.simpleButtonChiTiet.Location = new System.Drawing.Point(548, 56);
+            this.simpleButtonChiTiet.Name = "simpleButtonChiTiet";
+            this.simpleButtonChiTiet.Size = new System.Drawing.Size(87, 27);
+            this.simpleButtonChiTiet.TabIndex = 4;
+            this.simpleButtonChiTiet.Text = "Chi tiết";
+            this.simpleButtonChiTiet.Click += new System.EventHandler(this.simpleButtonChiTiet_Click);
             // 
             // gridControlListReceipts
             // 
@@ -128,7 +150,9 @@
             this.gridView1.GridControl = this.gridControlListReceipts;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsCustomization.AllowColumnMoving = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // colSoPhieuBH
             // 
@@ -178,6 +202,7 @@
             // colTongTien
             // 
             this.colTongTien.Caption = "Tổng tiền";
+            this.colTongTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTongTien.FieldName = "TongTien";
             this.colTongTien.Name = "colTongTien";
             this.colTongTien.Visible = true;
@@ -243,28 +268,6 @@
             this.simpleButtonThoat.TabIndex = 2;
             this.simpleButtonThoat.Text = "Thoát";
             this.simpleButtonThoat.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // simpleButtonChiTiet
-            // 
-            this.simpleButtonChiTiet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButtonChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonChiTiet.Image")));
-            this.simpleButtonChiTiet.Location = new System.Drawing.Point(548, 56);
-            this.simpleButtonChiTiet.Name = "simpleButtonChiTiet";
-            this.simpleButtonChiTiet.Size = new System.Drawing.Size(87, 27);
-            this.simpleButtonChiTiet.TabIndex = 4;
-            this.simpleButtonChiTiet.Text = "Chi tiết";
-            this.simpleButtonChiTiet.Click += new System.EventHandler(this.simpleButtonChiTiet_Click);
-            // 
-            // simpleButtonRefresh
-            // 
-            this.simpleButtonRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButtonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonRefresh.Image")));
-            this.simpleButtonRefresh.Location = new System.Drawing.Point(548, 89);
-            this.simpleButtonRefresh.Name = "simpleButtonRefresh";
-            this.simpleButtonRefresh.Size = new System.Drawing.Size(87, 27);
-            this.simpleButtonRefresh.TabIndex = 5;
-            this.simpleButtonRefresh.Text = "Refresh";
-            this.simpleButtonRefresh.Click += new System.EventHandler(this.simpleButtonRefresh_Click);
             // 
             // DanhSachPhieuBanHang_Form
             // 

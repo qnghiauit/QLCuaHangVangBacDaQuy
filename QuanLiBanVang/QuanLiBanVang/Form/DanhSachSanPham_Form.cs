@@ -208,6 +208,22 @@ namespace QuanLiBanVang.Report
             this.dgvListProduct.DataSource = this._productTable;
         }
 
+        private void barButtonItemCapNhat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            btnUpdate_Click(sender,e);
+        }
+
+        private void barButtonItemXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            btnDelete_Click(sender,e);
+        }
+
+        private void dgvProduct_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+                popupMenu1.ShowPopup(MousePosition);
+        }
+
   
     }
 }

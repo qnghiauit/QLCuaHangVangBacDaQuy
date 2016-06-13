@@ -104,7 +104,7 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
             this.simpleButton1.Location = new System.Drawing.Point(604, 44);
             this.simpleButton1.Name = "simpleButton1";
@@ -113,7 +113,7 @@
             this.simpleButton1.Text = "Chọn";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // DanhSachKhachQuen
+            // DanhSachKhachQuen_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -122,7 +122,8 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.simpleButtonThoat);
             this.Controls.Add(this.gridControl1);
-            this.Name = "DanhSachKhachQuen";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Name = "DanhSachKhachQuen_Form";
             this.Text = "Khách quen";
             this.Load += new System.EventHandler(this.DanhSachKhachQuen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

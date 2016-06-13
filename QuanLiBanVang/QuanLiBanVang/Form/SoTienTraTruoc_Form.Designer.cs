@@ -81,6 +81,9 @@
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.textEditSoTienTraTruoc);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SoTienTraTruoc_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trả trước";
