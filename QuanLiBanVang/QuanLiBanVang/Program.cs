@@ -19,6 +19,15 @@ namespace QuanLiBanVang
             Application.SetCompatibleTextRenderingDefault(false);
             // purpose to change language DateTimePicker to Vietnamese
             // Application.CurrentCulture = new System.Globalization.CultureInfo("zh-Hans");
+
+            //string strpath;
+            //strpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            //strpath += "\\NTS";
+            //AppDomain.CurrentDomain.SetData("DataDirectory", strpath);
+            //if(!System.IO.Directory.Exists(strpath))
+            //    System.IO.Directory.CreateDirectory(strpath);
+            //System.IO.Directory.SetCurrentDirectory(strpath);
+
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             Application.Run(new MainForm());
