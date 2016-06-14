@@ -20,6 +20,7 @@ namespace QuanLiBanVang.Report
         private BUL.BUL_ChucVu _bulPosition;
         private BUL.BUL_NhomNguoiDung _bulGroupUser;
         private ExtendClass.MyCache _myCache;
+        private const int DEFAULT_USER_ID = 12;
         public DanhSachNhanVien_Form()
         {
             InitializeComponent();
@@ -154,6 +155,11 @@ namespace QuanLiBanVang.Report
             }
             if (row != null)
             {
+                if ((int)row[0] == DEFAULT_USER_ID)
+                {
+                    MessageBox.Show("Đây là tài khoản mặc định, bạn không thể xóa tài khoản này!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 if (ExtendClass.UserAccess.Instance.GetUserId == (int)row[0])
                 {
                     MessageBox.Show("Không thể xóa tài khoản đang đăng nhập!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -191,6 +197,11 @@ namespace QuanLiBanVang.Report
             }
             if (row != null)
             {
+                if ((int)row[0] == DEFAULT_USER_ID)
+                {
+                    MessageBox.Show("Đây là tài khoản mặc định, bạn không thể thay đổi!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 SuaNhanVien_Form updateStaffForm = new SuaNhanVien_Form((int)row[0]);
                 DialogResult result = updateStaffForm.ShowDialog();
                 if (result == System.Windows.Forms.DialogResult.OK)
