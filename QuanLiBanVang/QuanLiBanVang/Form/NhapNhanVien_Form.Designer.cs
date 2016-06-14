@@ -234,7 +234,7 @@
             // 
             this.txtUsername.Location = new System.Drawing.Point(104, 33);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Properties.Mask.EditMask = "(\\p{L}|[0-9]){1,20}";
+            this.txtUsername.Properties.Mask.EditMask = "([a-zA-Z0-9]){1,20}";
             this.txtUsername.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtUsername.Size = new System.Drawing.Size(145, 20);
             this.txtUsername.TabIndex = 7;
